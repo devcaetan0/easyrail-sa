@@ -47,9 +47,9 @@ CREATE TABLE IF NOT EXISTS `easyrail`.`sensor` (
 ) ENGINE = InnoDB;
 
 -- -----------------------------------------------------
--- Table `easyrail`.`cargo`
+-- Table `easyrail`.`perfil`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `easyrail`.`cargo` (
+CREATE TABLE IF NOT EXISTS `easyrail`.`perfil` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`id`)
@@ -63,10 +63,10 @@ CREATE TABLE IF NOT EXISTS `easyrail`.`usuario` (
   `nome` VARCHAR(100) NOT NULL,
   `email` VARCHAR(100) NOT NULL UNIQUE,
   `senha` VARCHAR(255) NOT NULL,
-  `cargo_id` INT NULL,
+  `perfil_id` INT NULL,
   PRIMARY KEY (`id`),
-  CONSTRAINT `fk_usuario_cargo`
-    FOREIGN KEY (`cargo_id`) REFERENCES `easyrail`.`cargo` (`id`)
+  CONSTRAINT `fk_usuario_perfil`
+    FOREIGN KEY (`perfil_id`) REFERENCES `easyrail`.`perfil` (`id`)
     ON DELETE SET NULL ON UPDATE CASCADE
 ) ENGINE = InnoDB;
 

@@ -15,34 +15,7 @@ include "infra/conexao.php";
 </head>
 
 <body>
-    <header>
-        <nav class="navbar navbar-expand-lg w-100 p-2" id="navbar">
-            <a class="navbar-brand" href="home.html">
-                <img src="../assets/images/logo-navbar.png" alt="EasyRail Logo" width="45px" height="45px">
-                EasyRail
-            </a>
-            <div class="collapse navbar-collapse d-flex justify-content-center">
-                <ul class="navbar-nav gap-5">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#">Dashboard</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Frota de Carga</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="sensores.html">Sensores IoT</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Relatórios</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="funcionarios.html">Funcionários</a>
-                    </li>
-                </ul>
-            </div>
-            <a class="navbar-brand" href="../index.html">Sair</a>
-        </nav>
-    </header>
+    <?php include('../components/navbar.html') ?>
 
     <main class="container-fluid fade-in">
         <div class="titulo-home text-center mt-5 mb-5 fw-bold">
@@ -68,7 +41,7 @@ include "infra/conexao.php";
                 <div class="card-padrao shadow-sm borda-laranja rounded text-center p-4 d-flex flex-column">
                     <h3>📡</h3>
                     <h4>Sensores</h4>
-                    <a href="sensores.html" class="btn btn-laranja mt-auto">Monitorar</a>
+                    <a href="sensores.php" class="btn btn-laranja mt-auto">Monitorar</a>
                 </div>
             </div>
             <div class="col-2">
@@ -82,7 +55,7 @@ include "infra/conexao.php";
                 <div class="card-padrao shadow-sm borda-laranja  text-center p-4 d-flex flex-column">
                     <h3>👥</h3>
                     <h4>Equipe</h4>
-                    <a href="funcionarios.html" class="btn btn-laranja mt-auto">Gerenciar</a>
+                    <a href="funcionarios.php" class="btn btn-laranja mt-auto">Gerenciar</a>
                 </div>
             </div>
             <img class="logo-home" src="../assets/images/logo-negative.png" alt="EasyRail Logo">
