@@ -1,3 +1,7 @@
+<?php
+include "infra/conexao.php";
+?>
+
 <html lang="pt-BR">
 
 <head>
