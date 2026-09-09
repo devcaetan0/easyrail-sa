@@ -53,7 +53,7 @@ A extensão principal do PDO jávem atividada por padrão no PHP. O que precisam
 
 Mas para garantir a segurança e tratar falhas de comunicação com o servidor, a instanciação do PDO deve ser feita dentro de uma estrutura try-catch e no código é assim:
 
-![Imagem mostrando como funciona a conexão utilizando o PDO](image-1.png)
+![Imagem mostrando como funciona a conexão utilizando o PDO](script-pdo.png)
 
 Comandos importantes:
 
