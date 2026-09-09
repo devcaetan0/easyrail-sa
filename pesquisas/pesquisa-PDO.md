@@ -183,15 +183,55 @@ As suas princpais caracteristica são:
 
 ## Diferenças entre PDO e MYSQLI
 
+O PDO é uma excelente escolha quando você precisa de uma camada de abstração segura, flexível e padronizada para interagir com bancos de dados em PHP.
+O MySQLi é a escolha ideal quando o foco é alta performance e integração direta com o banco de dados MySQL em aplicações PHP, oferecendo uma abordagem nativa, eficiente e flexível.
+A principal diferença entre os dois é que p PDO consegue interagir com outros tipos de banco de dados, já o mysqli apenas interage com o myslq.
+
+## Opinião da Comunidade
+"Entre as duas opções eu dou preferência ao PDO, mesmo sendo um pouco mais lento (entre 2%-7%). Ao meu ver, o fato do PDO se comunicar com mais drivers de BDs e de possuir prepared statements, que é de grande valia quando o assunto é segurança, na minha opinião torna esta tecnologia mais interessante."
+— (Comentário de um programador no Stack Overflow)
 
 ## Vantagens e Desvantagens de utilizar PDO?
+
+### MySQLi
+
+## Vantagens:
+- Desempenho ligeiramente superior  em ambientes exclusivos para MySQL.
+- Suporta paradigmas Orientado a Objetos e Procedural.
+- Desvantagens:
+- Funciona apenas com o banco de dados MySQL.
+
+### PDO (PHP Data Objects)
+
+## Vantagens:
+- Suporta múltiplos bancos de dados.
+- Suporte nativo a prepared statements.
+- Desvantagens:
+- Não tão veloz quanto MySQLi.
+- Por padrão, ele simula prepared statements (você pode ativar a versão nativa ao configurar a conexão dele com o banco, mas caso a versão nativa não funcione por algum motivo, ele volta a simular os prepared statements sem disparar erros ou avisos).
 
 
 ## O que são Prepared Statements e por que são importantes?
 
+- Prepared Statements preparam a estrutura da consulta SQL no banco antes de enviar os dados reais. Isso garante segurança, pois o banco trata os dados apenas como texto literal, prevenindo ataques de SQL Injection. Além disso, oferecem melhor desempenho ao reaproveitar o plano de execução para consultas repetidas. Em resumo: dividem a busca em preparação, vinculação de valores e execução. 
+
+
+// 1. Preparação (usando :email como placeholder)
+$stmt = $pdo->prepare('SELECT * FROM usuarios WHERE email = :email');
+// 2. Vinculação e Execução segura
+$stmt->execute(['email' => $emailDoUsuario]);
+$usuario = $stmt->fetch();
+
+
 
 ## Em quais situações o PDO pode ser uma boa escolha?
+### O PDO é a escolha ideal principalmente nestas situações:
 
+- Sistemas Multi-Banco: Projetos que precisam (ou podem precisar no futuro) alternar entre diferentes bancos de dados (como MySQL, PostgreSQL, SQLite ou SQL Server) sem a necessidade de reescrever todas as consultas da aplicação.
+
+- Projetos Orientados a Objetos (POO): Aplicações construídas com arquitetura POO moderna ou frameworks PHP (como Laravel e Symfony), onde a padronização e o reuso de código são prioritários.
+
+- Segurança e Padronização: Ambientes onde se busca uma interface unificada e segura para tratamento de erros via exceções e suporte nativo e consistente a Prepared Statements.
 
 
 
@@ -203,4 +243,7 @@ Fontes: https://www.php.net/manual/pt_BR/book.pdo.php
         https://www.devmedia.com.br/introducao-ao-php-data-objects-pdo/25318
         https://www.treinaweb.com.br/blog/o-que-e-pdo-no-php
         https://www.locaweb.com.br/ajuda/wiki/tudo-sobre-o-php-data-object-pdo-hospedagem-de-sites/
+        https://www.guj.com.br/t/o-que-e-preparedstatement-e-para-que-serve/86774/
+        https://pt.stackoverflow.com/questions/8302/mysqli-vs-pdo-qual-o-mais-recomendado-para-usar
+
 

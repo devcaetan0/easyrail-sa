@@ -1,5 +1,5 @@
 <?php
-include "infra/conexao.php";
+include "../infra/conexao.php";
 ?>
 
 <html lang="en">
