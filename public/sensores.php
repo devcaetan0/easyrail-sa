@@ -11,24 +11,7 @@
 </head>
 
 <body>
-    <header>
-        <nav class="navbar navbar-expand-lg p-2" id="navbar">
-            <a class="navbar-brand" href="home.html">
-                <img src="../assets/images/logo-navbar.png" alt="EasyRail Logo" width="45px" height="45px">
-                EasyRail
-            </a>
-            <div class="collapse navbar-collapse d-flex justify-content-center">
-                <ul class="navbar-nav gap-4">
-                    <li class="nav-item active"><a class="nav-link" href="#">Dashboard</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Frota de Carga</a></li>
-                    <li class="nav-item"><a class="nav-link" href="sensores.html">Sensores IoT</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Relatórios</a></li>
-                    <li class="nav-item"><a class="nav-link" href="funcionarios.html">Funcionários</a></li>
-                </ul>
-            </div>
-            <a class="navbar-brand" href="../index.html">Sair</a>
-        </nav>
-    </header>
+    <?php include('../components/navbar.html') ?>
 
     <h1 class="titulo-pagina fw-bold">Cadastro de Sensores</h1>
 

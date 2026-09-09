@@ -7,5 +7,5 @@ document.getElementById("form-login").addEventListener("submit", function (e) {
 
     if (usuario !== "a") return alert("Usuário ou senha incorretos")
     if (senha !== "1") return alert("Usuário ou senha incorretos")
-    return window.location.href = "public/home.html"
+    return window.location.href = "public/home.php"
 })
