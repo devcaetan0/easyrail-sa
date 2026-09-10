@@ -7,10 +7,7 @@ include "../infra/conexao.php";
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <link rel="stylesheet" href="../styles/style.css">
-    <link rel="icon" href="../assets/images/logo.png" type="image/png">
+    <?php include '../components/links.html'; ?>
     <title>Página Sensores - EasyRail</title>
 </head>
 
@@ -61,14 +58,14 @@ include "../infra/conexao.php";
                         </thead>
                         <tbody>
                             <tr id="1">
-                                <td id="1" >#00001</td>
+                                <td id="1">#00001</td>
                                 <td id="1" class="nome-tr">Sensor</td>
                                 <td id="1" class="responsavel-tr">Bruno Battiston</td>
                                 <td id="1" class="tipo-tr">Temperatura</td>
                                 <td id="1" class="localizacao-tr">Praia do Ervino</td>
                                 <td>
                                     <button class="editar btn btn-sm btn-outline-secondary" data-bs-toggle="modal"
-                                    data-bs-target="#modalCadastro" id="1">✏</button>
+                                        data-bs-target="#modalCadastro" id="1">✏</button>
                                     <button class="excluir btn btn-sm btn-outline-danger" id="1">🗑</button>
                                 </td>
                             </tr>
@@ -109,7 +106,7 @@ include "../infra/conexao.php";
                                 <input type="text" class="form-control" id="edit-localizacao" required>
                             </div>
                             <button type="button" class="btn btn-secondary fw-bold"
-                            data-bs-dismiss="modal">Cancelar</button>
+                                data-bs-dismiss="modal">Cancelar</button>
                             <button type="submit" class="btn btn-laranja" id="btn-salvar">Salvar Sensor</button>
                         </form>
                     </div>
@@ -121,9 +118,7 @@ include "../infra/conexao.php";
 
     </main>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-        crossorigin="anonymous"></script>
+    <?php include '../infra/bootstrap.html'; ?>
     <script src="../scripts/sensores.js"></script>
 </body>
 

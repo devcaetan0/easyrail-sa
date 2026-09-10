@@ -7,10 +7,7 @@ include "../infra/conexao.php";
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <link rel="stylesheet" href="../styles/style.css">
-    <link class="borda-laranja" rel="icon" href="../assets/images/logo.png" type="image/png">
+    <?php include '../components/links.html'; ?>
     <title>Página Funcionários - EasyRail</title>
 </head>
 
@@ -112,46 +109,44 @@ include "../infra/conexao.php";
             </div>
         </div>
 
-            <div class="modal fade" id="modalCadastro" tabindex="-1" aria-labelledby="modalCadastroLabel aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content text-start">
-                        <div class="modal-header">
-                            <h5 class="modal-title fw-bold" id="modalCadastroLabel">Editar Funcionário</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <form id="form-editor">
-                                <div class="mb-3">
-                                    <label class="form-label fw-bold">Nome Usuário</label>
-                                    <input type="text" class="form-control" id="edit-nome" required>
-                                </div>
-                                <div class="mb-3">
-                                    <label class="fw-bold form-label">Setor</label>
-                                    <select class="form-select" id="edit-setor">
+        <div class="modal fade" id="modalCadastro" tabindex="-1" aria-labelledby="modalCadastroLabel aria-hidden="
+            true">
+            <div class="modal-dialog">
+                <div class="modal-content text-start">
+                    <div class="modal-header">
+                        <h5 class="modal-title fw-bold" id="modalCadastroLabel">Editar Funcionário</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="form-editor">
+                            <div class="mb-3">
+                                <label class="form-label fw-bold">Nome Usuário</label>
+                                <input type="text" class="form-control" id="edit-nome" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="fw-bold form-label">Setor</label>
+                                <select class="form-select" id="edit-setor">
                                     <option>Gestão</option>
                                     <option>Chefe - Setor</option>
                                     <option>Operacional</option>
                                     <option>Administrativo</option>
                                     <option>Funcionários</option>
-                                    </select>
-                                </div>
-                                   <div class="modal-footer justify-content-between">
-                                    <button type="button" class="btn btn-secondary fw-bold"
+                                </select>
+                            </div>
+                            <div class="modal-footer justify-content-between">
+                                <button type="button" class="btn btn-secondary fw-bold"
                                     data-bs-dismiss="modal">Cancelar</button>
-                                    <button type="submit" class="btn btn-laranja" id="btn-salvar">Salvar Sensor</button>
-                                </div>
-                            </form>
-                        </div>
-                    
+                                <button type="submit" class="btn btn-laranja" id="btn-salvar">Salvar Sensor</button>
+                            </div>
+                        </form>
                     </div>
+
                 </div>
             </div>
+        </div>
 
     </main>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-        crossorigin="anonymous"></script>
+    
     <script src="../scripts/funcionarios.js"></script>
 </body>
 
