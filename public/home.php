@@ -55,7 +55,7 @@ include "../infra/conexao.php";
                 <div class="card-padrao shadow-sm borda-laranja  text-center p-4 d-flex flex-column">
                     <h3>👥</h3>
                     <h4>Equipe</h4>
-                    <a href="funcionarios.php" class="btn btn-laranja mt-auto">Gerenciar</a>
+                    <a href="usuarios.php" class="btn btn-laranja mt-auto">Gerenciar</a>
                 </div>
             </div>
             <img class="logo-home" src="../assets/images/logo-negative.png" alt="EasyRail Logo">
