@@ -17,10 +17,13 @@ include "../infra/conexao.php";
 <body>
     <?php include('../components/navbar.html') ?>
 
-    <h1 class="titulo-pagina fw-bold">Histórico Analítico</h1>
+  
 
-    <main class="main-padrao">
-        <div class="container-fluid">
+    <main class="main-padrao my-4 container d-flex flex-column align-items-center">
+   
+    <div style="max-width: 1000px; width: 100%;">
+
+            <h1 class="titulo-pagina fw-bold">Histórico Analítico</h1>
             <div class="d-flex justify-content-end mb-2">
             </div>
 
