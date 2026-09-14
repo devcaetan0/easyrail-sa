@@ -34,7 +34,7 @@ include "../infra/conexao.php";
                 <div class="card-padrao shadow-sm borda-laranja rounded text-center p-4 d-flex flex-column">
                     <h3>🚂</h3>
                     <h4>Frota</h4>
-                    <a href="#" class="btn btn-laranja mt-auto">Administrar</a>
+                    <a href="frota.php" class="btn btn-laranja mt-auto">Administrar</a>
                 </div>
             </div>
             <div class="col-2">
