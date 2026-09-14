@@ -30,7 +30,7 @@ include "../infra/conexao.php";
                         <label class="fw-bold form-label">Pesquisar</label>
                         <input class="form-control" placeholder="Modelo/ID">
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-6">
                         <label class="fw-bold form-label">Falha</label>
                         <select class="form-select">
                             <option>Todas</option>
