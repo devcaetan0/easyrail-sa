@@ -7,7 +7,7 @@ A proposta do trabalho deste repositório é desenvolver um sistema de controle 
 
 Nosso Mockup foi focado em fazer um site com uma identidade visual diferente mas também não ser feio e o principal foco de toda nossa equipe era fácil um site fácil de entender e utiliza-lo.
 
-* **Mockup:** [Acesse o Mockup no Canva](https://canva.link/9rgakr58q2oej22)
+* **Mockup:** [Acesse o Mockup no Canva](https://canva.link/aqv7k248a5vx4wy)
 
 
 * **Documentação Oficial**: [Google Docs do Projeto](https://docs.google.com/document/d/1MB7gOFvf_L-3unkxo9Xj64JbBwdSI_qu04njbLAZorc/edit?usp=sharing)
