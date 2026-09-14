@@ -11,7 +11,7 @@ include "../infra/conexao.php";
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="../styles/style.css">
     <link rel="icon" href="../assets/images/logo.png" type="image/png">
-    <title>Histórico Analítico</title>
+    <title>Sensores</title>
 </head>
 
 <body>
