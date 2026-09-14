@@ -7,21 +7,15 @@ include "../infra/conexao.php";
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <link rel="stylesheet" href="../styles/style.css">
-    <link rel="icon" href="../assets/images/logo.png" type="image/png">
+    <?php include('../components/links.html') ?>
     <title>Sensores</title>
 </head>
 
 <body>
     <?php include('../components/navbar.html') ?>
 
-  
-
     <main class="main-padrao my-4 container d-flex flex-column align-items-center">
-   
-    <div style="max-width: 1000px; width: 100%;">
+        <div style="max-width: 1000px; width: 100%;">
 
             <h1 class="titulo-pagina fw-bold">Histórico Analítico</h1>
             <div class="d-flex justify-content-end mb-2">
@@ -41,10 +35,10 @@ include "../infra/conexao.php";
                             <option>Combustível</option>
                             <option>Peso</option>
                         </select>
-                </div>
+                    </div>
 
-                  <div class="col-md-4 mb-2">
-                    <label class="fw-bold form-label">ID do trem</label>
+                    <div class="col-md-4 mb-2">
+                        <label class="fw-bold form-label">ID do trem</label>
                         <input class="form-control" placeholder="ID">
                     </div>
                 </div>
@@ -79,10 +73,6 @@ include "../infra/conexao.php";
                 </div>
             </div>
         </div>
-
-      
-                            
-
     </main>
 
     <?php include '../infra/bootstrap.html'; ?>
