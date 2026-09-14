@@ -11,13 +11,13 @@ include "../infra/conexao.php";
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="../styles/style.css">
     <link class="borda-laranja" rel="icon" href="../assets/images/logo.png" type="image/png">
-    <title>Página Funcionários - EasyRail</title>
+    <title>Usuários</title>
 </head>
 
 <body>
     <?php include('../components/navbar.html') ?>
 
-    <h1 class="titulo-pagina fw-bold">Cadastro de Funcionário</h1>
+    <h1 class="titulo-pagina fw-bold">Cadastro de Usuário</h1>
 
     <main class="main-padrao">
         <div class="row">
@@ -77,7 +77,6 @@ include "../infra/conexao.php";
                                 <option>Chefe - Setor</option>
                                 <option>Operacional</option>
                                 <option>Administrativo</option>
-                                <option>Funcionários</option>
                             </select>
                         </div>
                     </div>
@@ -88,9 +87,9 @@ include "../infra/conexao.php";
                         <table class="table table-hover mb-0">
                             <thead>
                                 <tr>
-                                    <th>Funcionário</th>
+                                    <th>ID</th>
                                     <th>Setor</th>
-                                    <th>Nome</th>
+                                    <th>Usuário</th>
                                     <th>Ações</th>
                                 </tr>
                             </thead>

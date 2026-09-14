@@ -11,13 +11,13 @@ include "../infra/conexao.php";
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="../styles/style.css">
     <link rel="icon" href="../assets/images/logo.png" type="image/png">
-    <title>Página Sensores - EasyRail</title>
+    <title>Sensores</title>
 </head>
 
 <body>
     <?php include('../components/navbar.html') ?>
 
-    <h1 class="titulo-pagina fw-bold">Cadastro de Sensores</h1>
+    <h1 class="titulo-pagina fw-bold">Cadastro de Sensor</h1>
 
     <main class="main-padrao">
         <div class="container-fluid">

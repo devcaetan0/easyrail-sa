@@ -11,7 +11,7 @@ include "../infra/conexao.php";
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="../styles/style.css">
     <link rel="icon" href="../assets/images/logo.png" type="image/png">
-    <title>Página Inicial - EasyRail</title>
+    <title>Página Inicial</title>
 </head>
 
 <body>
@@ -19,7 +19,7 @@ include "../infra/conexao.php";
 
     <main class="container-fluid fade-in">
         <div class="titulo-home text-center mt-5 mb-5 fw-bold">
-            <h1>Bem-vindo(a) ao EasyRail!</h1>
+            <h1>Bem-vindo(a) a EasyRail!</h1>
             <h4>Selecione uma categoria para começar a gerenciar os dados de suas locomotivas.</h4>
         </div>
         <div class="row g-3 justify-content-center">
