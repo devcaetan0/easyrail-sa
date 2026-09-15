@@ -14,10 +14,10 @@ include "../infra/conexao.php";
 <body>
     <?php include('../components/navbar.html') ?>
 
-    <h1 class="titulo-pagina fw-bold">Cadastro de Sensor</h1>
+    <h1 class="titulo-pagina fw-bold">Monitoramento IoT</h1>
 
     <main class="main-padrao">
-        <div class="container-fluid">
+        <div class="container-fluid w-75">
             <div class="d-flex justify-content-end mb-3">
                 <button type="button" class="btn btn-laranja fw-bold p-2" data-bs-toggle="modal"
                     data-bs-target="#modalCadastro">
@@ -50,7 +50,6 @@ include "../infra/conexao.php";
                             <tr>
                                 <th>ID</th>
                                 <th>Nome</th>
-                                <th>Responsável</th>
                                 <th>Tipo</th>
                                 <th>Localização</th>
                                 <th>Ações</th>
@@ -60,7 +59,6 @@ include "../infra/conexao.php";
                             <tr id="1">
                                 <td id="1">#00001</td>
                                 <td id="1" class="nome-tr">Sensor</td>
-                                <td id="1" class="responsavel-tr">Bruno Battiston</td>
                                 <td id="1" class="tipo-tr">Temperatura</td>
                                 <td id="1" class="localizacao-tr">Praia do Ervino</td>
                                 <td>

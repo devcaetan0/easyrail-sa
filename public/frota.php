@@ -17,7 +17,7 @@ include "../infra/conexao.php";
     <h1 class="titulo-pagina fw-bold">Gerenciamento de Frota</h1>
 
     <main class="main-padrao">
-        <div class="container-fluid">
+        <div class="container-fluid w-75">
             <div class="d-flex justify-content-end mb-3">
                 <button type="button" class="btn btn-laranja fw-bold p-2" data-bs-toggle="modal"
                     data-bs-target="#modalCadastro">

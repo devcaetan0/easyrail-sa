@@ -17,11 +17,12 @@ include "../infra/conexao.php";
     <h1 class="titulo-pagina fw-bold">Cadastro de Usuário</h1>
 
     <main class="main-padrao">
-        <div class="row">
-            <div class="col-md-4 col-lg-3 mb-4">
-                <div class="card borda-laranja shadow-sm p-3">
-                    <div class="card-body">
-                        <form id="form-funcionarios" class="row g-3">
+        <div class="container-fluid px-5 py-4">
+            <div class="row">
+                <div class="col-md-4 col-lg-3 mb-4">
+                    <div class="card borda-laranja shadow-sm p-3">
+                        <div class="card-body">
+                            <form id="form-funcionarios" class="row g-3">
                             <h2 id="titulo" class="text-center fw-bold"></h2>
 
                             <div class="mb-2">

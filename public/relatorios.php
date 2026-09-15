@@ -8,19 +8,16 @@ include "../infra/conexao.php";
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <?php include('../components/links.html') ?>
-    <title>Sensores</title>
+    <title>Relatórios</title>
 </head>
 
 <body>
     <?php include('../components/navbar.html') ?>
 
-    <main class="main-padrao my-4 container d-flex flex-column align-items-center">
-        <div style="max-width: 1000px; width: 100%;">
+    <h1 class="titulo-pagina fw-bold">Histórico Analítico</h1>
 
-            <h1 class="titulo-pagina fw-bold">Histórico Analítico</h1>
-            <div class="d-flex justify-content-end mb-2">
-            </div>
-
+    <main class="main-padrao">
+        <div class="container-fluid w-75 py-4">
             <div class="card p-3 mb-4 shadow-sm">
                 <div class="row">
                     <div class="col-md-4 mb-2">
