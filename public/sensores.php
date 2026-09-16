@@ -17,11 +17,11 @@ include "../infra/conexao.php";
 
     <main class="main-padrao">
         <div class="container-fluid w-75">
+            <h1 class="titulo-pagina fw-bold">Monitoramento IoT</h1>
 
-                <h1 class="titulo-pagina fw-bold">Monitoramento IoT</h1>
 
             <div class="d-flex justify-content-end mb-2">
-                <button type="button" class="btn btn-laranja fw-bold p-2" data-bs-toggle="modal"
+                <button type="button" class="btn btn-laranja fw-bold p-2 mb-3" data-bs-toggle="modal"
                     data-bs-target="#modalCadastro">
                     + Adicionar Sensor
                 </button>
@@ -31,7 +31,7 @@ include "../infra/conexao.php";
                 <div class="row">
                     <div class="col-md-6 mb-2">
                         <label class="fw-bold form-label">Pesquisar</label>
-                        <input class="form-control" placeholder="Modelo/ID">
+                        <input class="form-control" placeholder="Nome/ID">
                     </div>
                     <div class="col-md-6">
                         <label class="fw-bold form-label">Tipo</label>

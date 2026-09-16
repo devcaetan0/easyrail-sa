@@ -31,7 +31,7 @@ include "../infra/conexao.php";
                 <div class="card-padrao shadow-sm borda-laranja rounded text-center p-4 d-flex flex-column">
                     <h3>🚂</h3>
                     <h4>Frota</h4>
-                    <a href="frota.php" class="btn btn-laranja mt-auto">Administrar</a>
+                    <a href="frota.php" class="btn btn-laranja mt-auto">Gerenciar</a>
                 </div>
             </div>
             <div class="col-2">
@@ -52,7 +52,7 @@ include "../infra/conexao.php";
                 <div class="card-padrao shadow-sm borda-laranja  text-center p-4 d-flex flex-column">
                     <h3>👥</h3>
                     <h4>Equipe</h4>
-                    <a href="usuarios.php" class="btn btn-laranja mt-auto">Gerenciar</a>
+                    <a href="usuarios.php" class="btn btn-laranja mt-auto">Administrar</a>
                 </div>
             </div>
             <img class="logo-home" src="../assets/images/logo-negative.png" alt="EasyRail Logo">

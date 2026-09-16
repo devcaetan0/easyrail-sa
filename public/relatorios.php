@@ -17,17 +17,17 @@ include "../infra/conexao.php";
 
 
     <main class="main-padrao">
-        <div class="container-fluid w-75 py-2">
 
-              <h1 class="titulo-pagina fw-bold mb-4">Histórico Analítico</h1>
+        <div class="container-fluid w-75">
+            <h1 class="titulo-pagina fw-bold mb-5">Histórico Analítico</h1>
 
             <div class="card p-3 mb-4 shadow-sm">
                 <div class="row">
-                    <div class="col-md-4 mb-2">
+                    <div class="col-md-6 mb-2">
                         <label class="fw-bold form-label">Pesquisar</label>
-                        <input class="form-control" placeholder="Modelo/ID">
+                        <input class="form-control" placeholder="ID">
                     </div>
-                    <div class="col-md-4 mb-2">
+                    <div class="col-md-6 mb-2">
                         <label class="fw-bold form-label">Falha</label>
                         <select class="form-select">
                             <option>Todas</option>
@@ -35,11 +35,6 @@ include "../infra/conexao.php";
                             <option>Combustível</option>
                             <option>Peso</option>
                         </select>
-                    </div>
-
-                    <div class="col-md-4 mb-2">
-                        <label class="fw-bold form-label">ID do trem</label>
-                        <input class="form-control" placeholder="ID">
                     </div>
                 </div>
             </div>
@@ -59,7 +54,7 @@ include "../infra/conexao.php";
                         <tbody>
                             <tr id="1">
                                 <td id="1">DD.MM.YYYY</td>
-                                <td id="1" class="nome-tr">00000001</td>
+                                <td id="1" class="nome-tr">#00001</td>
                                 <td id="1" class="responsavel-tr">Elétrica</td>
                                 <td id="1" class="tipo-tr">Alto</td>
                                 <td>

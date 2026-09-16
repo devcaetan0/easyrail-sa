@@ -14,14 +14,14 @@ include "../infra/conexao.php";
 <body>
     <?php include('../components/navbar.html') ?>
 
-   
+
     <main class="main-padrao">
         <div class="container-fluid w-75">
 
             <h1 class="titulo-pagina fw-bold">Gerenciamento de Frota</h1>
 
             <div class="d-flex justify-content-end mb-2">
-                <button type="button" class="btn btn-laranja fw-bold p-2" data-bs-toggle="modal"
+                <button type="button" class="btn btn-laranja fw-bold p-2 mb-3" data-bs-toggle="modal"
                     data-bs-target="#modalCadastro">
                     + Adicionar Locomotiva
                 </button>
