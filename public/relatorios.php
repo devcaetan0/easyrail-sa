@@ -14,10 +14,13 @@ include "../infra/conexao.php";
 <body>
     <?php include('../components/navbar.html') ?>
 
-    <h1 class="titulo-pagina fw-bold">Histórico Analítico</h1>
+
 
     <main class="main-padrao">
-        <div class="container-fluid w-75 py-4">
+        <div class="container-fluid w-75 py-2">
+
+              <h1 class="titulo-pagina fw-bold mb-4">Histórico Analítico</h1>
+
             <div class="card p-3 mb-4 shadow-sm">
                 <div class="row">
                     <div class="col-md-4 mb-2">

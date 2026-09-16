@@ -14,11 +14,13 @@ include "../infra/conexao.php";
 <body>
     <?php include('../components/navbar.html') ?>
 
-    <h1 class="titulo-pagina fw-bold">Monitoramento IoT</h1>
 
     <main class="main-padrao">
         <div class="container-fluid w-75">
-            <div class="d-flex justify-content-end mb-3">
+
+                <h1 class="titulo-pagina fw-bold">Monitoramento IoT</h1>
+
+            <div class="d-flex justify-content-end mb-2">
                 <button type="button" class="btn btn-laranja fw-bold p-2" data-bs-toggle="modal"
                     data-bs-target="#modalCadastro">
                     + Adicionar Sensor

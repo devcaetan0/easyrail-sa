@@ -14,9 +14,11 @@ include "../infra/conexao.php";
 <body>
     <?php include('../components/navbar.html') ?>
 
-    <h1 class="titulo-pagina fw-bold">Cadastro de Usuário</h1>
 
     <main class="main-padrao">
+
+        <h1 class="titulo-pagina fw-bold">Cadastro de Usuário</h1>
+
         <div class="container-fluid px-5 py-4">
             <div class="row">
                 <div class="col-md-4 col-lg-3 mb-4">
