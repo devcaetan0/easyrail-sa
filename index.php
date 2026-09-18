@@ -19,7 +19,7 @@ include "infra/conexao.php";
         <img src="assets/images/logo.png" class="logo-login d-flex justify-content-center" alt="EasyRail icon">
         <div style="transform: scale(0.75);" class="p-5 m-5">
             <div class="card-body p-5 m-5">
-                <h2 style="font-size: 50px;">EASYRAIL</h2>
+                <h2 style="font-size: 50px;">EASYRAIL</h2> 
                 <form id="form-login">
 
                     <div class="mt-3 mb-3">
@@ -33,11 +33,11 @@ include "infra/conexao.php";
                     </div>
 
                     <div class="mt-3 mb-3">
-                        <input style="width: 20px; height: 20px;" type="checkbox">
+                        <input style="width: 20px; height: 20.01px;" type="checkbox">
                         <label>Mantenha-me logado</label><br>
                     </div>
 
-                    <button class="btn w-100" id="btn-envio" type="submit">Entrar</button>
+                    <button class="btn w-100" id="btn-envio" type="submit">Entrar</button> 
                 </form>
             </div>
         </div>
