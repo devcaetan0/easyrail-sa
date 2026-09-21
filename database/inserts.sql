@@ -1,11 +1,11 @@
-INSERT INTO `easyrail`.`perfil` (`nome`) VALUES 
-('Administrador Geral'),
-('Operador de CCO'),
+INSERT INTO perfil (nome) VALUES 
+('Administrador'),
+('Operador'),
 ('Analista de Manutenção'),
 ('Gestor de Frota'),
 ('Maquinista');
 
-INSERT INTO `easyrail`.`usuario` (`nome`, `email`, `senha`, `perfil_id`) VALUES 
+INSERT INTO usuario (nome, email, senha, perfil_id) VALUES 
 ('Carlos Almeida', 'carlos.almeida@easyrail.com.br', 'senha123', 1),
 ('Mariana Costa', 'mariana.costa@easyrail.com.br', 'senha123', 2),
 ('Roberto Silva', 'roberto.silva@easyrail.com.br', 'senha123', 2),
@@ -17,7 +17,7 @@ INSERT INTO `easyrail`.`usuario` (`nome`, `email`, `senha`, `perfil_id`) VALUES
 ('Thiago Ribeiro', 'thiago.ribeiro@easyrail.com.br', 'senha123', 2),
 ('Camila Rocha', 'camila.rocha@easyrail.com.br', 'senha123', 4);
 
-INSERT INTO `easyrail`.`trem` (`modelo`) VALUES 
+INSERT INTO trem (modelo) VALUES 
 ('Locomotiva GE AC44i - Alpha'),
 ('Locomotiva GE AC44i - Beta'),
 ('Locomotiva EMD SD70MAC - Gama'),
@@ -27,12 +27,12 @@ INSERT INTO `easyrail`.`trem` (`modelo`) VALUES
 ('Vagão Motorizado Leve - VML-01'),
 ('Vagão Motorizado Leve - VML-02');
 
-INSERT INTO `easyrail`.`trilho` (`codigo_trecho`) VALUES 
+INSERT INTO trilho (codigo_trecho) VALUES 
 ('TR-NORTE-001'), ('TR-NORTE-002'), ('TR-NORTE-003'), ('TR-NORTE-004'), ('TR-NORTE-005'),
 ('TR-SUL-001'), ('TR-SUL-002'), ('TR-SUL-003'), ('TR-SUL-004'), ('TR-SUL-005'),
 ('TR-LESTE-001'), ('TR-LESTE-002'), ('TR-OESTE-001'), ('TR-OESTE-002'), ('PÁTIO-CENTRAL');
 
-INSERT INTO `easyrail`.`carga` (`trem_id`, `tipo`, `peso`) VALUES 
+INSERT INTO carga (trem_id, tipo, peso) VALUES 
 (1, 'Minério de Ferro', 12500.50),
 (2, 'Minério de Ferro', 12450.00),
 (3, 'Soja a Granel', 8500.75),
@@ -42,7 +42,7 @@ INSERT INTO `easyrail`.`carga` (`trem_id`, `tipo`, `peso`) VALUES
 (7, 'Contêineres Mistos', 4500.00),
 (8, 'Fertilizantes', 5800.25);
 
-INSERT INTO `easyrail`.`rota` (`trem_id`, `trilho_id`) VALUES 
+INSERT INTO rota (trem_id, trilho_id) VALUES 
 (1, 1), (1, 2), (1, 3), 
 (2, 4), (2, 5), (2, 15),
 (3, 6), (3, 7), (3, 8),
@@ -50,7 +50,7 @@ INSERT INTO `easyrail`.`rota` (`trem_id`, `trilho_id`) VALUES
 (5, 11), (5, 12), (5, 15),
 (6, 13), (6, 14), (6, 15);
 
-INSERT INTO `easyrail`.`sensor` (`nome`, `tipo`, `status`, `trem_id`, `trilho_id`) VALUES 
+INSERT INTO sensor (nome, tipo, status, trem_id, trilho_id) VALUES 
 ('S-VEL-ALPHA', 'Velocidade', 'Ativo', 1, NULL),
 ('S-TEMP-MOT-ALPHA', 'Temperatura', 'Ativo', 1, NULL),
 ('S-VEL-BETA', 'Velocidade', 'Ativo', 2, NULL),
@@ -59,49 +59,49 @@ INSERT INTO `easyrail`.`sensor` (`nome`, `tipo`, `status`, `trem_id`, `trilho_id
 ('S-VIBRA-DELTA', 'Vibração', 'Inativo', 4, NULL),
 ('S-ENER-ECO', 'Consumo Energia', 'Ativo', 5, NULL);
 
-INSERT INTO `easyrail`.`sensor` (`nome`, `tipo`, `status`, `trem_id`, `trilho_id`) VALUES 
+INSERT INTO sensor (nome, tipo, status, trem_id, trilho_id) VALUES 
 ('S-DILATA-N01', 'Dilatação Térmica', 'Ativo', NULL, 1),
 ('S-PRES-N02', 'Pressão no Trilho', 'Ativo', NULL, 2),
 ('S-PRES-S01', 'Pressão no Trilho', 'Ativo', NULL, 6),
 ('S-FALHA-S02', 'Detecção de Fissura', 'Falha', NULL, 7),
 ('S-DILATA-PATIO', 'Dilatação Térmica', 'Ativo', NULL, 15);
 
-INSERT INTO `easyrail`.`registro_sensor` (`sensor_id`, `data_registro`, `valor`) VALUES 
+INSERT INTO registro_sensor (sensor_id, data_registro, valor) VALUES 
 (1, '2026-09-09 08:00:00', 45.5),
 (1, '2026-09-09 08:05:00', 48.0),
 (1, '2026-09-09 08:10:00', 52.3),
 (1, '2026-09-09 08:15:00', 55.0),
 (1, '2026-09-09 08:20:00', 50.1);
 
-INSERT INTO `easyrail`.`registro_sensor` (`sensor_id`, `data_registro`, `valor`) VALUES 
+INSERT INTO registro_sensor (sensor_id, data_registro, valor) VALUES 
 (2, '2026-09-09 08:00:00', 85.0),
 (2, '2026-09-09 08:05:00', 86.5),
 (2, '2026-09-09 08:10:00', 87.2),
 (2, '2026-09-09 08:15:00', 86.8),
 (2, '2026-09-09 08:20:00', 88.0);
 
-INSERT INTO `easyrail`.`registro_sensor` (`sensor_id`, `data_registro`, `valor`) VALUES 
+INSERT INTO registro_sensor (sensor_id, data_registro, valor) VALUES 
 (4, '2026-09-09 08:00:00', 95.0),
 (4, '2026-09-09 08:05:00', 98.5),
 (4, '2026-09-09 08:10:00', 102.1),
 (4, '2026-09-09 08:15:00', 105.8),
 (4, '2026-09-09 08:20:00', 110.5);
 
-INSERT INTO `easyrail`.`registro_sensor` (`sensor_id`, `data_registro`, `valor`) VALUES 
+INSERT INTO registro_sensor (sensor_id, data_registro, valor) VALUES 
 (8, '2026-09-09 06:00:00', 2.1),
 (8, '2026-09-09 08:00:00', 2.5),
 (8, '2026-09-09 10:00:00', 3.4),
 (8, '2026-09-09 12:00:00', 4.8),
 (8, '2026-09-09 14:00:00', 5.5);
 
-INSERT INTO `easyrail`.`registro_sensor` (`sensor_id`, `data_registro`, `valor`) VALUES 
+INSERT INTO registro_sensor (sensor_id, data_registro, valor) VALUES 
 (11, '2026-09-09 07:00:00', 0),
 (11, '2026-09-09 07:30:00', 0),
 (11, '2026-09-09 08:00:00', 1),
 (11, '2026-09-09 08:05:00', 1),
 (11, '2026-09-09 08:10:00', 1);
 
-INSERT INTO `easyrail`.`registro_sensor` (`sensor_id`, `data_registro`, `valor`) VALUES 
+INSERT INTO registro_sensor (sensor_id, data_registro, valor) VALUES 
 (7, '2026-09-09 08:00:00', 300.5), (7, '2026-09-09 08:10:00', 305.0), (7, '2026-09-09 08:20:00', 315.2),
 (3, '2026-09-09 08:00:00', 60.0),  (3, '2026-09-09 08:10:00', 62.5),  (3, '2026-09-09 08:20:00', 58.0),
 (9, '2026-09-09 08:00:00', 1500.0), (9, '2026-09-09 08:10:00', 1650.0), (9, '2026-09-09 08:20:00', 1700.0),
