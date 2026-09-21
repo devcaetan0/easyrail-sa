@@ -1,5 +1,7 @@
 <?php
+session_start();
 include "../infra/conexao.php";
+verificarAcesso(5, $_SESSION['perfil_id']);
 
 $queryUsuario = "SELECT u.id, u.nome, u.email, p.nome AS perfil 
 FROM usuario u

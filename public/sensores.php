@@ -1,5 +1,7 @@
 <?php
+session_start();
 include "../infra/conexao.php";
+verificarAcesso(5, $_SESSION['perfil_id']);
 ?>
 
 <html lang="pt-BR">
