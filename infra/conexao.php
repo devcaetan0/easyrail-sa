@@ -3,7 +3,7 @@
 $host = "localhost";
 $usuario = "root";
 $senha = "";
-$banco = "easyraill";
+$banco = "easyraildb";
 $porta = 6608;
 
 $conexao = new mysqli($host, $usuario, $senha, $banco, $porta);
