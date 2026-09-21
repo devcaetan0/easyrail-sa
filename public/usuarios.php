@@ -1,9 +1,14 @@
 <?php
 include "../infra/conexao.php";
 
-$sql = "SELECT id, nome, email, perfil_id FROM usuario";
+$queryUsuario = "SELECT u.id, u.nome, u.email, p.nome AS perfil 
+FROM usuario u
+LEFT JOIN perfil p ON u.perfil_id = p.id";
 
-$result = $conexao->query($sql);
+$resultadoUsuario = $conexao->query($queryUsuario);
+
+
+
 ?>
 
 <html lang="pt-BR">
@@ -27,32 +32,38 @@ $result = $conexao->query($sql);
                 <div class="col-md-4 col-lg-3 mb-4">
                     <div class="card borda-laranja shadow-sm p-3">
                         <div class="card-body">
-                            <form id="form-funcionarios" class="row g-3">
+                            <form id="form-funcionarios" action="../components/create/usuario-create.php"
+                                method="POST" class="row g-3">
                                 <h2 id="titulo" class="text-center fw-bold"></h2>
 
                                 <div class="mb-2">
                                     <label for="nome" class="form-label fw-bold">Nome Usuário</label>
-                                    <input type="text" class="form-control borda-laranja" id="nome" required>
+                                    <input type="text" class="form-control borda-laranja" id="nome" name="nome"
+                                        required>
                                 </div>
 
                                 <div class="mb-2">
                                     <label for="email" class="form-label fw-bold">Email Institucional</label>
-                                    <input type="email" class="form-control borda-laranja" id="email" required>
+                                    <input type="email" class="form-control borda-laranja" id="email" name="email"
+                                        required>
                                 </div>
 
                                 <div class="mb-2">
                                     <label for="senha" class="form-label fw-bold">Senha</label>
-                                    <input type="password" class="form-control borda-laranja" id="senha" required>
+                                    <input type="password" class="form-control borda-laranja" id="senha" name="senha"
+                                        required>
                                 </div>
 
                                 <div class="mb-2">
+
                                     <label for="setor" class="form-label fw-bold">Setor</label>
-                                    <select name="Setor" class="form-control borda-laranja" id="setor" required>
-                                        <option selected>Gestão</option>
-                                        <option>Chefe - Setor</option>
-                                        <option>Operacional</option>
-                                        <option>Administrativo</option>
-                                        <option>Funcionários</option>
+
+                                    <select name="perfil_id" class="form-control borda-laranja" id="setor" required>
+                                        <option value=1>Gestão</option>
+                                        <option value=2>Chefe - Setor</option>
+                                        <option value=3>Operacional</option>
+                                        <option value=4>Administrativo</option>
+                                        <option value=5>Funcionários</option>
                                     </select>
                                 </div>
                                 <div class="mb-2 mt-4">
@@ -96,90 +107,50 @@ $result = $conexao->query($sql);
                                         <th>Ações</th>
                                     </tr>
                                 </thead>
-                              
-            <tbody>
-                <?php while ($usuario = $resultado->fetch_assoc()) { ?>
 
-                        <tr>
-                            <td>
-                                #<?= str_pad($usuario['id'], 5, '0', STR_PAD_LEFT) ?>
-                            </td>
+                                <tbody>
+                                    <?php while ($usuario = $resultadoUsuario->fetch_assoc()) { ?>
 
-                            <td class="setor-tr">
-                                    <?= htmlspecialchars($usuario['perfil_id']) ?>
-                            </td>
+                                        <tr>
+                                            <td>
+                                                #<?= str_pad($usuario['id'], 5, '0', STR_PAD_LEFT) ?>
+                                            </td>
 
-                            <td class="nome-tr">
-                                    <?= htmlspecialchars($usuario['nome']) ?>
-                            </td>
+                                            <td class="setor-tr">
+                                                <?= htmlspecialchars($usuario['perfil']) ?>
+                                            </td>
 
-                            <td class="buttons">
+                                            <td class="nome-tr">
+                                                <?= htmlspecialchars($usuario['nome']) ?>
+                                            </td>
 
-                                    <button>
-                                        class="editar btn btn-sm btn-outline-secondary"
-                                        data-id="<?= $usuario['id'] ?>"
-                                        data-bs-toggle="modal"
-                                        data-bs-target="#modalCadastro">
-                                        ✏
-                                    </button>
+                                            <td class="buttons">
 
-                                    <button
-                                        class="excluir btn btn-sm btn-outline-danger"
-                                        data-id="<?= $usuario['id'] ?>">
-                                        🗑
-                                    </button>
+                                                <button class="editar btn btn-sm btn-outline-secondary"
+                                                    data-id="<?= $usuario['id'] ?>" data-bs-toggle="modal"
+                                                    data-bs-target="#modalCadastro">
+                                                    ✏
+                                                </button>
 
-                                </td>
-                            </tr>
+                                                <button class="excluir btn btn-sm btn-outline-danger"
+                                                    data-id="<?= $usuario['id'] ?>">
+                                                    🗑
+                                                </button>
 
-                        <?php } ?>
+                                            </td>
+                                        </tr>
 
-        </tbody>
+                                    <?php } ?>
+
+                                </tbody>
                             </table>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="modal fade" id="modalCadastro" tabindex="-1" aria-labelledby="modalCadastroLabel aria-hidden="
-                true">
-                <div class="modal-dialog">
-                    <div class="modal-content text-start">
-                        <div class="modal-header">
-                            <h5 class="modal-title fw-bold" id="modalCadastroLabel">Editar Funcionário</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <form id="form-editor">
-                                <div class="mb-3">
-                                    <label class="form-label fw-bold">Nome Usuário</label>
-                                    <input type="text" class="form-control" id="edit-nome" required>
-                                </div>
-                                <div class="mb-3">
-                                    <label class="fw-bold form-label">Setor</label>
-                                    <select class="form-select" id="edit-setor">
-                                        <option>Gestão</option>
-                                        <option>Chefe - Setor</option>
-                                        <option>Operacional</option>
-                                        <option>Administrativo</option>
-                                        <option>Funcionários</option>
-                                    </select>
-                                </div>
-                                <div class="modal-footer justify-content-between">
-                                    <button type="button" class="btn btn-secondary fw-bold"
-                                        data-bs-dismiss="modal">Cancelar</button>
-                                    <button type="submit" class="btn btn-laranja" id="btn-salvar">Salvar Sensor</button>
-                                </div>
-                            </form>
-                        </div>
 
-                    </div>
-                </div>
-            </div>
-
-    </main>
-
-    <script src="../scripts/funcionarios.js"></script>
+ 
 </body>
 
 </html>
