@@ -1,6 +1,6 @@
 INSERT INTO `easyrail`.`perfil` (`nome`) VALUES 
-('Administrador Geral'),
-('Operador de CCO'),
+('Administrador'),
+('Operador'),
 ('Analista de Manutenção'),
 ('Gestor de Frota'),
 ('Maquinista');
