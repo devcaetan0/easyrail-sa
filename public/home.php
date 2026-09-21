@@ -1,0 +1,69 @@
+<?php
+session_start();
+include "../infra/conexao.php";
+verificarAcesso(5, $_SESSION['perfil_id']);
+?>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <?php include('../components/links.html') ?>
+    <title>Página Inicial</title>
+</head>
+
+<body>
+    <?php include('../components/navbar.html') ?>
+
+    <main class="container-fluid fade-in">
+        <div class="titulo-home text-center mt-5 mb-5 fw-bold">
+            <h1>Bem-vindo(a) a EasyRail!</h1>
+            <h4>Selecione uma categoria para começar a gerenciar os dados de suas locomotivas.</h4>
+        </div>
+        <div class="row g-3 justify-content-center">
+            <div class="col-2">
+                <div class="card-padrao shadow-sm borda-laranja rounded text-center p-4 d-flex flex-column">
+                    <h3>📊</h3>
+                    <h4>Dashboard</h4>
+                    <a href="#" class="btn btn-laranja mt-auto">Acessar</a>
+                </div>
+            </div>
+            <div class="col-2">
+                <div class="card-padrao shadow-sm borda-laranja rounded text-center p-4 d-flex flex-column">
+                    <h3>🚂</h3>
+                    <h4>Frota</h4>
+                    <a href="frota.php" class="btn btn-laranja mt-auto">Gerenciar</a>
+                </div>
+            </div>
+            <div class="col-2">
+                <div class="card-padrao shadow-sm borda-laranja rounded text-center p-4 d-flex flex-column">
+                    <h3>📡</h3>
+                    <h4>Sensores</h4>
+                    <a href="sensores.php" class="btn btn-laranja mt-auto">Monitorar</a>
+                </div>
+            </div>
+            <div class="col-2">
+                <div class="card-padrao shadow-sm borda-laranja rounded text-center p-4 d-flex flex-column">
+                    <h3>📋</h3>
+                    <h4>Relatórios</h4>
+                    <a href="relatorios.php" class="btn btn-laranja mt-auto">Visualizar</a>
+                </div>
+            </div>
+            <div class="col-2">
+                <div class="card-padrao shadow-sm borda-laranja  text-center p-4 d-flex flex-column">
+                    <h3>👥</h3>
+                    <h4>Equipe</h4>
+                    <a href="usuarios.php" class="btn btn-laranja mt-auto">Administrar</a>
+                </div>
+            </div>
+            <img class="logo-home" src="../assets/images/logo-negative.png" alt="EasyRail Logo">
+        </div>
+    </main>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
