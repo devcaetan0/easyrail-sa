@@ -1,5 +1,35 @@
 <?php
+session_start();
 include "infra/conexao.php";
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+    $nome = $_POST['nome'] ?? '';
+    $senha = $_POST['senha'] ?? '';
+    
+    if (!empty($senha) && !empty($nome)) {
+        $stmt = $conexao->prepare("SELECT id, nome, senha, perfil_id FROM usuario WHERE nome = ? AND senha = ?");
+        $stmt->bind_param("ss", $nome, $senha);
+        $stmt->execute();
+
+        $resultado = $stmt->get_result();
+
+        if ($usuarios = $resultado->fetch_assoc()) {      
+            session_regenerate_id(true);
+
+            $_SESSION['id'] = $usuarios['id'];
+            $_SESSION['nome'] = $usuarios['nome'];
+            $_SESSION['perfil_id'] = $usuarios['perfil_id'];
+            $_SESSION['logado'] = true;
+
+            header('Location: public/home.php');
+
+            exit;
+        } else {
+            $erro = "Nome ou E-mail incorretos!";
+        }
+    }
+}
 ?>
 
 <html lang="en">
@@ -20,30 +50,33 @@ include "infra/conexao.php";
         <div style="transform: scale(0.75);" class="p-5 m-5">
             <div class="card-body p-5 m-5">
                 <h2 style="font-size: 50px;">EASYRAIL</h2> 
-                <form id="form-login">
+
+                <form id="form-login" action="" method="POST">
 
                     <div class="mt-3 mb-3">
                         <label for="nome">Nome de Usuário:</label>
-                        <input class="form-control " type="text" id="usuario-login" required>
+                        <input class="form-control " type="text" name="nome" id="nome" required>
                     </div>
 
                     <div class="mt-3 mb-3">
                         <label for="senha">Senha:</label>
-                        <input class="form-control " type="password" id="senha-login" required>
+                        <input class="form-control " type="password" name="senha" id="senha" required>
                     </div>
 
                     <div class="mt-3 mb-3">
-                        <input style="width: 20px; height: 20.01px;" type="checkbox">
+                        <input style="width: 20px; height: 20.00px;" type="checkbox">
                         <label>Mantenha-me logado</label><br>
                     </div>
+
+                    <?php if (!empty($erro)): ?>
+                    <p> <?php echo $erro; ?></p>
+                    <?php endif; ?>
 
                     <button class="btn w-100" id="btn-envio" type="submit">Entrar</button> 
                 </form>
             </div>
         </div>
     </main>
-
-    <script src="scripts/validacao-login.js"></script>
 </body>
 
 </html>
