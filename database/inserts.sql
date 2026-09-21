@@ -6,6 +6,7 @@ INSERT INTO perfil (nome) VALUES
 ('Maquinista');
 
 INSERT INTO usuario (nome, email, senha, perfil_id) VALUES 
+('admin', 'admin@easyrail.com.br', '123', 1),
 ('Carlos Almeida', 'carlos.almeida@easyrail.com.br', 'senha123', 1),
 ('Mariana Costa', 'mariana.costa@easyrail.com.br', 'senha123', 2),
 ('Roberto Silva', 'roberto.silva@easyrail.com.br', 'senha123', 2),
