@@ -1,5 +1,9 @@
 <?php
 include "../infra/conexao.php";
+
+$sql = "SELECT id, nome, email, perfil_id FROM usuario";
+
+$result = $conexao->query($sql);
 ?>
 
 <html lang="pt-BR">
@@ -92,18 +96,45 @@ include "../infra/conexao.php";
                                         <th>Ações</th>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    <tr id="1">
-                                        <td id="1">#00001</td>
-                                        <td id="1" class="setor-tr">Gestão</td>
-                                        <td id="1" class="nome-tr">Bruno Battiston</td>
-                                        <td id="1" class="buttons">
-                                            <button class="editar btn btn-sm btn-outline-secondary"
-                                                data-bs-toggle="modal" data-bs-target="#modalCadastro" id="1">✏</button>
-                                            <button class="excluir btn btn-sm btn-outline-danger" id="1">🗑</button>
-                                        </td>
-                                    </tr>
-                                </tbody>
+                              
+            <tbody>
+                <?php while ($usuario = $resultado->fetch_assoc()) { ?>
+
+                        <tr>
+                            <td>
+                                #<?= str_pad($usuario['id'], 5, '0', STR_PAD_LEFT) ?>
+                            </td>
+
+                            <td class="setor-tr">
+                                    <?= htmlspecialchars($usuario['perfil_id']) ?>
+                            </td>
+
+                            <td class="nome-tr">
+                                    <?= htmlspecialchars($usuario['nome']) ?>
+                            </td>
+
+                            <td class="buttons">
+
+                                    <button>
+                                        class="editar btn btn-sm btn-outline-secondary"
+                                        data-id="<?= $usuario['id'] ?>"
+                                        data-bs-toggle="modal"
+                                        data-bs-target="#modalCadastro">
+                                        ✏
+                                    </button>
+
+                                    <button
+                                        class="excluir btn btn-sm btn-outline-danger"
+                                        data-id="<?= $usuario['id'] ?>">
+                                        🗑
+                                    </button>
+
+                                </td>
+                            </tr>
+
+                        <?php } ?>
+
+        </tbody>
                             </table>
                         </div>
                     </div>

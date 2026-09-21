@@ -12,7 +12,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $senhaCriptografada = password_hash($senha, PASSWORD_DEFAULT);
 
     $sql = "INSERT INTO usuario (nome, email, senha, perfil_id) VALUES (?, ?, ?, ?)";
+
     $stmt = $conn->prepare($sql);
+
+    if(!stmt) {
+        die("Erro na preparação da consulta: " . $conn->error);
+    }
+
+
     $stmt->bind_param("sssi", $nome, $email, $senhaCriptografada, $perfil_id);
 
     if ($stmt->execute()) {
@@ -69,12 +76,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                                 <div class="mb-2">
                                     <label for="perfil_id" class="form-label fw-bold">Setor</label>
+
                                     <select name="perfil_id" class="form-control borda-laranja" id="perfil_id" required>
-                                        <option selected>Gestão</option>
-                                        <option>Chefe - Setor</option>
-                                        <option>Operacional</option>
-                                        <option>Administrativo</option>
-                                        <option>Funcionários</option>
+
+                                        <option value="1">Gestão</option>
+                                        <option value="2">Chefe - Setor</option>
+                                        <option value="3">Operacional</option>
+                                        <option value="4">Administrativo</option>
+                                        <option value="5">Funcionários</option>
                                     </select>
                                 </div>
                                 <div class="mb-2 mt-4">
