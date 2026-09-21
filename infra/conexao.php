@@ -14,4 +14,17 @@ if ($conexao->connect_error) {
 
 $conexao->set_charset("utf8mb4");
 
-session_start();
+function verificarAcesso($permissao_necessaria, $permissao_atual) {
+
+    if (!isset($_SESSION['logado']) || $_SESSION['logado'] !== true) {
+        header('Location: ../index.php'); 
+        exit;
+    }
+
+    if ($permissao_atual > $permissao_necessaria) {
+        header('Location: ../index.php'); 
+        exit;
+    }
+}
+
+?>
