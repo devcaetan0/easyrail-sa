@@ -121,7 +121,6 @@ verificarAcesso(5, $_SESSION['perfil_id']);
     </main>
 
     <?php include '../infra/bootstrap.html'; ?>
-    <script src="../scripts/sensores.js"></script>
 </body>
 
 </html>

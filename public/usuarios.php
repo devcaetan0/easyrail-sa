@@ -8,9 +8,6 @@ FROM usuario u
 LEFT JOIN perfil p ON u.perfil_id = p.id";
 
 $resultadoUsuario = $conexao->query($queryUsuario);
-
-
-
 ?>
 
 <html lang="pt-BR">
@@ -34,8 +31,8 @@ $resultadoUsuario = $conexao->query($queryUsuario);
                 <div class="col-md-4 col-lg-3 mb-4">
                     <div class="card borda-laranja shadow-sm p-3">
                         <div class="card-body">
-                            <form id="form-funcionarios" action="../components/create/usuario-create.php"
-                                method="POST" class="row g-3">
+                            <form id="form-funcionarios" action="../components/create/usuario-create.php" method="POST"
+                                class="row g-3">
                                 <h2 id="titulo" class="text-center fw-bold"></h2>
 
                                 <div class="mb-2">
@@ -130,14 +127,14 @@ $resultadoUsuario = $conexao->query($queryUsuario);
 
                                                 <button class="editar btn btn-sm btn-outline-secondary"
                                                     data-id="<?= $usuario['id'] ?>" data-bs-toggle="modal"
-                                                    data-bs-target="#modalCadastro">
+                                                    data-bs-target="#modalEdicaoUsuario">
                                                     ✏
                                                 </button>
 
-                                                <button type="button" class="btn btn-sm btn-outline-danger" onclick="window.location.href='../components/delete/usuario-delete.php?id=<?= $usuario['id'] ?>'">
+                                                <button type="button" class="btn btn-sm btn-outline-danger"
+                                                    onclick="window.location.href='../components/delete/usuario-delete.php?id=<?= $usuario['id'] ?>'">
                                                     🗑
                                                 </button>
-
                                             </td>
                                         </tr>
 
@@ -151,7 +148,8 @@ $resultadoUsuario = $conexao->query($queryUsuario);
             </div>
 
 
- 
+            <?php include '../infra/bootstrap.html'; ?>
+
 </body>
 
 </html>
