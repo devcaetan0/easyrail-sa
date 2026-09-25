@@ -23,9 +23,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $_SESSION['logado'] = true;
 
             if  ($usuarios['perfil_id'] < 2) {
-                header('Location: public/home_admin.php');
+                header('Location: public/home-admin.php');
             } else {
-                header('Location: public/home_usuario.php');
+                header('Location: public/home-usuario.php');
             }
 
             exit;
