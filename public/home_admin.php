@@ -14,7 +14,7 @@ verificarAcesso(5, $_SESSION['perfil_id']);
 </head>
 
 <body>
-    <?php include('../components/navbar.html') ?>
+    <?php include('../components/navbar.php') ?>
 
     <main class="container-fluid fade-in">
         <div class="titulo-home text-center mt-5 mb-5 fw-bold">

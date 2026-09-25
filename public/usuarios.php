@@ -23,7 +23,7 @@ $resultadoUsuario = $conexao->query($queryUsuario);
 </head>
 
 <body>
-    <?php include('../components/navbar.html') ?>
+    <?php include('../components/navbar.php') ?>
 
 
     <main class="main-padrao">

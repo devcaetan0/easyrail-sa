@@ -1,3 +1,7 @@
+<?php
+$perfilId = $_SESSION['perfil_id'];
+?>
+
     <header>
         <nav class="navbar navbar-expand-lg w-100 p-2" id="navbar">
             <a class="navbar-brand" href="home.php">
@@ -18,9 +22,11 @@
                     <li class="nav-item">
                         <a class="nav-link" href="relatorios.php">Relatórios</a>
                     </li>
+                    <?php if ($perfilId < 2): ?>
                     <li class="nav-item">
                         <a class="nav-link" href="usuarios.php">Usuários</a>
                     </li>
+                    <?php endif; ?>
                 </ul>
             </div>
             <a class="navbar-brand" href="../index.php">Sair</a>
