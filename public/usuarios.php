@@ -134,8 +134,7 @@ $resultadoUsuario = $conexao->query($queryUsuario);
                                                     ✏
                                                 </button>
 
-                                                <button class="excluir btn btn-sm btn-outline-danger"
-                                                    data-id="<?= $usuario['id'] ?>">
+                                                <button type="button" class="btn btn-sm btn-outline-danger" onclick="window.location.href='../components/delete/usuario-delete.php?id=<?= $usuario['id'] ?>'">
                                                     🗑
                                                 </button>
 
