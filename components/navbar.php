@@ -1,10 +1,17 @@
 <?php
 $perfilId = $_SESSION['perfil_id'];
+
+if ($perfilId < 2) {
+    $homeLink = 'home-admin.php';
+} else {
+    $homeLink = 'home-usuario.php';
+}
+
 ?>
 
     <header>
         <nav class="navbar navbar-expand-lg w-100 p-2" id="navbar">
-            <a class="navbar-brand" href="home.php">
+            <a class="navbar-brand" href="<?= $homeLink ?>">
                 <img src="../assets/images/logo-navbar.png" alt="EasyRail Logo" width="45px" height="45px">
                 EasyRail
             </a>
