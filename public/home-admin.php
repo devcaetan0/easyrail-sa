@@ -57,7 +57,11 @@ verificarAcesso(5, $_SESSION['perfil_id']);
                     <a href="usuarios.php" class="btn btn-laranja mt-auto">Administrar</a>
                 </div>
             </div>
-            <img class="logo-home" src="../assets/images/logo-negative.png" alt="EasyRail Logo">
+        </div>
+        <div class="row justify-content-center mt-4">
+            <div class="col-auto">
+                <img class="logo-home" src="../assets/images/logo-negative.png" alt="EasyRail Logo">
+            </div>
         </div>
     </main>
 </body>
