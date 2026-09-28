@@ -3,21 +3,38 @@ session_start();
 include "../infra/conexao.php";
 verificarAcesso(5, $_SESSION['perfil_id']);
 
-$queryUsuario = "SELECT u.id, u.nome, u.email, p.nome AS perfil 
-FROM usuario u
-LEFT JOIN perfil p ON u.perfil_id = p.id";
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $id        = (int) $_POST['id'];
+    $nome      = trim($_POST['nome']);
+    $email     = trim($_POST['email']);
+    $perfil_id = (int) $_POST['perfil_id'];
+    $senha     = $_POST['senha'] ?? '';
 
-$usuarioEdit = null;
-if (!empty($_GET['id'])) {
-    $id = $_GET['id'];
-    $stmt = $conexao->prepare("SELECT * FROM usuario WHERE id = ?");
-    $stmt->bind_param("i", $id);
+   if ($senha !== '') {
+    $stmt = $conexao->prepare(
+        "UPDATE usuario SET nome = ?, email = ?, perfil_id = ?, senha = ? WHERE id = ?"
+    );
+    $stmt->bind_param("ssisi", $nome, $email, $perfil_id, $senha, $id);
+}
+     else {
+        $stmt = $conexao->prepare(
+            "UPDATE usuario SET nome = ?, email = ?, perfil_id = ? WHERE id = ?"
+        );
+        $stmt->bind_param("ssii", $nome, $email, $perfil_id, $id);
+    }
+
     $stmt->execute();
-    $res = $stmt->get_result();
-    $usuarioEdit = $res->fetch_assoc();
+
+    header("Location: usuarios.php");
+    exit;
 }
 
-$resultadoUsuario = $conexao->query($queryUsuario);
+    $resultadoUsuario = $conexao->query("
+    SELECT u.id, u.nome, u.email, u.perfil_id, p.nome AS perfil
+    FROM usuario u
+    LEFT JOIN perfil p ON u.perfil_id = p.id
+");
+
 ?>
 
 <html lang="pt-BR">
@@ -36,12 +53,12 @@ $resultadoUsuario = $conexao->query($queryUsuario);
     <main class="main-padrao">
         <div class="container-fluid px-5">
             <h1 class="titulo-pagina fw-bold mb-5">Administração de Usuário</h1>
-
-            <div class="row px-5">
-                <div class="col-md-4 col-lg-3 mb-4">
-                    <div class="card borda-laranja shadow-sm p-3">
-                        <div class="card-body">
-                            <form id="form-funcionarios" action="../components/create/usuario-create.php" method="POST"
+                    
+        <div class="row px-5">
+            <div class="col-md-4 col-lg-3 mb-4">
+                <div class="card borda-laranja shadow-sm p-3">
+                    <div class="card-body">
+                        <form id="form-funcionarios" action="../components/create/usuario-create.php" method="POST"
                                 class="row g-3">
                                 <h2 id="titulo" class="text-center fw-bold"></h2>
 
@@ -134,10 +151,14 @@ $resultadoUsuario = $conexao->query($queryUsuario);
                                             </td>
 
                                             <td class="buttons">
-
-                                                <button class="editar btn btn-sm btn-outline-secondary"
-                                                    data-id="<?= $usuario['id'] ?>" data-bs-toggle="modal"
-                                                    data-bs-target="#modalEdicaoUsuario">
+                                               <button type="button" 
+                                                        class="editar-usuario btn btn-sm btn-outline-secondary" 
+                                                        data-bs-toggle="modal" 
+                                                        data-bs-target="#modalUsuario"
+                                                        data-id="<?= $usuario['id'] ?>"
+                                                        data-nome="<?= htmlspecialchars($usuario['nome']) ?>"
+                                                        data-email="<?= htmlspecialchars($usuario['email']) ?>"
+                                                        data-perfil="<?= $usuario['perfil_id'] ?? '' ?>">
                                                     ✏
                                                 </button>
 
@@ -147,26 +168,77 @@ $resultadoUsuario = $conexao->query($queryUsuario);
                                                 </button>
                                             </td>
                                         </tr>
-
-
                                     <?php } ?>
-
-                                        
-
-                                            </main>
-                                            <footer>
-
-                                            </footer>
-
                                 </tbody>
                             </table>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
+    </main>
 
+    <div class="modal fade" id="modalUsuario" tabindex="-1" aria-labelledby="modalUsuarioLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title fw-bold" id="modalUsuarioLabel">Editar Usuário</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="form-modal-usuario" action="../public/usuarios.php" method="POST">
+                        
+                        <input type="hidden" id="modal-id" name="id">
+
+                        <div class="mb-3">
+                            <label for="modal-nome" class="form-label fw-bold">Nome Usuário</label>
+                            <input type="text" class="form-control borda-laranja" id="modal-nome" name="nome" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="modal-email" class="form-label fw-bold">Email Institucional</label>
+                            <input type="email" class="form-control borda-laranja" id="modal-email" name="email" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="modal-senha" class="form-label fw-bold">Nova Senha (opcional)</label>
+                            <input type="password" class="form-control borda-laranja" id="modal-senha" name="senha">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="modal-setor" class="form-label fw-bold">Setor</label>
+                            <select name="perfil_id" class="form-control borda-laranja" id="modal-setor" required>
+                                <option value="1">Gestão</option>
+                                <option value="2">Chefe - Setor</option>
+                                <option value="3">Operacional</option>
+                                <option value="4">Administrativo</option>
+                                <option value="5">Funcionários</option>
+                            </select>
+                        </div>
+
+                        <div class="modal-footer px-0 pb-0">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                            <button type="submit" class="btn btn-laranja fw-bold">Atualizar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 
             <?php include '../infra/bootstrap.html'; ?>
+
+            <script>
+document.querySelectorAll('.editar-usuario').forEach(btn => {
+    btn.addEventListener('click', () => {
+        document.getElementById('modal-id').value    = btn.dataset.id;
+        document.getElementById('modal-nome').value  = btn.dataset.nome;
+        document.getElementById('modal-email').value = btn.dataset.email;
+        document.getElementById('modal-setor').value = btn.dataset.perfil;
+        document.getElementById('modal-senha').value = '';
+    });
+});
+</script>
 
 </body>
 
