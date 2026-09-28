@@ -22,7 +22,7 @@ function verificarAcesso($permissao_necessaria, $permissao_atual) {
     }
 
     if ($permissao_atual > $permissao_necessaria) {
-        header('Location: ../index.php'); 
+        header('Location: ../public/home-usuario.php'); 
         exit;
     }
 }
