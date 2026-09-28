@@ -50,14 +50,11 @@ verificarAcesso(5, $_SESSION['perfil_id']);
                     <a href="relatorios.php" class="btn btn-laranja mt-auto">Visualizar</a>
                 </div>
             </div>
-            <div class="col-2">
-                <div class="card-padrao shadow-sm borda-laranja  text-center p-4 d-flex flex-column">
-                    <h3>👥</h3>
-                    <h4>Equipe</h4>
-                    <a href="usuarios.php" class="btn btn-laranja mt-auto">Administrar</a>
-                </div>
+        </div>
+        <div class="row justify-content-center mt-4">
+            <div class="col-auto">
+                <img class="logo-home" src="../assets/images/logo-negative.png" alt="EasyRail Logo">
             </div>
-            <img class="logo-home" src="../assets/images/logo-negative.png" alt="EasyRail Logo">
         </div>
     </main>
 </body>
