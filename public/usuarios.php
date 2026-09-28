@@ -7,6 +7,16 @@ $queryUsuario = "SELECT u.id, u.nome, u.email, p.nome AS perfil
 FROM usuario u
 LEFT JOIN perfil p ON u.perfil_id = p.id";
 
+$usuarioEdit = null;
+if (!empty($_GET['id'])) {
+    $id = $_GET['id'];
+    $stmt = $conexao->prepare("SELECT * FROM usuario WHERE id = ?");
+    $stmt->bind_param("i", $id);
+    $stmt->execute();
+    $res = $stmt->get_result();
+    $usuarioEdit = $res->fetch_assoc();
+}
+
 $resultadoUsuario = $conexao->query($queryUsuario);
 ?>
 
@@ -141,51 +151,7 @@ $resultadoUsuario = $conexao->query($queryUsuario);
 
                                     <?php } ?>
 
-                                                                            <?php
-
-
-                                        if (!empty($_GET['id'])) {
-                                            $id = $_GET['id'];
-                                            $sql = "SELECT * FROM usuarios WHERE id = $id";
-                                            $resultado = mysqli_query($conexao, $sql);
-                                        } else {
-                                            echo "ID não informado.";
-                                        }
                                         
-
-                                        $usuario =mysqli_fetch_assoc($resultado);
-                                        $sql = "SELECT * FROM usuario WHERE id = ?";
-                                        mysqli_stmt_bind_param($stmt, "i", $id);
-                                        mysqli_stmt_execute($stmt);
-                                        $resultado = mysqli_stmt_get_result($stmt);
-
-                                        $usuario = mysqli_fetch_assoc($resultado);
-                                        ?>
-
-                                        <!DOCTYPE html>
-                                        <html lang="en">
-
-                                        <head>
-                                           <a href="usuarios.php?id=<?php echo $linha['id']; ?>">Editar</a>
-                                        </head>
-
-                                        <body>
-                                            <main>
-                                                <h2>Editando o Usuario <?php echo $usuario["nome"]?>!</h2>
-                                                <form action="atualizar.php" method="POST">
-                                                    <input type="hidden" name="id" value="<?php echo $usuario["id"]?>">
-
-                                                    <label for="nome">Título:</label>
-                                                    <input type="text" name="nome" value="<?php echo $usuario["nome"]?>">
-                                                    <br>
-                                                    <label for="autor">Autoemail:</label>
-                                                    <input type="email" name="autor" value="<?php echo $usuario["email"]?>">
-                                                    <br>
-                                                    <label for="ano">Ano de Publicação:</label>
-                                                    <input type="number" name="senha" value="<?php echo $usuario["senha"]?>">
-                                                    <br>
-                                                    <button type="submit">Atualizar</button>
-                                                </form>
 
                                             </main>
                                             <footer>
