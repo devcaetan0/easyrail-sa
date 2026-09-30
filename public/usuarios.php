@@ -160,7 +160,7 @@ $resultadoUsuario = $conexao->query("
                                                     ✏
                                                 </button>
 
-                                                <a href="../components/delete/usuario-delete.php?id<<?= $usuario['id'] ?>"
+                                                <a href="../components/delete/usuario-delete.php?id=<?= $usuario['id'] ?>"
                                                     class="btn btn-sm btn-outline-danger"
                                                     onclick="return confirm('Deseja realmente excluir esse usuário?')">
                                                     🗑
