@@ -89,15 +89,15 @@ verificarAcesso(5, $_SESSION['perfil_id']);
                         <form id="form-sensor">
                             <div class="mb-3">
                                 <label for="id-sensor" class="form-label fw-bold">Nome</label>
-                                <input type="text" class="form-control" id="edit-nome" required>
+                                <input type="text" class="form-control borda-laranja" id="edit-nome" required>
                             </div>
                             <div class="mb-3">
                                 <label for="setor-sensor" class="form-label fw-bold">Responsável</label>
-                                <input type="text" class="form-control" id="edit-responsavel" required>
+                                <input type="text" class="form-control borda-laranja" id="edit-responsavel" required>
                             </div>
                             <div class="mb-3">
                                 <label class="fw-bold form-label">Tipo</label>
-                                <select class="form-select" id="edit-tipo">
+                                <select class="form-select borda-laranja" id="edit-tipo">
                                     <option>Temperatura</option>
                                     <option>Velocidade</option>
                                     <option>Energia</option>
@@ -105,7 +105,7 @@ verificarAcesso(5, $_SESSION['perfil_id']);
                             </div>
                             <div class="mb-3">
                                 <label for="nome-sensor" class="form-label fw-bold">Localização</label>
-                                <input type="text" class="form-control" id="edit-localizacao" required>
+                                <input type="text" class="form-control borda-laranja" id="edit-localizacao" required>
                             </div>
                             <button type="button" class="btn btn-secondary fw-bold"
                                 data-bs-dismiss="modal">Cancelar</button>

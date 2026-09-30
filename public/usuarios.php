@@ -4,19 +4,18 @@ include "../infra/conexao.php";
 verificarAcesso(1, $_SESSION['perfil_id']);
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $id        = (int) $_POST['id'];
-    $nome      = trim($_POST['nome']);
-    $email     = trim($_POST['email']);
+    $id = (int) $_POST['id'];
+    $nome = trim($_POST['nome']);
+    $email = trim($_POST['email']);
     $perfil_id = (int) $_POST['perfil_id'];
-    $senha     = $_POST['senha'] ?? '';
+    $senha = $_POST['senha'] ?? '';
 
-   if ($senha !== '') {
-    $stmt = $conexao->prepare(
-        "UPDATE usuario SET nome = ?, email = ?, perfil_id = ?, senha = ? WHERE id = ?"
-    );
-    $stmt->bind_param("ssisi", $nome, $email, $perfil_id, $senha, $id);
-}
-     else {
+    if ($senha !== '') {
+        $stmt = $conexao->prepare(
+            "UPDATE usuario SET nome = ?, email = ?, perfil_id = ?, senha = ? WHERE id = ?"
+        );
+        $stmt->bind_param("ssisi", $nome, $email, $perfil_id, $senha, $id);
+    } else {
         $stmt = $conexao->prepare(
             "UPDATE usuario SET nome = ?, email = ?, perfil_id = ? WHERE id = ?"
         );
@@ -29,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     exit;
 }
 
-    $resultadoUsuario = $conexao->query("
+$resultadoUsuario = $conexao->query("
     SELECT u.id, u.nome, u.email, u.perfil_id, p.nome AS perfil
     FROM usuario u
     LEFT JOIN perfil p ON u.perfil_id = p.id
@@ -53,12 +52,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <main class="main-padrao">
         <div class="container-fluid px-5">
             <h1 class="titulo-pagina fw-bold mb-5">Administração de Usuário</h1>
-                    
-        <div class="row px-5">
-            <div class="col-md-4 col-lg-3 mb-4">
-                <div class="card borda-laranja shadow-sm p-3">
-                    <div class="card-body">
-                        <form id="form-funcionarios" action="../components/create/usuario-create.php" method="POST"
+
+            <div class="row px-5">
+                <div class="col-md-4 col-lg-3 mb-4">
+                    <div class="card borda-laranja shadow-sm p-3">
+                        <div class="card-body">
+                            <form id="form-funcionarios" action="../components/create/usuario-create.php" method="POST"
                                 class="row g-3">
                                 <h2 id="titulo" class="text-center fw-bold"></h2>
 
@@ -85,11 +84,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                     <label for="setor" class="form-label fw-bold">Setor</label>
 
                                     <select name="perfil_id" class="form-control borda-laranja" id="setor" required>
-                                        <option value=1>Gestão</option>
-                                        <option value=2>Chefe - Setor</option>
-                                        <option value=3>Operacional</option>
-                                        <option value=4>Administrativo</option>
-                                        <option value=5>Funcionários</option>
+                                        <option value="1">Administrador</option>
+                                        <option value="2">Operador</option>
+                                        <option value="3">Analista</option>
+                                        <option value="4">Gestor</option>
+                                        <option value="5">Maquinista</option>
                                     </select>
                                 </div>
                                 <div class="mb-2 mt-4">
@@ -150,21 +149,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                             </td>
 
                                             <td class="buttons">
-                                               <button type="button" 
-                                                        class="editar-usuario btn btn-sm btn-outline-secondary" 
-                                                        data-bs-toggle="modal" 
-                                                        data-bs-target="#modalUsuario"
-                                                        data-id="<?= $usuario['id'] ?>"
-                                                        data-nome="<?= htmlspecialchars($usuario['nome']) ?>"
-                                                        data-email="<?= htmlspecialchars($usuario['email']) ?>"
-                                                        data-perfil="<?= $usuario['perfil_id'] ?? '' ?>">
+                                                <button type="button"
+                                                    class="editar-usuario btn btn-sm btn-outline-secondary"
+                                                    data-bs-toggle="modal" data-bs-target="#modalUsuario"
+                                                    data-id="<?= $usuario['id'] ?>"
+                                                    data-nome="<?= htmlspecialchars($usuario['nome']) ?>"
+                                                    data-email="<?= htmlspecialchars($usuario['email']) ?>"
+                                                    data-perfil="<?= $usuario['perfil_id'] ?? '' ?>">
                                                     ✏
                                                 </button>
 
-                                                <button type="button" class="btn btn-sm btn-outline-danger"
-                                                    onclick="window.location.href='../components/delete/usuario-delete.php?id=<?= $usuario['id'] ?>'">
+                                                <a href="../components/delete/usuario-delete.php?id=<?= $usuario['id'] ?>"
+                                                    class="btn btn-sm btn-outline-danger"
+                                                    onclick="return confirm('Deseja realmente excluir esse usuário?')">
                                                     🗑
-                                                </button>
+                                                </a>
                                             </td>
                                         </tr>
                                     <?php } ?>
@@ -186,7 +185,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </div>
                 <div class="modal-body">
                     <form id="form-modal-usuario" action="../public/usuarios.php" method="POST">
-                        
+
                         <input type="hidden" id="modal-id" name="id">
 
                         <div class="mb-3">
@@ -196,7 +195,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                         <div class="mb-3">
                             <label for="modal-email" class="form-label fw-bold">Email Institucional</label>
-                            <input type="email" class="form-control borda-laranja" id="modal-email" name="email" required>
+                            <input type="email" class="form-control borda-laranja" id="modal-email" name="email"
+                                required>
                         </div>
 
                         <div class="mb-3">
@@ -207,11 +207,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <div class="mb-3">
                             <label for="modal-setor" class="form-label fw-bold">Setor</label>
                             <select name="perfil_id" class="form-control borda-laranja" id="modal-setor" required>
-                                <option value="1">Gestão</option>
-                                <option value="2">Chefe - Setor</option>
-                                <option value="3">Operacional</option>
-                                <option value="4">Administrativo</option>
-                                <option value="5">Funcionários</option>
+                                <option value="1">Administrador</option>
+                                <option value="2">Operador</option>
+                                <option value="3">Analista</option>
+                                <option value="4">Gestor</option>
+                                <option value="5">Maquinista</option>
                             </select>
                         </div>
 
@@ -225,7 +225,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
     </div>
 
-            <?php include '../infra/bootstrap.html'; ?>
+    <?php include '../infra/bootstrap.html'; ?>
 
             <script>
 document.querySelectorAll('.editar-usuario').forEach(btn => {
