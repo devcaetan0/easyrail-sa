@@ -107,11 +107,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <div class="row">
                             <div class="col-md-6 mb-2 mb-md-0">
                                 <label class="fw-bold form-label">Pesquisar</label>
-                                <input class="form-control" placeholder="Nome / ID">
+                                <input  type= "text" id="pesquisa" class="form-control" placeholder="Nome / ID">
                             </div>
                             <div class="col-md-6">
                                 <label class="fw-bold form-label">Atuação</label>
-                                <select class="form-select">
+                                <select class="form-select" id="atuacao">
                                     <option>Todos</option>
                                     <option>Gestão</option>
                                     <option>Chefe - Setor</option>
@@ -131,10 +131,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                         <th>Setor</th>
                                         <th>Usuário</th>
                                         <th>Ações</th>
-                                    </tr>
                                 </thead>
 
-                                <tbody>
+                                <tbody id="tabelaUsuarios">
                                     <?php while ($usuario = $resultadoUsuario->fetch_assoc()) { ?>
 
                                         <tr>
@@ -236,6 +235,28 @@ document.querySelectorAll('.editar-usuario').forEach(btn => {
         document.getElementById('modal-email').value = btn.dataset.email;
         document.getElementById('modal-setor').value = btn.dataset.perfil;
         document.getElementById('modal-senha').value = '';
+    });
+});
+
+
+const pesquisaInput = document.getElementById('pesquisa');
+const tabela = document.getElementById('tabelaUsuarios');
+
+pesquisa.addEventListener('input', function(){
+    const texto = pesquisa.value.toLowerCase();
+
+    const linhas = tabela.querySelectorAll('tr');
+
+    linhas.forEach(linha => {
+   
+        const id = linha.children[0].textContent.toLowerCase();
+        const nome = linha.children[2].textContent.toLowerCase();
+
+        if(id.includes(texto) || nome.includes(texto)){
+            linha.style.display = '';
+        } else {
+            linha.style.display = 'none';
+        }
     });
 });
 </script>
