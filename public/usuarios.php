@@ -239,7 +239,7 @@ document.querySelectorAll('.editar-usuario').forEach(btn => {
 });
 
 
-const pesquisaInput = document.getElementById('pesquisa');
+const pesquisa = document.getElementById('pesquisa');
 const tabela = document.getElementById('tabelaUsuarios');
 
 pesquisa.addEventListener('input', function(){
