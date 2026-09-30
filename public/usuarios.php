@@ -1,32 +1,8 @@
 <?php
 session_start();
 include "../infra/conexao.php";
-verificarAcesso(1, $_SESSION['perfil_id']);
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $id = (int) $_POST['id'];
-    $nome = trim($_POST['nome']);
-    $email = trim($_POST['email']);
-    $perfil_id = (int) $_POST['perfil_id'];
-    $senha = $_POST['senha'] ?? '';
-
-    if ($senha !== '') {
-        $stmt = $conexao->prepare(
-            "UPDATE usuario SET nome = ?, email = ?, perfil_id = ?, senha = ? WHERE id = ?"
-        );
-        $stmt->bind_param("ssisi", $nome, $email, $perfil_id, $senha, $id);
-    } else {
-        $stmt = $conexao->prepare(
-            "UPDATE usuario SET nome = ?, email = ?, perfil_id = ? WHERE id = ?"
-        );
-        $stmt->bind_param("ssii", $nome, $email, $perfil_id, $id);
-    }
-
-    $stmt->execute();
-
-    header("Location: usuarios.php");
-    exit;
-}
+verificarAcesso(1);
 
 $resultadoUsuario = $conexao->query("
     SELECT u.id, u.nome, u.email, u.perfil_id, p.nome AS perfil
@@ -47,7 +23,6 @@ $resultadoUsuario = $conexao->query("
 
 <body>
     <?php include('../components/navbar.php') ?>
-
 
     <main class="main-padrao">
         <div class="container-fluid px-5">
@@ -106,7 +81,7 @@ $resultadoUsuario = $conexao->query("
                         <div class="row">
                             <div class="col-md-6 mb-2 mb-md-0">
                                 <label class="fw-bold form-label">Pesquisar</label>
-                                <input  type= "text" id="pesquisa" class="form-control" placeholder="Nome / ID">
+                                <input type="text" id="pesquisa" class="form-control" placeholder="Nome / ID">
                             </div>
                             <div class="col-md-6">
                                 <label class="fw-bold form-label">Atuação</label>
@@ -176,90 +151,11 @@ $resultadoUsuario = $conexao->query("
         </div>
     </main>
 
-    <div class="modal fade" id="modalUsuario" tabindex="-1" aria-labelledby="modalUsuarioLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title fw-bold" id="modalUsuarioLabel">Editar Usuário</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form id="form-modal-usuario" action="../public/usuarios.php" method="POST">
-
-                        <input type="hidden" id="modal-id" name="id">
-
-                        <div class="mb-3">
-                            <label for="modal-nome" class="form-label fw-bold">Nome Usuário</label>
-                            <input type="text" class="form-control borda-laranja" id="modal-nome" name="nome" required>
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="modal-email" class="form-label fw-bold">Email Institucional</label>
-                            <input type="email" class="form-control borda-laranja" id="modal-email" name="email"
-                                required>
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="modal-senha" class="form-label fw-bold">Nova Senha (opcional)</label>
-                            <input type="password" class="form-control borda-laranja" id="modal-senha" name="senha">
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="modal-setor" class="form-label fw-bold">Setor</label>
-                            <select name="perfil_id" class="form-control borda-laranja" id="modal-setor" required>
-                                <option value="1">Administrador</option>
-                                <option value="2">Operador</option>
-                                <option value="3">Analista</option>
-                                <option value="4">Gestor</option>
-                                <option value="5">Maquinista</option>
-                            </select>
-                        </div>
-
-                        <div class="modal-footer px-0 pb-0">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                            <button type="submit" class="btn btn-laranja fw-bold">Atualizar</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
+    <?php include '../components/modals/usuarios-edit.php'; ?>
 
     <?php include '../infra/bootstrap.html'; ?>
 
-            <script>
-document.querySelectorAll('.editar-usuario').forEach(btn => {
-    btn.addEventListener('click', () => {
-        document.getElementById('modal-id').value    = btn.dataset.id;
-        document.getElementById('modal-nome').value  = btn.dataset.nome;
-        document.getElementById('modal-email').value = btn.dataset.email;
-        document.getElementById('modal-setor').value = btn.dataset.perfil;
-        document.getElementById('modal-senha').value = '';
-    });
-});
-
-
-const pesquisa = document.getElementById('pesquisa');
-const tabela = document.getElementById('tabelaUsuarios');
-
-pesquisa.addEventListener('input', function(){
-    const texto = pesquisa.value.toLowerCase();
-
-    const linhas = tabela.querySelectorAll('tr');
-
-    linhas.forEach(linha => {
-   
-        const id = linha.children[0].textContent.toLowerCase();
-        const nome = linha.children[2].textContent.toLowerCase();
-
-        if(id.includes(texto) || nome.includes(texto)){
-            linha.style.display = '';
-        } else {
-            linha.style.display = 'none';
-        }
-    });
-});
-</script>
+    <script src="../scripts/usuarios.js"></script>
 
 </body>
 

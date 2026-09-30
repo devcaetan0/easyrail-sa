@@ -7,16 +7,16 @@ INSERT INTO perfil (nome) VALUES
 
 INSERT INTO usuario (nome, email, senha, perfil_id) VALUES 
 ('admin', 'admin@easyrail.com.br', '123', 1),
-('Carlos Almeida', 'carlos.almeida@easyrail.com.br', 'senha123', 1),
-('Mariana Costa', 'mariana.costa@easyrail.com.br', 'senha123', 2),
-('Roberto Silva', 'roberto.silva@easyrail.com.br', 'senha123', 2),
-('Fernanda Lima', 'fernanda.lima@easyrail.com.br', 'senha123', 3),
-('João Pereira', 'joao.pereira@easyrail.com.br', 'senha123', 4),
-('Ana Souza', 'ana.souza@easyrail.com.br', 'senha123', 5),
-('Paulo Mendes', 'paulo.mendes@easyrail.com.br', 'senha123', 5),
-('Luciana Alves', 'luciana.alves@easyrail.com.br', 'senha123', 3),
-('Thiago Ribeiro', 'thiago.ribeiro@easyrail.com.br', 'senha123', 2),
-('Camila Rocha', 'camila.rocha@easyrail.com.br', 'senha123', 4);
+('carlos.almeida', 'carlos.almeida@easyrail.com.br', '123', 1),
+('mariana.costa', 'mariana.costa@easyrail.com.br', '123', 2),
+('roberto.silva', 'roberto.silva@easyrail.com.br', '123', 2),
+('fernanda.lima', 'fernanda.lima@easyrail.com.br', '123', 3),
+('joao.pereira', 'joao.pereira@easyrail.com.br', '123', 4),
+('ana.souza', 'ana.souza@easyrail.com.br', '123', 5),
+('paulo.mendes', 'paulo.mendes@easyrail.com.br', '123', 5),
+('luciana.alves', 'luciana.alves@easyrail.com.br', '123', 3),
+('thiago.ribeiro', 'thiago.ribeiro@easyrail.com.br', '123', 2),
+('camila.rocha', 'camila.rocha@easyrail.com.br', '123', 4);
 
 INSERT INTO trem (modelo) VALUES 
 ('Locomotiva GE AC44i - Alpha'),

@@ -1,7 +1,7 @@
 <?php
 session_start();
 include "../infra/conexao.php";
-verificarAcesso(5, $_SESSION['perfil_id']);
+$perfilAtual = $_SESSION['perfil_id'];
 ?>
 
 <html lang="en">
@@ -50,6 +50,15 @@ verificarAcesso(5, $_SESSION['perfil_id']);
                     <a href="relatorios.php" class="btn btn-laranja mt-auto">Visualizar</a>
                 </div>
             </div>
+            <?php if ($perfilAtual == 1): ?>
+                <div class="col-2">
+                    <div class="card-padrao shadow-sm borda-laranja  text-center p-4 d-flex flex-column">
+                        <h3>👥</h3>
+                        <h4>Equipe</h4>
+                        <a href="usuarios.php" class="btn btn-laranja mt-auto">Administrar</a>
+                    </div>
+                </div>
+            <?php endif; ?>
         </div>
         <div class="row justify-content-center mt-4">
             <div class="col-auto">

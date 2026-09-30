@@ -1,37 +1,54 @@
 <?php
 session_start();
+
+$usuarioLogado = isset($_SESSION['logado']) && $_SESSION['logado'] === true && isset($_SESSION['perfil_id']);
+
+if (isset($_GET['logout'])) {
+    session_unset();
+    session_destroy();
+    header('Location: index.php');
+    exit;
+}
+
+if ($usuarioLogado) {
+    header('Location: public/home.php');
+    exit;
+}
+
+if (isset($_SESSION['logado']) || isset($_SESSION['perfil_id'])) {
+    session_unset();
+    session_destroy();
+}
+
 include "infra/conexao.php";
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $nome = $_POST['nome'];
+    $senha = $_POST['senha'];
 
-    $nome = $_POST['nome'] ?? '';
-    $senha = $_POST['senha'] ?? '';
-    
     if (!empty($senha) && !empty($nome)) {
-        $stmt = $conexao->prepare("SELECT id, nome, senha, perfil_id FROM usuario WHERE nome = ? AND senha = ?");
-        $stmt->bind_param("ss", $nome, $senha);
+        $stmt = $conexao->prepare("SELECT id, nome, email, senha, perfil_id FROM usuario WHERE (nome = ? OR email = ?) AND senha = ?");
+        $stmt->bind_param("sss", $nome, $nome, $senha);
         $stmt->execute();
 
         $resultado = $stmt->get_result();
 
-        if ($usuarios = $resultado->fetch_assoc()) {      
+        if ($usuarios = $resultado->fetch_assoc()) {
             session_regenerate_id(true);
 
             $_SESSION['id'] = $usuarios['id'];
             $_SESSION['nome'] = $usuarios['nome'];
+            $_SESSION['email'] = $usuarios['email'];
             $_SESSION['perfil_id'] = $usuarios['perfil_id'];
             $_SESSION['logado'] = true;
 
-            if  ($usuarios['perfil_id'] < 2) {
-                header('Location: public/home-admin.php');
-            } else {
-                header('Location: public/home-usuario.php');
-            }
-
+            header('Location: public/home.php');
             exit;
         } else {
-            $erro = "Nome ou E-mail incorretos!";
+            $erro = "Nome ou senha incorretos!";
         }
+    } else {
+        $erro = "Preencha o usuário e a senha.";
     }
 }
 ?>
@@ -53,12 +70,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <img src="assets/images/logo.png" class="logo-login d-flex justify-content-center" alt="EasyRail icon">
         <div style="transform: scale(0.75);" class="p-5 m-5">
             <div class="card-body p-5 m-5">
-                <h2 style="font-size: 50px;">EASYRAIL</h2> 
+                <h2 style="font-size: 50px;">EASYRAIL</h2>
 
                 <form id="form-login" action="" method="POST">
 
                     <div class="mt-3 mb-3">
-                        <label for="nome">Nome de Usuário:</label>
+                        <label for="nome">Usuário/E-mail:</label>
                         <input class="form-control " type="text" name="nome" id="nome" required>
                     </div>
 
@@ -73,10 +90,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     </div>
 
                     <?php if (!empty($erro)): ?>
-                    <p> <?php echo $erro; ?></p>
+                        <p> <?php echo $erro; ?></p>
                     <?php endif; ?>
 
-                    <button class="btn w-100" id="btn-envio" type="submit">Entrar</button> 
+                    <button class="btn w-100" id="btn-envio" type="submit">Entrar</button>
                 </form>
             </div>
         </div>
