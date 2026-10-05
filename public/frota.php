@@ -1,6 +1,8 @@
 <?php
 session_start();
 include "../infra/conexao.php";
+verificarAcesso(5);
+$perfilAtual = $_SESSION['perfil_id'];
 ?>
 
 <html lang="pt-BR">
@@ -19,14 +21,17 @@ include "../infra/conexao.php";
     <main class="main-padrao">
         <div class="container-fluid w-75">
 
-            <h1 class="titulo-pagina fw-bold">Gerenciamento de Frota</h1>
+            <h1 class="titulo-pagina fw-bold mb-4">Gerenciamento de Frota</h1>
 
-            <div class="d-flex justify-content-end mb-2">
-                <button type="button" class="btn btn-laranja fw-bold p-2 mb-3" data-bs-toggle="modal"
-                    data-bs-target="#modalCadastroTrem">
-                    + Adicionar Locomotiva
-                </button>
-            </div>
+            <?php if ($perfilAtual == 1) { ?>
+                <div class="d-flex justify-content-end mb-2">
+                    <button type="button" class="btn btn-laranja fw-bold p-2 mb-3" data-bs-toggle="modal"
+                        data-bs-target="#modalCadastroTrem">
+                        + Adicionar Locomotiva
+                    </button>
+                </div>
+            <?php } ?>
+
 
             <div class="card p-3 mb-4 shadow-sm">
                 <div class="row">
@@ -55,7 +60,9 @@ include "../infra/conexao.php";
                                 <th>ID</th>
                                 <th>Modelo</th>
                                 <th>Carga</th>
-                                <th>Ações</th>
+                                <?php if ($perfilAtual == 1) { ?>
+                                    <th>Ações</th>
+                                <?php } ?>
                             </tr>
                         </thead>
                         <tbody>
@@ -63,11 +70,14 @@ include "../infra/conexao.php";
                                 <td id="1">#00001</td>
                                 <td id="1" class="nome-tr">CIVIC 2001</td>
                                 <td id="1" class="tipo-tr">Combustível</td>
-                                <td>
-                                    <button class="editar btn btn-sm btn-outline-secondary" data-bs-toggle="modal"
-                                        data-bs-target="#modalCadastro" id="1">✏</button>
-                                    <button class="excluir btn btn-sm btn-outline-danger" id="1">🗑</button>
-                                </td>
+
+                                <?php if ($perfilAtual == 1) { ?>
+                                    <td>
+                                        <button class="editar btn btn-sm btn-outline-secondary" data-bs-toggle="modal"
+                                            data-bs-target="#modalCadastro" id="1">✏</button>
+                                        <button class="excluir btn btn-sm btn-outline-danger" id="1">🗑</button>
+                                    </td>
+                                <?php } ?>
                             </tr>
                         </tbody>
                     </table>
