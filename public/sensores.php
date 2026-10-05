@@ -31,6 +31,7 @@ verificarAcesso(5);
                 data-bs-target="#modalCadastroSensor">
                 + Adicionar Sensor
             </button>
+         </div>
 
     <?php } ?>
             
