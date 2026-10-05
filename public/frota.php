@@ -21,7 +21,7 @@ $perfilAtual = $_SESSION['perfil_id'];
     <main class="main-padrao">
         <div class="container-fluid w-75">
 
-            <h1 class="titulo-pagina fw-bold mb-4">Gerenciamento de Frota</h1>
+            <h1 class="titulo-pagina fw-bold mb-5">Gerenciamento de Frota</h1>
 
             <?php if ($perfilAtual == 1) { ?>
                 <div class="d-flex justify-content-end mb-2">

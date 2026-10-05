@@ -22,7 +22,7 @@ verificarAcesso(5);
 
     <main class="main-padrao">
         <div class="container-fluid w-75">
-            <h1 class="titulo-pagina fw-bold mb-4">Monitoramento IoT</h1>
+            <h1 class="titulo-pagina fw-bold mb-5">Monitoramento IoT</h1>
 
 
     <?php if ($perfilAtual == 1) { ?>
