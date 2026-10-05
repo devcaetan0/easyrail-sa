@@ -30,50 +30,7 @@ $resultadoUsuario = $conexao->query("
 
             <div class="row px-5">
                 <div class="col-md-4 col-lg-3 mb-4">
-                    <div class="card borda-laranja shadow-sm p-3">
-                        <div class="card-body">
-                            <form id="form-funcionarios" action="../components/create/usuario-create.php" method="POST"
-                                class="row g-3">
-                                <h2 id="titulo" class="text-center fw-bold"></h2>
-
-                                <div class="mb-2">
-                                    <label for="nome" class="form-label fw-bold">Nome Usuário</label>
-                                    <input type="text" class="form-control borda-laranja" id="nome" name="nome"
-                                        required>
-                                </div>
-
-                                <div class="mb-2">
-                                    <label for="email" class="form-label fw-bold">Email Institucional</label>
-                                    <input type="email" class="form-control borda-laranja" id="email" name="email"
-                                        required>
-                                </div>
-
-                                <div class="mb-2">
-                                    <label for="senha" class="form-label fw-bold">Senha</label>
-                                    <input type="password" class="form-control borda-laranja" id="senha" name="senha"
-                                        required>
-                                </div>
-
-                                <div class="mb-2">
-
-                                    <label for="setor" class="form-label fw-bold">Setor</label>
-
-                                    <select name="perfil_id" class="form-control borda-laranja" id="setor" required>
-                                        <option value="1">Administrador</option>
-                                        <option value="2">Operador</option>
-                                        <option value="3">Analista</option>
-                                        <option value="4">Gestor</option>
-                                        <option value="5">Maquinista</option>
-                                    </select>
-                                </div>
-                                <div class="mb-2 mt-4">
-                                    <button type="submit" class="btn btn-laranja w-100 py-2 fw-bold">Cadastrar</button>
-                                </div>
-                            </form>
-                            <div id="mensagem" class="text-center mt-3"></div>
-                            <div class="toggle text-center mt-2" id="toggle"></div>
-                        </div>
-                    </div>
+                    <?php include('../components/usuarios-form.php') ?>
                 </div>
 
                 <div class="col-md-8 col-lg-9">
@@ -112,24 +69,23 @@ $resultadoUsuario = $conexao->query("
 
                                         <tr>
                                             <td>
-                                                #<?= str_pad($usuario['id'], 5, '0', STR_PAD_LEFT) ?>
+                                                #<?= $usuario['id'] ?>
                                             </td>
 
                                             <td class="setor-tr">
-                                                <?= htmlspecialchars($usuario['perfil']) ?>
+                                                <?= $usuario['perfil'] ?>
                                             </td>
 
                                             <td class="nome-tr">
-                                                <?= htmlspecialchars($usuario['nome']) ?>
+                                                <?= $usuario['nome'] ?>
                                             </td>
 
                                             <td class="buttons">
                                                 <button type="button"
                                                     class="editar-usuario btn btn-sm btn-outline-secondary"
                                                     data-bs-toggle="modal" data-bs-target="#modalUsuario"
-                                                    data-id="<?= $usuario['id'] ?>"
-                                                    data-nome="<?= htmlspecialchars($usuario['nome']) ?>"
-                                                    data-email="<?= htmlspecialchars($usuario['email']) ?>"
+                                                    data-id="<?= $usuario['id'] ?>" data-nome="<?= $usuario['nome'] ?>"
+                                                    data-email="<?= $usuario['email'] ?>"
                                                     data-perfil="<?= $usuario['perfil_id'] ?? '' ?>">
                                                     ✏
                                                 </button>

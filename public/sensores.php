@@ -24,7 +24,7 @@ verificarAcesso(5);
 
             <div class="d-flex justify-content-end mb-2">
                 <button type="button" class="btn btn-laranja fw-bold p-2 mb-3" data-bs-toggle="modal"
-                    data-bs-target="#modalCadastro">
+                    data-bs-target="#modalCadastroSensor">
                     + Adicionar Sensor
                 </button>
             </div>
@@ -67,7 +67,7 @@ verificarAcesso(5);
                                 <td id="1" class="localizacao-tr">Praia do Ervino</td>
                                 <td>
                                     <button class="editar btn btn-sm btn-outline-secondary" data-bs-toggle="modal"
-                                        data-bs-target="#modalCadastro" id="1">✏</button>
+                                        data-bs-target="#modalCadastroSensor" id="1">✏</button>
                                     <button class="excluir btn btn-sm btn-outline-danger" id="1">🗑</button>
                                 </td>
                             </tr>
@@ -77,46 +77,7 @@ verificarAcesso(5);
             </div>
         </div>
 
-        <div class="modal fade" id="modalCadastro" tabindex="-1" aria-labelledby="modalCadastroLabel"
-            aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content text-start">
-                    <div class="modal-header">
-                        <h5 class="modal-title fw-bold" id="modalCadastroLabel">Cadastrar Novo Sensor</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <form id="form-sensor">
-                            <div class="mb-3">
-                                <label for="id-sensor" class="form-label fw-bold">Nome</label>
-                                <input type="text" class="form-control borda-laranja" id="edit-nome" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="setor-sensor" class="form-label fw-bold">Responsável</label>
-                                <input type="text" class="form-control borda-laranja" id="edit-responsavel" required>
-                            </div>
-                            <div class="mb-3">
-                                <label class="fw-bold form-label">Tipo</label>
-                                <select class="form-select borda-laranja" id="edit-tipo">
-                                    <option>Temperatura</option>
-                                    <option>Velocidade</option>
-                                    <option>Energia</option>
-                                </select>
-                            </div>
-                            <div class="mb-3">
-                                <label for="nome-sensor" class="form-label fw-bold">Localização</label>
-                                <input type="text" class="form-control borda-laranja" id="edit-localizacao" required>
-                            </div>
-                            <button type="button" class="btn btn-secondary fw-bold"
-                                data-bs-dismiss="modal">Cancelar</button>
-                            <button type="submit" class="btn btn-laranja" id="btn-salvar">Salvar Sensor</button>
-                        </form>
-                    </div>
-                    <div class="modal-footer justify-content-between">
-                    </div>
-                </div>
-            </div>
-        </div>
+        <?php include('../components/modals/sensores-add.php') ?>
 
     </main>
 

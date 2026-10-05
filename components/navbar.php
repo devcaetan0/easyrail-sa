@@ -18,11 +18,11 @@
                 <li class="nav-item">
                     <a class="nav-link" href="relatorios.php">Relatórios</a>
                 </li>
-                <?php if (isset($_SESSION['perfil_id']) && $_SESSION['perfil_id'] == 1): ?>
+                <?php if (isset($_SESSION['perfil_id']) && $_SESSION['perfil_id'] == 1) { ?>
                     <li class="nav-item">
                         <a class="nav-link" href="usuarios.php">Usuários</a>
                     </li>
-                <?php endif; ?>
+                <?php } ?>
             </ul>
         </div>
         <a class="navbar-brand" href="../index.php?logout=1">Sair</a>

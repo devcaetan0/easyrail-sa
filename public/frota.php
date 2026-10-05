@@ -1,7 +1,6 @@
 <?php
 session_start();
 include "../infra/conexao.php";
-verificarAcesso(5);
 ?>
 
 <html lang="pt-BR">
@@ -24,7 +23,7 @@ verificarAcesso(5);
 
             <div class="d-flex justify-content-end mb-2">
                 <button type="button" class="btn btn-laranja fw-bold p-2 mb-3" data-bs-toggle="modal"
-                    data-bs-target="#modalCadastro">
+                    data-bs-target="#modalCadastroTrem">
                     + Adicionar Locomotiva
                 </button>
             </div>
@@ -76,46 +75,7 @@ verificarAcesso(5);
             </div>
         </div>
 
-        <div class="modal fade" id="modalCadastro" tabindex="-1" aria-labelledby="modalCadastroLabel"
-            aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content text-start">
-                    <div class="modal-header">
-                        <h5 class="modal-title fw-bold" id="modalCadastroLabel">Cadastrar Locomotiva</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <form id="form-sensor">
-                            <div class="mb-3">
-                                <label for="id-sensor" class="form-label fw-bold">Modelo</label>
-                                <input type="text" class="form-control" id="edit-nome" required>
-                            </div>
-                            <div class="mb-3">
-                                <label class="fw-bold form-label">Tipo de Carga</label>
-                                <select class="form-select" id="edit-tipo">
-                                    <option>Mineral</option>
-                                    <option>Combustível</option>
-                                    <option>Agrícola</option>
-                                    <option>Granel</option>
-                                </select>
-                            </div>
-                            <div class="mb-3 d-flex">
-                                <label for="nome-sensor" class="form-label fw-bold">Partida</label>
-                                <input type="text" class="form-control" id="edit-localizacao" required>
-
-                                <label for="nome-sensor" class="form-label fw-bold">Destino</label>
-                                <input type="text" class="form-control" id="edit-destino" required>
-                            </div>
-                            <button type="button" class="btn btn-secondary fw-bold"
-                                data-bs-dismiss="modal">Cancelar</button>
-                            <button type="submit" class="btn btn-laranja" id="btn-salvar">Salvar Trem</button>
-                        </form>
-                    </div>
-                    <div class="modal-footer justify-content-between">
-                    </div>
-                </div>
-            </div>
-        </div>
+        <?php include('../components/modals/frota-add.php') ?>
 
     </main>
 
