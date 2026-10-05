@@ -1,7 +1,10 @@
 <?php
 session_start();
 include "../infra/conexao.php";
+
+$perfilAtual = $_SESSION['perfil_id'];
 verificarAcesso(5);
+
 ?>
 
 <html lang="pt-BR">
@@ -19,15 +22,18 @@ verificarAcesso(5);
 
     <main class="main-padrao">
         <div class="container-fluid w-75">
-            <h1 class="titulo-pagina fw-bold">Monitoramento IoT</h1>
+            <h1 class="titulo-pagina fw-bold mb-4">Monitoramento IoT</h1>
 
 
-            <div class="d-flex justify-content-end mb-2">
-                <button type="button" class="btn btn-laranja fw-bold p-2 mb-3" data-bs-toggle="modal"
-                    data-bs-target="#modalCadastroSensor">
-                    + Adicionar Sensor
-                </button>
-            </div>
+    <?php if ($perfilAtual == 1) { ?>
+        <div class="d-flex justify-content-end mb-2">
+            <button type="button" class="btn btn-laranja fw-bold p-2 mb-3" data-bs-toggle="modal"
+                data-bs-target="#modalCadastroSensor">
+                + Adicionar Sensor
+            </button>
+
+    <?php } ?>
+            
 
             <div class="card p-3 mb-4 shadow-sm">
                 <div class="row">
@@ -56,7 +62,10 @@ verificarAcesso(5);
                                 <th>Nome</th>
                                 <th>Tipo</th>
                                 <th>Localização</th>
-                                <th>Ações</th>
+
+                                <?php if ($perfilAtual == 1) { ?>
+                                    <th>Ações</th>
+                                <?php } ?>
                             </tr>
                         </thead>
                         <tbody>
@@ -66,10 +75,12 @@ verificarAcesso(5);
                                 <td id="1" class="tipo-tr">Temperatura</td>
                                 <td id="1" class="localizacao-tr">Praia do Ervino</td>
                                 <td>
-                                    <button class="editar btn btn-sm btn-outline-secondary" data-bs-toggle="modal"
-                                        data-bs-target="#modalCadastroSensor" id="1">✏</button>
-                                    <button class="excluir btn btn-sm btn-outline-danger" id="1">🗑</button>
-                                </td>
+                                    <?php if ($perfilAtual == 1) { ?>
+                                        <button class="editar btn btn-sm btn-outline-secondary" data-bs-toggle="modal"
+                                            data-bs-target="#modalCadastroSensor" id="1">✏</button>
+                                        <button class="excluir btn btn-sm btn-outline-danger" id="1">🗑</button>
+                                    </td>
+                                <?php } ?>
                             </tr>
                         </tbody>
                     </table>
