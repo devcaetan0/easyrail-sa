@@ -1,6 +1,8 @@
 <?php
 session_start();
 include "../infra/conexao.php";
+$perfilAtual = $_SESSION['perfil_id'];
+
 verificarAcesso(5);
 ?>
 
@@ -50,7 +52,9 @@ verificarAcesso(5);
                                 <th>ID do trem</th>
                                 <th>Falha</th>
                                 <th>Risco</th>
-                                <th>Ações</th>
+                                <?php if ($perfilAtual == 1) { ?>
+                                    <th>Ações</th>
+                                <?php } ?>
                             </tr>
                         </thead>
                         <tbody>
@@ -60,9 +64,12 @@ verificarAcesso(5);
                                 <td id="1" class="responsavel-tr">Elétrica</td>
                                 <td id="1" class="tipo-tr">Alto</td>
                                 <td>
-                                    <button class="editar btn btn-sm btn-outline-secondary" data-bs-toggle="modal"
-                                        data-bs-target="#modalCadastro" id="1">👀</button>
-                                    <button class="excluir btn btn-sm btn-outline-danger" id="1">⬇️</button>
+                                    <?php if ($perfilAtual == 1) { ?>
+                                        <button class="editar btn btn-sm btn-outline-secondary" data-bs-toggle="modal"
+                                            data-bs-target="#modalCadastroSensor" id="1">👀</button>
+                                        <button class="excluir btn btn-sm btn-outline-danger" id="1">⬇️</button>
+                                    </td>
+                                <?php } ?>
                                 </td>
                             </tr>
                         </tbody>
