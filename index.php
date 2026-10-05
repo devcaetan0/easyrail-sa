@@ -27,14 +27,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $senha = $_POST['senha'];
 
     if (!empty($senha) && !empty($nome)) {
-        $stmt = $conexao->prepare("SELECT id, nome, email, senha, perfil_id FROM usuario WHERE (nome = ? OR email = ?) AND senha = ?");
-        $stmt->bind_param("sss", $nome, $nome, $senha);
+        $stmt = $conexao->prepare("SELECT id, nome, email, senha, perfil_id FROM usuario WHERE (nome = ? OR email = ?) ");
+        $stmt->bind_param("ss", $nome, $nome);
         $stmt->execute();
-
-        $resultado = $stmt->get_result();
-
-        if ($usuarios = $resultado->fetch_assoc()) {
+    
+    
+    $resultado = $stmt->get_result();
+    
+    if ($usuarios = $resultado->fetch_assoc()) {
+        
+        if (password_verify($senha, $usuarios['senha'])) {
             session_regenerate_id(true);
+
 
             $_SESSION['id'] = $usuarios['id'];
             $_SESSION['nome'] = $usuarios['nome'];
@@ -44,6 +48,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             header('Location: public/home.php');
             exit;
+
+        } else {
+            $erro = "Nome ou senha incorretos!";
+        }
         } else {
             $erro = "Nome ou senha incorretos!";
         }
@@ -51,6 +59,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $erro = "Preencha o usuário e a senha.";
     }
 }
+
 ?>
 
 <html lang="en">
