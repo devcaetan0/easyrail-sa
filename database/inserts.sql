@@ -20,7 +20,7 @@ INSERT INTO usuario (nome, email, senha, perfil_id) VALUES
 ('thiago.ribeiro', 'thiago.ribeiro@easyrail.com.br', '$2y$10$Si2/M8kMHvJLIYqQPh656OChuwlAbPAXHcnH.53ztKeXNqbWu4iBW', 2),
 ('camila.rocha', 'camila.rocha@easyrail.com.br', '$2y$10$Si2/M8kMHvJLIYqQPh656OChuwlAbPAXHcnH.53ztKeXNqbWu4iBW', 4);
 
-INSERT INTO trem (modelo, carga, id_usuario) VALUES
+INSERT INTO trem (modelo, carga, usuario_id) VALUES
 ('Locomotiva EMD SD70ACe', 'Minério de ferro', 1),
 ('Locomotiva GE AC44i', 'Soja e milho', 2),
 ('Locomotiva Wabtec ES44AC', 'Celulose', 3),
