@@ -101,7 +101,7 @@ $resultadoTrem = $conexao->query("
                                                     ✏
                                                 </button>
 
-                                                <a href="../components/delete/usuario-delete.php?id=<?= $trem['id'] ?>"
+                                                <a href="../components/delete/frota-delete.php?id=<?= $trem['id'] ?>"
                                                     class="btn btn-sm btn-outline-danger"
                                                     onclick="return confirm('Deseja realmente excluir esse usuário?')">
                                                     🗑
