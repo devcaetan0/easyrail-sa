@@ -92,7 +92,11 @@ $resultadoRota = $conexao->query("
                                         <td>
                                             <button class="editar btn btn-sm btn-outline-secondary" data-bs-toggle="modal"
                                                 data-bs-target="#modalCadastro" id="1">✏</button>
-                                            <button class="excluir btn btn-sm btn-outline-danger" id="1">🗑</button>
+                                            <a href="../components/delete/rotas-delete.php?id=<?= $rota['id'] ?>"
+                                                    class="btn btn-sm btn-outline-danger"
+                                                    onclick="return confirm('Deseja realmente excluir esse usuário?')">
+                                                    🗑
+                                                </a>
                                         </td>
                                     <?php } ?>
                                 </tr>
