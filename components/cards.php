@@ -1,34 +1,34 @@
 <div class=" row g-3 justify-content-center">
     <div class="col-1" style="width: 16rem">
-        <div class=" shadow-sm borda-laranja rounded text-center p-3 d-flex flex-column">
+        <div class=" shadow-sm borda-laranja  text-center p-3 d-flex flex-column">
             <h3>📊</h3>
             <h4>Dashboard</h4>
             <a href="#" class="btn btn-laranja mt-auto">Acessar</a>
         </div>
     </div>
     <div class="col-1" style="width: 16rem">
-        <div class=" shadow-sm borda-laranja rounded text-center p-3 d-flex flex-column">
+        <div class=" shadow-sm borda-laranja  text-center p-3 d-flex flex-column">
             <h3>🚂</h3>
             <h4>Frota</h4>
             <a href="frota.php" class="btn btn-laranja mt-auto">Gerenciar</a>
         </div>
     </div>
     <div class="col-1" style="width: 16rem">
-        <div class="small shadow-sm borda-laranja rounded text-center p-3 d-flex flex-column">
+        <div class="small shadow-sm borda-laranja  text-center p-3 d-flex flex-column">
             <h3>🗺️</h3>
             <h4>Rotas</h4>
             <a href="rotas.php" class="btn btn-laranja mt-auto">Mapear</a>
         </div>
     </div>
     <div class="col-1" style="width: 16rem">
-        <div class=" shadow-sm borda-laranja rounded text-center p-3 d-flex flex-column">
+        <div class=" shadow-sm borda-laranja  text-center p-3 d-flex flex-column">
             <h3>📡</h3>
             <h4>Sensores</h4>
             <a href="sensores.php" class="btn btn-laranja mt-auto">Monitorar</a>
         </div>
     </div>
     <div class="col-1" style="width: 16rem">
-        <div class=" shadow-sm borda-laranja rounded text-center p-3 d-flex flex-column">
+        <div class=" shadow-sm borda-laranja  text-center p-3 d-flex flex-column">
             <h3>📋</h3>
             <h4>Relatórios</h4>
             <a href="relatorios.php" class="btn btn-laranja mt-auto">Visualizar</a>
