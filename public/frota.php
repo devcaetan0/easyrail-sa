@@ -67,18 +67,41 @@ $perfilAtual = $_SESSION['perfil_id'];
                                 <?php } ?>
                             </tr>
                         </thead>
-                        <tbody>
-                           
+                                <tbody id="tabelaUsuarios">
+                                    <?php while ($usuario = $resultadoUsuario->fetch_assoc()) { ?>
 
-                                <?php if ($perfilAtual == 1) { ?>
-                                    <td>
-                                        <button class="editar btn btn-sm btn-outline-secondary" data-bs-toggle="modal"
-                                            data-bs-target="#modalCadastro" id="1">✏</button>
-                                        <button class="excluir btn btn-sm btn-outline-danger" id="1">🗑</button>
-                                    </td>
-                                <?php } ?>
-                            </tr>
-                        </tbody>
+                                        <tr>
+                                            <td>
+                                                #<?= $usuario['id'] ?>
+                                            </td>
+
+                                            <td class="setor-tr">
+                                                <?= $usuario['perfil'] ?>
+                                            </td>
+
+                                            <td class="nome-tr">
+                                                <?= $usuario['nome'] ?>
+                                            </td>
+
+                                            <td class="buttons">
+                                                <button type="button"
+                                                    class="editar-usuario btn btn-sm btn-outline-secondary"
+                                                    data-bs-toggle="modal" data-bs-target="#modalUsuario"
+                                                    data-id="<?= $usuario['id'] ?>" data-nome="<?= $usuario['nome'] ?>"
+                                                    data-email="<?= $usuario['email'] ?>"
+                                                    data-perfil="<?= $usuario['perfil_id'] ?? '' ?>">
+                                                    ✏
+                                                </button>
+
+                                                <a href="../components/delete/usuario-delete.php?id=<?= $usuario['id'] ?>"
+                                                    class="btn btn-sm btn-outline-danger"
+                                                    onclick="return confirm('Deseja realmente excluir esse usuário?')">
+                                                    🗑
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    <?php } ?>
+                                </tbody>
                     </table>
                 </div>
             </div>
