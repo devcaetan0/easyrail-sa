@@ -6,7 +6,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form id="form-modal-usuario" action="../update/usuarios-update.php" method="POST">
+                <form id="form-modal-usuario" action="../components/update/usuarios-update.php" method="POST">
 
                     <input type="hidden" id="modal-id" name="id">
 
