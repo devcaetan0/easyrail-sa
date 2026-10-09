@@ -60,16 +60,15 @@ $perfilAtual = $_SESSION['perfil_id'];
                                 <th>ID</th>
                                 <th>Modelo</th>
                                 <th>Carga</th>
+                                <th>Usuário Responsável</th>
                                 <?php if ($perfilAtual == 1) { ?>
                                     <th>Ações</th>
+                              
                                 <?php } ?>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr id="1">
-                                <td id="1">#00001</td>
-                                <td id="1" class="nome-tr">CIVIC 2001</td>
-                                <td id="1" class="tipo-tr">Combustível</td>
+                           
 
                                 <?php if ($perfilAtual == 1) { ?>
                                     <td>

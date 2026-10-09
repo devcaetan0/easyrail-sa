@@ -1,3 +1,12 @@
+<?php
+
+
+$sql = "SELECT id, nome FROM usuario ORDER BY nome ASC";
+$resultado = mysqli_query($conexao, $sql);
+
+?>
+
+
 <div class="modal fade" id="modalCadastroTrem" tabindex="-1" aria-labelledby="modalCadastroTremLabel"
     aria-hidden="true">
     <div class="modal-dialog">
@@ -21,16 +30,23 @@
                             <option>Granel</option>
                         </select>
                     </div>
-                    <div class="row mb-3">
-                        <div class="col-md-6">
-                            <label for="edit-localizacao" class="form-label fw-bold">Partida</label>
-                            <input type="text" class="form-control" id="edit-localizacao" required>
-                        </div>
-                        <div class="col-md-6">
-                            <label for="edit-destino" class="form-label fw-bold">Destino</label>
-                            <input type="text" class="form-control" id="edit-destino" required>
-                        </div>
+
+                    <div class="mb-3">
+                    <label class="fw-bold form-label">Usuário Responsável</label>
+                    <select class="form-select mb-3" id="id_usuario" name="id_usuario" required>
+
+                        <option value="">Selecione um usuário: </option>
+
+                        <?php while ($usuario = mysqli_fetch_assoc($resultado)) { ?>
+                            <option value="<?= $usuario['id'] ?>">
+                                <?= htmlspecialchars($usuario['nome']) ?>
+                            </option>
+                        <?php } ?>
+
+                    </select>
                     </div>
+
+                    
                     <div class="d-flex gap-2">
                         <button type="button" class="btn btn-secondary fw-bold"
                             data-bs-dismiss="modal">Cancelar</button>
