@@ -6,8 +6,8 @@ CREATE TABLE trem (
     id INT AUTO_INCREMENT PRIMARY KEY,
     modelo VARCHAR(100) NOT NULL,
     carga VARCHAR(100) NOT NULL,
-    id_usuario INT,
-    FOREIGN KEY (id_usuario) REFERENCES usuario(id)
+    usuario_id INT,
+    FOREIGN KEY (usuario_id) REFERENCES usuario(id)
 );
 
 
