@@ -15,6 +15,13 @@
     </div>
     <div class="col-2">
         <div class="card-padrao shadow-sm borda-laranja rounded text-center p-4 d-flex flex-column">
+            <h3>🗺️</h3>
+            <h4>Rotas</h4>
+            <a href="rotas.php" class="btn btn-laranja mt-auto">Mapear</a>
+        </div>
+    </div>
+    <div class="col-2">
+        <div class="card-padrao shadow-sm borda-laranja rounded text-center p-4 d-flex flex-column">
             <h3>📡</h3>
             <h4>Sensores</h4>
             <a href="sensores.php" class="btn btn-laranja mt-auto">Monitorar</a>
