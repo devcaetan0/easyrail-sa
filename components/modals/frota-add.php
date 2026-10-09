@@ -16,14 +16,15 @@ $resultado = mysqli_query($conexao, $sql);
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form id="form-sensor">
+                <form id="form-trem" action="../../components/create/frota-create.php" method="POST">
+
                     <div class="mb-3">
-                        <label for="edit-nome" class="form-label fw-bold">Modelo</label>
-                        <input type="text" class="form-control" id="edit-nome" required>
+                        <label for="modelo" class="form-label fw-bold">Modelo</label>
+                        <input type="text" class="form-control" id="modelo" name="modelo" required>
                     </div>
                     <div class="mb-3">
-                        <label for="edit-tipo" class="fw-bold form-label">Tipo de Carga</label>
-                        <select class="form-select" id="edit-tipo">
+                        <label for="tipoCarga" class="fw-bold form-label">Tipo de Carga</label>
+                        <select class="form-select" id="tipoCarga" name="carga" required>
                             <option>Mineral</option>
                             <option>Combustível</option>
                             <option>Agrícola</option>
@@ -32,18 +33,18 @@ $resultado = mysqli_query($conexao, $sql);
                     </div>
 
                     <div class="mb-3">
-                    <label class="fw-bold form-label">Usuário Responsável</label>
-                    <select class="form-select mb-3" id="usuario_id" name="usuario_id" required>
+                        <label class="fw-bold form-label">Usuário Responsável</label>
+                        <select class="form-select mb-3" id="usuario_id" name="usuario_id" required>
 
-                        <option value="">Selecione um usuário: </option>
+                            <option value="">Selecione um usuário: </option>
 
-                        <?php while ($usuario = mysqli_fetch_assoc($resultado)) { ?>
-                            <option value="<?= $usuario['id'] ?>">
-                                <?= htmlspecialchars($usuario['nome']) ?>
-                            </option>
-                        <?php } ?>
+                            <?php while ($usuario = mysqli_fetch_assoc($resultado)) { ?>
+                                <option value="<?= $usuario['id'] ?>">
+                                    <?= $usuario['nome'] ?>
+                                </option>
+                            <?php } ?>
 
-                    </select>
+                        </select>
                     </div>
 
 

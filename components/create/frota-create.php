@@ -7,7 +7,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $carga = $_POST['carga'];
     $usuario_id = $_POST['usuario_id'];
 
-
     $sql = "INSERT INTO trem (modelo, carga, usuario_id) VALUES (?, ?, ?)";
 
     $stmt = $conexao->prepare($sql);
@@ -18,14 +17,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $stmt->bind_param("ssi", $modelo, $carga, $usuario_id);
 
-    if ($stmt->execute()) {
-        header("Location: ../../public/frotas.php");
-        exit();
+    $stmt->execute();
 
-    } else {
-
-        die("Erro ao cadastrar trem: " . $stmt->error);
-
-    }
+    header("Location: ../../public/frota.php");
 }
 ?>

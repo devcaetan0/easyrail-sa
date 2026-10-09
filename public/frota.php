@@ -41,7 +41,7 @@ $resultadoTrem = $conexao->query("
                 <div class="row">
                     <div class="col-md-6 mb-2">
                         <label class="fw-bold form-label">Pesquisar</label>
-                        <input class="form-control" placeholder="Modelo/ID">
+                        <input class="form-control" placeholder="Modelo/ID" id="pesquisa">
                     </div>
                     <div class="col-md-6">
                         <label class="fw-bold form-label">Tipo</label>
@@ -90,12 +90,9 @@ $resultadoTrem = $conexao->query("
                                     </td>
 
                                     <td class="buttons">
-                                        <button type="button"
-                                            class="editar-trem btn btn-sm btn-outline-secondary"
-                                            data-bs-toggle="modal" data-bs-target="#modalTrem"
-                                            data-id="<?= $trem['id'] ?>" 
-                                            data-modelo="<?= $trem['modelo'] ?>"
-                                            data-carga="<?= $trem['carga'] ?>"
+                                        <button type="button" class="editar-trem btn btn-sm btn-outline-secondary"
+                                            data-bs-toggle="modal" data-bs-target="#modalTrem" data-id="<?= $trem['id'] ?>"
+                                            data-modelo="<?= $trem['modelo'] ?>" data-carga="<?= $trem['carga'] ?>"
                                             data-usuario-id="<?= $trem['usuario_id'] ?? '' ?>">
                                             ✏
                                         </button>
