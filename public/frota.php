@@ -3,6 +3,12 @@ session_start();
 include "../infra/conexao.php";
 verificarAcesso(5);
 $perfilAtual = $_SESSION['perfil_id'];
+
+$resultadoTrem = $conexao->query("
+    SELECT u.id, u.modelo, u.carga, u.usuario_id, p.nome AS usuario
+    FROM trem u
+    LEFT JOIN usuario p ON u.usuario_id = p.id
+");
 ?>
 
 <html lang="pt-BR">
@@ -52,37 +58,61 @@ $perfilAtual = $_SESSION['perfil_id'];
                 </div>
             </div>
 
-            <div class="card p-3 shadow-sm">
-                <div class="table-responsive">
-                    <table class="table table-hover mb-0">
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Modelo</th>
-                                <th>Carga</th>
-                                <?php if ($perfilAtual == 1) { ?>
-                                    <th>Ações</th>
-                                <?php } ?>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr id="1">
-                                <td id="1">#00001</td>
-                                <td id="1" class="nome-tr">CIVIC 2001</td>
-                                <td id="1" class="tipo-tr">Combustível</td>
+                    <div class="card p-3 shadow-sm">
+                        <div class="table-responsive">
+                            <table class="table table-hover mb-0">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Modelo</th>
+                                        <th>Carga</th>
+                                        <th>Usuário</th>
+                                        <th>Ações</th>
+                                </thead>
 
-                                <?php if ($perfilAtual == 1) { ?>
-                                    <td>
-                                        <button class="editar btn btn-sm btn-outline-secondary" data-bs-toggle="modal"
-                                            data-bs-target="#modalCadastro" id="1">✏</button>
-                                        <button class="excluir btn btn-sm btn-outline-danger" id="1">🗑</button>
-                                    </td>
-                                <?php } ?>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+                                <tbody id="tabelaTrens">
+                                    <?php while ($trem = $resultadoTrem->fetch_assoc()) { ?>
+
+                                        <tr>
+                                            <td>
+                                                #<?= $trem['id'] ?>
+                                            </td>
+
+                                            <td class="modelo-tr">
+                                                <?= $trem['modelo'] ?>
+                                            </td>
+
+                                            <td class="carga-tr">
+                                                <?= $trem['carga'] ?>
+                                            </td>
+
+                                            <td class="usuario-tr">
+                                                <?= $trem['usuario_id'] ?>
+                                            </td>
+
+                                            <td class="buttons">
+                                                <button type="button"
+                                                    class="editar-trem btn btn-sm btn-outline-secondary"
+                                                    data-bs-toggle="modal" data-bs-target="#modalTrem"
+                                                    data-id="<?= $trem['id'] ?>" 
+                                                    data-modelo="<?= $trem['modelo'] ?>"
+                                                    data-carga="<?= $trem['carga'] ?>"
+                                                    data-usuario-id="<?= $trem['usuario_id'] ?? '' ?>">
+                                                    ✏
+                                                </button>
+
+                                                <a href="../components/delete/usuario-delete.php?id=<?= $trem['id'] ?>"
+                                                    class="btn btn-sm btn-outline-danger"
+                                                    onclick="return confirm('Deseja realmente excluir esse usuário?')">
+                                                    🗑
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    <?php } ?>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
         </div>
 
         <?php include('../components/modals/frota-add.php') ?>
