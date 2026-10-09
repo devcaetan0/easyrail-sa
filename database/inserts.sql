@@ -6,17 +6,17 @@ INSERT INTO perfil (nome) VALUES
 ('Maquinista');
 
 INSERT INTO usuario (nome, email, senha, perfil_id) VALUES 
-('admin', 'admin@easyrail.com.br', '123', 1),
-('carlos.almeida', 'carlos.almeida@easyrail.com.br', '123', 1),
-('mariana.costa', 'mariana.costa@easyrail.com.br', '123', 2),
-('roberto.silva', 'roberto.silva@easyrail.com.br', '123', 2),
-('fernanda.lima', 'fernanda.lima@easyrail.com.br', '123', 3),
-('joao.pereira', 'joao.pereira@easyrail.com.br', '123', 4),
-('ana.souza', 'ana.souza@easyrail.com.br', '123', 5),
-('paulo.mendes', 'paulo.mendes@easyrail.com.br', '123', 5),
-('luciana.alves', 'luciana.alves@easyrail.com.br', '123', 3),
-('thiago.ribeiro', 'thiago.ribeiro@easyrail.com.br', '123', 2),
-('camila.rocha', 'camila.rocha@easyrail.com.br', '123', 4);
+('admin', 'admin@easyrail.com.br', '$2y$10$Si2/M8kMHvJLIYqQPh656OChuwlAbPAXHcnH.53ztKeXNqbWu4iBW', 1),
+('carlos.almeida', 'carlos.almeida@easyrail.com.br', '$2y$10$Si2/M8kMHvJLIYqQPh656OChuwlAbPAXHcnH.53ztKeXNqbWu4iBW', 1),
+('mariana.costa', 'mariana.costa@easyrail.com.br', '$2y$10$Si2/M8kMHvJLIYqQPh656OChuwlAbPAXHcnH.53ztKeXNqbWu4iBW', 2),
+('roberto.silva', 'roberto.silva@easyrail.com.br', '$2y$10$Si2/M8kMHvJLIYqQPh656OChuwlAbPAXHcnH.53ztKeXNqbWu4iBW', 2),
+('fernanda.lima', 'fernanda.lima@easyrail.com.br', '$2y$10$Si2/M8kMHvJLIYqQPh656OChuwlAbPAXHcnH.53ztKeXNqbWu4iBW', 3),
+('joao.pereira', 'joao.pereira@easyrail.com.br', '$2y$10$Si2/M8kMHvJLIYqQPh656OChuwlAbPAXHcnH.53ztKeXNqbWu4iBW', 4),
+('ana.souza', 'ana.souza@easyrail.com.br', '$2y$10$Si2/M8kMHvJLIYqQPh656OChuwlAbPAXHcnH.53ztKeXNqbWu4iBW', 5),
+('paulo.mendes', 'paulo.mendes@easyrail.com.br', '$2y$10$Si2/M8kMHvJLIYqQPh656OChuwlAbPAXHcnH.53ztKeXNqbWu4iBW', 5),
+('luciana.alves', 'luciana.alves@easyrail.com.br', '$2y$10$Si2/M8kMHvJLIYqQPh656OChuwlAbPAXHcnH.53ztKeXNqbWu4iBW', 3),
+('thiago.ribeiro', 'thiago.ribeiro@easyrail.com.br', '$2y$10$Si2/M8kMHvJLIYqQPh656OChuwlAbPAXHcnH.53ztKeXNqbWu4iBW', 2),
+('camila.rocha', 'camila.rocha@easyrail.com.br', '$2y$10$Si2/M8kMHvJLIYqQPh656OChuwlAbPAXHcnH.53ztKeXNqbWu4iBW', 4);
 
 INSERT INTO trem (modelo) VALUES 
 ('Locomotiva GE AC44i - Alpha'),

@@ -8,6 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $senha = $_POST['senha'];
     $perfil_id = $_POST['perfil_id'];
 
+
     $senhaCriptografada = password_hash($senha, PASSWORD_DEFAULT);
 
     $sql = "INSERT INTO usuario (nome, email, senha, perfil_id) VALUES (?, ?, ?, ?)";
