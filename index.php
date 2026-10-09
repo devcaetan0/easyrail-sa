@@ -39,7 +39,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if (password_verify($senha, $usuarios['senha'])) {
             session_regenerate_id(true);
 
-
             $_SESSION['id'] = $usuarios['id'];
             $_SESSION['nome'] = $usuarios['nome'];
             $_SESSION['email'] = $usuarios['email'];
@@ -51,16 +50,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         } else {
             $erro = "Nome ou senha incorretos!";
-        }
-        } else {
-            $erro = "Nome ou senha incorretos!";
+            
         }
     } else {
         $erro = "Preencha o usuário e a senha.";
+    
+}
     }
 }
-
 ?>
+
 
 <html lang="en">
 
