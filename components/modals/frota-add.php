@@ -33,7 +33,7 @@ $resultado = mysqli_query($conexao, $sql);
 
                     <div class="mb-3">
                     <label class="fw-bold form-label">Usuário Responsável</label>
-                    <select class="form-select mb-3" id="id_usuario" name="id_usuario" required>
+                    <select class="form-select mb-3" id="usuario_id" name="usuario_id" required>
 
                         <option value="">Selecione um usuário: </option>
 
@@ -46,7 +46,7 @@ $resultado = mysqli_query($conexao, $sql);
                     </select>
                     </div>
 
-                    
+
                     <div class="d-flex gap-2">
                         <button type="button" class="btn btn-secondary fw-bold"
                             data-bs-dismiss="modal">Cancelar</button>
