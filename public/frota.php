@@ -120,6 +120,7 @@ $resultadoTrem = $conexao->query("
     </main>
 
     <?php include('../infra/bootstrap.html') ?>
+    <script src="../scripts/trens.js"></script>
 </body>
 
 </html>

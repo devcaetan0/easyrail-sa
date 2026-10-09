@@ -1,16 +1,5 @@
-document.querySelectorAll('.editar-usuario').forEach(btn => {
-    btn.addEventListener('click', () => {
-        document.getElementById('modal-id').value = btn.dataset.id;
-        document.getElementById('modal-nome').value = btn.dataset.nome;
-        document.getElementById('modal-email').value = btn.dataset.email;
-        document.getElementById('modal-setor').value = btn.dataset.perfil;
-        document.getElementById('modal-senha').value = '';
-    });
-});
-
-
 const pesquisa = document.getElementById('pesquisa');
-const tabela = document.getElementById('tabelaUsuarios');
+const tabela = document.getElementById('tabelaTrens');
 
 pesquisa.addEventListener('input', function () {
     const texto = pesquisa.value.toLowerCase();
@@ -29,5 +18,3 @@ pesquisa.addEventListener('input', function () {
         }
     });
 });
-
-

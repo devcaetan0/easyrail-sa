@@ -2,7 +2,16 @@
 session_start();
 include "../infra/conexao.php";
 verificarAcesso(5);
+
 $perfilAtual = $_SESSION['perfil_id'];
+
+$resultadoRota = $conexao->query("
+    SELECT r.id, r.trem_id, r.trilho_id, tri.codigo_trecho AS codigo, tre.modelo AS modelo
+    FROM rota r
+    JOIN trilho tri ON r.trilho_id = tri.id
+    JOIN trem tre ON tre.id = r.trem_id
+");
+
 ?>
 
 <html lang="pt-BR">
@@ -58,8 +67,8 @@ $perfilAtual = $_SESSION['perfil_id'];
                         <thead>
                             <tr>
                                 <th>ID</th>
-                                <th>Modelo</th>
-                                <th>Carga</th>
+                                <th>Trem</th>
+                                <th>Código Trecho</th>
                                 <?php if ($perfilAtual == 1) { ?>
                                     <th>Ações</th>
                                 <?php } ?>
@@ -67,18 +76,27 @@ $perfilAtual = $_SESSION['perfil_id'];
                         </thead>
                         <tbody>
                             <tr id="1">
-                                <td id="1">#00001</td>
-                                <td id="1" class="nome-tr">CIVIC 2001</td>
-                                <td id="1" class="tipo-tr">Combustível</td>
+                                <?php while ($rota = $resultadoRota->fetch_assoc()) { ?>
 
-                                <?php if ($perfilAtual == 1) { ?>
+                                <tr>
                                     <td>
-                                        <button class="editar btn btn-sm btn-outline-secondary" data-bs-toggle="modal"
-                                            data-bs-target="#modalCadastro" id="1">✏</button>
-                                        <button class="excluir btn btn-sm btn-outline-danger" id="1">🗑</button>
+                                        #<?= $rota['id'] ?>
                                     </td>
-                                <?php } ?>
-                            </tr>
+                                    <td class="setor-tr">
+                                        <?= $rota['modelo'] ?>
+                                    </td>
+                                    <td class="nome-tr">
+                                        <?= $rota['codigo'] ?>
+                                    </td>
+                                    <?php if ($perfilAtual == 1) { ?>
+                                        <td>
+                                            <button class="editar btn btn-sm btn-outline-secondary" data-bs-toggle="modal"
+                                                data-bs-target="#modalCadastro" id="1">✏</button>
+                                            <button class="excluir btn btn-sm btn-outline-danger" id="1">🗑</button>
+                                        </td>
+                                    <?php } ?>
+                                </tr>
+                            <?php } ?>
                         </tbody>
                     </table>
                 </div>
