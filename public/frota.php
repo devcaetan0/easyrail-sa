@@ -3,6 +3,12 @@ session_start();
 include "../infra/conexao.php";
 verificarAcesso(5);
 $perfilAtual = $_SESSION['perfil_id'];
+
+$resultadoTrem = $conexao->query("
+    SELECT u.id, u.modelo, u.carga, u.usuario_id, p.nome AS usuario
+    FROM trem u
+    LEFT JOIN usuario p ON u.usuario_id = p.id
+");
 ?>
 
 <html lang="pt-BR">
@@ -52,48 +58,50 @@ $perfilAtual = $_SESSION['perfil_id'];
                 </div>
             </div>
 
-            <div class="card p-3 shadow-sm">
-                <div class="table-responsive">
-                    <table class="table table-hover mb-0">
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Modelo</th>
-                                <th>Carga</th>
-                                <th>Usuário Responsável</th>
-                                <?php if ($perfilAtual == 1) { ?>
-                                    <th>Ações</th>
-                              
-                                <?php } ?>
-                            </tr>
-                        </thead>
-                                <tbody id="tabelaUsuarios">
-                                    <?php while ($usuario = $resultadoUsuario->fetch_assoc()) { ?>
+                    <div class="card p-3 shadow-sm">
+                        <div class="table-responsive">
+                            <table class="table table-hover mb-0">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Modelo</th>
+                                        <th>Carga</th>
+                                        <th>Usuário</th>
+                                        <th>Ações</th>
+                                </thead>
+
+                                <tbody id="tabelaTrens">
+                                    <?php while ($trem = $resultadoTrem->fetch_assoc()) { ?>
 
                                         <tr>
                                             <td>
-                                                #<?= $usuario['id'] ?>
+                                                #<?= $trem['id'] ?>
                                             </td>
 
-                                            <td class="setor-tr">
-                                                <?= $usuario['perfil'] ?>
+                                            <td class="modelo-tr">
+                                                <?= $trem['modelo'] ?>
                                             </td>
 
-                                            <td class="nome-tr">
-                                                <?= $usuario['nome'] ?>
+                                            <td class="carga-tr">
+                                                <?= $trem['carga'] ?>
+                                            </td>
+
+                                            <td class="usuario-tr">
+                                                <?= $trem['usuario_id'] ?>
                                             </td>
 
                                             <td class="buttons">
                                                 <button type="button"
-                                                    class="editar-usuario btn btn-sm btn-outline-secondary"
-                                                    data-bs-toggle="modal" data-bs-target="#modalUsuario"
-                                                    data-id="<?= $usuario['id'] ?>" data-nome="<?= $usuario['nome'] ?>"
-                                                    data-email="<?= $usuario['email'] ?>"
-                                                    data-perfil="<?= $usuario['perfil_id'] ?? '' ?>">
+                                                    class="editar-trem btn btn-sm btn-outline-secondary"
+                                                    data-bs-toggle="modal" data-bs-target="#modalTrem"
+                                                    data-id="<?= $trem['id'] ?>" 
+                                                    data-modelo="<?= $trem['modelo'] ?>"
+                                                    data-carga="<?= $trem['carga'] ?>"
+                                                    data-usuario-id="<?= $trem['usuario_id'] ?? '' ?>">
                                                     ✏
                                                 </button>
 
-                                                <a href="../components/delete/usuario-delete.php?id=<?= $usuario['id'] ?>"
+                                                <a href="../components/delete/usuario-delete.php?id=<?= $trem['id'] ?>"
                                                     class="btn btn-sm btn-outline-danger"
                                                     onclick="return confirm('Deseja realmente excluir esse usuário?')">
                                                     🗑
@@ -102,9 +110,9 @@ $perfilAtual = $_SESSION['perfil_id'];
                                         </tr>
                                     <?php } ?>
                                 </tbody>
-                    </table>
-                </div>
-            </div>
+                            </table>
+                        </div>
+                    </div>
         </div>
 
         <?php include('../components/modals/frota-add.php') ?>
