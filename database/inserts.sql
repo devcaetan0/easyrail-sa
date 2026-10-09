@@ -1,3 +1,5 @@
+USE easyraildb;
+
 INSERT INTO perfil (nome) VALUES 
 ('Administrador'),
 ('Operador'),
@@ -18,38 +20,24 @@ INSERT INTO usuario (nome, email, senha, perfil_id) VALUES
 ('thiago.ribeiro', 'thiago.ribeiro@easyrail.com.br', '$2y$10$Si2/M8kMHvJLIYqQPh656OChuwlAbPAXHcnH.53ztKeXNqbWu4iBW', 2),
 ('camila.rocha', 'camila.rocha@easyrail.com.br', '$2y$10$Si2/M8kMHvJLIYqQPh656OChuwlAbPAXHcnH.53ztKeXNqbWu4iBW', 4);
 
-INSERT INTO trem (modelo) VALUES 
-('Locomotiva GE AC44i - Alpha'),
-('Locomotiva GE AC44i - Beta'),
-('Locomotiva EMD SD70MAC - Gama'),
-('Locomotiva EMD SD70MAC - Delta'),
-('Locomotiva GE ES43BBi - Eco'),
-('Locomotiva GE ES43BBi - Fox'),
-('Vagão Motorizado Leve - VML-01'),
-('Vagão Motorizado Leve - VML-02');
+INSERT INTO trem (modelo, carga, id_usuario) VALUES
+('Locomotiva EMD SD70ACe', 'Minério de ferro', 1),
+('Locomotiva GE AC44i', 'Soja e milho', 2),
+('Locomotiva Wabtec ES44AC', 'Celulose', 3),
+('Locomotiva GE C30-7', 'Contêineres', 1),
+('Locomotiva EMD GT26MC', 'Combustível', 2);
 
 INSERT INTO trilho (codigo_trecho) VALUES 
 ('TR-NORTE-001'), ('TR-NORTE-002'), ('TR-NORTE-003'), ('TR-NORTE-004'), ('TR-NORTE-005'),
 ('TR-SUL-001'), ('TR-SUL-002'), ('TR-SUL-003'), ('TR-SUL-004'), ('TR-SUL-005'),
 ('TR-LESTE-001'), ('TR-LESTE-002'), ('TR-OESTE-001'), ('TR-OESTE-002'), ('PÁTIO-CENTRAL');
 
-INSERT INTO carga (trem_id, tipo, peso) VALUES 
-(1, 'Minério de Ferro', 12500.50),
-(2, 'Minério de Ferro', 12450.00),
-(3, 'Soja a Granel', 8500.75),
-(4, 'Milho a Granel', 8300.20),
-(5, 'Celulose', 6200.00),
-(6, 'Combustíveis (Diesel)', 7100.00),
-(7, 'Contêineres Mistos', 4500.00),
-(8, 'Fertilizantes', 5800.25);
-
 INSERT INTO rota (trem_id, trilho_id) VALUES 
 (1, 1), (1, 2), (1, 3), 
 (2, 4), (2, 5), (2, 15),
 (3, 6), (3, 7), (3, 8),
 (4, 9), (4, 10), (4, 15),
-(5, 11), (5, 12), (5, 15),
-(6, 13), (6, 14), (6, 15);
+(5, 11), (5, 12), (5, 15);
 
 INSERT INTO sensor (nome, tipo, status, trem_id, trilho_id) VALUES 
 ('S-VEL-ALPHA', 'Velocidade', 'Ativo', 1, NULL),
