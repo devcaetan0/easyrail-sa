@@ -76,10 +76,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <input class="form-control " type="password" name="senha" id="senha" required>
                     </div>
 
-                    <div class="mt-3 mb-3">
+                    <!-- <div class="mt-3 mb-3">
                         <input style="width: 20px; height: 20.00px;" type="checkbox">
                         <label>Mantenha-me logado</label><br>
-                    </div>
+                    </div> -->
 
                     <?php if (!empty($erro)): ?>
                         <p> <?php echo $erro; ?></p>
