@@ -10,6 +10,7 @@ $resultadoUsuario = $conexao->query("
     LEFT JOIN perfil p ON u.perfil_id = p.id
 ");
 
+$resultadoPerfis = $conexao->query("SELECT id, nome FROM perfil ORDER BY nome ASC");
 ?>
 
 <html lang="pt-BR">
@@ -41,13 +42,14 @@ $resultadoUsuario = $conexao->query("
                                 <input type="text" id="pesquisa" class="form-control" placeholder="Nome / ID">
                             </div>
                             <div class="col-md-6">
-                                <label class="fw-bold form-label">Atuação</label>
-                                <select class="form-select" id="atuacao">
-                                    <option>Todos</option>
-                                    <option>Gestão</option>
-                                    <option>Chefe - Cargo</option>
-                                    <option>Operacional</option>
-                                    <option>Administrativo</option>
+                                <label class="fw-bold form-label">Cargo</label>
+                                <select class="form-select" id="filtroPerfil">
+                                    <option value="">Todos</option>
+                                    <?php while ($perfil = $resultadoPerfis->fetch_assoc()) { ?>
+                                        <option value="<?= $perfil['id'] ?>">
+                                            <?= $perfil['nome'] ?>
+                                        </option>
+                                    <?php } ?>
                                 </select>
                             </div>
                         </div>
@@ -67,7 +69,7 @@ $resultadoUsuario = $conexao->query("
                                 <tbody id="tabelaUsuarios">
                                     <?php while ($usuario = $resultadoUsuario->fetch_assoc()) { ?>
 
-                                        <tr>
+                                        <tr data-perfil-id="<?= $usuario['perfil_id'] ?? '' ?>">
                                             <td>
                                                 #<?= $usuario['id'] ?>
                                             </td>

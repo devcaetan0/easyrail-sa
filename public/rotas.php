@@ -11,6 +11,7 @@ $resultadoRota = $conexao->query("
     ORDER BY r.id ASC
 ");
 
+$resultadoTrem = $conexao->query("SELECT id, modelo FROM trem ORDER BY modelo ASC");
 ?>
 
 <html lang="pt-BR">
@@ -45,16 +46,17 @@ $resultadoRota = $conexao->query("
                 <div class="row">
                     <div class="col-md-6 mb-2">
                         <label class="fw-bold form-label">Pesquisar</label>
-                        <input class="form-control" placeholder="Modelo/ID">
+                        <input class="form-control" placeholder="Nome/ID" id="pesquisa">
                     </div>
                     <div class="col-md-6">
-                        <label class="fw-bold form-label">Tipo</label>
-                        <select class="form-select">
-                            <option>Todos</option>
-                            <option>Minerais</option>
-                            <option>Combustível</option>
-                            <option>Agrícola</option>
-                            <option>Granel</option>
+                        <label class="fw-bold form-label">Trem</label>
+                        <select class="form-select" id="filtroTrem">
+                            <option value="">Todos</option>
+                            <?php while ($tremFiltro = $resultadoTrem->fetch_assoc()) { ?>
+                                <option value="<?= $tremFiltro['id'] ?>">
+                                    <?= $tremFiltro['modelo'] ?>
+                                </option>
+                            <?php } ?>
                         </select>
                     </div>
                 </div>
@@ -75,11 +77,10 @@ $resultadoRota = $conexao->query("
                                 <?php } ?>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr id="1">
-                                <?php while ($rota = $resultadoRota->fetch_assoc()) { ?>
+                        <tbody id="tabelaRotas">
+                            <?php while ($rota = $resultadoRota->fetch_assoc()) { ?>
 
-                                <tr>
+                                <tr data-trem-id="<?= $rota['trem_id'] ?>">
                                     <td>
                                         #<?= $rota['id'] ?>
                                     </td>

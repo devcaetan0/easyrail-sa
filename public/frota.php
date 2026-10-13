@@ -1,14 +1,20 @@
 <?php
 session_start();
+
 include "../config/conexao.php";
+
 verificarAcesso(5);
+
 $perfilAtual = $_SESSION['perfil_id'];
 
 $resultadoTrem = $conexao->query("
-    SELECT u.id, u.modelo, u.carga, u.usuario_id, p.nome AS nome_usuario
-    FROM trem u
-    LEFT JOIN usuario p ON u.usuario_id = p.id
+    SELECT t.id, t.modelo, t.carga_id, c.nome AS carga, t.usuario_id, u.nome AS nome_usuario
+    FROM trem t
+    LEFT JOIN usuario u ON t.usuario_id = u.id
+    LEFT JOIN carga c ON c.id = t.carga_id
 ");
+
+$resultadoCargas = $conexao->query("SELECT id, nome FROM carga ORDER BY nome ASC");
 ?>
 
 <html lang="pt-BR">
@@ -44,13 +50,14 @@ $resultadoTrem = $conexao->query("
                         <input class="form-control" placeholder="Modelo/ID" id="pesquisa">
                     </div>
                     <div class="col-md-6">
-                        <label class="fw-bold form-label">Tipo</label>
-                        <select class="form-select">
-                            <option>Todos</option>
-                            <option>Minerais</option>
-                            <option>Combustível</option>
-                            <option>Agrícola</option>
-                            <option>Granel</option>
+                        <label class="fw-bold form-label">Tipo de Carga</label>
+                        <select class="form-select" id="filtroCarga">
+                            <option value="">Todos</option>
+                            <?php while ($cargaFiltro = $resultadoCargas->fetch_assoc()) { ?>
+                                <option value="<?= $cargaFiltro['id'] ?>">
+                                    <?= $cargaFiltro['nome'] ?>
+                                </option>
+                            <?php } ?>
                         </select>
                     </div>
                 </div>
@@ -86,13 +93,14 @@ $resultadoTrem = $conexao->query("
                                     </td>
 
                                     <td class="usuario-tr">
-                                        <?= $trem['nome_usuario'] ?? 'Nenhum' ?>
+                                        <?= $trem['nome_usuario'] ?>
                                     </td>
 
-                                    <td class="buttons">
+                                    <td class="buttons" data-carga-id="<?= $trem['carga_id'] ?? '' ?>">
                                         <button type="button" class="editar-trem btn btn-sm btn-outline-secondary"
-                                            data-bs-toggle="modal" data-bs-target="#modalEditarTrem" data-id="<?= $trem['id'] ?>"
-                                            data-modelo="<?= $trem['modelo'] ?>" data-carga="<?= $trem['carga'] ?>"
+                                            data-bs-toggle="modal" data-bs-target="#modalEditarTrem"
+                                            data-id="<?= $trem['id'] ?>" data-modelo="<?= $trem['modelo'] ?>"
+                                            data-carga-id="<?= $trem['carga_id'] ?? '' ?>"
                                             data-usuario-id="<?= $trem['usuario_id'] ?? '' ?>">
                                             ✏
                                         </button>
@@ -112,6 +120,8 @@ $resultadoTrem = $conexao->query("
         </div>
 
         <?php include('../components/modals/add/frota-add.php') ?>
+
+        <?php include('../components/modals/edit/frota-edit.php') ?>
 
     </main>
 

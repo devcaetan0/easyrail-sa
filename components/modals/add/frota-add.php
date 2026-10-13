@@ -1,6 +1,8 @@
 <?php
-$sql = "SELECT id, nome FROM usuario ORDER BY nome ASC";
-$resultado = mysqli_query($conexao, $sql);
+$sqlCargas = "SELECT id, nome FROM carga ORDER BY nome ASC";
+$resultadoCargas = mysqli_query($conexao, $sqlCargas);
+$sqlUsuarios = "SELECT id, nome FROM usuario ORDER BY nome ASC";
+$resultadoUsuarios = mysqli_query($conexao, $sqlUsuarios);
 ?>
 
 
@@ -20,12 +22,14 @@ $resultado = mysqli_query($conexao, $sql);
                         <input type="text" class="form-control" id="modelo" name="modelo" required>
                     </div>
                     <div class="mb-3">
-                        <label for="tipoCarga" class="fw-bold form-label">Tipo de Carga</label>
-                        <select class="form-select" id="tipoCarga" name="carga" required>
-                            <option>Mineral</option>
-                            <option>Combustível</option>
-                            <option>Agrícola</option>
-                            <option>Granel</option>
+                        <label for="carga_id" class="fw-bold form-label">Tipo de Carga</label>
+                        <select class="form-select" id="carga_id" name="carga_id" required>
+                            <option value="">Selecione um tipo de carga</option>
+                            <?php while ($carga = mysqli_fetch_assoc($resultadoCargas)) { ?>
+                                <option value="<?= $carga['id'] ?>">
+                                    <?= $carga['nome'] ?>
+                                </option>
+                            <?php } ?>
                         </select>
                     </div>
 
@@ -33,9 +37,9 @@ $resultado = mysqli_query($conexao, $sql);
                         <label class="fw-bold form-label">Usuário Responsável</label>
                         <select class="form-select mb-3" id="usuario_id" name="usuario_id" required>
 
-                            <option value="">Selecione um usuário: </option>
+                            <option value="">Selecione um usuário</option>
 
-                            <?php while ($usuario = mysqli_fetch_assoc($resultado)) { ?>
+                            <?php while ($usuario = mysqli_fetch_assoc($resultadoUsuarios)) { ?>
                                 <option value="<?= $usuario['id'] ?>">
                                     <?= $usuario['nome'] ?>
                                 </option>

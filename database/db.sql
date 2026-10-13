@@ -7,6 +7,11 @@ CREATE TABLE perfil (
     nome VARCHAR(45) NOT NULL
 );
 
+CREATE TABLE carga (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL
+);
+
 CREATE TABLE usuario (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(100) NOT NULL,
@@ -20,18 +25,17 @@ CREATE TABLE usuario (
 CREATE TABLE trem (
     id INT AUTO_INCREMENT PRIMARY KEY,
     modelo VARCHAR(100) NOT NULL,
-    carga VARCHAR(100) NOT NULL,
     usuario_id INT,
+    carga_id INT,
 
+    FOREIGN KEY (carga_id) REFERENCES carga(id),
     FOREIGN KEY (usuario_id) REFERENCES usuario(id)
 );
-
 
 CREATE TABLE trilho (
     id INT AUTO_INCREMENT PRIMARY KEY,
     codigo_trecho VARCHAR(45)
 );
-
 
 CREATE TABLE sensor (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -54,7 +58,6 @@ CREATE TABLE registro_sensor (
     FOREIGN KEY (sensor_id) REFERENCES sensor(id)
 );
 
-
 CREATE TABLE rota (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(100) NOT NULL,
@@ -67,6 +70,7 @@ CREATE TABLE rota (
     FOREIGN KEY (trem_id) REFERENCES trem(id)
 );
 
+-- 1. INSERTS DAS TABELAS SEM CHAVE ESTRANGEIRA (DEPENDÊNCIAS)
 INSERT INTO perfil (nome) VALUES 
 ('Administrador'),
 ('Operador'),
@@ -74,6 +78,20 @@ INSERT INTO perfil (nome) VALUES
 ('Gestor de Frota'),
 ('Maquinista');
 
+INSERT INTO carga (nome) VALUES 
+('Mineral'),
+('Combustível'),
+('Agrícola'),
+('Celulose'),
+('Industrial'),
+('Contêineres');
+
+INSERT INTO trilho (codigo_trecho) VALUES 
+('TR-NORTE-001'), ('TR-NORTE-002'), ('TR-NORTE-003'), ('TR-NORTE-004'), ('TR-NORTE-005'),
+('TR-SUL-001'), ('TR-SUL-002'), ('TR-SUL-003'), ('TR-SUL-004'), ('TR-SUL-005'),
+('TR-LESTE-001'), ('TR-LESTE-002'), ('TR-OESTE-001'), ('TR-OESTE-002'), ('PÁTIO-CENTRAL');
+
+-- 2. INSERTS COM DEPENDÊNCIAS
 INSERT INTO usuario (nome, email, senha, perfil_id) VALUES 
 ('admin', 'admin@easyrail.com.br', '$2y$10$Si2/M8kMHvJLIYqQPh656OChuwlAbPAXHcnH.53ztKeXNqbWu4iBW', 1),
 ('carlos.almeida', 'carlos.almeida@easyrail.com.br', '$2y$10$Si2/M8kMHvJLIYqQPh656OChuwlAbPAXHcnH.53ztKeXNqbWu4iBW', 1),
@@ -87,17 +105,18 @@ INSERT INTO usuario (nome, email, senha, perfil_id) VALUES
 ('thiago.ribeiro', 'thiago.ribeiro@easyrail.com.br', '$2y$10$Si2/M8kMHvJLIYqQPh656OChuwlAbPAXHcnH.53ztKeXNqbWu4iBW', 2),
 ('camila.rocha', 'camila.rocha@easyrail.com.br', '$2y$10$Si2/M8kMHvJLIYqQPh656OChuwlAbPAXHcnH.53ztKeXNqbWu4iBW', 4);
 
-INSERT INTO trem (modelo, carga, usuario_id) VALUES
-('Locomotiva EMD SD70ACe', 'Minério de ferro', 1),
-('Locomotiva GE AC44i', 'Soja e milho', 2),
-('Locomotiva Wabtec ES44AC', 'Celulose', 3),
-('Locomotiva GE C30-7', 'Contêineres', 1),
-('Locomotiva EMD GT26MC', 'Combustível', 2);
-
-INSERT INTO trilho (codigo_trecho) VALUES 
-('TR-NORTE-001'), ('TR-NORTE-002'), ('TR-NORTE-003'), ('TR-NORTE-004'), ('TR-NORTE-005'),
-('TR-SUL-001'), ('TR-SUL-002'), ('TR-SUL-003'), ('TR-SUL-004'), ('TR-SUL-005'),
-('TR-LESTE-001'), ('TR-LESTE-002'), ('TR-OESTE-001'), ('TR-OESTE-002'), ('PÁTIO-CENTRAL');
+-- O trem agora pode ser inserido pois as tabelas 'carga' e 'usuario' já possuem dados
+INSERT INTO trem (modelo, carga_id, usuario_id) VALUES
+('Locomotiva EMD SD70ACe', 1, 1),
+('Locomotiva GE AC44i', 2, 2),
+('Locomotiva Wabtec ES44AC', 4, 3),
+('Locomotiva GE C30-7', 6, 1),
+('Locomotiva EMD GT26MC', 2, 2),
+('Locomotiva Bombardier TRAXX', 3, 4),
+('Locomotiva Siemens Vectron', 5, 5),
+('Locomotiva Alstom Prima', 1, 6),
+('Locomotiva Stadler Eurodual', 4, 7),
+('Locomotiva CRRC HXD3C', 2, 8);
 
 INSERT INTO rota (nome, descricao, distancia, duracao, trem_id) VALUES 
 ('Rota Norte 1', 'Trecho inicial de transporte', 120.5, '02:30:00', 1), 
