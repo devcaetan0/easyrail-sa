@@ -1,15 +1,14 @@
 <?php
 session_start();
-include "../infra/conexao.php";
+include "../config/conexao.php";
 verificarAcesso(5);
 
 $perfilAtual = $_SESSION['perfil_id'];
 
 $resultadoRota = $conexao->query("
-    SELECT r.id, r.trem_id, r.trilho_id, tri.codigo_trecho AS codigo, tre.modelo AS modelo
-    FROM rota r
-    JOIN trilho tri ON r.trilho_id = tri.id
-    JOIN trem tre ON tre.id = r.trem_id
+    SELECT r.id, r.nome, r.distancia, r.descricao, r.trem_id, r.duracao, t.modelo AS modelo
+    FROM rota r JOIN trem t ON t.id = r.trem_id
+    ORDER BY r.id ASC
 ");
 
 ?>
@@ -19,7 +18,7 @@ $resultadoRota = $conexao->query("
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <?php include('../components/links.html') ?>
+    <?php include('../config/links.html') ?>
     <title>Rotas</title>
 </head>
 
@@ -35,7 +34,7 @@ $resultadoRota = $conexao->query("
             <?php if ($perfilAtual == 1) { ?>
                 <div class="d-flex justify-content-end mb-2">
                     <button type="button" class="btn btn-laranja fw-bold p-2 mb-3" data-bs-toggle="modal"
-                        data-bs-target="#modalCadastroTrem">
+                        data-bs-target="#modalCadastroRota">
                         + Adicionar Rota
                     </button>
                 </div>
@@ -67,8 +66,10 @@ $resultadoRota = $conexao->query("
                         <thead>
                             <tr>
                                 <th>ID</th>
+                                <th>Nome</th>
+                                <th>Distância (km)</th>
                                 <th>Trem</th>
-                                <th>Código Trecho</th>
+                                <th>Duração</th>
                                 <?php if ($perfilAtual == 1) { ?>
                                     <th>Ações</th>
                                 <?php } ?>
@@ -82,21 +83,32 @@ $resultadoRota = $conexao->query("
                                     <td>
                                         #<?= $rota['id'] ?>
                                     </td>
+                                    <td class="nome-tr">
+                                        <?= $rota['nome'] ?>
+                                    </td>
+                                    <td class="distancia-tr">
+                                        <?= $rota['distancia'] ?>
+                                    </td>
                                     <td class="setor-tr">
                                         <?= $rota['modelo'] ?>
                                     </td>
-                                    <td class="nome-tr">
-                                        <?= $rota['codigo'] ?>
+                                    <td class="duracao-tr">
+                                        <?= $rota['duracao'] ?>
                                     </td>
                                     <?php if ($perfilAtual == 1) { ?>
                                         <td>
-                                            <button class="editar btn btn-sm btn-outline-secondary" data-bs-toggle="modal"
-                                                data-bs-target="#modalCadastro" id="1">✏</button>
-                                            <a href="../components/delete/rotas-delete.php?id=<?= $rota['id'] ?>"
-                                                    class="btn btn-sm btn-outline-danger"
-                                                    onclick="return confirm('Deseja realmente excluir esse usuário?')">
-                                                    🗑
-                                                </a>
+                                            <button class="editar-rota btn btn-sm btn-outline-secondary" data-bs-toggle="modal"
+                                                data-bs-target="#modalEditarRota" data-id="<?= $rota['id'] ?>"
+                                                data-nome="<?= $rota['nome'] ?>" data-descricao="<?= $rota['descricao'] ?>"
+                                                data-distancia="<?= $rota['distancia'] ?>"
+                                                data-trem-id="<?= $rota['trem_id'] ?>">
+                                                ✏
+                                            </button>
+                                            <a href="../source/delete/rota-delete.php?id=<?= $rota['id'] ?>"
+                                                class="btn btn-sm btn-outline-danger"
+                                                onclick="return confirm('Deseja realmente excluir essa rota?')">
+                                                🗑
+                                            </a>
                                         </td>
                                     <?php } ?>
                                 </tr>
@@ -107,11 +119,14 @@ $resultadoRota = $conexao->query("
             </div>
         </div>
 
-        <?php include('../components/modals/rotas-add.php') ?>
+        <?php include('../components/modals/add/rota-add.php') ?>
 
+        <?php include('../components/modals/edit/rota-edit.php') ?>
     </main>
 
-    <?php include('../infra/bootstrap.html') ?>
+    <?php include('../config/bootstrap.html') ?>
+
+    <script src="../scripts/rotas.js"></script>
 </body>
 
 </html>

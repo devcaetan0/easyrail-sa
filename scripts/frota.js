@@ -9,9 +9,9 @@ pesquisa.addEventListener('input', function () {
     linhas.forEach(linha => {
 
         const id = linha.children[0].textContent.toLowerCase();
-        const nome = linha.children[2].textContent.toLowerCase();
+        const modelo = linha.children[1].textContent.toLowerCase();
 
-        if (id.includes(texto) || nome.includes(texto)) {
+        if (id.includes(texto) || modelo.includes(texto)) {
             linha.style.display = '';
         } else {
             linha.style.display = 'none';

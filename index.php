@@ -1,7 +1,7 @@
 <?php
-include("components/auth-login.php");
+include("source/auth-login.php");
 
-include "infra/conexao.php";
+include "config/conexao.php";
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nome = $_POST['nome'];
@@ -38,9 +38,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     } else {
         $erro = "Preencha o usuário e a senha.";
-    
-}
+
     }
+}
 
 ?>
 
@@ -76,11 +76,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <input class="form-control " type="password" name="senha" id="senha" required>
                     </div>
 
-                    <!-- <div class="mt-3 mb-3">
+                    <div class="mt-3 mb-3">
                         <input style="width: 20px; height: 20.00px;" type="checkbox">
                         <label>Mantenha-me logado</label><br>
-                    </div> --> <br>
- 
+                    </div>
+
                     <?php if (!empty($erro)): ?>
                         <p> <?php echo $erro; ?></p>
                     <?php endif; ?>

@@ -3,11 +3,10 @@ document.querySelectorAll('.editar-usuario').forEach(btn => {
         document.getElementById('modal-id').value = btn.dataset.id;
         document.getElementById('modal-nome').value = btn.dataset.nome;
         document.getElementById('modal-email').value = btn.dataset.email;
-        document.getElementById('modal-setor').value = btn.dataset.perfil;
+        document.getElementById('modal-cargo').value = btn.dataset.perfil;
         document.getElementById('modal-senha').value = '';
     });
 });
-
 
 const pesquisa = document.getElementById('pesquisa');
 const tabela = document.getElementById('tabelaUsuarios');

@@ -1,14 +1,18 @@
+<?php
+$sql = "SELECT id, nome FROM perfil";
+$resultado = mysqli_query($conexao, $sql);
+?>
 
-
-<div class="modal fade" id="modalUsuario" tabindex="-1" aria-labelledby="modalUsuarioLabel" aria-hidden="true">
+<div class="modal fade" id="modalEditarUsuario" tabindex="-1" aria-labelledby="modalEditarUsuarioLabel"
+    aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title fw-bold" id="modalUsuarioLabel">Editar Usuário</h5>
+                <h5 class="modal-title fw-bold" id="modalEditarUsuarioLabel">Editar Usuário</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form id="form-modal-usuario" action="../components/update/usuarios-update.php" method="POST">
+                <form id="form-modal-usuario" action="../source/update/usuario-update.php" method="POST">
 
                     <input type="hidden" id="modal-id" name="id">
 
@@ -28,13 +32,13 @@
                     </div>
 
                     <div class="mb-3">
-                        <label for="modal-setor" class="form-label fw-bold">Setor</label>
-                        <select name="perfil_id" class="form-control " id="modal-setor" required>
-                            <option value="1">Administrador</option>
-                            <option value="2">Operador</option>
-                            <option value="3">Analista</option>
-                            <option value="4">Gestor</option>
-                            <option value="5">Maquinista</option>
+                        <label for="modal-cargo" class="form-label fw-bold">Cargo</label>
+                        <select name="perfil_id" class="form-control" id="perfil_id" required>
+                            <?php while ($perfil = mysqli_fetch_assoc($resultado)) { ?>
+                                <option value="<?= $perfil['id'] ?>">
+                                    <?= $perfil['nome'] ?>
+                                </option>
+                            <?php } ?>
                         </select>
                     </div>
 

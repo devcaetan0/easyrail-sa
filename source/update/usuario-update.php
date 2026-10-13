@@ -1,5 +1,5 @@
 <?php
-include("../../infra/conexao.php");
+include("../../config/conexao.php");
 
 $id = $_POST["id"];
 $nome = $_POST["nome"];

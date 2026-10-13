@@ -1,6 +1,6 @@
 <?php
 session_start();
-include "../infra/conexao.php";
+include "../config/conexao.php";
 verificarAcesso(5);
 $perfilAtual = $_SESSION['perfil_id'];
 
@@ -16,7 +16,7 @@ $resultadoTrem = $conexao->query("
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <?php include('../components/links.html') ?>
+    <?php include('../config/links.html') ?>
     <title>Frota de Carga</title>
 </head>
 
@@ -91,13 +91,13 @@ $resultadoTrem = $conexao->query("
 
                                     <td class="buttons">
                                         <button type="button" class="editar-trem btn btn-sm btn-outline-secondary"
-                                            data-bs-toggle="modal" data-bs-target="#modalTrem" data-id="<?= $trem['id'] ?>"
+                                            data-bs-toggle="modal" data-bs-target="#modalEditarTrem" data-id="<?= $trem['id'] ?>"
                                             data-modelo="<?= $trem['modelo'] ?>" data-carga="<?= $trem['carga'] ?>"
                                             data-usuario-id="<?= $trem['usuario_id'] ?? '' ?>">
                                             ✏
                                         </button>
 
-                                        <a href="../components/delete/frota-delete.php?id=<?= $trem['id'] ?>"
+                                        <a href="../source/delete/frota-delete.php?id=<?= $trem['id'] ?>"
                                             class="btn btn-sm btn-outline-danger"
                                             onclick="return confirm('Deseja realmente excluir este trem?')">
                                             🗑
@@ -111,12 +111,12 @@ $resultadoTrem = $conexao->query("
             </div>
         </div>
 
-        <?php include('../components/modals/frota-add.php') ?>
+        <?php include('../components/modals/add/frota-add.php') ?>
 
     </main>
 
-    <?php include('../infra/bootstrap.html') ?>
-    <script src="../scripts/trens.js"></script>
+    <?php include('../config/bootstrap.html') ?>
+    <script src="../scripts/frota.js"></script>
 </body>
 
 </html>

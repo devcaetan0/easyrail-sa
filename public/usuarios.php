@@ -1,6 +1,6 @@
 <?php
 session_start();
-include "../infra/conexao.php";
+include "../config/conexao.php";
 
 verificarAcesso(1);
 
@@ -17,7 +17,7 @@ $resultadoUsuario = $conexao->query("
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <?php include('../components/links.html') ?>
+    <?php include('../config/links.html') ?>
     <title>Usuários</title>
 </head>
 
@@ -30,7 +30,7 @@ $resultadoUsuario = $conexao->query("
 
             <div class="row px-5">
                 <div class="col-md-4 col-lg-3 mb-4">
-                    <?php include('../components/usuarios-form.php') ?>
+                    <?php include('../components/modals/add/usuario-add.php') ?>
                 </div>
 
                 <div class="col-md-8 col-lg-9">
@@ -45,7 +45,7 @@ $resultadoUsuario = $conexao->query("
                                 <select class="form-select" id="atuacao">
                                     <option>Todos</option>
                                     <option>Gestão</option>
-                                    <option>Chefe - Setor</option>
+                                    <option>Chefe - Cargo</option>
                                     <option>Operacional</option>
                                     <option>Administrativo</option>
                                 </select>
@@ -59,7 +59,7 @@ $resultadoUsuario = $conexao->query("
                                 <thead>
                                     <tr>
                                         <th>ID</th>
-                                        <th>Setor</th>
+                                        <th>Cargo</th>
                                         <th>Usuário</th>
                                         <th>Ações</th>
                                 </thead>
@@ -72,7 +72,7 @@ $resultadoUsuario = $conexao->query("
                                                 #<?= $usuario['id'] ?>
                                             </td>
 
-                                            <td class="setor-tr">
+                                            <td class="Cargo-tr">
                                                 <?= $usuario['perfil'] ?>
                                             </td>
 
@@ -83,14 +83,14 @@ $resultadoUsuario = $conexao->query("
                                             <td class="buttons">
                                                 <button type="button"
                                                     class="editar-usuario btn btn-sm btn-outline-secondary"
-                                                    data-bs-toggle="modal" data-bs-target="#modalUsuario"
+                                                    data-bs-toggle="modal" data-bs-target="#modalEditarUsuario"
                                                     data-id="<?= $usuario['id'] ?>" data-nome="<?= $usuario['nome'] ?>"
                                                     data-email="<?= $usuario['email'] ?>"
-                                                    data-perfil="<?= $usuario['perfil_id'] ?? '' ?>">
+                                                    data-perfil="<?= $usuario['perfil_id'] ?>">
                                                     ✏
                                                 </button>
 
-                                                <a href="../components/delete/usuario-delete.php?id=<?= $usuario['id'] ?>"
+                                                <a href="../source/delete/usuario-delete.php?id=<?= $usuario['id'] ?>"
                                                     class="btn btn-sm btn-outline-danger"
                                                     onclick="return confirm('Deseja realmente excluir esse usuário?')">
                                                     🗑
@@ -105,11 +105,12 @@ $resultadoUsuario = $conexao->query("
                 </div>
             </div>
         </div>
+
+        <?php include '../components/modals/edit/usuario-edit.php'; ?>
+
     </main>
 
-    <?php include '../components/modals/usuarios-edit.php'; ?>
-
-    <?php include '../infra/bootstrap.html'; ?>
+    <?php include '../config/bootstrap.html'; ?>
 
     <script src="../scripts/usuarios.js"></script>
 

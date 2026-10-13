@@ -1,7 +1,12 @@
+<?php
+$sql = "SELECT id, nome FROM perfil";
+$resultado = mysqli_query($conexao, $sql);
+?>
+
+
 <div class="card  shadow-sm p-3">
     <div class="card-body">
-        <form id="form-funcionarios" action="../components/create/usuario-create.php" method="POST" class="row g-3">
-            <h2 id="titulo" class="text-center fw-bold"></h2>
+        <form id="form-funcionarios" action="../source/create/usuario-create.php" method="POST" class="row g-3">
 
             <div class="mb-2">
                 <label for="nome" class="form-label fw-bold">Nome Usuário</label>
@@ -22,12 +27,12 @@
 
                 <label for="setor" class="form-label fw-bold">Setor</label>
 
-                <select name="perfil_id" class="form-control " id="setor" required>
-                    <option value="1">Administrador</option>
-                    <option value="2">Operador</option>
-                    <option value="3">Analista</option>
-                    <option value="4">Gestor</option>
-                    <option value="5">Maquinista</option>
+                <select name="perfil_id" class="form-control" id="perfil_id" required>
+                    <?php while ($perfil = mysqli_fetch_assoc($resultado)) { ?>
+                        <option value="<?= $perfil['id'] ?>">
+                            <?= $perfil['nome'] ?>
+                        </option>
+                    <?php } ?>
                 </select>
             </div>
             <div class="mb-2 mt-4">

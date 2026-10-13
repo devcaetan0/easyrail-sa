@@ -1,6 +1,6 @@
 <?php
 session_start();
-include "../infra/conexao.php";
+include "../config/conexao.php";
 $perfilAtual = $_SESSION['perfil_id'];
 
 verificarAcesso(5);
@@ -11,7 +11,7 @@ verificarAcesso(5);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <?php include('../components/links.html') ?>
+    <?php include('../config/links.html') ?>
     <title>Relatórios</title>
 </head>
 
@@ -53,7 +53,7 @@ verificarAcesso(5);
                                 <th>Falha</th>
                                 <th>Risco</th>
                                 <?php if ($perfilAtual == 1) { ?>
-                                    <th>Ações</th>
+                                        <th>Ações</th>
                                 <?php } ?>
                             </tr>
                         </thead>
@@ -65,10 +65,10 @@ verificarAcesso(5);
                                 <td id="1" class="tipo-tr">Alto</td>
                                 <td>
                                     <?php if ($perfilAtual == 1) { ?>
-                                        <button class="editar btn btn-sm btn-outline-secondary" data-bs-toggle="modal"
-                                            data-bs-target="#modalCadastroSensor" id="1">👀</button>
-                                        <button class="excluir btn btn-sm btn-outline-danger" id="1">⬇️</button>
-                                    </td>
+                                            <button class="editar btn btn-sm btn-outline-secondary" data-bs-toggle="modal"
+                                                data-bs-target="#modalCadastroSensor" id="1">👀</button>
+                                            <button class="excluir btn btn-sm btn-outline-danger" id="1">⬇️</button>
+                                        </td>
                                 <?php } ?>
                                 </td>
                             </tr>
@@ -79,7 +79,7 @@ verificarAcesso(5);
         </div>
     </main>
 
-    <?php include '../infra/bootstrap.html'; ?>
+    <?php include '../config/bootstrap.html'; ?>
     <script src="../scripts/sensores.js"></script>
 </body>
 

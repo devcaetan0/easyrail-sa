@@ -1,9 +1,6 @@
 <?php
-
-
 $sql = "SELECT id, nome FROM usuario ORDER BY nome ASC";
 $resultado = mysqli_query($conexao, $sql);
-
 ?>
 
 
@@ -16,7 +13,7 @@ $resultado = mysqli_query($conexao, $sql);
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form id="form-trem" action="../../components/create/frota-create.php" method="POST">
+                <form id="form-trem" action="../source/create/frota-create.php" method="POST">
 
                     <div class="mb-3">
                         <label for="modelo" class="form-label fw-bold">Modelo</label>
@@ -46,7 +43,6 @@ $resultado = mysqli_query($conexao, $sql);
 
                         </select>
                     </div>
-
 
                     <div class="d-flex gap-2">
                         <button type="button" class="btn btn-secondary fw-bold"

@@ -1,6 +1,6 @@
 <?php
 session_start();
-include "../infra/conexao.php";
+include "../config/conexao.php";
 $perfilAtual = $_SESSION['perfil_id'];
 ?>
 
@@ -9,7 +9,7 @@ $perfilAtual = $_SESSION['perfil_id'];
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <?php include('../components/links.html') ?>
+    <?php include('../config/links.html') ?>
     <title>Página Inicial</title>
 </head>
 
@@ -32,7 +32,7 @@ $perfilAtual = $_SESSION['perfil_id'];
     </main>
 </body>
 
-<?php include('../infra/bootstrap.html') ?>
+<?php include('../config/bootstrap.html') ?>
 
 </body>
 

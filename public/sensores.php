@@ -1,6 +1,6 @@
 <?php
 session_start();
-include "../infra/conexao.php";
+include "../config/conexao.php";
 
 $perfilAtual = $_SESSION['perfil_id'];
 verificarAcesso(5);
@@ -12,7 +12,7 @@ verificarAcesso(5);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <?php include('../components/links.html') ?>
+    <?php include('../config/links.html') ?>
     <title>Sensores</title>
 </head>
 
@@ -25,16 +25,16 @@ verificarAcesso(5);
             <h1 class="titulo-pagina fw-bold mb-5">Monitoramento IoT</h1>
 
 
-    <?php if ($perfilAtual == 1) { ?>
-        <div class="d-flex justify-content-end mb-2">
-            <button type="button" class="btn btn-laranja fw-bold p-2 mb-3" data-bs-toggle="modal"
-                data-bs-target="#modalCadastroSensor">
-                + Adicionar Sensor
-            </button>
-         </div>
+            <?php if ($perfilAtual == 1) { ?>
+                <div class="d-flex justify-content-end mb-2">
+                    <button type="button" class="btn btn-laranja fw-bold p-2 mb-3" data-bs-toggle="modal"
+                        data-bs-target="#modalCadastroSensor">
+                        + Adicionar Sensor
+                    </button>
+                </div>
 
-    <?php } ?>
-            
+            <?php } ?>
+
 
             <div class="card p-3 mb-4 shadow-sm">
                 <div class="row">
@@ -78,8 +78,8 @@ verificarAcesso(5);
                                 <td>
                                     <?php if ($perfilAtual == 1) { ?>
                                         <button class="editar btn btn-sm btn-outline-secondary" data-bs-toggle="modal"
-                                            data-bs-target="#modalCadastroSensor" id="1">✏</button>
-                                        <button class="excluir btn btn-sm btn-outline-danger" id="1">🗑</button>
+                                            data-bs-target="#modalEditarSensor">✏</button>
+                                        <button class="excluir btn btn-sm btn-outline-danger">🗑</button>
                                     </td>
                                 <?php } ?>
                             </tr>
@@ -89,11 +89,13 @@ verificarAcesso(5);
             </div>
         </div>
 
-        <?php include('../components/modals/sensores-add.php') ?>
+        <?php include('../components/modals/add/sensor-add.php') ?>
+
+        <?php include('../components/modals/edit/sensor-edit.php') ?>
 
     </main>
 
-    <?php include '../infra/bootstrap.html'; ?>
+    <?php include '../config/bootstrap.html'; ?>
 </body>
 
 </html>
