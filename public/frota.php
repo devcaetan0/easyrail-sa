@@ -72,7 +72,9 @@ $resultadoCargas = $conexao->query("SELECT id, nome FROM carga ORDER BY nome ASC
                                 <th>Modelo</th>
                                 <th>Carga</th>
                                 <th>Usuário</th>
-                                <th>Ações</th>
+                                <?php if ($perfilAtual == 1) { ?>
+                                    <th>Ações</th>
+                                <?php } ?>
                             </tr>
                         </thead>
 
@@ -95,22 +97,23 @@ $resultadoCargas = $conexao->query("SELECT id, nome FROM carga ORDER BY nome ASC
                                     <td class="usuario-tr">
                                         <?= $trem['nome_usuario'] ?>
                                     </td>
+                                    <?php if ($perfilAtual == 1) { ?>
+                                        <td class="buttons" data-carga-id="<?= $trem['carga_id'] ?? '' ?>">
+                                            <button type="button" class="editar-trem btn btn-sm btn-outline-secondary"
+                                                data-bs-toggle="modal" data-bs-target="#modalEditarTrem"
+                                                data-id="<?= $trem['id'] ?>" data-modelo="<?= $trem['modelo'] ?>"
+                                                data-carga-id="<?= $trem['carga_id'] ?? '' ?>"
+                                                data-usuario-id="<?= $trem['usuario_id'] ?? '' ?>">
+                                                ✏
+                                            </button>
 
-                                    <td class="buttons" data-carga-id="<?= $trem['carga_id'] ?? '' ?>">
-                                        <button type="button" class="editar-trem btn btn-sm btn-outline-secondary"
-                                            data-bs-toggle="modal" data-bs-target="#modalEditarTrem"
-                                            data-id="<?= $trem['id'] ?>" data-modelo="<?= $trem['modelo'] ?>"
-                                            data-carga-id="<?= $trem['carga_id'] ?? '' ?>"
-                                            data-usuario-id="<?= $trem['usuario_id'] ?? '' ?>">
-                                            ✏
-                                        </button>
-
-                                        <a href="../source/delete/frota-delete.php?id=<?= $trem['id'] ?>"
-                                            class="btn btn-sm btn-outline-danger"
-                                            onclick="return confirm('Deseja realmente excluir este trem?')">
-                                            🗑
-                                        </a>
-                                    </td>
+                                            <a href="../source/delete/frota-delete.php?id=<?= $trem['id'] ?>"
+                                                class="btn btn-sm btn-outline-danger"
+                                                onclick="return confirm('Deseja realmente excluir este trem?')">
+                                                🗑
+                                            </a>
+                                        </td>
+                                    <?php } ?>
                                 </tr>
                             <?php } ?>
                         </tbody>
