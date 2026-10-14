@@ -12,7 +12,7 @@
                 <li class="nav-item">
                     <a class="nav-link" href="frota.php">Frota de Carga</a>
                 </li>
-                <li class=""nav-item">
+                <li class="nav-item">
                     <a class="nav-link" href="rotas.php">Rotas</a>
                 </li>
                 <li class="nav-item">
