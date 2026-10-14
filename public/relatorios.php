@@ -78,7 +78,7 @@ verificarAcesso(5);
             </div>
         </div>
     </main>
-
+        <script src="../scripts/navbar.js"></script>
     <?php include '../config/bootstrap.html'; ?>
     <script src="../scripts/sensores.js"></script>
 </body>

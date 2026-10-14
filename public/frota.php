@@ -129,6 +129,7 @@ $resultadoCargas = $conexao->query("SELECT id, nome FROM carga ORDER BY nome ASC
     </main>
 
     <?php include('../config/bootstrap.html') ?>
+    <script src="../scripts/navbar.js"></script>
     <script src="../scripts/frota.js"></script>
 </body>
 

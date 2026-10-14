@@ -94,6 +94,7 @@ verificarAcesso(5);
         <?php include('../components/modals/edit/sensor-edit.php') ?>
 
     </main>
+    <script src="../scripts/navbar.js"></script>
 
     <?php include '../config/bootstrap.html'; ?>
 </body>

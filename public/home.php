@@ -33,6 +33,7 @@ $perfilAtual = $_SESSION['perfil_id'];
 </body>
 
 <?php include('../config/bootstrap.html') ?>
+    <script src="../scripts/nav.js"></script>
 
 </body>
 

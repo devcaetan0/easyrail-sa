@@ -7,7 +7,7 @@
         <div class="collapse navbar-collapse d-flex justify-content-center">
             <ul class="navbar-nav gap-5">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Dashboard</a>
+                    <a class="nav-link" href="dashboard.php">Dashboard</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="frota.php">Frota de Carga</a>
