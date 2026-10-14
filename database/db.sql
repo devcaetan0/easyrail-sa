@@ -70,7 +70,6 @@ CREATE TABLE rota (
     FOREIGN KEY (trem_id) REFERENCES trem(id)
 );
 
--- 1. INSERTS DAS TABELAS SEM CHAVE ESTRANGEIRA (DEPENDÊNCIAS)
 INSERT INTO perfil (nome) VALUES 
 ('Administrador'),
 ('Operador'),
@@ -91,7 +90,6 @@ INSERT INTO trilho (codigo_trecho) VALUES
 ('TR-SUL-001'), ('TR-SUL-002'), ('TR-SUL-003'), ('TR-SUL-004'), ('TR-SUL-005'),
 ('TR-LESTE-001'), ('TR-LESTE-002'), ('TR-OESTE-001'), ('TR-OESTE-002'), ('PÁTIO-CENTRAL');
 
--- 2. INSERTS COM DEPENDÊNCIAS
 INSERT INTO usuario (nome, email, senha, perfil_id) VALUES 
 ('admin', 'admin@easyrail.com.br', '$2y$10$Si2/M8kMHvJLIYqQPh656OChuwlAbPAXHcnH.53ztKeXNqbWu4iBW', 1),
 ('carlos.almeida', 'carlos.almeida@easyrail.com.br', '$2y$10$Si2/M8kMHvJLIYqQPh656OChuwlAbPAXHcnH.53ztKeXNqbWu4iBW', 1),
@@ -105,7 +103,6 @@ INSERT INTO usuario (nome, email, senha, perfil_id) VALUES
 ('thiago.ribeiro', 'thiago.ribeiro@easyrail.com.br', '$2y$10$Si2/M8kMHvJLIYqQPh656OChuwlAbPAXHcnH.53ztKeXNqbWu4iBW', 2),
 ('camila.rocha', 'camila.rocha@easyrail.com.br', '$2y$10$Si2/M8kMHvJLIYqQPh656OChuwlAbPAXHcnH.53ztKeXNqbWu4iBW', 4);
 
--- O trem agora pode ser inserido pois as tabelas 'carga' e 'usuario' já possuem dados
 INSERT INTO trem (modelo, carga_id, usuario_id) VALUES
 ('Locomotiva EMD SD70ACe', 1, 1),
 ('Locomotiva GE AC44i', 2, 2),
