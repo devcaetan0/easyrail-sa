@@ -68,6 +68,10 @@ $resultadoCargas = $conexao->query("SELECT id, nome FROM carga ORDER BY nome ASC
                     <table class="table table-hover mb-0">
                         <thead>
                             <tr>
+                                <?php if ($perfilAtual == 1) { ?>
+                                <th></th>
+                                <?php } ?>
+
                                 <th>ID</th>
                                 <th>Modelo</th>
                                 <th>Carga</th>
@@ -82,6 +86,10 @@ $resultadoCargas = $conexao->query("SELECT id, nome FROM carga ORDER BY nome ASC
                             <?php while ($trem = $resultadoTrem->fetch_assoc()) { ?>
 
                                 <tr>
+                                    <?php if ($perfilAtual == 1) { ?>
+                                    <td class="buttons" data-carga-id="<?= $trem['carga_id'] ?? '' ?>"></td>
+                                    <?php } ?>
+                                    
                                     <td>
                                         #<?= $trem['id'] ?>
                                     </td>
