@@ -66,7 +66,7 @@ $resultadoCargas = $conexao->query("SELECT id, nome FROM carga ORDER BY nome ASC
             <div class="card p-3 shadow-sm">
                 <div class="table-responsive">
                     <table class="table table-hover mb-0">
-                        <thead>
+                        <thead">
                             <tr>
                                 <?php if ($perfilAtual == 1) { ?>
                                 <th></th>

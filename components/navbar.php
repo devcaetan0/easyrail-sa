@@ -1,12 +1,14 @@
 <header>
-    <nav class="navbar navbar-expand-lg w-100 p-2" id="navbar">
-        <a class="navbar-brand" href="home.php">
-            <img src="../assets/images/logo-navbar.png" alt="EasyRail Logo" width="45px" height="45px">
-            EasyRail
-        </a>
+    <nav class="navbar navbar-expand-lg w-100 p-3" id="navbar">
+        <div style="transform: scale(1.25);" class="">
+            <a class="navbar-brand" href="home.php">
+                <img src="../assets/images/logo-navbar.png" alt="EasyRail Logo" width="45px" height="45px">
+                <span style="color: var(--cor-branca);">Easy</span><span style="color: var(--cor-laranja);">Rail</span>
+            </a>
+        </div>
         <div class="collapse navbar-collapse d-flex justify-content-center">
             <ul class="navbar-nav gap-5">
-                <li class="nav-item active">
+                <li class="nav-item">
                     <a class="nav-link" href="dashboard.php">Dashboard</a>
                 </li>
                 <li class="nav-item">
@@ -28,6 +30,8 @@
                 <?php } ?>
             </ul>
         </div>
-        <a class="navbar-brand" href="../index.php?logout=1">Sair</a>
+        <div>
+            <a class="navbar-brand" href="../index.php?logout=1">Sair</a>
+        </div>
     </nav>
 </header>
