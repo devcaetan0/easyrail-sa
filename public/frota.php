@@ -9,13 +9,6 @@ $perfilAtual = $_SESSION['perfil_id'];
 
 $limite = 10; 
 
-$pagina = isset($_GET['pagina']) ? (int)$_GET['pagina'] : 1;
-if ($pagina < 1) {
-    $pagina = 1;
-}
-
-$offset = ($pagina - 1) * $limite;
-
 $resultadoTrem = $conexao->query("
     SELECT t.id, t.modelo, t.carga_id, c.nome AS carga, t.usuario_id, u.nome AS nome_usuario
     FROM trem t
@@ -62,14 +55,7 @@ $resultadoCargas = $conexao->query("SELECT id, nome FROM carga ORDER BY nome ASC
                         <label class="fw-bold form-label">Tipo de Carga</label>
                         <select class="form-select" id="filtroCarga">
                             <option value="">Todos</option>
-                            <?php while ($cargaFiltro = $resultadoCargas->fetch_assoc()) { 
-                                    $totalResult = $conexao->query("SELECT COUNT(*) AS total FROM usuarios");
-                                    $totalUsuarios = $totalResult->fetch_assoc()['total'];
-                                    $totalPaginas = ceil($totalUsuarios / $limite);
-
-                                    $sql = "SELECT id, nome, email FROM usuarios LIMIT $limite OFFSET $offset";
-                                    $resultado = $conexao->query($sql);
-                                ?>
+                            <?php while ($cargaFiltro = $resultadoCargas->fetch_assoc()) { ?>
                                 <option value="<?= $cargaFiltro['id'] ?>">
                                     <?= $cargaFiltro['nome'] ?>
                                 </option>
@@ -82,12 +68,8 @@ $resultadoCargas = $conexao->query("SELECT id, nome FROM carga ORDER BY nome ASC
             <div class="card p-3 shadow-sm">
                 <div class="table-responsive">
                     <table class="table table-hover mb-0">
-                        <thead">
+                        <thead>
                             <tr>
-                                <?php if ($perfilAtual == 1) { ?>
-                                <th></th>
-                                <?php } ?>
-
                                 <th>ID</th>
                                 <th>Modelo</th>
                                 <th>Carga</th>
@@ -102,10 +84,6 @@ $resultadoCargas = $conexao->query("SELECT id, nome FROM carga ORDER BY nome ASC
                             <?php while ($trem = $resultadoTrem->fetch_assoc()) { ?>
 
                                 <tr>
-                                    <?php if ($perfilAtual == 1) { ?>
-                                    <td class="buttons" data-carga-id="<?= $trem['carga_id'] ?? '' ?>"></td>
-                                    <?php } ?>
-                                    
                                     <td>
                                         #<?= $trem['id'] ?>
                                     </td>
