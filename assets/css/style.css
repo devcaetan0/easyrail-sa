@@ -22,12 +22,11 @@ body {
 }
 
 .navbar .nav-link,
-.navba {
+.navbar-brand {
     color: var(--cor-branca) !important;
 }
 
 /* ===== CLASSES PADRONIZADAS =====*/
-
 .btn-laranja {
     background-color: var(--cor-laranja);
     color: var(--cor-preto);
