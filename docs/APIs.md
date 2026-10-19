@@ -122,6 +122,78 @@ Os endpoints da API tornam o sistema vulnerável a ataques. O monitoramento da A
 
 Os endpoints da API, especialmente os de alto tráfego, podem causar gargalos e afetar a performance do sistema.
 
+## Como funciona a troca de dados no formato JSON
+
+O formato JSON (JavaScript Object Notation) é um padrão leve de troca de dados baseado na notação de objetos do JavaScript. JSON é um formato de arquivo (.json) amplamente usado para representar dados estruturados de uma forma comum a diversas linguagens de programação. 
+
+Essa imagem é uma estrutura de exemplo de .json:
+
+![alt text](../assets/images/exemplo-json.png)
+
+Em seguida esse é um exemplo de decodificação do .json acima em PHP:
+
+![alt text](../assets/images/exemplo-decodificacao.png)
+
+## Diferenças entre uma API e um sistema web tradicional
+
+Tanto APIs quanto web services podem operar em máquinas ou redes, mas possuem algumas diferenças estruturais entre eles.
+
+Com as APIs, o cliente/consumidor de dados não precisa saber qual procedimento chamar no servidor – é necessária apenas a utilização de comandos, e o próprio sistema de recebimento já sabe o que fazer com eles.
+
+Além disso, as APIs são consideradas mais flexíveis porque os sistemas do cliente e do serviço podem se comunicar mesmo que cada um utilize linguagens diferentes na implementação.
+
+Dessa forma, os web services funcionam de maneira mais eficiente em um contexto onde a comunicação acontece de máquina para máquina – já as APIs operam melhor em um nível de software para software, fazendo uma busca de informações em aplicativos que são baseados na web.
+
+
+## Como uma aplicação PHP pode consumir uma API
+
+Consumir APIs é uma funcionalidade que tem se tornado muito comum em sistemas web ou mesmo desktop. Muitas vezes, esse trabalho se torna complicado quando o desenvolvedor desconhece recursos que facilitam a implementação dessas funcionalidades. Uma das formas é pela Unirest for PHP, que possui as seguintes funcionalidades principais:
+
+- Possibilidade de utilização dos métodos GET, HEAD, POST, PUT, DELETE, CONNECT, OPTIONS, TRACE, PATCH para chamadas;
+- Suporte a parâmetros enviados via formulários, upload de arquivos, gzip;
+- Suporte a autenticação Basic, Digest, Negotiate, NTLM;
+- Customização de timeout;
+- Parse automático de JSON.
+
+
+## Como uma API pode disponibilizar informações para outros sistemas
+
+Uma API é construída quando uma empresa deseja disponibilizar recursos do seu software para outros desenvolvedores que precisem criar sistemas relacionados ao seu serviço. Em situações desse tipo, o programador tem acesso a uma documentação com instruções para executar ações específicas naquele sistema e obter os resultados desejados.
+
+Outro cenário — que pode ocorrer em conjunto do anterior ou não — é quando uma empresa precisa distribuir ou manter seus dados em vários dos seus sistemas internos. Assim, por conta das possíveis diferenças entre as tecnologias utilizadas no desenvolvimento de cada aplicação, pode haver certa dificuldade em sincronizar os dados entre as plataformas.
+
+
+## Importância da autenticação, autorização e segurança no consumo de APIs
+
+Os padrões e estrutura utilizados pelas APIs permitem que a troca de dados entre as plataformas ocorra de forma segura. Isso é possível, pois apenas um conjunto específico de dados pode ser transmitido por essa espécie de ponte que é formada entre os sistemas.
+
+É por conta desse acesso limitado que podemos utilizar aplicações e serviços bancários com segurança. Além disso, a depender da finalidade da API, essa característica permite que os desenvolvedores criem ferramentas para automação e melhorem, por exemplo, a execução de tarefas repetitivas.
+
+
+## Exemplos de utilização de APIs em sistemas empresariais
+
+### APIs de comunicação
+
+As APIs de comunicação são algumas das mais adotadas por desenvolvedores porque resolvem um desafio universal: entregar mensagens de forma automatizada, segura e rastreável entre sistemas e usuários.
+
+
+### APIs de inteligência artificial
+
+Permitem incorporar IA para gerar textos, classificar dados, interpretar imagens, conversar com usuários ou tomar decisões com base em machine learning. E isso sem precisar treinar modelos do zero.
+
+
+### APIs de pagamento
+
+Essas APIs são responsáveis por conectar o sistema do seu produto (checkout, área do cliente, carrinho, planos, etc.) às plataformas que realizam a transação de fato. E fazem isso com foco em segurança, estabilidade, rastreabilidade e integração fácil.
+
+
+### APIs de automação e integração
+
+À medida que o número de ferramentas em um stack aumenta, cresce também a necessidade de conectá-las. 
+
+E é aí que entram as APIs de automação e integração verdadeiros hubs que permitem criar fluxos entre sistemas diferentes, com lógica personalizada e mínima complexidade técnica.
+
+Essas soluções aceleram o desenvolvimento, reduzem retrabalho e criam uma base confiável para fluxos complexos, sem demandar esforço contínuo de engenharia. 
 
 
 Referências:
@@ -130,8 +202,8 @@ https://www.moesif.com/blog/technical/api-methods/
 https://www.ibm.com/br-pt/think/topics/api-integration
 https://aws.amazon.com/pt/what-is/api/
 https://www.treinaweb.com.br/blog/o-que-e-http-request-get-post-response-200-404
-
-
-
-
-
+https://www.alura.com.br/artigos/o-que-e-json?srsltid=AU7gw4XMyFFVV01XTtb2tL2uvXyBOIElJ1obwfiQC4L3NvTZmy-roYRH
+https://blog.idwall.co/qual-a-diferenca-entre-api-e-web-service/
+https://imasters.com.br/apis-microsservicos/como-consumir-apis-em-aplicacoes-php-de-forma-simples
+https://www.impacta.com.br/blog/o-que-integracao-via-api-como-funciona-pratica/
+https://z-api.io/blog/as-15-apis-mais-usadas-por-devs/
