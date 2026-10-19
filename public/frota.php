@@ -7,14 +7,26 @@ verificarAcesso(5);
 
 $perfilAtual = $_SESSION['perfil_id'];
 
-$limite = 10; 
+$limite = 9;
+$pagina = isset($_GET['pagina']) ? (int)$_GET['pagina'] : 1;
+if ($pagina < 1) $pagina = 1;
+$offset = ($pagina - 1) * $limite;
 
 $resultadoTrem = $conexao->query("
     SELECT t.id, t.modelo, t.carga_id, c.nome AS carga, t.usuario_id, u.nome AS nome_usuario
     FROM trem t
     LEFT JOIN usuario u ON t.usuario_id = u.id
     LEFT JOIN carga c ON c.id = t.carga_id
+    LIMIT $limite OFFSET $offset
 ");
+
+     $ultimaPagina = $resultadoTrem->num_rows < $limite;
+
+    if ($resultadoTrem->num_rows < $limite) {
+    $ultimaPagina = true;
+    } else {
+    $ultimaPagina = false;
+    }
 
 $resultadoCargas = $conexao->query("SELECT id, nome FROM carga ORDER BY nome ASC");
 ?>
@@ -120,6 +132,14 @@ $resultadoCargas = $conexao->query("SELECT id, nome FROM carga ORDER BY nome ASC
                             <?php } ?>
                         </tbody>
                     </table>
+                    <br>
+                    <?php if ($pagina > 1) { ?>
+                    <a href="?pagina=<?= $pagina - 1 ?>" class="btn btn-laranja btn-sm">Anterior</a>
+                    <?php } ?>
+                    <span class="mx-2">Página <?= $pagina ?></span>
+                    <?php if (!$ultimaPagina) { ?>
+                    <a href="?pagina=<?= $pagina + 1 ?>" class="btn btn-laranja btn-sm">Próxima</a>
+                    <?php } ?> 
                 </div>
             </div>
         </div>
