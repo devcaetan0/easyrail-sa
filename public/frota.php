@@ -7,13 +7,9 @@ verificarAcesso(5);
 
 $perfilAtual = $_SESSION['perfil_id'];
 
-$limite = 10; 
-
+$limite = 9;
 $pagina = isset($_GET['pagina']) ? (int)$_GET['pagina'] : 1;
-if ($pagina < 1) {
-    $pagina = 1;
-}
-
+if ($pagina < 1) $pagina = 1;
 $offset = ($pagina - 1) * $limite;
 
 $resultadoTrem = $conexao->query("
@@ -21,7 +17,16 @@ $resultadoTrem = $conexao->query("
     FROM trem t
     LEFT JOIN usuario u ON t.usuario_id = u.id
     LEFT JOIN carga c ON c.id = t.carga_id
+    LIMIT $limite OFFSET $offset
 ");
+
+     $ultimaPagina = $resultadoTrem->num_rows < $limite;
+
+    if ($resultadoTrem->num_rows < $limite) {
+    $ultimaPagina = true;
+    } else {
+    $ultimaPagina = false;
+    }
 
 $resultadoCargas = $conexao->query("SELECT id, nome FROM carga ORDER BY nome ASC");
 ?>
@@ -62,14 +67,7 @@ $resultadoCargas = $conexao->query("SELECT id, nome FROM carga ORDER BY nome ASC
                         <label class="fw-bold form-label">Tipo de Carga</label>
                         <select class="form-select" id="filtroCarga">
                             <option value="">Todos</option>
-                            <?php while ($cargaFiltro = $resultadoCargas->fetch_assoc()) { 
-                                    $totalResult = $conexao->query("SELECT COUNT(*) AS total FROM usuarios");
-                                    $totalUsuarios = $totalResult->fetch_assoc()['total'];
-                                    $totalPaginas = ceil($totalUsuarios / $limite);
-
-                                    $sql = "SELECT id, nome, email FROM usuarios LIMIT $limite OFFSET $offset";
-                                    $resultado = $conexao->query($sql);
-                                ?>
+                            <?php while ($cargaFiltro = $resultadoCargas->fetch_assoc()) { ?>
                                 <option value="<?= $cargaFiltro['id'] ?>">
                                     <?= $cargaFiltro['nome'] ?>
                                 </option>
@@ -82,12 +80,8 @@ $resultadoCargas = $conexao->query("SELECT id, nome FROM carga ORDER BY nome ASC
             <div class="card p-3 shadow-sm">
                 <div class="table-responsive">
                     <table class="table table-hover mb-0">
-                        <thead">
+                        <thead>
                             <tr>
-                                <?php if ($perfilAtual == 1) { ?>
-                                <th></th>
-                                <?php } ?>
-
                                 <th>ID</th>
                                 <th>Modelo</th>
                                 <th>Carga</th>
@@ -102,10 +96,6 @@ $resultadoCargas = $conexao->query("SELECT id, nome FROM carga ORDER BY nome ASC
                             <?php while ($trem = $resultadoTrem->fetch_assoc()) { ?>
 
                                 <tr>
-                                    <?php if ($perfilAtual == 1) { ?>
-                                    <td class="buttons" data-carga-id="<?= $trem['carga_id'] ?? '' ?>"></td>
-                                    <?php } ?>
-                                    
                                     <td>
                                         #<?= $trem['id'] ?>
                                     </td>
@@ -142,6 +132,14 @@ $resultadoCargas = $conexao->query("SELECT id, nome FROM carga ORDER BY nome ASC
                             <?php } ?>
                         </tbody>
                     </table>
+                    <br>
+                    <?php if ($pagina > 1) { ?>
+                    <a href="?pagina=<?= $pagina - 1 ?>" class="btn btn-laranja btn-sm">Anterior</a>
+                    <?php } ?>
+                    <span class="mx-2">Página <?= $pagina ?></span>
+                    <?php if (!$ultimaPagina) { ?>
+                    <a href="?pagina=<?= $pagina + 1 ?>" class="btn btn-laranja btn-sm">Próxima</a>
+                    <?php } ?> 
                 </div>
             </div>
         </div>
