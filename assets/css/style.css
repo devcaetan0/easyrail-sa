@@ -5,14 +5,15 @@
     --fundo-cinza: #f7f7f7;
     --cor-azul: #00003d;
     --cor-branca: #ffffff;
+    --fundo-azul-claro:  #f4fcff;
 }
 
 body {
-    background-color: var(--fundo-cinza);
+    background-color: var(--fundo-azul-claro);
 }
 
 #navbar {
-    background-color: var(--cor-azul);
+    background-color: var(--cor-preto);
     font-weight: bold;
     top: 0;
     left: 0;
