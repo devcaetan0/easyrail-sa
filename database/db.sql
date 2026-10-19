@@ -32,32 +32,6 @@ CREATE TABLE trem (
     FOREIGN KEY (usuario_id) REFERENCES usuario(id)
 );
 
-CREATE TABLE trilho (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    codigo_trecho VARCHAR(45)
-);
-
-CREATE TABLE sensor (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    nome VARCHAR(100) NOT NULL,
-    tipo VARCHAR(45) NOT NULL,
-    status VARCHAR(45) NOT NULL,
-    trem_id INT,
-    trilho_id INT,
-
-    FOREIGN KEY (trem_id) REFERENCES trem(id),
-    FOREIGN KEY (trilho_id) REFERENCES trilho(id)
-);
-
-CREATE TABLE registro_sensor (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    sensor_id INT NOT NULL,
-    data_registro DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    valor FLOAT NOT NULL,
-
-    FOREIGN KEY (sensor_id) REFERENCES sensor(id)
-);
-
 CREATE TABLE rota (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(100) NOT NULL,
@@ -68,6 +42,27 @@ CREATE TABLE rota (
     trem_id INT NOT NULL,
 
     FOREIGN KEY (trem_id) REFERENCES trem(id)
+);
+
+CREATE TABLE sensor (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    tipo VARCHAR(45) NOT NULL,
+    status VARCHAR(45) NOT NULL,
+    trem_id INT,
+    rota_id INT,
+
+    FOREIGN KEY (trem_id) REFERENCES trem(id),
+    FOREIGN KEY (rota_id) REFERENCES rota(id)
+);
+
+CREATE TABLE registro_sensor (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    sensor_id INT NOT NULL,
+    data_registro DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    valor FLOAT NOT NULL,
+
+    FOREIGN KEY (sensor_id) REFERENCES sensor(id)
 );
 
 INSERT INTO perfil (nome) VALUES 
@@ -84,11 +79,6 @@ INSERT INTO carga (nome) VALUES
 ('Celulose'),
 ('Industrial'),
 ('Contêineres');
-
-INSERT INTO trilho (codigo_trecho) VALUES 
-('TR-NORTE-001'), ('TR-NORTE-002'), ('TR-NORTE-003'), ('TR-NORTE-004'), ('TR-NORTE-005'),
-('TR-SUL-001'), ('TR-SUL-002'), ('TR-SUL-003'), ('TR-SUL-004'), ('TR-SUL-005'),
-('TR-LESTE-001'), ('TR-LESTE-002'), ('TR-OESTE-001'), ('TR-OESTE-002'), ('PÁTIO-CENTRAL');
 
 INSERT INTO usuario (nome, email, senha, perfil_id) VALUES
 ('admin', 'admin@easyrail.com.br', '$2y$10$Si2/M8kMHvJLIYqQPh656OChuwlAbPAXHcnH.53ztKeXNqbWu4iBW', 1),
@@ -169,7 +159,64 @@ INSERT INTO trem (modelo, carga_id, usuario_id) VALUES
 ('Locomotiva Siemens Vectron', 5, 5),
 ('Locomotiva Alstom Prima', 1, 6),
 ('Locomotiva Stadler Eurodual', 4, 7),
-('Locomotiva CRRC HXD3C', 2, 8);
+('Locomotiva CRRC HXD3C', 2, 8),
+('Locomotiva EMD SD40-2', 1, 11),
+('Locomotiva GE Dash 9-44CW', 2, 12),
+('Locomotiva EMD SD70M', 3, 13),
+('Locomotiva GE ES40DC', 4, 14),
+('Locomotiva EMD GT22', 5, 15),
+('Locomotiva GE U20C', 6, 16),
+('Locomotiva EMD G12', 1, 17),
+('Locomotiva Alstom AD43C', 2, 18),
+('Locomotiva GE C36-7', 3, 19),
+('Locomotiva EMD SD38-2', 4, 20),
+('Locomotiva Wabtec Evolution Series', 5, 21),
+('Locomotiva EMD SD60', 6, 22),
+('Locomotiva GE B23-7', 1, 23),
+('Locomotiva EMD GP38-2', 2, 24),
+('Locomotiva GE Dash 8-40BW', 3, 25),
+('Locomotiva EMD SD75I', 4, 26),
+('Locomotiva Vossloh Euro 4000', 5, 27),
+('Locomotiva Siemens ES64F4', 6, 28),
+('Locomotiva Alstom Prima H3', 1, 29),
+('Locomotiva Bombardier TRAXX F140', 2, 30),
+('Locomotiva CRRC HXD1', 3, 31),
+('Locomotiva Stadler Euro 9000', 4, 32),
+('Locomotiva EMD SD70MAC', 5, 33),
+('Locomotiva GE ES43ACi', 6, 34),
+('Locomotiva EMD GP40-2', 1, 35),
+('Locomotiva GE C44-9W', 2, 36),
+('Locomotiva EMD SD45', 3, 37),
+('Locomotiva GE U23B', 4, 38),
+('Locomotiva EMD F7', 5, 39),
+('Locomotiva Siemens Vectron DE', 6, 40),
+('Locomotiva Alstom Coradia', 1, 41),
+('Locomotiva CRRC HXD2', 2, 42),
+('Locomotiva EMD SD70ACe-T4', 3, 43),
+('Locomotiva GE AC4400CW', 4, 44),
+('Locomotiva EMD GT46AC', 5, 45),
+('Locomotiva GE Dash 9-40CW', 6, 46),
+('Locomotiva Wabtec FDL16', 1, 47),
+('Locomotiva Bombardier TRAXX AC3', 2, 48),
+('Locomotiva Stadler Class 68', 3, 49),
+('Locomotiva Siemens Vectron MS', 4, 50),
+('Locomotiva EMD SD50', 5, 51),
+('Locomotiva GE B36-7', 6, 52),
+('Locomotiva EMD SD39', 1, 53),
+('Locomotiva GE U30C', 2, 54),
+('Locomotiva Alstom Prima M4', 3, 55),
+('Locomotiva CRRC HXN5', 4, 56),
+('Locomotiva EMD GP9', 5, 57),
+('Locomotiva GE C30-7A', 6, 58),
+('Locomotiva EMD SD40T-2', 1, 59),
+('Locomotiva GE ES44DC', 2, 60),
+('Locomotiva Wabtec Tier 4', 3, 61),
+('Locomotiva EMD MP15DC', 4, 62),
+('Locomotiva GE U10B', 5, 63),
+('Locomotiva Siemens ES64U2', 6, 64),
+('Locomotiva Stadler Eurolight', 1, 65),
+('Locomotiva Bombardier TRAXX DE', 2, 66),
+('Locomotiva EMD SD70M-2', 3, 67);
 
 INSERT INTO rota (nome, descricao, distancia, duracao, trem_id) VALUES 
 ('Rota Norte 1', 'Trecho inicial de transporte', 120.5, '02:30:00', 1), 
@@ -186,4 +233,56 @@ INSERT INTO rota (nome, descricao, distancia, duracao, trem_id) VALUES
 ('Retorno Pátio B', 'Manobra e descarregamento', 50.0, '01:00:00', 4),
 ('Rota Leste 1', 'Trecho leste de combustíveis', 220.0, '04:20:00', 5), 
 ('Rota Leste 2', 'Conexão leste', 180.0, '03:45:00', 5), 
-('Retorno Pátio C', 'Manobra final', 60.0, '01:15:00', 5);
+('Retorno Pátio C', 'Manobra final', 60.0, '01:15:00', 5),
+('Rota Leste 3', 'Expresso leste', 140.0, '02:50:00', 6),
+('Rota Oeste 1', 'Trecho oeste agrícola', 160.0, '03:10:00', 6),
+('Rota Oeste 2', 'Conexão oeste', 125.5, '02:30:00', 7),
+('Rota Oeste 3', 'Transporte industrial oeste', 190.0, '03:50:00', 7),
+('Rota Centro 1', 'Ligação com o pátio central', 70.0, '01:25:00', 8),
+('Rota Centro 2', 'Trecho urbano de carga mineral', 55.5, '01:10:00', 8),
+('Rota Porto 1', 'Escoamento até o porto', 230.0, '04:30:00', 9),
+('Rota Porto 2', 'Retorno do porto', 225.0, '04:25:00', 9),
+('Rota Serra 1', 'Subida da serra', 88.0, '02:20:00', 10),
+('Rota Serra 2', 'Descida da serra', 88.0, '01:55:00', 10),
+('Rota Litoral 1', 'Trecho litorâneo de carga mineral', 150.0, '03:00:00', 11),
+('Rota Litoral 2', 'Conexão litoral-pátio', 95.5, '01:55:00', 12),
+('Rota Vale 1', 'Transporte de combustíveis no vale', 135.0, '02:45:00', 13),
+('Rota Vale 2', 'Retorno do vale', 130.0, '02:40:00', 14),
+('Rota Planalto 1', 'Expresso de grãos do planalto', 210.0, '04:10:00', 15),
+('Rota Planalto 2', 'Conexão planalto-porto', 185.0, '03:40:00', 16),
+('Rota Industrial 1', 'Abastecimento do polo industrial', 65.0, '01:20:00', 17),
+('Rota Industrial 2', 'Distribuição de carga industrial', 72.5, '01:30:00', 18),
+('Rota Celulose 1', 'Transporte de celulose até o terminal', 165.0, '03:20:00', 19),
+('Rota Celulose 2', 'Retorno vazio da celulose', 160.0, '03:10:00', 20),
+('Rota Container 1', 'Terminal de contêineres A', 80.0, '01:40:00', 21),
+('Rota Container 2', 'Terminal de contêineres B', 92.0, '01:50:00', 22),
+('Rota Mineral 1', 'Escoamento de minério da mina', 240.0, '04:40:00', 23),
+('Rota Mineral 2', 'Retorno à mina', 238.0, '04:35:00', 24),
+('Rota Agrícola 1', 'Safra de soja região norte', 175.0, '03:30:00', 25),
+('Rota Agrícola 2', 'Safra de milho região sul', 168.0, '03:20:00', 26),
+('Rota Fronteira 1', 'Ligação com a fronteira', 280.0, '05:30:00', 27),
+('Rota Fronteira 2', 'Retorno da fronteira', 278.0, '05:25:00', 28),
+('Rota Pátio Norte', 'Manobra no pátio norte', 40.0, '00:45:00', 29),
+('Rota Pátio Sul', 'Manobra no pátio sul', 42.5, '00:50:00', 30),
+('Rota Expresso 1', 'Expresso nordeste', 310.0, '06:00:00', 31),
+('Rota Expresso 2', 'Expresso sudeste', 295.0, '05:45:00', 32),
+('Rota Interior 1', 'Trecho interior de carga mista', 145.0, '02:55:00', 33),
+('Rota Interior 2', 'Conexão interior-capital', 155.5, '03:05:00', 34),
+('Rota Terminal 1', 'Acesso ao terminal ferroviário', 35.0, '00:40:00', 35),
+('Rota Terminal 2', 'Saída do terminal ferroviário', 36.5, '00:42:00', 36),
+('Rota Montanha 1', 'Trecho de montanha com declive', 110.0, '02:50:00', 37),
+('Rota Montanha 2', 'Retorno de montanha', 108.0, '02:30:00', 38),
+('Rota Rio 1', 'Margem do rio, transporte de combustíveis', 98.0, '02:00:00', 39),
+('Rota Rio 2', 'Ponte sobre o rio e conexão', 102.0, '02:05:00', 40),
+('Rota Metropolitana 1', 'Anel metropolitano de carga', 75.0, '01:35:00', 41),
+('Rota Metropolitana 2', 'Conexão metropolitana leste', 68.0, '01:25:00', 42),
+('Rota Nordeste 1', 'Transporte de grãos no nordeste', 255.0, '05:00:00', 43),
+('Rota Nordeste 2', 'Retorno nordeste', 252.0, '04:55:00', 44),
+('Rota Sudeste 1', 'Escoamento industrial sudeste', 190.0, '03:45:00', 45),
+('Rota Sudeste 2', 'Conexão sudeste-porto', 205.0, '04:00:00', 46),
+('Rota Centro-Oeste 1', 'Safra do centro-oeste', 270.0, '05:20:00', 47),
+('Rota Centro-Oeste 2', 'Retorno centro-oeste', 268.0, '05:15:00', 48),
+('Rota Cargueiro 1', 'Cargueiro de longa distância A', 330.0, '06:30:00', 49),
+('Rota Cargueiro 2', 'Cargueiro de longa distância B', 325.0, '06:25:00', 50),
+('Rota Reserva 1', 'Trecho reserva para contingência', 50.0, '01:00:00', 51),
+('Rota Reserva 2', 'Trecho reserva alternativo', 58.0, '01:10:00', 52);

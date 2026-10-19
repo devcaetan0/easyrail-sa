@@ -31,7 +31,7 @@
             </ul>
         </div>
         <div>
-            <a class="navbar-brand" href="../index.php?logout=1">Sair</a>
+            <a class="navbar-brand" href="../index.php?logout=1"><span style="color: var(--cor-branca);">Sair</span></a>
         </div>
     </nav>
 </header>
