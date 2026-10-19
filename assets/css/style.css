@@ -3,6 +3,8 @@
     --cor-preto: #000000;
     --cor-btn-hover: #dd6b00;
     --fundo-cinza: #f7f7f7;
+    --cor-azul: #00003d;
+    --cor-branca: #ffffff;
 }
 
 body {
@@ -10,12 +12,17 @@ body {
 }
 
 #navbar {
-    background-color: var(--cor-laranja);
+    background-color: var(--cor-azul);
     font-weight: bold;
     top: 0;
     left: 0;
     width: 100%;
     z-index: 1000;
+}
+
+.navbar .nav-link,
+.navba {
+    color: var(--cor-branca) !important;
 }
 
 /* ===== CLASSES PADRONIZADAS =====*/
@@ -33,7 +40,7 @@ body {
 }
 
 .borda-laranja {
-    border: 2px solid var(--cor-laranja);
+    border: 3px solid var(--cor-azul);
 }
 
 .titulo-pagina {
