@@ -27,8 +27,10 @@ $resultadoSensores = $conexao->query("
     <?php include('../components/navbar.php') ?>
 
     <main class="main-padrao">
+        <div>
+        <h1 class="titulo-pagina fw-bold mb-5"><i class="bi bi-house-fill me-4"></i> Monitoramento IoT</h1>
+    </div>
         <div class="container-fluid w-75">
-            <h1 class="titulo-pagina fw-bold mb-5">Monitoramento IoT</h1>
 
             <?php if ($perfilAtual == 1) { ?>
                 <div class="d-flex justify-content-end mb-2">
@@ -75,7 +77,7 @@ $resultadoSensores = $conexao->query("
                                     <td><?= $sensor['rota'] ?? 'Nenhuma' ?></td>
                                     <?php if ($perfilAtual == 1) { ?>
                                         <td>
-                                            <button type="button" class="btn btn-outline-primary btn-sm" data-bs-toggle="modal"
+                                            <button type="button" class="btn btn-outline-secondary btn-sm" data-bs-toggle="modal"
                                                 data-bs-target="#modalEditarSensor" data-id="<?= $sensor['id'] ?>">
                                                 <i class="bi bi-pencil fs-5"></i>
                                             </button>

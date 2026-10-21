@@ -3,7 +3,7 @@
     --cor-preto: #000000;
     --cor-btn-hover: #dd6b00;
     --fundo-cinza: #f5f8ffdc;
-    --cor-azul: #04041b;
+    --cor-azul: #240e01;
     --cor-branca: #ffffff;
 }
 
@@ -12,7 +12,7 @@ body {
 }
 
 #navbar {
-    background-color: var(--cor-azul);
+    background-color: var(--cor-preto);
     font-weight: bold;
     top: 0;
     left: 0;
@@ -23,6 +23,7 @@ body {
 .navbar .nav-link,
 .navbar-brand {
     color: var(--cor-branca) !important;
+    background-color: var(--cor-preto);
 }
 
 /* ===== CLASSES PADRONIZADAS =====*/
