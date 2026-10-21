@@ -33,10 +33,10 @@ $resultadoCargas = $conexao->query("SELECT id, nome FROM carga ORDER BY nome ASC
     <main class="main-padrao">
          <div class=" align-items-center gap-3">
             <div class="d-flex">
-                <i class="bi bi-box" style="font-size: 4rem; line-height: 1;"></i>
+                <i class="bi bi-box" style="font-size: 4rem; line-height: 1; margin-left: 20px;"></i>
                 <h1 class="m-0 fw-bold ms-4">Gerenciamento de Frota</h1>
             </div>
-            <p style="margin-left: 90px;">teste</p>
+            <p style="margin-left: 110px;">teste</p>
         </div>
         <div class="container-fluid w-75">
             <?php if ($perfilAtual == 1) { ?>
