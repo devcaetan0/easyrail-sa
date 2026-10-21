@@ -4,27 +4,14 @@ include "../config/conexao.php";
 
 verificarAcesso(1);
 
-$limite = 9;
-$pagina = isset($_GET['pagina']) ? (int)$_GET['pagina'] : 1;
-if ($pagina < 1) $pagina = 1;
-$offset = ($pagina - 1) * $limite;
-
 $resultadoUsuario = $conexao->query("
     SELECT u.id, u.nome, u.email, u.perfil_id, p.nome AS perfil
     FROM usuario u
     LEFT JOIN perfil p ON u.perfil_id = p.id
     ORDER BY u.id
-    LIMIT $limite OFFSET $offset
     ");
 
-    $ultimaPagina = $resultadoUsuario->num_rows < $limite;
-
-    if ($resultadoUsuario->num_rows < $limite) {
-    $ultimaPagina = true;
-    } else {
-    $ultimaPagina = false;
-    }
-    $resultadoPerfis = $conexao->query("SELECT id, nome FROM perfil ORDER BY nome ASC");
+$resultadoPerfis = $conexao->query("SELECT id, nome FROM perfil ORDER BY nome ASC");
 ?>
 
 <html lang="pt-BR">
@@ -116,14 +103,6 @@ $resultadoUsuario = $conexao->query("
                                     <?php } ?>
                                 </tbody>
                             </table>
-                            <br>
-                            <?php if ($pagina > 1) { ?>
-                            <a href="?pagina=<?= $pagina - 1 ?>" class="btn btn-laranja btn-sm">Anterior</a>
-                            <?php } ?>
-                            <span class="mx-2">Página <?= $pagina ?></span>
-                            <?php if (!$ultimaPagina) { ?>
-                            <a href="?pagina=<?= $pagina + 1 ?>" class="btn btn-laranja btn-sm">Próxima</a>
-                            <?php } ?> 
                         </div>
                     </div>
                 </div>
@@ -135,7 +114,7 @@ $resultadoUsuario = $conexao->query("
     </main>
 
     <?php include '../config/bootstrap.html'; ?>
-        <script src="../scripts/navbar.js"></script>
+    <script src="../scripts/navbar.js"></script>
     <script src="../scripts/usuarios.js"></script>
 
 </body>

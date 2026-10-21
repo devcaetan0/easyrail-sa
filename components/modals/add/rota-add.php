@@ -1,6 +1,5 @@
 <?php
-$sql = "SELECT id, modelo FROM trem ORDER BY modelo ASC";
-$resultado = mysqli_query($conexao, $sql);
+$resultadoTrens = $conexao->query("SELECT id, modelo FROM trem ORDER BY modelo ASC");
 ?>
 
 <div class="modal fade" id="modalCadastroRota" tabindex="-1" aria-labelledby="modalCadastroRotaLabel"
@@ -31,7 +30,7 @@ $resultado = mysqli_query($conexao, $sql);
                             <label for="trem_id" class="form-label fw-bold">Trem Vinculado *</label>
                             <select class="form-select" id="trem_id" name="trem_id" required>
                                 <option value="">Selecione um trem</option>
-                                <?php while ($trem = mysqli_fetch_assoc($resultado)) { ?>
+                                <?php while ($trem = $resultadoTrens->fetch_assoc()) { ?>
                                     <option value="<?= $trem['id'] ?>">
                                         <?= $trem['modelo'] ?>
                                     </option>

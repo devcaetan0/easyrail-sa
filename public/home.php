@@ -2,6 +2,7 @@
 session_start();
 include "../config/conexao.php";
 $perfilAtual = $_SESSION['perfil_id'];
+$nomeUsuario = $_SESSION['nome'];
 ?>
 
 <html lang="en">
@@ -18,7 +19,7 @@ $perfilAtual = $_SESSION['perfil_id'];
 
     <main class="container-fluid fade-in">
         <div class="titulo-home text-center mt-5 mb-5 fw-bold">
-            <h1>Bem-vindo(a) a EasyRail!</h1>
+            <h1>Olá, <?= $nomeUsuario ?>! Bem-vindo(a) a EasyRail!</h1>
             <h4>Selecione uma categoria para começar a gerenciar os dados de suas locomotivas.</h4>
         </div>
 
@@ -33,7 +34,7 @@ $perfilAtual = $_SESSION['perfil_id'];
 </body>
 
 <?php include('../config/bootstrap.html') ?>
-    <script src="../scripts/nav.js"></script>
+<script src="../scripts/nav.js"></script>
 
 </body>
 

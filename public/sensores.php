@@ -5,6 +5,13 @@ include "../config/conexao.php";
 $perfilAtual = $_SESSION['perfil_id'];
 verificarAcesso(5);
 
+$resultadoSensores = $conexao->query("
+    SELECT s.id, s.nome, s.tipo, s.status, t.modelo AS trem, r.nome AS rota
+    FROM sensor s
+    LEFT JOIN trem t ON s.trem_id = t.id
+    LEFT JOIN rota r ON s.rota_id = r.id
+    ORDER BY s.id ASC
+");
 ?>
 
 <html lang="pt-BR">
@@ -19,11 +26,9 @@ verificarAcesso(5);
 <body>
     <?php include('../components/navbar.php') ?>
 
-
     <main class="main-padrao">
         <div class="container-fluid w-75">
             <h1 class="titulo-pagina fw-bold mb-5">Monitoramento IoT</h1>
-
 
             <?php if ($perfilAtual == 1) { ?>
                 <div class="d-flex justify-content-end mb-2">
@@ -32,24 +37,13 @@ verificarAcesso(5);
                         + Adicionar Sensor
                     </button>
                 </div>
-
             <?php } ?>
-
 
             <div class="card p-3 mb-4 shadow-sm">
                 <div class="row">
-                    <div class="col-md-6 mb-2">
-                        <label class="fw-bold form-label">Pesquisar</label>
-                        <input class="form-control" placeholder="Nome/ID">
-                    </div>
                     <div class="col-md-6">
-                        <label class="fw-bold form-label">Tipo</label>
-                        <select class="form-select">
-                            <option>Todos</option>
-                            <option>Temperatura</option>
-                            <option>Velocidade</option>
-                            <option>Energia</option>
-                        </select>
+                        <label class="fw-bold form-label" for="pesquisa">Pesquisar</label>
+                        <input class="form-control" placeholder="Nome/ID" id="pesquisa">
                     </div>
                 </div>
             </div>
@@ -62,27 +56,39 @@ verificarAcesso(5);
                                 <th>ID</th>
                                 <th>Nome</th>
                                 <th>Tipo</th>
-                                <th>Localização</th>
-
+                                <th>Status</th>
+                                <th>Trem</th>
+                                <th>Rota</th>
                                 <?php if ($perfilAtual == 1) { ?>
                                     <th>Ações</th>
                                 <?php } ?>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr id="1">
-                                <td id="1">#00001</td>
-                                <td id="1" class="nome-tr">Sensor</td>
-                                <td id="1" class="tipo-tr">Temperatura</td>
-                                <td id="1" class="localizacao-tr">Praia do Ervino</td>
-                                <td>
+                        <tbody id="tabelaSensores">
+                            <?php while ($sensor = $resultadoSensores->fetch_assoc()) { ?>
+                                <tr>
+                                    <td>#<?= $sensor['id'] ?></td>
+                                    <td><?= $sensor['nome'] ?></td>
+                                    <td><?= $sensor['tipo'] ?></td>
+                                    <td><?= $sensor['status'] ?></td>
+                                    <td><?= $sensor['trem'] ?></td>
+                                    <td><?= $sensor['rota'] ?></td>
                                     <?php if ($perfilAtual == 1) { ?>
-                                        <button class="editar btn btn-sm btn-outline-secondary" data-bs-toggle="modal"
-                                            data-bs-target="#modalEditarSensor">✏</button>
-                                        <button class="excluir btn btn-sm btn-outline-danger">🗑</button>
-                                    </td>
-                                <?php } ?>
-                            </tr>
+                                        <td>
+                                            <button type="button" class="btn btn-outline-primary btn-sm" data-bs-toggle="modal"
+                                                data-bs-target="#modalEditarSensor" data-id="<?= $sensor['id'] ?>">
+                                                ✏
+                                            </button>
+                                            <a href="../source/delete/sensor-delete.php?id=<?= $sensor['id'] ?>"
+                                                class="btn btn-sm btn-outline-danger"
+                                                onclick="return confirm('Deseja realmente excluir esse sensor?')">
+                                                🗑
+                                            </a>
+                                        </td>
+                                    <?php } ?>
+                                </tr>
+                            <?php } ?>
+
                         </tbody>
                     </table>
                 </div>
@@ -90,13 +96,12 @@ verificarAcesso(5);
         </div>
 
         <?php include('../components/modals/add/sensor-add.php') ?>
-
         <?php include('../components/modals/edit/sensor-edit.php') ?>
-
     </main>
-    <script src="../scripts/navbar.js"></script>
 
+    <script src="../scripts/navbar.js"></script>
     <?php include '../config/bootstrap.html'; ?>
+    <script src="../scripts/sensores.js"></script>
 </body>
 
 </html>

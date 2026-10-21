@@ -1,6 +1,5 @@
 <?php
-$sql = "SELECT id, nome FROM perfil";
-$resultado = mysqli_query($conexao, $sql);
+$resultadoPerfis = $conexao->query("SELECT id, nome FROM perfil ORDER BY nome ASC");
 ?>
 
 
@@ -25,10 +24,10 @@ $resultado = mysqli_query($conexao, $sql);
 
             <div class="mb-2">
 
-                <label for="setor" class="form-label fw-bold">Setor</label>
+                <label for="perfil_id" class="form-label fw-bold">Setor</label>
 
                 <select name="perfil_id" class="form-control" id="perfil_id" required>
-                    <?php while ($perfil = mysqli_fetch_assoc($resultado)) { ?>
+                    <?php while ($perfil = $resultadoPerfis->fetch_assoc()) { ?>
                         <option value="<?= $perfil['id'] ?>">
                             <?= $perfil['nome'] ?>
                         </option>

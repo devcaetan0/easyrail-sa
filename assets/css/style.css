@@ -2,18 +2,17 @@
     --cor-laranja: #fa8415;
     --cor-preto: #000000;
     --cor-btn-hover: #dd6b00;
-    --fundo-cinza: #f7f7f7;
-    --cor-azul: #00003d;
+    --fundo-cinza: #eef2ff;
+    --cor-azul: #04041b;
     --cor-branca: #ffffff;
-    --fundo-azul-claro:  #f4fcff;
 }
 
 body {
-    background-color: var(--fundo-azul-claro);
+    background-color: var(--fundo-cinza);
 }
 
 #navbar {
-    background-color: var(--cor-preto);
+    background-color: var(--cor-azul);
     font-weight: bold;
     top: 0;
     left: 0;

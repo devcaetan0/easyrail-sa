@@ -5,26 +5,11 @@ verificarAcesso(5);
 
 $perfilAtual = $_SESSION['perfil_id'];
 
-$limite = 9;
-$pagina = isset($_GET['pagina']) ? (int)$_GET['pagina'] : 1;
-if ($pagina < 1) $pagina = 1;
-$offset = ($pagina - 1) * $limite;
-
 $resultadoRota = $conexao->query("
     SELECT r.id, r.nome, r.distancia, r.descricao, r.trem_id, r.duracao, t.modelo AS modelo
     FROM rota r JOIN trem t ON t.id = r.trem_id
     ORDER BY r.id ASC
-    LIMIT $limite OFFSET $offset
 ");
-
-     $ultimaPagina = $resultadoRota->num_rows < $limite;
-
-    if ($resultadoRota->num_rows < $limite) {
-    $ultimaPagina = true;
-    } else {
-    $ultimaPagina = false;
-    }
-
 
 $resultadoTrem = $conexao->query("SELECT id, modelo FROM trem ORDER BY modelo ASC");
 ?>
@@ -131,14 +116,6 @@ $resultadoTrem = $conexao->query("SELECT id, modelo FROM trem ORDER BY modelo AS
                             <?php } ?>
                         </tbody>
                     </table>
-                    <br>
-                    <?php if ($pagina > 1) { ?>
-                    <a href="?pagina=<?= $pagina - 1 ?>" class="btn btn-laranja btn-sm">Anterior</a>
-                    <?php } ?>
-                    <span class="mx-2">Página <?= $pagina ?></span>
-                    <?php if (!$ultimaPagina) { ?>
-                    <a href="?pagina=<?= $pagina + 1 ?>" class="btn btn-laranja btn-sm">Próxima</a>
-                    <?php } ?> 
                 </div>
             </div>
         </div>

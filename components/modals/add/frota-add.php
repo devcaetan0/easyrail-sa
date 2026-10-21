@@ -1,8 +1,6 @@
 <?php
-$sqlCargas = "SELECT id, nome FROM carga ORDER BY nome ASC";
-$resultadoCargas = mysqli_query($conexao, $sqlCargas);
-$sqlUsuarios = "SELECT id, nome FROM usuario ORDER BY nome ASC";
-$resultadoUsuarios = mysqli_query($conexao, $sqlUsuarios);
+$resultadoCargas = $conexao->query("SELECT id, nome FROM carga ORDER BY nome ASC");
+$resultadoUsuarios = $conexao->query("SELECT id, nome FROM usuario ORDER BY nome ASC");
 ?>
 
 
@@ -25,7 +23,7 @@ $resultadoUsuarios = mysqli_query($conexao, $sqlUsuarios);
                         <label for="carga_id" class="fw-bold form-label">Tipo de Carga</label>
                         <select class="form-select" id="carga_id" name="carga_id" required>
                             <option value="">Selecione um tipo de carga</option>
-                            <?php while ($carga = mysqli_fetch_assoc($resultadoCargas)) { ?>
+                            <?php while ($carga = $resultadoCargas->fetch_assoc()) { ?>
                                 <option value="<?= $carga['id'] ?>">
                                     <?= $carga['nome'] ?>
                                 </option>
@@ -39,7 +37,7 @@ $resultadoUsuarios = mysqli_query($conexao, $sqlUsuarios);
 
                             <option value="">Selecione um usuário</option>
 
-                            <?php while ($usuario = mysqli_fetch_assoc($resultadoUsuarios)) { ?>
+                            <?php while ($usuario = $resultadoUsuarios->fetch_assoc()) { ?>
                                 <option value="<?= $usuario['id'] ?>">
                                     <?= $usuario['nome'] ?>
                                 </option>

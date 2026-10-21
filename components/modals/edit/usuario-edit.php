@@ -1,6 +1,5 @@
 <?php
-$sql = "SELECT id, nome FROM perfil";
-$resultado = mysqli_query($conexao, $sql);
+$resultadoPerfis = $conexao->query("SELECT id, nome FROM perfil ORDER BY nome ASC");
 ?>
 
 <div class="modal fade" id="modalEditarUsuario" tabindex="-1" aria-labelledby="modalEditarUsuarioLabel"
@@ -34,7 +33,7 @@ $resultado = mysqli_query($conexao, $sql);
                     <div class="mb-3">
                         <label for="modal-cargo" class="form-label fw-bold">Cargo</label>
                         <select name="perfil_id" class="form-control" id="perfil_id" required>
-                            <?php while ($perfil = mysqli_fetch_assoc($resultado)) { ?>
+                            <?php while ($perfil = $resultadoPerfis->fetch_assoc()) { ?>
                                 <option value="<?= $perfil['id'] ?>">
                                     <?= $perfil['nome'] ?>
                                 </option>
