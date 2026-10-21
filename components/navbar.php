@@ -8,20 +8,36 @@
         </div>
         <div class="collapse navbar-collapse d-flex justify-content-center">
             <ul class="navbar-nav gap-5">
+
                 <li class="nav-item">
-                    <a class="nav-link" href="dashboard.php">Dashboard</a>
+                    <a class="nav-link d-inline-flex align-items-center gap-2" href="dashboard.php">
+                        <i class="bi bi-house fs-5"></i>
+                        <span>Dashboard</span>
+                    </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="frota.php">Frota de Carga</a>
+                    <a class="nav-link d-inline-flex align-items-center gap-2" href="frota.php">
+                        <i class="bi bi-box fs-5"></i>
+                        <span>Frota de Carga</span>
+                    </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="rotas.php">Rotas</a>
+                    <a class="nav-link d-inline-flex align-items-center gap-2" href="rotas.php">
+                        <i class="bi bi-box fs-5"></i>
+                        <span>Rotas</span>
+                    </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="sensores.php">Sensores IoT</a>
+                    <a class="nav-link d-inline-flex align-items-center gap-2" href="sensores.php">
+                        <i class="bi bi-box fs-5"></i>
+                        <span>Sensores IoT</span>
+                    </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="relatorios.php">Relatórios</a>
+                    <a class="nav-link d-inline-flex align-items-center gap-2" href="relatorios.php">
+                        <i class="bi bi-box fs-5"></i>
+                        <span>Relatórios</span>
+                    </a>
                 </li>
                 <?php if (isset($_SESSION['perfil_id']) && $_SESSION['perfil_id'] == 1) { ?>
                     <li class="nav-item">
