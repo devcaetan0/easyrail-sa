@@ -32,6 +32,79 @@ Nosso Mockup foi focado em fazer um site com uma identidade visual diferente mas
 | **RN12** | Disponibilizar o gerenciamento dos trens e suas informações. |
 | **RN13** | Disponibilizar a saída do aplicativo. |
 
+## Estrutura do Diretório
+
+```text
+devcaetan0-easyrail-sa/
+├── README.md
+├── index.php
+├── LICENSE
+├── assets/
+│   └── css/
+│       └── style.css
+├── components/
+│   ├── cards.php
+│   ├── navbar.php
+│   └── modals/
+│       ├── add/
+│       │   ├── frota-add.php
+│       │   ├── rota-add.php
+│       │   ├── sensor-add.php
+│       │   └── usuario-add.php
+│       └── edit/
+│           ├── frota-edit.php
+│           ├── rota-edit.php
+│           ├── sensor-edit.php
+│           └── usuario-edit.php
+├── config/
+│   ├── bootstrap.html
+│   ├── conexao.php
+│   └── links.html
+├── database/
+│   └── db.sql
+├── pesquisas/
+│   ├── apis.md
+│   ├── crud.md
+│   ├── pdo.md
+│   ├── scrum.md
+│   └── xampp.md
+├── public/
+│   ├── dashboard.php
+│   ├── frota.php
+│   ├── home.php
+│   ├── relatorios.php
+│   ├── rotas.php
+│   ├── sensores.php
+│   └── usuarios.php
+├── scripts/
+│   ├── frota.js
+│   ├── navbar.js
+│   ├── relatorios.js
+│   ├── rotas.js
+│   ├── sensores.js
+│   └── usuarios.js
+└── source/
+    ├── auth-login.php
+    ├── create/
+    │   ├── frota-create.php
+    │   ├── rota-create.php
+    │   ├── sensor-create.php
+    │   └── usuario-create.php
+    ├── delete/
+    │   ├── frota-delete.php
+    │   ├── rota-delete.php
+    │   ├── sensor-delete.php
+    │   └── usuario-delete.php
+    └── update/
+        ├── frota-update.php
+        ├── rota-update.php
+        ├── sensor-update.php
+        └── usuario-update.php
+```
+
+## Diagrama 
+
+[![Architecture diagram of devcaetan0/easyrail-sa](https://gitdiagram.com/devcaetan0/easyrail-sa/diagram.png)](https://gitdiagram.com/devcaetan0/easyrail-sa?utm_source=readme&utm_medium=picture)
 
 
 ## Requisitos Funcionais
