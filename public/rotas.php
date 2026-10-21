@@ -28,9 +28,15 @@ $resultadoTrem = $conexao->query("SELECT id, modelo FROM trem ORDER BY modelo AS
 
 
     <main class="main-padrao">
+         <div class=" align-items-center gap-3">
+            <div class="d-flex">
+                <i class="bi bi-box" style="font-size: 4rem; line-height: 1;"></i>
+                <h1 class="m-0 fw-bold ms-4">Mapeamento de Rotas</h1>
+            </div>
+            <p style="margin-left: 90px;">teste</p>
+        </div>
         <div class="container-fluid w-75">
 
-            <h1 class="titulo-pagina fw-bold mb-5">Mapeamento de Rotas</h1>
 
             <?php if ($perfilAtual == 1) { ?>
                 <div class="d-flex justify-content-end mb-2">

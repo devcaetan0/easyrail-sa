@@ -27,9 +27,14 @@ $resultadoSensores = $conexao->query("
     <?php include('../components/navbar.php') ?>
 
     <main class="main-padrao">
-        <div>
-        <h1 class="titulo-pagina fw-bold mb-5"><i class="bi bi-house-fill me-4"></i> Monitoramento IoT</h1>
-    </div>
+        <div class=" align-items-center gap-3">
+            <div class="d-flex">
+                <i class="bi bi-wifi" style="font-size: 4rem; line-height: 1;"></i>
+                <h1 class="m-0 fw-bold ms-4">Monitoramento IoT</h1>
+            </div>
+            <p style="margin-left: 90px;">teste</p>
+        </div>
+
         <div class="container-fluid w-75">
 
             <?php if ($perfilAtual == 1) { ?>
@@ -77,8 +82,9 @@ $resultadoSensores = $conexao->query("
                                     <td><?= $sensor['rota'] ?? 'Nenhuma' ?></td>
                                     <?php if ($perfilAtual == 1) { ?>
                                         <td>
-                                            <button type="button" class="btn btn-outline-secondary btn-sm" data-bs-toggle="modal"
-                                                data-bs-target="#modalEditarSensor" data-id="<?= $sensor['id'] ?>">
+                                            <button type="button" class="btn btn-outline-secondary btn-sm"
+                                                data-bs-toggle="modal" data-bs-target="#modalEditarSensor"
+                                                data-id="<?= $sensor['id'] ?>">
                                                 <i class="bi bi-pencil fs-5"></i>
                                             </button>
                                             <a href="../source/delete/sensor-delete.php?id=<?= $sensor['id'] ?>"

@@ -19,10 +19,16 @@ verificarAcesso(5);
     <?php include('../components/navbar.php') ?>
 
     <main class="main-padrao">
+           <div class=" align-items-center gap-3">
+            <div class="d-flex">
+                 <i class="bi bi-file-earmark-text" style="font-size: 4rem; line-height: 1;"></i>
+                <h1 class="m-0 fw-bold ms-4">Histórico Analítico</h1>
+            </div>
+            <p style="margin-left: 90px;">teste</p>
+        </div>
+        <br>
 
         <div class="container-fluid w-75">
-            <h1 class="titulo-pagina fw-bold mb-5">Histórico Analítico</h1>
-
             <div class="card p-3 mb-4 shadow-sm">
                 <div class="row">
                     <div class="col-md-6 mb-2">

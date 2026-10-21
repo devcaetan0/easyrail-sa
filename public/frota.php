@@ -31,10 +31,14 @@ $resultadoCargas = $conexao->query("SELECT id, nome FROM carga ORDER BY nome ASC
     <?php include('../components/navbar.php') ?>
 
     <main class="main-padrao">
+         <div class=" align-items-center gap-3">
+            <div class="d-flex">
+                <i class="bi bi-box" style="font-size: 4rem; line-height: 1;"></i>
+                <h1 class="m-0 fw-bold ms-4">Gerenciamento de Frota</h1>
+            </div>
+            <p style="margin-left: 90px;">teste</p>
+        </div>
         <div class="container-fluid w-75">
-
-            <h1 class="titulo-pagina fw-bold mb-5">Gerenciamento de Frota</h1>
-
             <?php if ($perfilAtual == 1) { ?>
                 <div class="d-flex justify-content-end mb-2">
                     <button type="button" class="btn btn-laranja fw-bold p-2 mb-3" data-bs-toggle="modal"

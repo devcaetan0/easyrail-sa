@@ -27,8 +27,15 @@ $resultadoPerfis = $conexao->query("SELECT id, nome FROM perfil ORDER BY nome AS
     <?php include('../components/navbar.php') ?>
 
     <main class="main-padrao">
+        <div class=" align-items-center gap-3">
+            <div class="d-flex">
+                 <i class="bi bi-person" style="font-size: 4rem; line-height: 1;"></i>
+                <h1 class="m-0 fw-bold ms-4">Administração de Usuário</h1>
+            </div>
+            <p style="margin-left: 90px;">teste</p>
+        </div>
+        <br>
         <div class="container-fluid px-5">
-            <h1 class="titulo-pagina fw-bold mb-5">Administração de Usuário</h1>
 
             <div class="row px-5">
                 <div class="col-md-4 col-lg-3 mb-4">
