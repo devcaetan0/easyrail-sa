@@ -29,10 +29,6 @@ function filtrarTrens() {
             linha.style.display = 'none';
         }
     });
-
-        console.log("dsadasdas");
-    console.log(modelo);
-    console.log(texto);
 }
 
 pesquisa.addEventListener('input', filtrarTrens);

@@ -8,15 +8,6 @@ document.querySelectorAll('.editar-rota').forEach(btn => {
     });
 });
 
-document.querySelectorAll('.editar-trem').forEach(btn => {
-    btn.addEventListener('click', () => {
-        document.getElementById('modal-id').value = btn.dataset.id;
-        document.getElementById('modal-modelo').value = btn.dataset.modelo;
-        document.getElementById('modal-carga_id').value = btn.dataset.cargaId;
-        document.getElementById('modal-usuario_id').value = btn.dataset.usuarioId;
-    });
-});
-
 const pesquisa = document.getElementById('pesquisa');
 const tabela = document.getElementById('tabelaRotas');
 const filtroTrem = document.getElementById('filtroTrem');

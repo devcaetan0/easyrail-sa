@@ -71,8 +71,8 @@ $resultadoSensores = $conexao->query("
                                     <td><?= $sensor['nome'] ?></td>
                                     <td><?= $sensor['tipo'] ?></td>
                                     <td><?= $sensor['status'] ?></td>
-                                    <td><?= $sensor['trem'] ?></td>
-                                    <td><?= $sensor['rota'] ?></td>
+                                    <td><?= $sensor['trem'] ?? 'Nenhum' ?></td>
+                                    <td><?= $sensor['rota'] ?? 'Nenhuma' ?></td>
                                     <?php if ($perfilAtual == 1) { ?>
                                         <td>
                                             <button type="button" class="btn btn-outline-primary btn-sm" data-bs-toggle="modal"
@@ -96,6 +96,7 @@ $resultadoSensores = $conexao->query("
         </div>
 
         <?php include('../components/modals/add/sensor-add.php') ?>
+
         <?php include('../components/modals/edit/sensor-edit.php') ?>
     </main>
 
