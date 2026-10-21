@@ -64,8 +64,8 @@ verificarAcesso(5);
                                 <td>
                                     <?php if ($perfilAtual == 1) { ?>
                                         <button class="editar btn btn-sm btn-outline-secondary" data-bs-toggle="modal"
-                                            data-bs-target="#modalCadastroSensor" id="1">👀</button>
-                                        <button class="excluir btn btn-sm btn-outline-danger" id="1">⬇️</button>
+                                            data-bs-target="#modalCadastroSensor" id="1"><i class="bi bi-eye fs-5"></i></button>
+                                        <button class="excluir btn btn-sm btn-outline-danger" id="1"><i class="bi bi-cloud-download fs-5"</button>
                                     </td>
                                 <?php } ?>
                                 </td>

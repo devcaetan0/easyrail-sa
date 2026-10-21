@@ -105,13 +105,13 @@ $resultadoCargas = $conexao->query("SELECT id, nome FROM carga ORDER BY nome ASC
                                                 data-id="<?= $trem['id'] ?>" data-modelo="<?= $trem['modelo'] ?>"
                                                 data-carga-id="<?= $trem['carga_id'] ?? '' ?>"
                                                 data-usuario-id="<?= $trem['usuario_id'] ?? '' ?>">
-                                                ✏
+                                                <i class="bi bi-pencil fs-5"></i>
                                             </button>
 
                                             <a href="../source/delete/frota-delete.php?id=<?= $trem['id'] ?>"
                                                 class="btn btn-sm btn-outline-danger"
                                                 onclick="return confirm('Deseja realmente excluir este trem?')">
-                                                🗑
+                                                <i class="bi bi-trash fs-5"></i>
                                             </a>
                                         </td>
                                     <?php } ?>

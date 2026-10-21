@@ -77,12 +77,12 @@ $resultadoSensores = $conexao->query("
                                         <td>
                                             <button type="button" class="btn btn-outline-primary btn-sm" data-bs-toggle="modal"
                                                 data-bs-target="#modalEditarSensor" data-id="<?= $sensor['id'] ?>">
-                                                ✏
+                                                <i class="bi bi-pencil fs-5"></i>
                                             </button>
                                             <a href="../source/delete/sensor-delete.php?id=<?= $sensor['id'] ?>"
                                                 class="btn btn-sm btn-outline-danger"
                                                 onclick="return confirm('Deseja realmente excluir esse sensor?')">
-                                                🗑
+                                                <i class="bi bi-trash fs-5"></i>
                                             </a>
                                         </td>
                                     <?php } ?>

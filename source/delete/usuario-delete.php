@@ -13,5 +13,6 @@ try {
     header("Location: ../../public/usuarios.php");
 } catch (Exception $e) {
     echo "<script>alert('Erro ao excluir usuário.');</script>";
+     header("Location: ../../public/usuarios.php");
 }
 ?>

@@ -2,7 +2,7 @@
     --cor-laranja: #fa8415;
     --cor-preto: #000000;
     --cor-btn-hover: #dd6b00;
-    --fundo-cinza: #eef2ff;
+    --fundo-cinza: #f5f8ffdc;
     --cor-azul: #04041b;
     --cor-branca: #ffffff;
 }
@@ -32,6 +32,7 @@ body {
     font-weight: bold;
     border: none;
 }
+
 
 .btn-laranja:hover {
     background-color: var(--cor-btn-hover);

@@ -103,12 +103,12 @@ $resultadoTrem = $conexao->query("SELECT id, modelo FROM trem ORDER BY modelo AS
                                                 data-nome="<?= $rota['nome'] ?>" data-descricao="<?= $rota['descricao'] ?>"
                                                 data-distancia="<?= $rota['distancia'] ?>"
                                                 data-trem-id="<?= $rota['trem_id'] ?>">
-                                                ✏
+                                                <i class="bi bi-pencil fs-5"></i>
                                             </button>
                                             <a href="../source/delete/rota-delete.php?id=<?= $rota['id'] ?>"
                                                 class="btn btn-sm btn-outline-danger"
                                                 onclick="return confirm('Deseja realmente excluir essa rota?')">
-                                                🗑
+                                                <i class="bi bi-trash fs-5"></i>
                                             </a>
                                         </td>
                                     <?php } ?>
