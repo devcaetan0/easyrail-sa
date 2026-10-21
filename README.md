@@ -102,6 +102,7 @@ devcaetan0-easyrail-sa/
         └── usuario-update.php
 ```
 
+
 ## Diagrama 
 
 [![Architecture diagram of devcaetan0/easyrail-sa](https://gitdiagram.com/devcaetan0/easyrail-sa/diagram.png)](https://gitdiagram.com/devcaetan0/easyrail-sa?utm_source=readme&utm_medium=picture)
