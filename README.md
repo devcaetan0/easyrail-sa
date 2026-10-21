@@ -14,11 +14,25 @@ Nosso Mockup foi focado em fazer um site com uma identidade visual diferente mas
 
 ## Regras de Negócio
 
-| ID | | Descrição |
-| :--- |  | :--- |
+| ID | Descrição |
+| :--- | :--- |
 | **RN01** | Para acessar o aplicativo é necessário que o usuário seja cadastrado. |
 | **RN02** | Todo sensor deve ser cadastrado no sistema. |
 | **RN03** | O sistema ferroviário deve ser monitorado em tempo real. |
+| **RN04** | Os dados que devem ser capturados são: velocidade, localização,
+consumo de energia e detecção de falhas por meio de sensores IoT. |
+| **RN05** | Disponibilizar o gerenciamento dos sensores e suas informações. |
+| **RN06** | É necessário a geração de relatórios analíticos. |
+| **RN07** | Os históricos de relatórios precisam aparecer para o usuário. |
+| **RN08** |Sensores com dados registrados não podem ser excluídos. |
+| **RN09** | Disponibilizar um dashboard contendo os dados dos sensores para a
+análise visual das informações. |
+| **RN010** | Todo trem deve ser cadastrado no sistema. |
+| **RN011** |A listagem de sensores cadastrados deve conter: ID do sensor,
+localização, tipo de dado, botão de exclusão e de visualização dos
+detalhes. |
+| **RN012** | Disponibilizar o gerenciamento dos trens e suas informações. |
+| **RN013** | Disponibilizar a saída do aplicativo. |
 
 
 ## Requisitos Funcionais
