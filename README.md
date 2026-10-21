@@ -12,6 +12,21 @@ Nosso Mockup foi focado em fazer um site com uma identidade visual diferente mas
 
 * **Documentação Oficial**: [Google Docs do Projeto](https://docs.google.com/document/d/1MB7gOFvf_L-3unkxo9Xj64JbBwdSI_qu04njbLAZorc/edit?usp=sharing)
 
+## Regras de Negócio
+
+As regras de negócio definem as premissas e políticas de funcionamento do sistema (o "porquê" e o "quando" as coisas acontecem).
+
+| ID | Nome da Regra | Descrição |
+| :--- | :--- | :--- |
+| **RN01** | Maioridade Legal | O usuário deve ter pelo menos 18 anos para se cadastrar na plataforma. |
+| **RN02** | Expiração de Pix | O código Pix gerado para pagamento expira automaticamente após 15 minutos. |
+| **RN03** | Cancelamento | Um pedido só pode ser cancelado se o status atual for "Pendente" ou "Processando". |
+
+
+## Requisitos Funcionais
+
+## Requisitos Não Funcionais
+
 
 ## Tecnologias Utilizadas
 
