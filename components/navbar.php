@@ -23,7 +23,7 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link d-inline-flex align-items-center gap-2" href="rotas.php">
-                        <i class="bi bi-box fs-5"></i>
+                        <i class="bi bi-map fs-5"></i>
                         <span>Rotas</span>
                     </a>
                 </li>
@@ -50,7 +50,10 @@
             </ul>
         </div>
         <div>
-            <a class="navbar-brand" href="../index.php?logout=1"><span style="color: var(--cor-branca);">Sair</span></a>
+            <a class="navbar-brand" href="../index.php?logout=1">
+                <i class="bi bi-box-arrow-left fs-5"></i>
+                <span class="ms-1" style="color: var(--cor-branca);">Sair</span>
+            </a>
         </div>
     </nav>
 </header>
