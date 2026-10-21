@@ -85,7 +85,7 @@ $resultadoPerfis = $conexao->query("SELECT id, nome FROM perfil ORDER BY nome AS
 
                                             <td class="buttons">
                                                 <button type="button"
-                                                    class="emoji-transparente editar-usuario btn btn-sm btn-outline-secondary"
+                                                    class=" editar-usuario btn btn-sm btn-outline-secondary"
                                                     data-bs-toggle="modal" data-bs-target="#modalEditarUsuario"
                                                     data-id="<?= $usuario['id'] ?>" data-nome="<?= $usuario['nome'] ?>"
                                                     data-email="<?= $usuario['email'] ?>"
@@ -94,7 +94,7 @@ $resultadoPerfis = $conexao->query("SELECT id, nome FROM perfil ORDER BY nome AS
                                                 </button>
 
                                                 <a href="../source/delete/usuario-delete.php?id=<?= $usuario['id'] ?>"
-                                                    class="emoji-transparente btn btn-sm btn-outline-danger"
+                                                    class=" btn btn-sm btn-outline-danger"
                                                     onclick="return confirm('Deseja realmente excluir esse usuário?')">
                                                     <i class="bi bi-trash fs-5"></i>
                                                 </a>
