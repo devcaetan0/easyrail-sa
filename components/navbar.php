@@ -29,19 +29,22 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link d-inline-flex align-items-center gap-2" href="sensores.php">
-                        <i class="bi bi-box fs-5"></i>
+                        <i class="bi bi-wifi fs-5"></i>
                         <span>Sensores IoT</span>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link d-inline-flex align-items-center gap-2" href="relatorios.php">
-                        <i class="bi bi-box fs-5"></i>
+                        <i class="bi bi-file-earmark-text fs-5"></i>
                         <span>Relatórios</span>
                     </a>
                 </li>
                 <?php if (isset($_SESSION['perfil_id']) && $_SESSION['perfil_id'] == 1) { ?>
                     <li class="nav-item">
-                        <a class="nav-link" href="usuarios.php">Usuários</a>
+                        <a class="nav-link d-inline-flex align-items-center gap-2" href="usuarios.php">
+                            <i class="bi bi-person fs-5"></i>
+                            <span>Usuários</span>
+                        </a>
                     </li>
                 <?php } ?>
             </ul>
