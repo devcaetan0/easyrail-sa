@@ -14,13 +14,11 @@ Nosso Mockup foi focado em fazer um site com uma identidade visual diferente mas
 
 ## Regras de Negócio
 
-As regras de negócio definem as premissas e políticas de funcionamento do sistema (o "porquê" e o "quando" as coisas acontecem).
-
-| ID | Nome da Regra | Descrição |
-| :--- | :--- | :--- |
-| **RN01** | Maioridade Legal | O usuário deve ter pelo menos 18 anos para se cadastrar na plataforma. |
-| **RN02** | Expiração de Pix | O código Pix gerado para pagamento expira automaticamente após 15 minutos. |
-| **RN03** | Cancelamento | Um pedido só pode ser cancelado se o status atual for "Pendente" ou "Processando". |
+| ID | | Descrição |
+| :--- |  | :--- |
+| **RN01** | Para acessar o aplicativo é necessário que o usuário seja cadastrado. |
+| **RN02** | Todo sensor deve ser cadastrado no sistema. |
+| **RN03** | O sistema ferroviário deve ser monitorado em tempo real. |
 
 
 ## Requisitos Funcionais
