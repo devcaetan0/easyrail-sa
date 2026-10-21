@@ -74,6 +74,7 @@ $resultadoCargas = $conexao->query("SELECT id, nome FROM carga ORDER BY nome ASC
                         <thead>
                             <tr>
                                 <th>ID</th>
+                                <th></th>
                                 <th>Modelo</th>
                                 <th>Carga</th>
                                 <th>Usuário</th>
@@ -90,7 +91,7 @@ $resultadoCargas = $conexao->query("SELECT id, nome FROM carga ORDER BY nome ASC
                                     <td>
                                         #<?= $trem['id'] ?>
                                     </td>
-
+                                    <td class="buttons"></td>
                                     <td class="modelo-tr">
                                         <?= $trem['modelo'] ?>
                                     </td>
