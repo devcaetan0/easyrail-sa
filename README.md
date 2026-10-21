@@ -12,6 +12,8 @@ Nosso Mockup foi focado em fazer um site com uma identidade visual diferente mas
 
 * **Documentação Oficial**: [Google Docs do Projeto](https://docs.google.com/document/d/1MB7gOFvf_L-3unkxo9Xj64JbBwdSI_qu04njbLAZorc/edit?usp=sharing)
 
+
+
 ## Regras de Negócio
 
 | ID | Descrição |
@@ -29,6 +31,7 @@ Nosso Mockup foi focado em fazer um site com uma identidade visual diferente mas
 | **RN11** | A listagem de sensores cadastrados deve conter: ID do sensor, localização, tipo de dado, botão de exclusão e de visualização dos detalhes. |
 | **RN12** | Disponibilizar o gerenciamento dos trens e suas informações. |
 | **RN13** | Disponibilizar a saída do aplicativo. |
+
 
 
 ## Requisitos Funcionais
@@ -53,6 +56,7 @@ Nosso Mockup foi focado em fazer um site com uma identidade visual diferente mas
 | **RF16** | O sistema deve permitir a pesquisa de relatórios cadastrados. |
 | **RF17** | O sistema deve permitir a saída do aplicativo. |
 
+
 ## Requisitos Não Funcionais
 
 | ID | Descrição |
@@ -70,6 +74,7 @@ Nosso Mockup foi focado em fazer um site com uma identidade visual diferente mas
 | **RNF11** | Os dados dos sensores devem ser armazenados diariamente por meio de backups. |
 
 
+
 ## Tecnologias Utilizadas
 
 O sistema do frontend foi construído utiizando as seguintes tecnologias:
@@ -78,6 +83,7 @@ O sistema do frontend foi construído utiizando as seguintes tecnologias:
 * **CSS** - Estilização e identidade visual personalizada.
 * **Javascript** - Comportamentos dinâmicos, consumo de dados e interatividade.
 * **Bootstrap** - Agilidade no design e padronização.
+
 
 
 ## Estrutura do Sistema:
@@ -92,8 +98,10 @@ Para desenvolver o sistema, utilizaremos HTML, CSS, Javascript e Bootstrap, para
 6. **Login:** Tela interativa para realizar login.
 7. **Home:** Página interativa que mostra todas as outras possíveis abas no sistema.
 
+
  
 ## Funcionalidades Das Principais Páginas
+
 
 ### Página de Funcionários
 
