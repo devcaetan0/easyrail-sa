@@ -16,7 +16,5 @@ include "../config/conexao.php";
 <body>
     <?php include('../components/navbar.php') ?>
 
-
     <script src="../scripts/navbar.js"></script>
-
-    </body>
+</body>

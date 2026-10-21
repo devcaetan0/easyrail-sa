@@ -42,8 +42,8 @@ $resultadoSensores = $conexao->query("
             <div class="card p-3 mb-4 shadow-sm">
                 <div class="row">
                     <div class="col-md-6">
-                        <label class="fw-bold form-label" for="pesquisa">Pesquisar</label>
-                        <input class="form-control" placeholder="Nome/ID" id="pesquisa">
+                        <label class="fw-bold form-label" for="pesquisaSensor">Pesquisar</label>
+                        <input type="search" class="form-control" placeholder="Nome/ID" id="pesquisaSensor">
                     </div>
                 </div>
             </div>
@@ -68,7 +68,7 @@ $resultadoSensores = $conexao->query("
                             <?php while ($sensor = $resultadoSensores->fetch_assoc()) { ?>
                                 <tr>
                                     <td>#<?= $sensor['id'] ?></td>
-                                    <td><?= $sensor['nome'] ?></td>
+                                    <td class="nome-tr"><?= $sensor['nome'] ?></td>
                                     <td><?= $sensor['tipo'] ?></td>
                                     <td><?= $sensor['status'] ?></td>
                                     <td><?= $sensor['trem'] ?? 'Nenhum' ?></td>

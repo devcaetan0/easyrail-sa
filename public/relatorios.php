@@ -18,8 +18,6 @@ verificarAcesso(5);
 <body>
     <?php include('../components/navbar.php') ?>
 
-
-
     <main class="main-padrao">
 
         <div class="container-fluid w-75">
@@ -53,7 +51,7 @@ verificarAcesso(5);
                                 <th>Falha</th>
                                 <th>Risco</th>
                                 <?php if ($perfilAtual == 1) { ?>
-                                        <th>Ações</th>
+                                    <th>Ações</th>
                                 <?php } ?>
                             </tr>
                         </thead>
@@ -65,10 +63,10 @@ verificarAcesso(5);
                                 <td id="1" class="tipo-tr">Alto</td>
                                 <td>
                                     <?php if ($perfilAtual == 1) { ?>
-                                            <button class="editar btn btn-sm btn-outline-secondary" data-bs-toggle="modal"
-                                                data-bs-target="#modalCadastroSensor" id="1">👀</button>
-                                            <button class="excluir btn btn-sm btn-outline-danger" id="1">⬇️</button>
-                                        </td>
+                                        <button class="editar btn btn-sm btn-outline-secondary" data-bs-toggle="modal"
+                                            data-bs-target="#modalCadastroSensor" id="1">👀</button>
+                                        <button class="excluir btn btn-sm btn-outline-danger" id="1">⬇️</button>
+                                    </td>
                                 <?php } ?>
                                 </td>
                             </tr>
@@ -78,7 +76,7 @@ verificarAcesso(5);
             </div>
         </div>
     </main>
-        <script src="../scripts/navbar.js"></script>
+    <script src="../scripts/navbar.js"></script>
     <?php include '../config/bootstrap.html'; ?>
     <script src="../scripts/sensores.js"></script>
 </body>

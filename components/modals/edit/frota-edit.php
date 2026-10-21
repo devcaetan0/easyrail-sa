@@ -3,7 +3,6 @@ $resultadoCargas = $conexao->query("SELECT id, nome FROM carga ORDER BY nome ASC
 $resultadoUsuarios = $conexao->query("SELECT id, nome FROM usuario ORDER BY nome ASC");
 ?>
 
-
 <div class="modal fade" id="modalEditarTrem" tabindex="-1" aria-labelledby="modalEditarTremLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content text-start">

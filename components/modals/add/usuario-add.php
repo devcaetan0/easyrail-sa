@@ -2,7 +2,6 @@
 $resultadoPerfis = $conexao->query("SELECT id, nome FROM perfil ORDER BY nome ASC");
 ?>
 
-
 <div class="card  shadow-sm p-3">
     <div class="card-body">
         <form id="form-funcionarios" action="../source/create/usuario-create.php" method="POST" class="row g-3">
