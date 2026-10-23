@@ -20,13 +20,15 @@ verificarAcesso(5);
 
     <main class="main-padrao">
            <div class=" align-items-center gap-3">
-            <div class="d-flex">
+            <div class="d-flex">                <div class="d-flex justify-content-end mb-2" style="margin: 72px 0;"></div>
                  <i class="bi bi-file-earmark-text" style="font-size: 4rem; line-height: 1; margin-left: 20px;"></i>
                 <h1 class="m-0 fw-bold ms-4">Histórico Analítico</h1>
             </div>
             <p style="margin-left: 110px;">Histórico de dados gerados pelos sensores e das rotas realizadas pelos trens.</p>
         </div>
         <br>
+
+        <div class="d-flex justify-content-end mb-2" style="margin: 16px 0;"></div>
 
         <div class="container-fluid w-75">
             <div class="card p-3 mb-4 shadow-sm">
