@@ -32,7 +32,7 @@ $resultadoSensores = $conexao->query("
                 <i class="bi bi-wifi" style="font-size: 4rem; line-height: 1; margin-left: 20px;"></i>
                 <h1 class="m-0 fw-bold ms-4">Monitoramento IoT</h1>
             </div>
-            <p style="margin-left: 110px;">teste</p>
+            <p style="margin-left: 110px;">Tela para cadastro, gereciamento e listagem de todos os sensores.</p>
         </div>
 
         <div class="container-fluid w-75">

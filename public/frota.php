@@ -36,7 +36,8 @@ $resultadoCargas = $conexao->query("SELECT id, nome FROM carga ORDER BY nome ASC
                 <i class="bi bi-box" style="font-size: 4rem; line-height: 1; margin-left: 20px;"></i>
                 <h1 class="m-0 fw-bold ms-4">Gerenciamento de Frota</h1>
             </div>
-            <p style="margin-left: 110px;">teste</p>
+            <p style="margin-left: 110px;">Listagem e gerenciamento de todos os treins e suas respectivas rotas.
+</p>
         </div>
         <div class="container-fluid w-75">
             <?php if ($perfilAtual == 1) { ?>
