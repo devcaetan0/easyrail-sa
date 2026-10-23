@@ -8,14 +8,21 @@ verificarAcesso(5);
 $perfilAtual = $_SESSION['perfil_id'];
 
 $resultadoTrem = $conexao->query("
-    SELECT t.id, t.modelo, t.carga_id, c.nome AS carga, t.usuario_id, u.nome AS nome_usuario
+    SELECT t.id, t.modelo, t.carga_id, c.nome AS carga, t.usuario_id, u.nome AS nome_usuario, t.status_id, s.nome AS status_nome
     FROM trem t
     LEFT JOIN usuario u ON t.usuario_id = u.id
     LEFT JOIN carga c ON c.id = t.carga_id
+    LEFT JOIN status s ON s.id = t.status_id
     ORDER BY t.id ASC
 ");
 
 $resultadoCargas = $conexao->query("SELECT id, nome FROM carga ORDER BY nome ASC");
+$resultadoUsuarios = $conexao->query(
+    "SELECT u.id, u.nome
+     FROM usuario u
+     INNER JOIN trem t ON t.usuario_id = u.id
+     ORDER BY u.nome ASC"
+);
 ?>
 
 <html lang="pt-BR">
@@ -31,7 +38,7 @@ $resultadoCargas = $conexao->query("SELECT id, nome FROM carga ORDER BY nome ASC
     <?php include('../components/navbar.php') ?>
 
     <main class="main-padrao">
-         <div class=" align-items-center gap-3">
+        <div class=" align-items-center gap-3">
             <div class="d-flex">
                 <i class="bi bi-box" style="font-size: 4rem; line-height: 1; margin-left: 20px;"></i>
                 <h1 class="m-0 fw-bold ms-4">Gerenciamento de Frota</h1>
@@ -50,17 +57,28 @@ $resultadoCargas = $conexao->query("SELECT id, nome FROM carga ORDER BY nome ASC
 
             <div class="card p-3 mb-4 shadow-sm">
                 <div class="row">
-                    <div class="col-md-6 mb-2">
+                    <div class="col-md-4 mb-2">
                         <label class="fw-bold form-label">Pesquisar</label>
                         <input class="form-control" placeholder="Modelo/ID" id="pesquisa">
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-4 mb-2">
                         <label class="fw-bold form-label">Tipo de Carga</label>
                         <select class="form-select" id="filtroCarga">
                             <option value="">Todos</option>
                             <?php while ($cargaFiltro = $resultadoCargas->fetch_assoc()) { ?>
                                 <option value="<?= $cargaFiltro['id'] ?>">
                                     <?= $cargaFiltro['nome'] ?>
+                                </option>
+                            <?php } ?>
+                        </select>
+                    </div>
+                    <div class="col-md-4">
+                        <label class="fw-bold form-label">Usuário Responsável</label>
+                        <select class="form-select" id="filtroUsuario">
+                            <option value="">Todos</option>
+                            <?php while ($usuarioFiltro = $resultadoUsuarios->fetch_assoc()) { ?>
+                                <option value="<?= $usuarioFiltro['id'] ?>">
+                                    <?= $usuarioFiltro['nome'] ?>
                                 </option>
                             <?php } ?>
                         </select>
@@ -78,6 +96,7 @@ $resultadoCargas = $conexao->query("SELECT id, nome FROM carga ORDER BY nome ASC
                                 <th>Modelo</th>
                                 <th>Carga</th>
                                 <th>Usuário</th>
+                                <th>Status</th>
                                 <?php if ($perfilAtual == 1) { ?>
                                     <th>Ações</th>
                                 <?php } ?>
@@ -87,7 +106,9 @@ $resultadoCargas = $conexao->query("SELECT id, nome FROM carga ORDER BY nome ASC
                         <tbody id="tabelaTrens">
                             <?php while ($trem = $resultadoTrem->fetch_assoc()) { ?>
 
-                                <tr>
+                                <tr data-carga-id="<?= $trem['carga_id'] ?? '' ?>"
+                                    data-usuario-id="<?= $trem['usuario_id'] ?? '' ?>"
+                                    data-status-id="<?= $trem['status_id'] ?? '' ?>">
                                     <td>
                                         #<?= $trem['id'] ?>
                                     </td>
@@ -103,13 +124,18 @@ $resultadoCargas = $conexao->query("SELECT id, nome FROM carga ORDER BY nome ASC
                                     <td class="usuario-tr">
                                         <?= $trem['nome_usuario'] ?>
                                     </td>
+
+                                    <td class="status-tr">
+                                        <?= $trem['status_nome'] ?? 'Ativo' ?>
+                                    </td>
                                     <?php if ($perfilAtual == 1) { ?>
                                         <td class="buttons" data-carga-id="<?= $trem['carga_id'] ?? '' ?>">
                                             <button type="button" class="editar-trem btn btn-sm btn-outline-secondary"
                                                 data-bs-toggle="modal" data-bs-target="#modalEditarTrem"
                                                 data-id="<?= $trem['id'] ?>" data-modelo="<?= $trem['modelo'] ?>"
                                                 data-carga-id="<?= $trem['carga_id'] ?? '' ?>"
-                                                data-usuario-id="<?= $trem['usuario_id'] ?? '' ?>">
+                                                data-usuario-id="<?= $trem['usuario_id'] ?? '' ?>"
+                                                data-status-id="<?= $trem['status_id'] ?? 1 ?>">
                                                 <i class="bi bi-pencil fs-5"></i>
                                             </button>
 

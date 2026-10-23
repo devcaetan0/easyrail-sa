@@ -22,8 +22,13 @@ $resultadoRotas = $conexao->query("SELECT id, nome FROM rota ORDER BY nome ASC")
                         <input type="text" class="form-control" id="tipo" name="tipo" maxlength="45" required>
                     </div>
                     <div class="mb-3">
-                        <label for="status" class="form-label fw-bold">Status</label>
-                        <input type="text" class="form-control" id="status" name="status" maxlength="45" required>
+                        <label class="fw-bold form-label" for="filtroStatus">Status</label>
+                        <select class="form-select" id="filtroStatus" name="status" required>
+                            <option value="">Selecione um status</option>
+                            <option value="1">Ativo</option>
+                            <option value="2">Inativo</option>
+                            <option value="3">Manutenção</option>
+                        </select>
                     </div>
                     <div class="mb-3">
                         <label for="trem_id" class="form-label fw-bold">Trem vinculado</label>
