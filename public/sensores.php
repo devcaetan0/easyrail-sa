@@ -6,11 +6,27 @@ $perfilAtual = $_SESSION['perfil_id'];
 verificarAcesso(5);
 
 $resultadoSensores = $conexao->query("
-    SELECT s.id, s.nome, s.tipo, s.status, t.modelo AS trem, r.nome AS rota
+    SELECT s.id, s.nome, s.tipo, st.nome AS status, t.modelo AS trem, r.nome AS rota
     FROM sensor s
+    JOIN status st ON s.status_id = st.id
     LEFT JOIN trem t ON s.trem_id = t.id
     LEFT JOIN rota r ON s.rota_id = r.id
     ORDER BY s.id ASC
+");
+
+$resultadoTipos = $conexao->query("SELECT DISTINCT tipo FROM sensor ORDER BY tipo ASC");
+$resultadoStatus = $conexao->query("SELECT DISTINCT st.nome FROM sensor s INNER JOIN status st ON s.status_id = st.id ORDER BY st.nome ASC");
+$resultadoRotas = $conexao->query("
+    SELECT DISTINCT r.id, r.nome
+    FROM rota r
+    INNER JOIN sensor s ON s.rota_id = r.id
+    ORDER BY r.nome ASC
+");
+$resultadoTrem = $conexao->query("
+    SELECT DISTINCT t.id, t.modelo
+    FROM trem t
+    INNER JOIN sensor s ON s.trem_id = t.id
+    ORDER BY t.modelo ASC
 ");
 ?>
 
@@ -51,10 +67,52 @@ $resultadoSensores = $conexao->query("
             <?php } ?>
 
             <div class="card p-3 mb-4 shadow-sm">
-                <div class="row">
-                    <div class="col-md-6">
+                <div class="row g-3 align-items-end">
+                    <div class="col-md-3">
                         <label class="fw-bold form-label" for="pesquisaSensor">Pesquisar</label>
                         <input type="search" class="form-control" placeholder="Nome/ID" id="pesquisaSensor">
+                    </div>
+                    <div class="col-md-3">
+                        <label class="fw-bold form-label" for="filtroTipo">Tipo</label>
+                        <select class="form-select" id="filtroTipo">
+                            <option value="">Todos</option>
+                            <?php while ($tipo = $resultadoTipos->fetch_assoc()) { ?>
+                                <option value="<?= $tipo['tipo'] ?>">
+                                    <?= $tipo['tipo'] ?>
+                                </option>
+                            <?php } ?>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <label class="fw-bold form-label" for="filtroRota">Rota</label>
+                        <select class="form-select" id="filtroRota">
+                            <option value="">Todas</option>
+                            <?php while ($rota = $resultadoRotas->fetch_assoc()) { ?>
+                                <option value="<?= $rota['nome'] ?>">
+                                    <?= $rota['nome'] ?>
+                                </option>
+                            <?php } ?>
+                        </select>
+                    </div>
+                    <div class="col-md-2">
+                        <label class="fw-bold form-label" for="filtroTrem">Trem</label>
+                        <select class="form-select" id="filtroTrem">
+                            <option value="">Todos</option>
+                            <?php while ($trem = $resultadoTrem->fetch_assoc()) { ?>
+                                <option value="<?= $trem['modelo'] ?>">
+                                    <?= $trem['modelo'] ?>
+                                </option>
+                            <?php } ?>
+                        </select>
+                    </div>
+                    <div class="col-md-1">
+                        <label class="fw-bold form-label" for="filtroStatus">Status</label>
+                        <select class="form-select" id="filtroStatus">
+                            <option value="">Todos</option>
+                            <option value="1">Ativo</option>
+                            <option value="2">Inativo</option>
+                            <option value="3">Manutenção</option>
+                        </select>
                     </div>
                 </div>
             </div>
@@ -77,7 +135,9 @@ $resultadoSensores = $conexao->query("
                         </thead>
                         <tbody id="tabelaSensores">
                             <?php while ($sensor = $resultadoSensores->fetch_assoc()) { ?>
-                                <tr>
+                                <tr data-tipo="<?= $sensor['tipo'] ?>" data-status="<?= $sensor['status'] ?>"
+                                    data-trem="<?= $sensor['trem'] ?? 'Nenhum' ?>"
+                                    data-rota="<?= $sensor['rota'] ?? 'Nenhuma' ?>">
                                     <td>#<?= $sensor['id'] ?></td>
                                     <td class="nome-tr"><?= $sensor['nome'] ?></td>
                                     <td><?= $sensor['tipo'] ?></td>

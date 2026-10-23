@@ -1,0 +1,1 @@
+# Relatório Do Uso da IA Entrega 10
