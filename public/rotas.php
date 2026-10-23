@@ -33,7 +33,7 @@ $resultadoTrem = $conexao->query("SELECT id, modelo FROM trem ORDER BY modelo AS
                 <i class="bi bi-map" style="font-size: 4rem; line-height: 1; margin-left: 20px"></i>
                 <h1 class="m-0 fw-bold ms-4">Mapeamento de Rotas</h1>
             </div>
-            <p style="margin-left: 110px;">teste</p>
+            <p style="margin-left: 110px;">Listagem e gerenciamento de todas as rotas de seus respectivos trens.</p>
         </div>
         <div class="container-fluid w-75">
 
@@ -45,6 +45,10 @@ $resultadoTrem = $conexao->query("SELECT id, modelo FROM trem ORDER BY modelo AS
                         + Adicionar Rota
                     </button>
                 </div>
+            <?php } ?>
+
+            <?php if ($perfilAtual != 1) { ?>
+                <div class="d-flex justify-content-end mb-2" style="margin: 72px 0;"></div>
             <?php } ?>
 
 

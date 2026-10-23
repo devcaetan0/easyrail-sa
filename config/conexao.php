@@ -4,7 +4,7 @@ $host = "localhost";
 $usuario = "root";
 $senha = "";
 $banco = "easyraildb";
-$porta = 6608;
+$porta = 3308;
 
 $conexao = new mysqli($host, $usuario, $senha, $banco, $porta);
 

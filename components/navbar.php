@@ -6,7 +6,7 @@
                 <span style="color: var(--cor-branca);">Easy</span><span style="color: var(--cor-laranja);">Rail</span>
             </a>
         </div>
-        <div class="collapse navbar-collapse d-flex justify-content-center">
+        <div class="nav-hover collapse navbar-collapse d-flex justify-content-center">
             <ul class="navbar-nav gap-5">
 
                 <li class="nav-item">
@@ -21,7 +21,7 @@
                         <span>Frota de Carga</span>
                     </a>
                 </li>
-                <li class="nav-item">
+                <li class="_SESSIONnav-item">
                     <a class="nav-link d-inline-flex align-items-center gap-2" href="rotas.php">
                         <i class="bi bi-map fs-5"></i>
                         <span>Rotas</span>
@@ -49,7 +49,7 @@
                 <?php } ?>
             </ul>
         </div>
-        <div>
+        <div class="nav-hover">
             <a class="navbar-brand" href="../index.php?logout=1">
                 <i class="bi bi-box-arrow-left fs-5"></i>
                 <span class="ms-1" style="color: var(--cor-branca);">Sair</span>

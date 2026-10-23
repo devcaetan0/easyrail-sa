@@ -48,7 +48,7 @@ $resultadoTrem = $conexao->query("
                 <i class="bi bi-wifi" style="font-size: 4rem; line-height: 1; margin-left: 20px;"></i>
                 <h1 class="m-0 fw-bold ms-4">Monitoramento IoT</h1>
             </div>
-            <p style="margin-left: 110px;">teste</p>
+            <p style="margin-left: 110px;">Tela para cadastro, gereciamento e listagem de todos os sensores.</p>
         </div>
 
         <div class="container-fluid w-75">
@@ -60,6 +60,10 @@ $resultadoTrem = $conexao->query("
                         + Adicionar Sensor
                     </button>
                 </div>
+            <?php } ?>
+
+            <?php if ($perfilAtual != 1) { ?>
+                <div class="d-flex justify-content-end mb-2" style="margin: 72px 0;"></div>
             <?php } ?>
 
             <div class="card p-3 mb-4 shadow-sm">

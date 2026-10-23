@@ -24,7 +24,7 @@ verificarAcesso(5);
                  <i class="bi bi-file-earmark-text" style="font-size: 4rem; line-height: 1; margin-left: 20px;"></i>
                 <h1 class="m-0 fw-bold ms-4">Histórico Analítico</h1>
             </div>
-            <p style="margin-left: 110px;">teste</p>
+            <p style="margin-left: 110px;">Histórico de dados gerados pelos sensores e das rotas realizadas pelos trens.</p>
         </div>
         <br>
 
