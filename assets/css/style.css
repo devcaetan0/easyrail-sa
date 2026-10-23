@@ -46,7 +46,6 @@ body {
 .nav-hover .nav-link.active,
 .nav-hover .nav-link.show {
     background-color: #f5873e !important; 
-    color: var(--cor-branca) !important;  
 }
 
 .titulo-pagina {
