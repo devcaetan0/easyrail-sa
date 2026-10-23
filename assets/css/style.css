@@ -23,6 +23,7 @@ body {
 
 thead th{
     background-color: rgb(219, 215, 211) !important;
+    padding: 0.6rem 0.9rem !important;
 }
 
 .navbar .nav-link,
