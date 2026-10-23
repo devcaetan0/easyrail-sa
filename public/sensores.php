@@ -46,6 +46,10 @@ $resultadoSensores = $conexao->query("
                 </div>
             <?php } ?>
 
+            <?php if ($perfilAtual != 1) { ?>
+                <div class="d-flex justify-content-end mb-2" style="margin: 72px 0;"></div>
+            <?php } ?>
+
             <div class="card p-3 mb-4 shadow-sm">
                 <div class="row">
                     <div class="col-md-6">
