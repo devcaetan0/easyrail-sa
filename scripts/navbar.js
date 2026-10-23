@@ -1,9 +1,13 @@
-const caminhoAtual = window.location.pathname;
-
-document.querySelectorAll('.nav-link').forEach(link => {
-  if (link.pathname === caminhoAtual) {
-    link.classList.add('text-decoration-underline', 'fw-bold' );
-  } else {
-    link.classList.add('text-decoration-none');
-  }
+document.addEventListener('DOMContentLoaded', () => {
+    const paginaAtual = window.location.pathname.split('/').filter(Boolean).pop();
+    const navLinks = document.querySelectorAll('.nav-hover .nav-link');
+    navLinks.forEach(link => {
+        const href = link.getAttribute('href');
+        if (href) {
+            const paginaLink = href.split('/').filter(Boolean).pop();
+            if (paginaLink === paginaAtual) {
+                link.classList.add('active');
+            } 
+        }
+    });
 });
