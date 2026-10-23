@@ -72,10 +72,10 @@ $resultadoTrem = $conexao->query("SELECT id, modelo FROM trem ORDER BY modelo AS
                 </div>
             </div>
 
-            <div class="card p-3 shadow-sm">
-                <div class="table-responsive">
+            <div class="card shadow-sm rounded-3 overflow-hidden">
+                <div class="table-rsponsive">
                     <table class="table table-hover mb-0">
-                        <thead>
+                        <thead class="">
                             <tr>
                                 <th>ID</th>
                                 <th>Nome</th>

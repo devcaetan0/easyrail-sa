@@ -18,6 +18,11 @@ body {
     left: 0;
     width: 100%;
     z-index: 1000;
+    position: fixed;
+}
+
+thead th{
+    background-color: rgb(219, 215, 211) !important;
 }
 
 .navbar .nav-link,
@@ -41,12 +46,13 @@ body {
 .borda-laranja {
     border: 3px solid var(--cor-azul);
 }
+
 /* ===== HOVER E ATIVO DA NAV BAR ===== */
+
 .nav-hover .nav-link:hover,
 .nav-hover .nav-link.active,
 .nav-hover .nav-link.show {
     background-color: #f5873e !important; 
-    color: var(--cor-branca) !important;  
 }
 
 .titulo-pagina {
@@ -55,10 +61,13 @@ body {
 }
 
 .main-padrao {
-    margin-top: 50px;
+    margin-top: 125px;
     padding: 0px 40px;
 }
 
+.tabela-padding{
+    padding: 10;
+}
 /* ===== INDEX =====*/
 
 #body-login {
@@ -88,7 +97,6 @@ body {
     height: 100px;
     margin-left: 35px;
 }
-
 #form-login {
     font-size: 25px;
 }

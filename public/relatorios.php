@@ -49,10 +49,10 @@ verificarAcesso(5);
                 </div>
             </div>
 
-            <div class="card p-3 shadow-sm">
+            <div class="card border rounded-3 overflow-hidden">
                 <div class="table-responsive">
                     <table class="table table-hover mb-0">
-                        <thead>
+                        <thead class="">
                             <tr>
                                 <th>Data</th>
                                 <th>ID do trem</th>

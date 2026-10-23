@@ -45,6 +45,15 @@ $resultadoUsuarios = $conexao->query("SELECT id, nome FROM usuario ORDER BY nome
                         </select>
                     </div>
 
+                    <div class="mb-3">
+                        <label for="status_id" class="fw-bold form-label">Status</label>
+                        <select class="form-select" id="status_id" name="status_id" required>
+                            <option value="1">Ativo</option>
+                            <option value="2">Inativo</option>
+                            <option value="3">Manutenção</option>
+                        </select>
+                    </div>
+
                     <div class="d-flex gap-2">
                         <button type="button" class="btn btn-secondary fw-bold"
                             data-bs-dismiss="modal">Cancelar</button>

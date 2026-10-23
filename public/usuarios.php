@@ -9,7 +9,7 @@ $resultadoUsuario = $conexao->query("
     FROM usuario u
     LEFT JOIN perfil p ON u.perfil_id = p.id
     ORDER BY u.id
-    ");
+");
 
 $resultadoPerfis = $conexao->query("SELECT id, nome FROM perfil ORDER BY nome ASC");
 ?>
@@ -29,7 +29,7 @@ $resultadoPerfis = $conexao->query("SELECT id, nome FROM perfil ORDER BY nome AS
     <main class="main-padrao">
         <div class=" align-items-center gap-3">
             <div class="d-flex">
-                 <i class="bi bi-person" style="font-size: 4rem; line-height: 1; margin-left: 20px;"></i>
+                <i class="bi bi-person" style="font-size: 4rem; line-height: 1; margin-left: 20px;"></i>
                 <h1 class="m-0 fw-bold ms-4">Administração de Usuário</h1>
             </div>
             <p style="margin-left: 110px;">Tela interativa para cadastrar novos funcionários e listagem dos funcionários.</p>
@@ -63,10 +63,10 @@ $resultadoPerfis = $conexao->query("SELECT id, nome FROM perfil ORDER BY nome AS
                         </div>
                     </div>
 
-                    <div class="card p-3 shadow-sm">
+                    <div class="card border rounded-3 overflow-hidden">
                         <div class="table-responsive">
                             <table class="table table-hover mb-0">
-                                <thead>
+                                <thead class="">
                                     <tr>
                                         <th>ID</th>
                                         <th>Cargo</th>
