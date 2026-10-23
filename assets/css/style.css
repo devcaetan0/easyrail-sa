@@ -23,25 +23,30 @@ body {
 .navbar .nav-link,
 .navbar-brand {
     color: var(--cor-branca) !important;
+}
+.navbar {
     background-color: var(--cor-preto);
 }
-
-/* ===== CLASSES PADRONIZADAS =====*/
+/* ===== CLASSES PADRONIZADAS ===== */
 .btn-laranja {
     background-color: var(--cor-laranja);
     color: var(--cor-preto);
     font-weight: bold;
     border: none;
 }
-
-
 .btn-laranja:hover {
     background-color: var(--cor-btn-hover);
     color: var(--cor-preto);
 }
-
 .borda-laranja {
     border: 3px solid var(--cor-azul);
+}
+/* ===== HOVER E ATIVO DA NAV BAR ===== */
+.nav-hover .nav-link:hover,
+.nav-hover .nav-link.active,
+.nav-hover .nav-link.show {
+    background-color: #f5873e !important; 
+    color: var(--cor-branca) !important;  
 }
 
 .titulo-pagina {
