@@ -73,10 +73,10 @@ $resultadoCargas = $conexao->query("SELECT id, nome FROM carga ORDER BY nome ASC
                 </div>
             </div>
 
-            <div class="card p-3 shadow-sm">
+            <div class="card shadow-sm">
                 <div class="table-responsive">
                     <table class="table table-hover mb-0">
-                        <thead>
+                        <thead class="tabela-rotas">
                             <tr>
                                 <th>ID</th>
                                 <th></th>
@@ -89,7 +89,7 @@ $resultadoCargas = $conexao->query("SELECT id, nome FROM carga ORDER BY nome ASC
                             </tr>
                         </thead>
 
-                        <tbody id="tabelaTrens">
+                        <tbody class="tabela-padding" id="tabelaTrens">
                             <?php while ($trem = $resultadoTrem->fetch_assoc()) { ?>
 
                                 <tr>
