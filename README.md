@@ -164,12 +164,13 @@ O sistema do frontend foi construído utiizando as seguintes tecnologias:
 Para desenvolver o sistema, utilizaremos HTML, CSS, Javascript e Bootstrap, para que cumpra as seguintes funções:
 
 1. **Dashboard:** Painel principal com gráficos e os dados mais críticos dos trens e sensores.
-2. **Frota:** Listagem e gerenciamento de todos os treins e suas respectivas rotas.
-3. **Sensores:** Tela para cadastro, gereciamento e listagem de todos os sensores.
-4. **Relátorios:** Histórico de dados gerados pelos sensores e das rotas realizadas pelos trens.
-5. **Funcionários:** Tela interativa para cadastrar novos funcionários e listagem dos funcionários.
-6. **Login:** Tela interativa para realizar login.
-7. **Home:** Página interativa que mostra todas as outras possíveis abas no sistema.
+2. **Frota:** Listagem e gerenciamento de todos os trens e suas respectivas rotas.
+3. **Rotas** Listagem e gerenciamento de todas as rotas de seus respectivos trens.
+4. **Sensores:** Tela para cadastro, gereciamento e listagem de todos os sensores.
+5. **Relátorios:** Histórico de dados gerados pelos sensores e das rotas realizadas pelos trens.
+6. **Funcionários:** Tela interativa para cadastrar novos funcionários e listagem dos funcionários.
+7. **Login:** Tela interativa para realizar login.
+8. **Home:** Página interativa que mostra todas as outras possíveis abas no sistema.
 
 
  
