@@ -6,7 +6,8 @@ $perfilAtual = $_SESSION['perfil_id'];
 verificarAcesso(5);
 
 $resultadoSensores = $conexao->query("
-    SELECT s.id, s.nome, s.tipo, st.nome AS status, t.modelo AS trem, r.nome AS rota
+    SELECT s.id, s.nome, s.tipo, st.nome AS status, s.status_id, s.trem_id, s.rota_id,
+           t.modelo AS trem, r.nome AS rota
     FROM sensor s
     JOIN status st ON s.status_id = st.id
     LEFT JOIN trem t ON s.trem_id = t.id
@@ -146,9 +147,12 @@ $resultadoTrem = $conexao->query("
                                     <td><?= $sensor['rota'] ?? 'Nenhuma' ?></td>
                                     <?php if ($perfilAtual == 1) { ?>
                                         <td>
-                                            <button type="button" class="btn btn-outline-secondary btn-sm"
+                                            <button type="button" class="btn btn-outline-secondary btn-sm editar-sensor"
                                                 data-bs-toggle="modal" data-bs-target="#modalEditarSensor"
-                                                data-id="<?= $sensor['id'] ?>">
+                                                data-id="<?= $sensor['id'] ?>" data-nome="<?= $sensor['nome'] ?>"
+                                                data-tipo="<?= $sensor['tipo'] ?>" data-status-id="<?= $sensor['status_id'] ?>"
+                                                data-trem-id="<?= $sensor['trem_id'] ?? 'Nenhum' ?>"
+                                                data-rota-id="<?= $sensor['rota_id'] ?? 'Nenhuma' ?>">
                                                 <i class="bi bi-pencil fs-5"></i>
                                             </button>
                                             <a href="../source/delete/sensor-delete.php?id=<?= $sensor['id'] ?>"

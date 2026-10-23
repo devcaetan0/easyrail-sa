@@ -49,9 +49,9 @@ $resultadoUsuarios = $conexao->query("SELECT id, nome FROM usuario ORDER BY nome
                     <div class="mb-3">
                         <label for="modal-status_id" class="fw-bold form-label">Status</label>
                         <select class="form-select" id="modal-status_id" name="status_id" required>
-                            <option value="1">1 - Ativo</option>
-                            <option value="2">2 - Inativo</option>
-                            <option value="3">3 - Manutenção</option>
+                            <option value="1">Ativo</option>
+                            <option value="2">Inativo</option>
+                            <option value="3">Manutenção</option>
                         </select>
                     </div>
 
