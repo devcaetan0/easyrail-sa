@@ -21,6 +21,10 @@ body {
     position: fixed;
 }
 
+thead th{
+    background-color: rgb(219, 215, 211) !important;
+}
+
 .navbar .nav-link,
 .navbar-brand {
     color: var(--cor-branca) !important;
@@ -61,9 +65,6 @@ body {
     padding: 0px 40px;
 }
 
-.tabela-rotas th{
-    background-color: #c7bfbb !important;
-}
 .tabela-padding{
     padding: 10;
 }

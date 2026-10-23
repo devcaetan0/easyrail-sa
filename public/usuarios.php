@@ -63,10 +63,10 @@ $resultadoPerfis = $conexao->query("SELECT id, nome FROM perfil ORDER BY nome AS
                         </div>
                     </div>
 
-                    <div class="card shadow-sm">
+                    <div class="card border rounded-3 overflow-hidden">
                         <div class="table-responsive">
                             <table class="table table-hover mb-0">
-                                <thead class="tabela-rotas">
+                                <thead class="">
                                     <tr>
                                         <th>ID</th>
                                         <th>Cargo</th>
