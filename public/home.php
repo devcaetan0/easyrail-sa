@@ -43,6 +43,4 @@ $nomeUsuario = $_SESSION['nome'];
 <script src="../scripts/nav.js"></script>
 <script src="../scripts/api-clima.js"></script>
 
-</body>
-
 </html>

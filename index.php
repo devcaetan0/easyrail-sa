@@ -1,10 +1,3 @@
-<?php
-include "config/conexao.php";
-
-include("source/auth-login.php");
-
-?>
-
 <html lang="en">
 
 <head>
@@ -14,42 +7,40 @@ include("source/auth-login.php");
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="icon" href="assets/images/logo.png" type="image/png">
-    <title>Login</title>
+    <title>Página Inicial</title>
 </head>
 
-<body id="body-login" class="h-100">
-    <main id="main-login" class=" h-100">
-        <img src="assets/images/logo.png" class="logo-login d-flex justify-content-center" alt="EasyRail icon">
-        <div style="transform: scale(0.75);" class="p-5 m-5">
-            <div class="card-body p-5 m-5">
-                <h2 style="font-size: 50px;">EASYRAIL</h2>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg w-100 p-3" id="navbar">
+            <div style="transform: scale(1.25);" class="">
+                <a class="navbar-brand">
+                    <img src="assets/images/logo-navbar.png" alt="EasyRail Logo" width="45px" height="45px">
+                    <span style="color: var(--cor-branca);">Easy</span><span
+                        style="color: var(--cor-laranja);">Rail</span>
+                </a>
+            </div>
+            <a class="navbar-brand">
+                <i class="bi bi-box-arrow-left fs-5"></i>
+                <span class="ms-1" style="color: var(--cor-branca);">Entrar</span>
+            </a>
+        </nav>
+    </header>
 
-                <form id="form-login" action="" method="POST">
+    <main class="container-fluid fade-in main-padrao">
+        <div class="titulo-home text-center mt-5 mb-5 fw-bold">
+            <h1>Olá, Bem-vindo(a) a EasyRail!</h1>
+            <h4>Selecione uma categoria para começar a gerenciar os dados de suas locomotivas.</h4>
+        </div>
 
-                    <div class="mt-3 mb-3">
-                        <label for="nome">Usuário/E-mail:</label>
-                        <input class="form-control " type="text" name="nome" id="nome" required>
-                    </div>
 
-                    <div class="mt-3 mb-3">
-                        <label for="senha">Senha:</label>
-                        <input class="form-control " type="password" name="senha" id="senha" required>
-                    </div>
-
-                    <div class="mt-3 mb-3">
-                        <input style="width: 20px; height: 20.00px;" type="checkbox">
-                        <label>Mantenha-me logado</label><br>
-                    </div>
-
-                    <?php if (!empty($erro)) { ?>
-                        <p> <?php echo $erro; ?></p>
-                    <?php } ?>
-
-                    <button class="btn w-100" id="btn-envio" type="submit">Entrar</button>
-                </form>
+        <div class="row justify-content-center mt-4">
+            <div class="col-auto">
+                <img class="logo-home" src="assets/images/logo-negative.png" alt="EasyRail Logo">
             </div>
         </div>
     </main>
+
 </body>
 
 </html>

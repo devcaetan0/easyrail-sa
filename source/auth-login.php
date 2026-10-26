@@ -6,12 +6,12 @@ $usuarioLogado = isset($_SESSION['logado']) && $_SESSION['logado'] === true && i
 if (isset($_GET['logout'])) {
     session_unset();
     session_destroy();
-    header('Location: index.php');
+    header('Location: ../public/login.php');
     exit;
 }
 
 if ($usuarioLogado) {
-    header('Location: public/home.php');
+    header('Location: ../public/home.php');
     exit;
 }
 
@@ -43,7 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $_SESSION['perfil_id'] = $usuarios['perfil_id'];
                 $_SESSION['logado'] = true;
 
-                header('Location: public/home.php');
+                header('Location: ../public/home.php');
                 exit;
 
             } else {
