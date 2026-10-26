@@ -6,7 +6,7 @@
                 0: 'Ensolarado / Céu limpo',
                 1: 'Predominantemente ensolarado',
                 2: 'Parcialmente nublado',
-                3: 'Nublado / Encoberto',
+                3: 'Nublado',
                 45: 'Nevoeiro',
                 48: 'Nevoeiro',
                 51: 'Chuvisco leve',
@@ -15,7 +15,7 @@
                 61: 'Chuva fraca',
                 63: 'Chuva moderada',
                 65: 'Chuva forte',
-                80: 'Aguaceiros / Pancadas de chuva',
+                80: 'Pancadas de chuva',
                 81: 'Pancadas de chuva fortes',
                 82: 'Chuva violenta',
                 95: 'Trovoada'
