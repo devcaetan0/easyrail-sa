@@ -115,10 +115,11 @@ thead th{
     position: fixed;
     top: 100px;
     right: 20px;
-    width: 150px;
+    width: 180px;
     z-index: 1050;
     border: 1px solid #000;
     border-radius: 4px;
+    word-wrap: break-word;
 }
 
 .card-clima-flutuante h2 {
