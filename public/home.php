@@ -17,11 +17,11 @@ $nomeUsuario = $_SESSION['nome'];
 <body>
     <?php include('../components/navbar.php') ?>
 
-<div class="card card-clima-flutuante shadow-lg rounded-4 bg-primary text-white p-3 text-center">
-    <h2 class="text-uppercase fw-semibold mb-2">Clima Atual</h2>
-    <div id="temperatura" class="temperatura-destaque fw-bold mb-1">--°C</div>
-    <div id="condicao" class="small fw-light text-capitalize">Carregando...</div>
-</div>
+    <div class="card-clima-flutuante shadow-sm borda-laranja p-3 text-center">
+        <h2 class="text-uppercase fw-bold mb-2 text-muted">Clima</h2>
+        <div id="temperatura" class="temperatura-destaque fw-bold mb-1">--°C</div>
+        <div id="condicao" class="small fw-semibold text-capitalize text-dark">Carregando...</div>
+    </div>
 
     <main class="container-fluid fade-in pt-5 mt-4">
         <div class="titulo-home text-center mt-5 mb-5 fw-bolD">
