@@ -123,7 +123,7 @@ $resultadoPerfis = $conexao->query("SELECT id, nome FROM perfil ORDER BY nome AS
                     <span class="input-group-text">
                         <i class="bi bi-geo-alt"></i>
                     </span>
-                    <input type="text" class="form-control" id="logradouro" name="logradouro" 
+                    <input type="text" class="form-control" id="logradouro" name="rua" 
                         required>
                 </div>
             </div>
