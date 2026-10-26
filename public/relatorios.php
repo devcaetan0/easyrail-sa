@@ -22,7 +22,7 @@ verificarAcesso(5);
            <div class=" align-items-center gap-3">
             <div class="d-flex">                <div class="d-flex justify-content-end mb-2" style="margin: 72px 0;"></div>
                  <i class="bi bi-file-earmark-text" style="font-size: 4rem; line-height: 1; margin-left: 20px;"></i>
-                <h1 class="m-0 fw-bold ms-4">Histórico Analítico</h1>
+                <h1 class="m-0 fw-bold ms-4">Histórico <span style="color: var(--cor-laranja);">Analítico</span></h1>
             </div>
             <p style="margin-left: 110px;">Histórico de dados gerados pelos sensores e das rotas realizadas pelos trens.</p>
         </div>

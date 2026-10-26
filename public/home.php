@@ -27,7 +27,7 @@ $nomeUsuario = $_SESSION['nome'];
 
     <main class="container-fluid fade-in pt-5 mt-4">
         <div class="titulo-home text-center mt-5 mb-5 fw-bolD">
-            <h1>Olá, <?= $nomeUsuario ?>! Bem-vindo(a) a EasyRail!</h1>
+            <h1>Olá, <?= $nomeUsuario ?>! Bem-vindo(a) a <span style="color: var(--cor-preto);">Easy</span><span style="color: var(--cor-laranja);">Rail</span></h1>
             <h4>Selecione uma categoria para começar a gerenciar os dados de suas locomotivas.</h4>
         </div>
 

@@ -31,7 +31,7 @@ $resultadoTrem = $conexao->query("SELECT id, modelo FROM trem ORDER BY modelo AS
          <div class=" align-items-center gap-3">
             <div class="d-flex">
                 <i class="bi bi-map" style="font-size: 4rem; line-height: 1; margin-left: 20px"></i>
-                <h1 class="m-0 fw-bold ms-4">Mapeamento de Rotas</h1>
+                <h1 class="m-0 fw-bold ms-4">Mapeamento de <span style="color: var(--cor-laranja);">Rotas</span></h1>
             </div>
             <p style="margin-left: 110px;">Listagem e gerenciamento de todas as rotas de seus respectivos trens.</p>
         </div>

@@ -27,7 +27,7 @@ include "../config/conexao.php";
            <div class=" align-items-center gap-3">
             <div class="d-flex">
                  <i class="bi bi-house" style="font-size: 4rem; line-height: 1; margin-left: 20px;"></i>
-                <h1 class="m-0 fw-bold ms-4">Visualização de Dashboard</h1>
+                <h1 class="m-0 fw-bold ms-4">Visualização de <span style="color: var(--cor-laranja);">Dashboard</span></h1>
             </div>
             <p style="margin-left: 110px;">Painel principal com gráficos e os dados mais críticos dos trens e sensores.</p>
         </div>

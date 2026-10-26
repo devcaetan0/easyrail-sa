@@ -47,7 +47,7 @@ $resultadoTrem = $conexao->query("
         <div class=" align-items-center gap-3">
             <div class="d-flex">
                 <i class="bi bi-wifi" style="font-size: 4rem; line-height: 1; margin-left: 20px;"></i>
-                <h1 class="m-0 fw-bold ms-4">Monitoramento IoT</h1>
+                <h1 class="m-0 fw-bold ms-4">Monitoramento <span style="color: var(--cor-laranja);">IoT</span></h1>
             </div>
             <p style="margin-left: 110px;">Tela para cadastro, gereciamento e listagem de todos os sensores.</p>
         </div>
