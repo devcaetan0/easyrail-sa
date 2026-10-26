@@ -23,6 +23,10 @@ CREATE TABLE usuario (
     email VARCHAR(100) NOT NULL UNIQUE,
     senha VARCHAR(255) NOT NULL,
     perfil_id INT,
+    estado VARCHAR(45) NOT NULL,
+    cidade VARCHAR(100) NOT NULL,
+    bairro VARCHAR(100) NOT NULL,
+    rua VARCHAR(100) NOT NULL,
 
     FOREIGN KEY (perfil_id) REFERENCES perfil(id)
 );
