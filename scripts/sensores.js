@@ -1,17 +1,15 @@
-const pesquisa = document.getElementById('pesquisaSensor');
-const tabela = document.getElementById('tabelaSensores');
-const filtroTipo = document.getElementById('filtroTipo');
-const filtroRota = document.getElementById('filtroRota');
-const filtroTrem = document.getElementById('filtroTrem');
-const filtroStatus = document.getElementById('filtroStatus');
+document.querySelectorAll('.editar-sensor').forEach(button => {
+    button.addEventListener('click', () => {
+        document.getElementById('modal-sensor-id').value = button.dataset.id;
+        document.getElementById('modal-nome').value = button.dataset.nome || '';
+        document.getElementById('modal-tipo').value = button.dataset.tipo || '';
+        document.getElementById('modal-status_id').value = button.dataset.statusId || '1';
+        document.getElementById('modal-trem_id').value = button.dataset.tremId || '';
+        document.getElementById('modal-rota_id').value = button.dataset.rotaId || '';
+    });
+});
 
-function normalizarTexto(valor) {
-    return String(valor || '')
-        .toLowerCase()
-        .normalize('NFD')
-        .replace(/[\u0300-\u036f]/g, '')
-        .trim();
-}
+
 
 if (pesquisa && tabela) {
     function filtrarSensores() {

@@ -32,7 +32,8 @@ $resultadoPerfis = $conexao->query("SELECT id, nome FROM perfil ORDER BY nome AS
                 <i class="bi bi-person" style="font-size: 4rem; line-height: 1; margin-left: 20px;"></i>
                 <h1 class="m-0 fw-bold ms-4">Administração de Usuário</h1>
             </div>
-            <p style="margin-left: 110px;">Tela interativa para cadastrar novos funcionários e listagem dos funcionários.</p>
+            <p style="margin-left: 110px;">Tela interativa para cadastrar novos funcionários e listagem dos
+                funcionários.</p>
         </div>
         <br>
         <div class="container-fluid px-5">
