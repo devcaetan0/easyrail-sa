@@ -35,6 +35,7 @@ $resultadoTrem = $conexao->query("SELECT id, modelo FROM trem ORDER BY modelo AS
             </div>
             <p style="margin-left: 110px;">Listagem e gerenciamento de todas as rotas de seus respectivos trens.</p>
         </div>
+        <br>
         <div class="container-fluid w-75">
 
 
@@ -45,10 +46,6 @@ $resultadoTrem = $conexao->query("SELECT id, modelo FROM trem ORDER BY modelo AS
                         + Adicionar Rota
                     </button>
                 </div>
-            <?php } ?>
-
-            <?php if ($perfilAtual != 1) { ?>
-                <div class="d-flex justify-content-end mb-2" style="margin: 72px 0;"></div>
             <?php } ?>
 
 

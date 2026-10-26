@@ -51,6 +51,7 @@ $resultadoTrem = $conexao->query("
             </div>
             <p style="margin-left: 110px;">Tela para cadastro, gereciamento e listagem de todos os sensores.</p>
         </div>
+        <br>
 
         <div class="container-fluid w-75">
 
@@ -63,17 +64,13 @@ $resultadoTrem = $conexao->query("
                 </div>
             <?php } ?>
 
-            <?php if ($perfilAtual != 1) { ?>
-                <div class="d-flex justify-content-end mb-2" style="margin: 72px 0;"></div>
-            <?php } ?>
-
             <div class="card p-3 mb-4 shadow-sm">
-                <div class="row g-3 align-items-end">
-                    <div class="col-md-3">
+                <div class="row">
+                    <div class="col-md-3 mb-2">
                         <label class="fw-bold form-label" for="pesquisaSensor">Pesquisar</label>
                         <input type="search" class="form-control" placeholder="Nome/ID" id="pesquisaSensor">
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-2 mb-2">
                         <label class="fw-bold form-label" for="filtroTipo">Tipo</label>
                         <select class="form-select" id="filtroTipo">
                             <option value="">Todos</option>
@@ -84,7 +81,7 @@ $resultadoTrem = $conexao->query("
                             <?php } ?>
                         </select>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-2 mb-2 mb-md-0">
                         <label class="fw-bold form-label" for="filtroRota">Rota</label>
                         <select class="form-select" id="filtroRota">
                             <option value="">Todas</option>
@@ -95,7 +92,7 @@ $resultadoTrem = $conexao->query("
                             <?php } ?>
                         </select>
                     </div>
-                    <div class="col-md-2">
+                    <div class="col-md-2 mb-2 mb-md-0">
                         <label class="fw-bold form-label" for="filtroTrem">Trem</label>
                         <select class="form-select" id="filtroTrem">
                             <option value="">Todos</option>
@@ -106,7 +103,7 @@ $resultadoTrem = $conexao->query("
                             <?php } ?>
                         </select>
                     </div>
-                    <div class="col-md-1">
+                    <div class="col-md-3">
                         <label class="fw-bold form-label" for="filtroStatus">Status</label>
                         <select class="form-select" id="filtroStatus">
                             <option value="">Todos</option>

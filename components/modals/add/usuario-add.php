@@ -88,7 +88,6 @@ $resultadoPerfis = $conexao->query("SELECT id, nome FROM perfil ORDER BY nome AS
                         <option value="SE">Sergipe</option>
                         <option value="TO">Tocantins</option>
                     </select>
-
                 </div>
             </div>
 
