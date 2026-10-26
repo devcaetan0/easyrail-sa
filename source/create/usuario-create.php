@@ -1,5 +1,6 @@
 <?php
 
+session_start();
 include '../../config/conexao.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -21,8 +22,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmtUsuario = $conexao->prepare($sqlUsuario);
     $stmtEndereco = $conexao->prepare($sqlEndereco);
 
-    if (!$stmtUsuario) {
-        die("Erro na preparação da consulta: " . $conexao->error);
+    if (!$stmtUsuario || !$stmtEndereco) {
+        $_SESSION['mensagem_usuarios'] = "Erro ao cadastrar usuário. Verifique os dados e tente novamente.";
+        $_SESSION['tipo_mensagem_usuarios'] = "danger";
+        header("Location: ../../public/usuarios.php");
+        exit();
     }
 
     $stmtUsuario->bind_param("sssi", $nome, $email, $senhaCriptografada, $perfil_id);
@@ -33,13 +37,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmtEndereco->bind_param("ssssi", $estado, $cidade, $bairro, $rua, $usuario_id);
 
         if ($stmtEndereco->execute()) {
+            $_SESSION['mensagem_usuarios'] = "Usuário cadastrado com sucesso!";
+            $_SESSION['tipo_mensagem_usuarios'] = "success";
             header("Location: ../../public/usuarios.php");
             exit();
         } else {
-            die("Erro ao cadastrar endereço: " . $stmtEndereco->error);
+            $_SESSION['mensagem_usuarios'] = "Erro ao cadastrar usuário. Verifique os dados e tente novamente.";
+            $_SESSION['tipo_mensagem_usuarios'] = "danger";
+            header("Location: ../../public/usuarios.php");
+            exit();
         }
     } else {
-        die("Erro ao cadastrar usuário: " . $stmtUsuario->error);
+        $_SESSION['mensagem_usuarios'] = "Erro ao cadastrar usuário. Verifique os dados e tente novamente.";
+        $_SESSION['tipo_mensagem_usuarios'] = "danger";
+        header("Location: ../../public/usuarios.php");
+        exit();
     }
 }
 ?>
