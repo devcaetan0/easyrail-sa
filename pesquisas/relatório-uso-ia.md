@@ -22,4 +22,4 @@ Tiramos emojis e mudamos um pouco a descrição dos estados do clima, além de t
 
 ### Código
 
-![alt text](codigo-api.png)
+![alt text](../assets/images/codigo-api.png)
