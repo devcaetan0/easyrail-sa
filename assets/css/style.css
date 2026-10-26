@@ -50,10 +50,32 @@ thead th{
 
 /* ===== HOVER E ATIVO DA NAV BAR ===== */
 
-.nav-hover .nav-link:hover,
-.nav-hover .nav-link.active,
-.nav-hover .nav-link.show {
-    background-color: #f5873e !important; 
+.nav-hover .nav-link {
+    position: relative;
+    background-color: transparent !important;
+    padding-bottom: 8px !important;
+}
+
+.nav-hover .nav-link::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 3px;
+    background-color: var(--cor-laranja) !important;
+    border-radius: 2px;
+    transition: width 0.3s ease-in-out;
+}
+
+.nav-hover .nav-link:hover::after {
+    width: 100%;
+}
+
+.nav-hover .nav-link.active::after {
+    width: 100% !important;
+    transition: none !important;
 }
 
 .titulo-pagina {
