@@ -123,6 +123,10 @@ Não houveram erros e nem limitações durante a execução da IA, e o teste exe
 
 Tiramos emojis e mudamos um pouco a descrição dos estados do clima, além de também colocamos a localização fixa de Joinville/Bucarein para adaptar ao bloqueio que o SESI dá à localização dos computadores.
 
+### Teste
+
+![alt text](image.png)
+
 ### Código
 
 const lat = -26.307058;
@@ -166,3 +170,4 @@ fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&c
     });
 
 
+![alt text](../assets/images/codigo-api.png)
