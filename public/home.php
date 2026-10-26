@@ -17,14 +17,14 @@ $nomeUsuario = $_SESSION['nome'];
 <body>
     <?php include('../components/navbar.php') ?>
 
-    <div class="card-clima" style="margin-top: 100px;">
-        <h2>Clima Atual</h2>
-        <div id="temperatura" class="temp">--°C</div>
-        <div id="condicao" class="condicao">Carregando...</div>
+    <div class="card-clima-flutuante shadow-sm borda-laranja p-3 text-center">
+        <h2 class="text-uppercase fw-bold mb-2 text-muted">Clima</h2>
+        <div id="temperatura" class="temperatura-destaque fw-bold mb-1">--°C</div>
+        <div id="condicao" class="small fw-semibold text-capitalize text-dark">Carregando...</div>
     </div>
 
-    <main class="container-fluid fade-in">
-        <div class="titulo-home text-center mt-5 mb-5 fw-bold">
+    <main class="container-fluid fade-in pt-5 mt-4">
+        <div class="titulo-home text-center mt-5 mb-5 fw-bolD">
             <h1>Olá, <?= $nomeUsuario ?>! Bem-vindo(a) a EasyRail!</h1>
             <h4>Selecione uma categoria para começar a gerenciar os dados de suas locomotivas.</h4>
         </div>
@@ -42,7 +42,5 @@ $nomeUsuario = $_SESSION['nome'];
 <?php include('../config/bootstrap.html') ?>
 <script src="../scripts/nav.js"></script>
 <script src="../scripts/api-clima.js"></script>
-
-</body>
 
 </html>

@@ -111,8 +111,24 @@ thead th{
     margin: 30px auto 0;
 }
 
-.fade-in {
-    animation: fade-in 1.5s;
+.card-clima-flutuante {
+    position: fixed;
+    top: 100px;
+    right: 20px;
+    width: 150px;
+    z-index: 1050;
+    border: 1px solid #000;
+    border-radius: 4px;
+}
+
+.card-clima-flutuante h2 {
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+}
+
+.card-clima-flutuante .temperatura-destaque {
+    font-size: 2.2rem;
+    color: #f77f00;
 }
 
 @keyframes fade-in {

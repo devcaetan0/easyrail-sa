@@ -19,7 +19,7 @@ function verificarAcesso($permissao_necessaria)
     if (!isset($_SESSION['logado']) || $_SESSION['logado'] !== true || !isset($_SESSION['perfil_id'])) {
         session_unset();
         session_destroy();
-        header('Location: ../index.php');
+        header('Location: ../public/login.php');
         exit;
     }
 
