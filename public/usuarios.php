@@ -4,9 +4,9 @@ include "../config/conexao.php";
 
 verificarAcesso(1);
 
-$mensagemUsuarios = $_SESSION['mensagem_usuarios'] ?? '';
-$tipoMensagemUsuarios = $_SESSION['tipo_mensagem_usuarios'] ?? 'success';
-unset($_SESSION['mensagem_usuarios'], $_SESSION['tipo_mensagem_usuarios']);
+$mensagemUsuarios = $_SESSION['mensagem'] ?? '';
+$tipoMensagemUsuarios = $_SESSION['tipo_mensagem'] ?? 'success';
+unset($_SESSION['mensagem'], $_SESSION['tipo_mensagem']);
 
 $resultadoUsuario = $conexao->query("
     SELECT u.id, u.nome, u.email, u.perfil_id, p.nome AS perfil, e.cidade AS cidade
@@ -44,8 +44,8 @@ $resultadoPerfis = $conexao->query("SELECT id, nome FROM perfil ORDER BY nome AS
         <div class="container-fluid px-5">
 
             <?php if (!empty($mensagemUsuarios)) { ?>
-                <div class="alert alert-<?= $tipoMensagemUsuarios ?> alert-dismissible fade show mx-5 mt-3" role="alert">
-                    <?= htmlspecialchars($mensagemUsuarios, ENT_QUOTES, 'UTF-8') ?>
+                <div class="alert alert-<?= $tipoMensagemUsuarios ?> alert-dismissible show mx-5 mt-3">
+                    <?= $mensagemUsuarios ?>
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Fechar"></button>
                 </div>
             <?php } ?>

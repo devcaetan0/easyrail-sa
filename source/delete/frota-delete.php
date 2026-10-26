@@ -1,24 +1,36 @@
 <?php
+session_start();
 include("../../config/conexao.php");
 
 try {
     $id = $_GET["id"];
 
-    $c1 = $conexao->prepare("UPDATE sensor SET trem_id = NULL WHERE trem_id = ?");
-    $c1->bind_param("i", $id);
-    $c1->execute();
+    $sensor = $conexao->prepare("UPDATE sensor SET trem_id = NULL WHERE trem_id = ?");
+    $sensor->bind_param("i", $id);
+    $sensor->execute();
 
-    $c2 = $conexao->prepare("DELETE FROM rota WHERE trem_id = ?");
-    $c2->bind_param("i", $id);
-    $c2->execute();
+    $rota = $conexao->prepare("DELETE FROM rota WHERE trem_id = ?");
+    $rota->bind_param("i", $id);
+    $rota->execute();
 
-    $c3 = $conexao->prepare("DELETE FROM trem WHERE id = ?");
-    $c3->bind_param("i", $id);
-    $c3->execute();
+    $trem = $conexao->prepare("DELETE FROM trem WHERE id = ?");
+    $trem->bind_param("i", $id);
+
+    if ($trem->execute()) {
+        $_SESSION['mensagem_frota'] = "Locomotiva excluída com sucesso!";
+        $_SESSION['tipo_mensagem_frota'] = "success";
+    } else {
+        $_SESSION['mensagem_frota'] = "Erro ao excluir locomotiva. Tente novamente.";
+        $_SESSION['tipo_mensagem_frota'] = "danger";
+    }
 
     header("Location: ../../public/frota.php");
-
+    exit();
 } catch (Exception $e) {
-    echo "<script>alert('Esse trem não pôde ser excluído'); window.location.href='../../public/frota.php';</script>";
+    $_SESSION['mensagem_frota'] = "Erro ao excluir locomotiva. Tente novamente.";
+    $_SESSION['tipo_mensagem_frota'] = "danger";
+    header("Location: ../../public/frota.php");
+    exit();
 }
+
 ?>

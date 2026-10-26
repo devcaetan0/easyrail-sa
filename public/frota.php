@@ -5,6 +5,10 @@ include "../config/conexao.php";
 
 verificarAcesso(5);
 
+$mensagemFrota = $_SESSION['mensagem_frota'] ?? '';
+$tipoMensagemFrota = $_SESSION['tipo_mensagem_frota'] ?? 'success';
+unset($_SESSION['mensagem_frota'], $_SESSION['tipo_mensagem_frota']);
+
 $perfilAtual = $_SESSION['perfil_id'];
 
 $resultadoTrem = $conexao->query("
@@ -47,6 +51,13 @@ $resultadoUsuarios = $conexao->query(
         </div>
         <br>
         <div class="container-fluid w-75">
+            <?php if (!empty($mensagemFrota)) { ?>
+                <div class="alert alert-<?= $tipoMensagemFrota ?> alert-dismissible fade show mt-3" role="alert">
+                    <?= htmlspecialchars($mensagemFrota, ENT_QUOTES, 'UTF-8') ?>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Fechar"></button>
+                </div>
+            <?php } ?>
+
             <?php if ($perfilAtual == 1) { ?>
                 <div class="d-flex justify-content-end mb-2">
                     <button type="button" class="btn btn-laranja fw-bold p-2 mb-3" data-bs-toggle="modal"
