@@ -17,16 +17,6 @@ CREATE TABLE status (
     nome VARCHAR(45) NOT NULL
 );
 
-CREATE TABLE endereco (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    estado VARCHAR(45) NOT NULL,
-    cidade VARCHAR(100) NOT NULL,
-    bairro VARCHAR(100) NOT NULL,
-    rua VARCHAR(100) NOT NULL,
-    usuario_id INT NOT NULL,
-
-    FOREIGN KEY (usuario_id) REFERENCES usuario(id)
-);
 
 CREATE TABLE usuario (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -47,6 +37,17 @@ CREATE TABLE trem (
 
     FOREIGN KEY (status_id) REFERENCES status(id),
     FOREIGN KEY (carga_id) REFERENCES carga(id),
+    FOREIGN KEY (usuario_id) REFERENCES usuario(id)
+);
+
+CREATE TABLE endereco (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    estado VARCHAR(45) NOT NULL,
+    cidade VARCHAR(100) NOT NULL,
+    bairro VARCHAR(100) NOT NULL,
+    rua VARCHAR(100) NOT NULL,
+    usuario_id INT NOT NULL,
+
     FOREIGN KEY (usuario_id) REFERENCES usuario(id)
 );
 
@@ -103,32 +104,6 @@ INSERT INTO status (nome) VALUES
 ('Ativo'),
 ('Inativo'),
 ('Manutenção');
-
-INSERT INTO endereco (estado, cidade, bairro, rua, usuario_id) VALUES
-('Santa Catarina', 'Florianópolis', 'Centro', 'Rua Felipe Schmidt', 1),
-('Santa Catarina', 'Joinville', 'América', 'Rua Dr. João Colin', 4),
-('Santa Catarina', 'Blumenau', 'Velha', 'Rua Amazonas', 7),
-('Santa Catarina', 'Itajaí', 'Fazenda', 'Rua Brusque', 10),
-('Santa Catarina', 'Chapecó', 'Centro', 'Avenida Getúlio Vargas', 13),
-('São Paulo', 'São Paulo', 'Pinheiros', 'Rua dos Pinheiros', 16),
-('São Paulo', 'Campinas', 'Cambuí', 'Rua Coronel Quirino', 19),
-('São Paulo', 'Santos', 'Gonzaga', 'Avenida Ana Costa', 22),
-('Rio de Janeiro', 'Rio de Janeiro', 'Copacabana', 'Avenida Nossa Senhora de Copacabana', 25),
-('Rio de Janeiro', 'Niterói', 'Icaraí', 'Rua Moreira César', 28),
-('Minas Gerais', 'Belo Horizonte', 'Savassi', 'Rua Pernambuco', 31),
-('Minas Gerais', 'Uberlândia', 'Centro', 'Avenida Afonso Pena', 34),
-('Paraná', 'Curitiba', 'Batel', 'Avenida Vicente Machado', 37),
-('Paraná', 'Londrina', 'Gleba Palhano', 'Avenida Madre Leônia Milito', 40),
-('Rio Grande do Sul', 'Porto Alegre', 'Moinhos de Vento', 'Rua Padre Chagas', 43),
-('Rio Grande do Sul', 'Caxias do Sul', 'Centro', 'Rua Sinimbu', 46),
-('Bahia', 'Salvador', 'Pituba', 'Avenida Manoel Dias da Silva', 49),
-('Pernambuco', 'Recife', 'Boa Viagem', 'Avenida Boa Viagem', 52),
-('Ceará', 'Fortaleza', 'Aldeota', 'Avenida Dom Luís', 55),
-('Goiás', 'Goiânia', 'Setor Bueno', 'Avenida T-10', 58),
-('Distrito Federal', 'Brasília', 'Asa Sul', 'SQS 308', 61),
-('Espírito Santo', 'Vitória', 'Praia do Canto', 'Rua Joaquim Lírio', 64),
-('Mato Grosso', 'Cuiabá', 'Goiabeiras', 'Avenida Fernando Corrêa da Costa', 66),
-('Pará', 'Belém', 'Nazaré', 'Avenida Nazaré', 67);
 
 INSERT INTO usuario (nome, email, senha, perfil_id) VALUES
 ('admin', 'admin@easyrail.com.br', '$2y$10$Si2/M8kMHvJLIYqQPh656OChuwlAbPAXHcnH.53ztKeXNqbWu4iBW', 1),
@@ -198,6 +173,32 @@ INSERT INTO usuario (nome, email, senha, perfil_id) VALUES
 ('garrincha.alegria', 'garrincha.alegria@easyrail.com.br', '$2y$10$Si2/M8kMHvJLIYqQPh656OChuwlAbPAXHcnH.53ztKeXNqbWu4iBW', 4),
 ('pele.rei', 'pele.rei@easyrail.com.br', '$2y$10$Si2/M8kMHvJLIYqQPh656OChuwlAbPAXHcnH.53ztKeXNqbWu4iBW', 5),
 ('rivaldo.canhotinha', 'rivaldo.canhotinha@easyrail.com.br', '$2y$10$Si2/M8kMHvJLIYqQPh656OChuwlAbPAXHcnH.53ztKeXNqbWu4iBW', 2);
+
+INSERT INTO endereco (estado, cidade, bairro, rua, usuario_id) VALUES
+('Santa Catarina', 'Florianópolis', 'Centro', 'Rua Felipe Schmidt', 1),
+('Santa Catarina', 'Joinville', 'América', 'Rua Dr. João Colin', 4),
+('Santa Catarina', 'Blumenau', 'Velha', 'Rua Amazonas', 7),
+('Santa Catarina', 'Itajaí', 'Fazenda', 'Rua Brusque', 10),
+('Santa Catarina', 'Chapecó', 'Centro', 'Avenida Getúlio Vargas', 13),
+('São Paulo', 'São Paulo', 'Pinheiros', 'Rua dos Pinheiros', 16),
+('São Paulo', 'Campinas', 'Cambuí', 'Rua Coronel Quirino', 19),
+('São Paulo', 'Santos', 'Gonzaga', 'Avenida Ana Costa', 22),
+('Rio de Janeiro', 'Rio de Janeiro', 'Copacabana', 'Avenida Nossa Senhora de Copacabana', 25),
+('Rio de Janeiro', 'Niterói', 'Icaraí', 'Rua Moreira César', 28),
+('Minas Gerais', 'Belo Horizonte', 'Savassi', 'Rua Pernambuco', 31),
+('Minas Gerais', 'Uberlândia', 'Centro', 'Avenida Afonso Pena', 34),
+('Paraná', 'Curitiba', 'Batel', 'Avenida Vicente Machado', 37),
+('Paraná', 'Londrina', 'Gleba Palhano', 'Avenida Madre Leônia Milito', 40),
+('Rio Grande do Sul', 'Porto Alegre', 'Moinhos de Vento', 'Rua Padre Chagas', 43),
+('Rio Grande do Sul', 'Caxias do Sul', 'Centro', 'Rua Sinimbu', 46),
+('Bahia', 'Salvador', 'Pituba', 'Avenida Manoel Dias da Silva', 49),
+('Pernambuco', 'Recife', 'Boa Viagem', 'Avenida Boa Viagem', 52),
+('Ceará', 'Fortaleza', 'Aldeota', 'Avenida Dom Luís', 55),
+('Goiás', 'Goiânia', 'Setor Bueno', 'Avenida T-10', 58),
+('Distrito Federal', 'Brasília', 'Asa Sul', 'SQS 308', 61),
+('Espírito Santo', 'Vitória', 'Praia do Canto', 'Rua Joaquim Lírio', 64),
+('Mato Grosso', 'Cuiabá', 'Goiabeiras', 'Avenida Fernando Corrêa da Costa', 66),
+('Pará', 'Belém', 'Nazaré', 'Avenida Nazaré', 67);
 
 INSERT INTO trem (modelo, carga_id, usuario_id, status_id) VALUES
 ('Locomotiva EMD SD70ACe', 1, 1, 1),
