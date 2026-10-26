@@ -29,7 +29,6 @@ $resultadoPerfis = $conexao->query("SELECT id, nome FROM perfil ORDER BY nome AS
                     <label for="cep" class="form-label fw-bold">CEP</label>
                     <input type="text" class="form-control" id="cep" name="cep" maxlength="9" placeholder="00000-000"
                         required>
-
                 </div>
 
 
@@ -37,7 +36,6 @@ $resultadoPerfis = $conexao->query("SELECT id, nome FROM perfil ORDER BY nome AS
                     <label for="estado" class="form-label fw-bold">Estado (UF)</label>
                     <select class="form-select" name="estado" id="estado">
                         <option value="">Selecione o estado</option>
-
                         <option value="AC">Acre</option>
                         <option value="AL">Alagoas</option>
                         <option value="AP">Amapá</option>
@@ -66,14 +64,13 @@ $resultadoPerfis = $conexao->query("SELECT id, nome FROM perfil ORDER BY nome AS
                         <option value="SE">Sergipe</option>
                         <option value="TO">Tocantins</option>
                     </select>
-
                 </div>
             </div>
 
             <div class="row">
 
                 <div class="col-md-6 mb-2">
-                    <label for="numero" class="form-label fw-bold">Bairro</label>
+                    <label for="bairro" class="form-label fw-bold">Bairro</label>
                     <input type="text" class="form-control" id="bairro" name="bairro" placeholder="Digite o bairro"
                         required>
                 </div>
@@ -89,8 +86,7 @@ $resultadoPerfis = $conexao->query("SELECT id, nome FROM perfil ORDER BY nome AS
 
             <div class="mb-2">
                 <label for="rua" class="form-label fw-bold">Rua</label>
-                <input type="text" class="form-control" id="logradouro" name="logradouro" placeholder="Digite a rua"
-                    required>
+                <input type="text" class="form-control" id="logradouro" name="rua" placeholder="Digite a rua" required>
             </div>
 
             <small hidden id="mensagemCep" class="form-text"></small>

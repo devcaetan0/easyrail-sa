@@ -5,9 +5,10 @@ include "../config/conexao.php";
 verificarAcesso(1);
 
 $resultadoUsuario = $conexao->query("
-    SELECT u.id, u.nome, u.email, u.perfil_id, p.nome AS perfil
+    SELECT u.id, u.nome, u.email, u.perfil_id, p.nome AS perfil, e.cidade AS cidade
     FROM usuario u
     LEFT JOIN perfil p ON u.perfil_id = p.id
+    LEFT JOIN endereco e ON u.id = e.usuario_id
     ORDER BY u.id
 ");
 
@@ -72,6 +73,7 @@ $resultadoPerfis = $conexao->query("SELECT id, nome FROM perfil ORDER BY nome AS
                                         <th>ID</th>
                                         <th>Cargo</th>
                                         <th>Usuário</th>
+                                        <th>Cidade</th>
                                         <th>Ações</th>
                                 </thead>
 
@@ -89,6 +91,10 @@ $resultadoPerfis = $conexao->query("SELECT id, nome FROM perfil ORDER BY nome AS
 
                                             <td class="nome-tr">
                                                 <?= $usuario['nome'] ?>
+                                            </td>
+
+                                            <td class="cidade-tr">
+                                                <?= $usuario['cidade'] ?>
                                             </td>
 
                                             <td class="buttons">

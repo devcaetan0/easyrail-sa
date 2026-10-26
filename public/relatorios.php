@@ -19,16 +19,16 @@ verificarAcesso(5);
     <?php include('../components/navbar.php') ?>
 
     <main class="main-padrao">
-           <div class=" align-items-center gap-3">
-            <div class="d-flex">                <div class="d-flex justify-content-end mb-2" style="margin: 72px 0;"></div>
-                 <i class="bi bi-file-earmark-text" style="font-size: 4rem; line-height: 1; margin-left: 20px;"></i>
+        <div class="align-items-center gap-3">
+            <div class="d-flex">
+                <i class="bi bi-file-earmark-text" style="font-size: 4rem; line-height: 1; margin-left: 20px;"></i>
                 <h1 class="m-0 fw-bold ms-4">Histórico Analítico</h1>
             </div>
-            <p style="margin-left: 110px;">Histórico de dados gerados pelos sensores e das rotas realizadas pelos trens.</p>
+            <p style="margin-left: 110px;">Histórico de dados gerados pelos sensores e das rotas realizadas pelos trens.
+            </p>
         </div>
-        <br>
 
-        <div class="d-flex justify-content-end mb-2" style="margin: 16px 0;"></div>
+        <br>
 
         <div class="container-fluid w-75">
             <div class="card p-3 mb-4 shadow-sm">
@@ -69,14 +69,15 @@ verificarAcesso(5);
                                 <td id="1" class="nome-tr">#00001</td>
                                 <td id="1" class="responsavel-tr">Elétrica</td>
                                 <td id="1" class="tipo-tr">Alto</td>
-                                <td>
-                                    <?php if ($perfilAtual == 1) { ?>
+                                <?php if ($perfilAtual == 1) { ?>
+                                    <td class="buttons">
                                         <button class="editar btn btn-sm btn-outline-secondary" data-bs-toggle="modal"
-                                            data-bs-target="#modalCadastroSensor" id="1"><i class="bi bi-eye fs-5"></i></button>
-                                        <button class="excluir btn btn-sm btn-outline-danger" id="1"><i class="bi bi-cloud-download fs-5"</button>
+                                            data-bs-target="#modalCadastroSensor" id="1"><i
+                                                class="bi bi-eye fs-5"></i></button>
+                                        <button class="excluir btn btn-sm btn-outline-danger" id="1"><i
+                                                class="bi bi-cloud-download fs-5"></i></button>
                                     </td>
                                 <?php } ?>
-                                </td>
                             </tr>
                         </tbody>
                     </table>
