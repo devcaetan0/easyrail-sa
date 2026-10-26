@@ -22,15 +22,15 @@ try {
     }
 
     if ($stmt->execute()) {
-        $_SESSION['mensagem_usuarios'] = "Usuário atualizado com sucesso!";
-        $_SESSION['tipo_mensagem_usuarios'] = "success";
+        $_SESSION['mensagem'] = "Usuário atualizado com sucesso!";
+        $_SESSION['tipo_mensagem'] = "success";
     } else {
-        $_SESSION['mensagem_usuarios'] = "Erro ao atualizar usuário. Verifique os dados e tente novamente.";
-        $_SESSION['tipo_mensagem_usuarios'] = "danger";
+        $_SESSION['mensagem'] = "Erro ao atualizar usuário. Verifique os dados e tente novamente.";
+        $_SESSION['tipo_mensagem'] = "danger";
     }
 } catch (Exception $e) {
-    $_SESSION['mensagem_usuarios'] = "Erro ao atualizar usuário. Verifique os dados e tente novamente.";
-    $_SESSION['tipo_mensagem_usuarios'] = "danger";
+    $_SESSION['mensagem'] = "Erro ao atualizar usuário. Verifique os dados e tente novamente.";
+    $_SESSION['tipo_mensagem'] = "danger";
 }
 
 header("Location: ../../public/usuarios.php");

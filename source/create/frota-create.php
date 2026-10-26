@@ -1,4 +1,5 @@
 <?php
+session_start();
 include '../../config/conexao.php';
 
 $modelo = trim($_POST['modelo'] ?? '');
@@ -11,15 +12,23 @@ $sql = "INSERT INTO trem (modelo, carga_id, usuario_id, status_id) VALUES (?, ?,
 $stmt = $conexao->prepare($sql);
 
 if (!$stmt) {
-    die("Erro na preparação da consulta: " . $conexao->error);
+    $_SESSION['mensagem_frota'] = "Erro ao cadastrar locomotiva. Verifique os dados e tente novamente.";
+    $_SESSION['tipo_mensagem_frota'] = "danger";
+    header("Location: ../../public/frota.php");
+    exit();
 }
 
 $stmt->bind_param("siis", $modelo, $carga_id, $usuario_id, $status_id);
 
 if (!$stmt->execute()) {
-    die("Erro ao cadastrar locomotiva: " . $stmt->error);
+    $_SESSION['mensagem_frota'] = "Erro ao cadastrar locomotiva. Verifique os dados e tente novamente.";
+    $_SESSION['tipo_mensagem_frota'] = "danger";
+    header("Location: ../../public/frota.php");
+    exit();
 }
 
+$_SESSION['mensagem_frota'] = "Locomotiva cadastrada com sucesso!";
+$_SESSION['tipo_mensagem_frota'] = "success";
 header("Location: ../../public/frota.php");
 exit;
 ?>
