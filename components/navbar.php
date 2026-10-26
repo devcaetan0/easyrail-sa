@@ -50,7 +50,7 @@
             </ul>
         </div>
         <div class="nav-hover">
-            <a class="navbar-brand" href="login.php?logout=1">
+            <a class="navbar-brand" href="../index.php?logout=1">
                 <i class="bi bi-box-arrow-left fs-5"></i>
                 <span class="ms-1" style="color: var(--cor-branca);">Sair</span>
             </a>
