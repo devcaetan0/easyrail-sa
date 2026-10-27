@@ -36,6 +36,7 @@ thead th {
 }
 
 /* ===== CLASSES PADRONIZADAS ===== */
+
 .btn-laranja {
     background-color: var(--cor-laranja);
     color: var(--cor-preto);
@@ -136,27 +137,6 @@ thead th {
     display: block;
     height: 400px;
     width: 400px;
-    margin: 30px auto 0;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
-    }
-}
-
-.fade-fotos {
-    animation: fadeIn 2s ease-in forwards;
-}
-
-.foto-integrante {
-    display: block;
-    height: 600px;
-    width: 390px;
     margin: 30px auto 0;
 }
 
