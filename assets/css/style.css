@@ -21,7 +21,7 @@ body {
     position: fixed;
 }
 
-thead th{
+thead th {
     background-color: rgb(219, 215, 211) !important;
     padding: 0.6rem 0.9rem !important;
 }
@@ -30,9 +30,11 @@ thead th{
 .navbar-brand {
     color: var(--cor-branca) !important;
 }
+
 .navbar {
     background-color: var(--cor-preto);
 }
+
 /* ===== CLASSES PADRONIZADAS ===== */
 .btn-laranja {
     background-color: var(--cor-laranja);
@@ -40,10 +42,12 @@ thead th{
     font-weight: bold;
     border: none;
 }
+
 .btn-laranja:hover {
     background-color: var(--cor-btn-hover);
     color: var(--cor-preto);
 }
+
 .borda-laranja {
     border: 3px solid var(--cor-azul);
 }
@@ -88,13 +92,14 @@ thead th{
     padding: 0px 40px;
 }
 
-.tabela-padding{
+.tabela-padding {
     padding: 10;
 }
+
 /* ===== INDEX =====*/
 
 #body-login {
-    background-image: url(../../assets/images/fundo-login.jfif);
+    background-image: url(../../assets/images/fundo-login.png);
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -120,6 +125,7 @@ thead th{
     height: 100px;
     margin-left: 35px;
 }
+
 #form-login {
     font-size: 25px;
 }
@@ -132,15 +138,23 @@ thead th{
     width: 400px;
     margin: 30px auto 0;
 }
+
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to   { opacity: 1; }
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
-.fade-fotos{
-   animation: fadeIn 2s ease-in forwards;
+
+.fade-fotos {
+    animation: fadeIn 2s ease-in forwards;
 }
-.foto-integrante{
-     display: block;
+
+.foto-integrante {
+    display: block;
     height: 600px;
     width: 390px;
     margin: 30px auto 0;

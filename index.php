@@ -33,22 +33,28 @@
             <h1>Olá, Bem-vindo(a) a EasyRail!</h1>
             <h4>Acompanhe cada trem, trilho e carga em tempo real.</h4>
         </div>
-    <section>
-        <h1>EasyRail</h1>
-        <br>
-        <h6>Este site é o resultado da nossa Situação de Aprendizagem (SA) do curso técnico, desenvolvida para colocar em prática o que aprendemos ao longo dos anos letivos.<br>
-             O desafio proposto foi criar um sistema de controle ferroviário que reúne, em um só lugar, as informações dos sensores instalados nos trens, nos trilhos<br>
-              e no ambiente, permitindo analisar melhor o desempenho do envio de cargas.</h6>
+        <section>
+            <h1>EasyRail</h1>
+            <br>
+            <h6>Este site é o resultado da nossa Situação de Aprendizagem (SA) do curso técnico, desenvolvida para
+                colocar em prática o que aprendemos ao longo dos anos letivos.<br>
+                O desafio proposto foi criar um sistema de controle ferroviário que reúne, em um só lugar, as
+                informações dos sensores instalados nos trens, nos trilhos<br>
+                e no ambiente, permitindo analisar melhor o desempenho do envio de cargas.</h6>
 
-    </section>
+        </section>
 
         <div class="row justify-content-center mt-4">
             <div class="d-flex">
-                <img class="foto-integrante borda-laranja fade-fotos" src="assets/images/calegari-terno.jfif" alt="integrante-calegari">
-                
-                <img class="foto-integrante borda-laranja fade-fotos" src="assets/images/gabe-terno.png" alt="integrante-gabe">
-                <img class="foto-integrante borda-laranja fade-fotos" src="assets/images/davi-terno.png" alt="integrante-davi">
-                <img class="foto-integrante borda-laranja fade-fotos" src="assets/images/antonio-terno.png" alt="integrante-antonio">
+                <img class="foto-integrante borda-laranja fade-fotos" src="assets/images/calegari-terno.png"
+                    alt="integrante-calegari">
+
+                <img class="foto-integrante borda-laranja fade-fotos" src="assets/images/gabe-terno.png"
+                    alt="integrante-gabe">
+                <img class="foto-integrante borda-laranja fade-fotos" src="assets/images/davi-terno.png"
+                    alt="integrante-davi">
+                <img class="foto-integrante borda-laranja fade-fotos" src="assets/images/antonio-terno.png"
+                    alt="integrante-antonio">
             </div>
         </div>
     </main>
