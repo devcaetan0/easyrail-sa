@@ -1,14 +1,9 @@
 <?php
 session_start();
-
 include "../config/conexao.php";
 
 verificarAcesso(67);
 $perfilAtual = $_SESSION['perfil_id'];
-
-$mensagemFrota = $_SESSION['mensagem'] ?? '';
-$tipoMensagemFrota = $_SESSION['tipo_mensagem'] ?? 'success';
-unset($_SESSION['mensagem'], $_SESSION['tipo_mensagem']);
 
 $resultadoTrem = $conexao->query("
     SELECT t.id, t.modelo, t.carga_id, c.nome AS carga, t.usuario_id, u.nome AS nome_usuario, t.status_id, s.nome AS status_nome
@@ -50,12 +45,7 @@ $resultadoUsuarios = $conexao->query("
         </div>
         <br>
         <div class="container-fluid w-75">
-            <?php if (!empty($mensagemFrota)) { ?>
-                <div class="alert alert-<?= $tipoMensagemFrota ?> alert-dismissible fade show mt-3">
-                    <?= $mensagemFrota ?>
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Fechar"></button>
-                </div>
-            <?php } ?>
+            <?php include("../components/mensagem.php") ?>
 
             <?php if ($perfilAtual == 1) { ?>
                 <div class="d-flex justify-content-end mb-2">

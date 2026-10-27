@@ -5,10 +5,6 @@ include "../config/conexao.php";
 verificarAcesso(67);
 $perfilAtual = $_SESSION['perfil_id'];
 
-$mensagemRotas = $_SESSION['mensagem'] ?? '';
-$tipoMensagemRotas = $_SESSION['tipo_mensagem'] ?? 'success';
-unset($_SESSION['mensagem'], $_SESSION['tipo_mensagem']);
-
 $resultadoRota = $conexao->query("
     SELECT r.id, r.nome, r.distancia, r.descricao, r.trem_id, r.duracao, t.modelo AS modelo
     FROM rota r
@@ -31,7 +27,6 @@ $resultadoTrem = $conexao->query("SELECT id, modelo FROM trem ORDER BY modelo AS
 <body>
     <?php include('../components/navbar.php') ?>
 
-
     <main class="main-padrao">
 
         <div class=" align-items-center gap-3">
@@ -43,13 +38,7 @@ $resultadoTrem = $conexao->query("SELECT id, modelo FROM trem ORDER BY modelo AS
         </div>
         <br>
         <div class="container-fluid w-75">
-            <?php if (!empty($mensagemRotas)) { ?>
-                <div class="alert alert-<?= $tipoMensagemRotas ?> alert-dismissible fade show mx-auto mt-3">
-                    <?= $mensagemRotas ?>
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Fechar"></button>
-                </div>
-            <?php } ?>
-
+            <?php include("../components/mensagem.php") ?>
 
             <?php if ($perfilAtual == 1) { ?>
                 <div class="d-flex justify-content-end mb-2">

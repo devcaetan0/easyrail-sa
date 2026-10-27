@@ -5,10 +5,6 @@ include "../config/conexao.php";
 verificarAcesso(67);
 $perfilAtual = $_SESSION['perfil_id'];
 
-$mensagemSensores = $_SESSION['mensagem'] ?? '';
-$tipoMensagemSensores = $_SESSION['tipo_mensagem'] ?? 'success';
-unset($_SESSION['mensagem'], $_SESSION['tipo_mensagem']);
-
 $resultadoSensores = $conexao->query("
     SELECT s.id, s.nome, s.tipo, st.nome AS status, s.status_id, s.trem_id, s.rota_id,
     t.modelo AS trem, r.nome AS rota
@@ -48,7 +44,6 @@ $resultadoTrem = $conexao->query("
     <?php include('../components/navbar.php') ?>
 
     <main class="main-padrao">
-
         <div class=" align-items-center gap-3">
             <div class="d-flex">
                 <i class="bi bi-wifi" style="font-size: 4rem; line-height: 1; margin-left: 20px;"></i>
@@ -59,12 +54,7 @@ $resultadoTrem = $conexao->query("
         <br>
 
         <div class="container-fluid w-75">
-            <?php if (!empty($mensagemSensores)) { ?>
-                <div class="alert alert-<?= $tipoMensagemSensores ?> alert-dismissible fade show mx-auto mt-3">
-                    <?= $mensagemSensores ?>
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Fechar"></button>
-                </div>
-            <?php } ?>
+            <?php include("../components/mensagem.php"); ?>
 
             <?php if ($perfilAtual == 1) { ?>
                 <div class="d-flex justify-content-end mb-2">
