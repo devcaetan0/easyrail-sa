@@ -4,6 +4,7 @@ document.querySelectorAll('.editar-rota').forEach(btn => {
         document.getElementById('modal-nome').value = btn.dataset.nome;
         document.getElementById('modal-distancia').value = btn.dataset.distancia;
         document.getElementById('modal-descricao').value = btn.dataset.descricao;
+        document.getElementById('modal-duracao').value = btn.dataset.duracao;
         document.getElementById('modal-trem_id').value = btn.dataset.tremId;
     });
 });

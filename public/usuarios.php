@@ -16,7 +16,7 @@ $resultadoUsuario = $conexao->query("
     ORDER BY u.id
 ");
 
-$resultadoPerfis = $conexao->query("SELECT id, nome FROM perfil ORDER BY nome ASC");
+$resultadoPerfisFiltro = $conexao->query("SELECT id, nome FROM perfil ORDER BY nome ASC");
 ?>
 
 <html lang="pt-BR">
@@ -66,7 +66,7 @@ $resultadoPerfis = $conexao->query("SELECT id, nome FROM perfil ORDER BY nome AS
                                 <label class="fw-bold form-label">Cargo</label>
                                 <select class="form-select" id="filtroPerfil">
                                     <option value="">Todos</option>
-                                    <?php while ($perfil = $resultadoPerfis->fetch_assoc()) { ?>
+                                    <?php while ($perfil = $resultadoPerfisFiltro->fetch_assoc()) { ?>
                                         <option value="<?= $perfil['id'] ?>">
                                             <?= $perfil['nome'] ?>
                                         </option>

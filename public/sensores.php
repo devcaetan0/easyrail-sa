@@ -2,12 +2,16 @@
 session_start();
 include "../config/conexao.php";
 
+verificarAcesso(67);
 $perfilAtual = $_SESSION['perfil_id'];
-verificarAcesso(5);
+
+$mensagemSensores = $_SESSION['mensagem'] ?? '';
+$tipoMensagemSensores = $_SESSION['tipo_mensagem'] ?? 'success';
+unset($_SESSION['mensagem'], $_SESSION['tipo_mensagem']);
 
 $resultadoSensores = $conexao->query("
     SELECT s.id, s.nome, s.tipo, st.nome AS status, s.status_id, s.trem_id, s.rota_id,
-           t.modelo AS trem, r.nome AS rota
+    t.modelo AS trem, r.nome AS rota
     FROM sensor s
     JOIN status st ON s.status_id = st.id
     LEFT JOIN trem t ON s.trem_id = t.id
@@ -16,15 +20,15 @@ $resultadoSensores = $conexao->query("
 ");
 
 $resultadoTipos = $conexao->query("SELECT DISTINCT tipo FROM sensor ORDER BY tipo ASC");
-$resultadoStatus = $conexao->query("SELECT DISTINCT st.nome FROM sensor s INNER JOIN status st ON s.status_id = st.id ORDER BY st.nome ASC");
+$resultadoStatus = $conexao->query("SELECT st.nome FROM sensor s JOIN status st ON s.status_id = st.id ORDER BY st.nome ASC");
 $resultadoRotas = $conexao->query("
-    SELECT DISTINCT r.id, r.nome
+    SELECT r.id, r.nome
     FROM rota r
     INNER JOIN sensor s ON s.rota_id = r.id
     ORDER BY r.nome ASC
 ");
 $resultadoTrem = $conexao->query("
-    SELECT DISTINCT t.id, t.modelo
+    SELECT t.id, t.modelo
     FROM trem t
     INNER JOIN sensor s ON s.trem_id = t.id
     ORDER BY t.modelo ASC
@@ -44,6 +48,7 @@ $resultadoTrem = $conexao->query("
     <?php include('../components/navbar.php') ?>
 
     <main class="main-padrao">
+
         <div class=" align-items-center gap-3">
             <div class="d-flex">
                 <i class="bi bi-wifi" style="font-size: 4rem; line-height: 1; margin-left: 20px;"></i>
@@ -54,6 +59,12 @@ $resultadoTrem = $conexao->query("
         <br>
 
         <div class="container-fluid w-75">
+            <?php if (!empty($mensagemSensores)) { ?>
+                <div class="alert alert-<?= $tipoMensagemSensores ?> alert-dismissible fade show mx-auto mt-3">
+                    <?= $mensagemSensores ?>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Fechar"></button>
+                </div>
+            <?php } ?>
 
             <?php if ($perfilAtual == 1) { ?>
                 <div class="d-flex justify-content-end mb-2">

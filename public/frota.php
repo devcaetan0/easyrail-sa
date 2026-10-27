@@ -3,13 +3,12 @@ session_start();
 
 include "../config/conexao.php";
 
-verificarAcesso(5);
-
-$mensagemFrota = $_SESSION['mensagem_frota'] ?? '';
-$tipoMensagemFrota = $_SESSION['tipo_mensagem_frota'] ?? 'success';
-unset($_SESSION['mensagem_frota'], $_SESSION['tipo_mensagem_frota']);
-
+verificarAcesso(67);
 $perfilAtual = $_SESSION['perfil_id'];
+
+$mensagemFrota = $_SESSION['mensagem'] ?? '';
+$tipoMensagemFrota = $_SESSION['tipo_mensagem'] ?? 'success';
+unset($_SESSION['mensagem'], $_SESSION['tipo_mensagem']);
 
 $resultadoTrem = $conexao->query("
     SELECT t.id, t.modelo, t.carga_id, c.nome AS carga, t.usuario_id, u.nome AS nome_usuario, t.status_id, s.nome AS status_nome
@@ -21,12 +20,12 @@ $resultadoTrem = $conexao->query("
 ");
 
 $resultadoCargas = $conexao->query("SELECT id, nome FROM carga ORDER BY nome ASC");
-$resultadoUsuarios = $conexao->query(
-    "SELECT u.id, u.nome
-     FROM usuario u
-     INNER JOIN trem t ON t.usuario_id = u.id
-     ORDER BY u.nome ASC"
-);
+$resultadoUsuarios = $conexao->query("
+    SELECT u.id, u.nome
+    FROM usuario u
+    JOIN trem t ON t.usuario_id = u.id
+    ORDER BY u.nome ASC
+");
 ?>
 
 <html lang="pt-BR">
@@ -52,8 +51,8 @@ $resultadoUsuarios = $conexao->query(
         <br>
         <div class="container-fluid w-75">
             <?php if (!empty($mensagemFrota)) { ?>
-                <div class="alert alert-<?= $tipoMensagemFrota ?> alert-dismissible fade show mt-3" role="alert">
-                    <?= htmlspecialchars($mensagemFrota, ENT_QUOTES, 'UTF-8') ?>
+                <div class="alert alert-<?= $tipoMensagemFrota ?> alert-dismissible fade show mt-3">
+                    <?= $mensagemFrota ?>
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Fechar"></button>
                 </div>
             <?php } ?>

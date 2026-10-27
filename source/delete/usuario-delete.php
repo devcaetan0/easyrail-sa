@@ -2,38 +2,54 @@
 session_start();
 include("../../config/conexao.php");
 
-$id = $_GET["id"];
+$mensagem = "Erro ao excluir usuário. Tente novamente.";
+$tipoMensagem = "danger";
+$id = $_GET['id'] ?? null;
 
-$checkTrem = $conexao->prepare("SELECT id FROM trem WHERE usuario_id = ? LIMIT 1");
-$checkTrem->bind_param("i", $id);
-$checkTrem->execute();
-$checkTrem->store_result();
+if ($id && $conexao->begin_transaction()) {
+    $checkTrem = $conexao->prepare("SELECT id FROM trem WHERE usuario_id = ?");
 
-if ($checkTrem->num_rows > 0) {
-    $_SESSION['mensagem'] = "Não foi possível excluir este usuário porque ele está vinculado a uma locomotiva.";
-    $_SESSION['tipo_mensagem'] = "danger";
-    header("Location: ../../public/usuarios.php");
-    exit();
+    if ($checkTrem) {
+        $checkTrem->bind_param("i", $id);
+
+        if ($checkTrem->execute()) {
+            $checkTrem->store_result();
+
+            if ($checkTrem->num_rows > 0) {
+                $conexao->rollback();
+                $mensagem = "Não foi possível excluir este usuário porque ele está vinculado a uma locomotiva.";
+            } else {
+                $comandoEndereco = $conexao->prepare("DELETE FROM endereco WHERE usuario_id = ?");
+                $comandoUsuario = $conexao->prepare("DELETE FROM usuario WHERE id = ?");
+
+                if ($comandoEndereco && $comandoUsuario) {
+                    $comandoEndereco->bind_param("i", $id);
+                    $comandoUsuario->bind_param("i", $id);
+
+                    if ($comandoEndereco->execute() && $comandoUsuario->execute() && $comandoUsuario->affected_rows > 0) {
+                        if ($conexao->commit()) {
+                            $mensagem = "Usuário excluído com sucesso!";
+                            $tipoMensagem = "success";
+                        } else {
+                            $conexao->rollback();
+                        }
+                    } else {
+                        $conexao->rollback();
+                    }
+                } else {
+                    $conexao->rollback();
+                }
+            }
+        } else {
+            $conexao->rollback();
+        }
+    } else {
+        $conexao->rollback();
+    }
 }
 
-$queryEndereco = "DELETE FROM endereco WHERE usuario_id=?";
-$queryUsuario = "DELETE FROM usuario WHERE id=?";
-
-$comandoEndereco = $conexao->prepare($queryEndereco);
-$comandoEndereco->bind_param("i", $id);
-
-$comandoUsuario = $conexao->prepare($queryUsuario);
-$comandoUsuario->bind_param("i", $id);
-
-$comandoEndereco->execute();
-
-if ($comandoUsuario->execute()) {
-    $_SESSION['mensagem'] = "Usuário excluído com sucesso!";
-    $_SESSION['tipo_mensagem'] = "success";
-} else {
-    $_SESSION['mensagem'] = "Erro ao excluir usuário. Tente novamente.";
-    $_SESSION['tipo_mensagem'] = "danger";
-}
-
+$_SESSION['mensagem'] = $mensagem;
+$_SESSION['tipo_mensagem'] = $tipoMensagem;
 header("Location: ../../public/usuarios.php");
+exit();
 ?>

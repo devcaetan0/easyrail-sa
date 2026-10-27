@@ -3,7 +3,7 @@ session_start();
 include "../config/conexao.php";
 $perfilAtual = $_SESSION['perfil_id'];
 
-verificarAcesso(5);
+verificarAcesso(67);
 ?>
 
 <html lang="pt-BR">
