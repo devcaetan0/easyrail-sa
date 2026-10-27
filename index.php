@@ -39,8 +39,8 @@ if (isset($_GET['logout'])) {
         </nav>
     </header>
 
-    <main class="container mt-5 pt-4 pb-5" id="inicio">
-        <div class="row align-items-center g-4 py-lg-5">
+    <main class="container mt-5 pt-4 pb-5 fade-in" id="inicio">
+        <div class="row align-items-center g-4 py-lg-4">
             <div class="col-lg-7">
                 <h1 class="display-4 fw-bold">Mais clareza para acompanhar cada jornada.</h1>
                 <p class="lead mt-3">
