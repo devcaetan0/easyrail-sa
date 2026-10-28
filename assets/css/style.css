@@ -21,7 +21,7 @@ body {
     position: fixed;
 }
 
-thead th{
+thead th {
     background-color: rgb(219, 215, 211) !important;
     padding: 0.6rem 0.9rem !important;
 }
@@ -30,30 +30,57 @@ thead th{
 .navbar-brand {
     color: var(--cor-branca) !important;
 }
+
 .navbar {
     background-color: var(--cor-preto);
 }
+
 /* ===== CLASSES PADRONIZADAS ===== */
+
 .btn-laranja {
     background-color: var(--cor-laranja);
     color: var(--cor-preto);
     font-weight: bold;
     border: none;
 }
+
 .btn-laranja:hover {
     background-color: var(--cor-btn-hover);
     color: var(--cor-preto);
 }
+
 .borda-laranja {
     border: 3px solid var(--cor-azul);
 }
 
 /* ===== HOVER E ATIVO DA NAV BAR ===== */
 
-.nav-hover .nav-link:hover,
-.nav-hover .nav-link.active,
-.nav-hover .nav-link.show {
-    background-color: #f5873e !important; 
+.nav-hover .nav-link {
+    position: relative;
+    background-color: transparent !important;
+    padding-bottom: 8px !important;
+}
+
+.nav-hover .nav-link::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 3px;
+    background-color: var(--cor-laranja) !important;
+    border-radius: 2px;
+    transition: width 0.3s ease-in-out;
+}
+
+.nav-hover .nav-link:hover::after {
+    width: 100%;
+}
+
+.nav-hover .nav-link.active::after {
+    width: 100% !important;
+    transition: none !important;
 }
 
 .titulo-pagina {
@@ -66,14 +93,14 @@ thead th{
     padding: 0px 40px;
 }
 
-.tabela-padding{
+.tabela-padding {
     padding: 10;
 }
 
 /* ===== INDEX =====*/
 
 #body-login {
-    background-image: url(../../assets/images/fundo-login.jfif);
+    background-image: url(../../assets/images/fundo-login.png);
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -100,6 +127,7 @@ thead th{
     height: 100px;
     margin-left: 35px;
 }
+
 #form-login {
     font-size: 25px;
 }
@@ -112,28 +140,16 @@ thead th{
     width: 400px;
     margin: 30px auto 0;
 }
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to   { opacity: 1; }
-}
-.fade-fotos{
-   animation: fadeIn 2s ease-in forwards;
-}
-.foto-integrante{
-     display: block;
-    height: 600px;
-    width: 390px;
-    margin: 30px auto 0;
-}
 
 .card-clima-flutuante {
     position: fixed;
     top: 100px;
     right: 20px;
-    width: 150px;
+    width: 180px;
     z-index: 1050;
     border: 1px solid #000;
     border-radius: 4px;
+    word-wrap: break-word;
 }
 
 .card-clima-flutuante h2 {

@@ -1,25 +1,30 @@
 <?php
+session_start();
 include '../../config/conexao.php';
 
-$modelo = trim($_POST['modelo'] ?? '');
-$carga_id = $_POST['carga_id'] ?? null;
-$usuario_id = $_POST['usuario_id'] ?? null;
-$status_id = $_POST['status_id'] ?? null;
+$mensagem = "Erro ao cadastrar locomotiva. Verifique os dados e tente novamente.";
+$tipoMensagem = "danger";
 
-$sql = "INSERT INTO trem (modelo, carga_id, usuario_id, status_id) VALUES (?, ?, ?, ?)";
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $modelo = trim($_POST['modelo'] ?? '');
+    $carga_id = $_POST['carga_id'] ?? null;
+    $usuario_id = $_POST['usuario_id'] ?? null;
+    $status_id = $_POST['status_id'] ?? null;
 
-$stmt = $conexao->prepare($sql);
+    $stmt = $conexao->prepare("INSERT INTO trem (modelo, carga_id, usuario_id, status_id) VALUES (?, ?, ?, ?)");
 
-if (!$stmt) {
-    die("Erro na preparação da consulta: " . $conexao->error);
+    if ($stmt) {
+        $stmt->bind_param("siii", $modelo, $carga_id, $usuario_id, $status_id);
+
+        if ($stmt->execute()) {
+            $mensagem = "Locomotiva cadastrada com sucesso!";
+            $tipoMensagem = "success";
+        }
+    }
 }
 
-$stmt->bind_param("siis", $modelo, $carga_id, $usuario_id, $status_id);
-
-if (!$stmt->execute()) {
-    die("Erro ao cadastrar locomotiva: " . $stmt->error);
-}
-
+$_SESSION['mensagem'] = $mensagem;
+$_SESSION['tipo_mensagem'] = $tipoMensagem;
 header("Location: ../../public/frota.php");
-exit;
+exit();
 ?>

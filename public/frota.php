@@ -1,10 +1,8 @@
 <?php
 session_start();
-
 include "../config/conexao.php";
 
-verificarAcesso(5);
-
+verificarAcesso(67);
 $perfilAtual = $_SESSION['perfil_id'];
 
 $resultadoTrem = $conexao->query("
@@ -17,12 +15,12 @@ $resultadoTrem = $conexao->query("
 ");
 
 $resultadoCargas = $conexao->query("SELECT id, nome FROM carga ORDER BY nome ASC");
-$resultadoUsuarios = $conexao->query(
-    "SELECT u.id, u.nome
-     FROM usuario u
-     INNER JOIN trem t ON t.usuario_id = u.id
-     ORDER BY u.nome ASC"
-);
+$resultadoUsuarios = $conexao->query("
+    SELECT u.id, u.nome
+    FROM usuario u
+    JOIN trem t ON t.usuario_id = u.id
+    ORDER BY u.nome ASC
+");
 ?>
 
 <html lang="pt-BR">
@@ -43,10 +41,12 @@ $resultadoUsuarios = $conexao->query(
                 <i class="bi bi-box" style="font-size: 4rem; line-height: 1; margin-left: 20px;"></i>
                 <h1 class="m-0 fw-bold ms-4">Gerenciamento de <span style="color: var(--cor-laranja);">Frota</span></h1>
             </div>
-            <p style="margin-left: 110px;">Listagem e gerenciamento de todos os treins e suas respectivas rotas.
-</p>
+            <p style="margin-left: 110px;">Listagem e gerenciamento de todos os treins e suas respectivas rotas.</p>
         </div>
+        <br>
         <div class="container-fluid w-75">
+            <?php include("../components/mensagem.php") ?>
+
             <?php if ($perfilAtual == 1) { ?>
                 <div class="d-flex justify-content-end mb-2">
                     <button type="button" class="btn btn-laranja fw-bold p-2 mb-3" data-bs-toggle="modal"
@@ -54,10 +54,6 @@ $resultadoUsuarios = $conexao->query(
                         + Adicionar Locomotiva
                     </button>
                 </div>
-            <?php } ?>
-
-            <?php if ($perfilAtual != 1) { ?>
-                <div class="d-flex justify-content-end mb-2" style="margin: 72px 0;"></div>
             <?php } ?>
 
             <div class="card p-3 mb-4 shadow-sm">

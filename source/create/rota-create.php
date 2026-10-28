@@ -1,28 +1,31 @@
 <?php
-
+session_start();
 include '../../config/conexao.php';
 
+$mensagem = "Erro ao cadastrar rota. Verifique os dados e tente novamente.";
+$tipoMensagem = "danger";
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $nome = $_POST['nome'];
-    $distancia = $_POST['distancia'];
-    $descricao = $_POST['descricao'];
-    $trem_id = $_POST['trem_id'];
+    $nome = trim($_POST['nome'] ?? '');
+    $distancia = $_POST['distancia'] ?? 0;
+    $descricao = trim($_POST['descricao'] ?? '');
+    $duracao = $_POST['duracao'] ?? '';
+    $trem_id = $_POST['trem_id'] ?? null;
 
-    $sql = "INSERT INTO rota (nome, distancia, descricao, trem_id) VALUES (?, ?, ?, ?)";
+    $stmt = $conexao->prepare("INSERT INTO rota (nome, distancia, descricao, duracao, trem_id) VALUES (?, ?, ?, ?, ?)");
 
-    $stmt = $conexao->prepare($sql);
+    if ($stmt) {
+        $stmt->bind_param("sdssi", $nome, $distancia, $descricao, $duracao, $trem_id);
 
-    if (!$stmt) {
-        die("Erro na preparação da consulta: " . $conexao->error);
-    }
-
-    $stmt->bind_param("sdsi", $nome, $distancia, $descricao, $trem_id);
-
-    if ($stmt->execute()) {
-        header("Location: ../../public/rotas.php");
-        exit();
-    } else {
-        die("Erro ao cadastrar rota: " . $stmt->error);
+        if ($stmt->execute()) {
+            $mensagem = "Rota cadastrada com sucesso!";
+            $tipoMensagem = "success";
+        }
     }
 }
+
+$_SESSION['mensagem'] = $mensagem;
+$_SESSION['tipo_mensagem'] = $tipoMensagem;
+header("Location: ../../public/rotas.php");
+exit();
 ?>

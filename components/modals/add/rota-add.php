@@ -22,6 +22,10 @@ $resultadoTrens = $conexao->query("SELECT id, modelo FROM trem ORDER BY modelo A
                             <input type="number" class="form-control" id="distancia" name="distancia" min="0" step="any"
                                 required>
                         </div>
+                        <div class="col-md-4">
+                            <label for="duracao" class="form-label fw-bold">Duração *</label>
+                            <input type="time" class="form-control" id="duracao" name="duracao" step="1" required>
+                        </div>
                         <div class="col-12">
                             <label for="descricao" class="form-label fw-bold">Descrição</label>
                             <textarea class="form-control" id="descricao" name="descricao" rows="3"></textarea>

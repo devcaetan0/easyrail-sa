@@ -2,12 +2,12 @@
 session_start();
 include "../config/conexao.php";
 
+verificarAcesso(67);
 $perfilAtual = $_SESSION['perfil_id'];
-verificarAcesso(5);
 
 $resultadoSensores = $conexao->query("
     SELECT s.id, s.nome, s.tipo, st.nome AS status, s.status_id, s.trem_id, s.rota_id,
-           t.modelo AS trem, r.nome AS rota
+    t.modelo AS trem, r.nome AS rota
     FROM sensor s
     JOIN status st ON s.status_id = st.id
     LEFT JOIN trem t ON s.trem_id = t.id
@@ -16,15 +16,15 @@ $resultadoSensores = $conexao->query("
 ");
 
 $resultadoTipos = $conexao->query("SELECT DISTINCT tipo FROM sensor ORDER BY tipo ASC");
-$resultadoStatus = $conexao->query("SELECT DISTINCT st.nome FROM sensor s INNER JOIN status st ON s.status_id = st.id ORDER BY st.nome ASC");
+$resultadoStatus = $conexao->query("SELECT st.nome FROM sensor s JOIN status st ON s.status_id = st.id ORDER BY st.nome ASC");
 $resultadoRotas = $conexao->query("
-    SELECT DISTINCT r.id, r.nome
+    SELECT r.id, r.nome
     FROM rota r
     INNER JOIN sensor s ON s.rota_id = r.id
     ORDER BY r.nome ASC
 ");
 $resultadoTrem = $conexao->query("
-    SELECT DISTINCT t.id, t.modelo
+    SELECT t.id, t.modelo
     FROM trem t
     INNER JOIN sensor s ON s.trem_id = t.id
     ORDER BY t.modelo ASC
@@ -51,8 +51,10 @@ $resultadoTrem = $conexao->query("
             </div>
             <p style="margin-left: 110px;">Tela para cadastro, gereciamento e listagem de todos os sensores.</p>
         </div>
+        <br>
 
         <div class="container-fluid w-75">
+            <?php include("../components/mensagem.php"); ?>
 
             <?php if ($perfilAtual == 1) { ?>
                 <div class="d-flex justify-content-end mb-2">
@@ -63,17 +65,13 @@ $resultadoTrem = $conexao->query("
                 </div>
             <?php } ?>
 
-            <?php if ($perfilAtual != 1) { ?>
-                <div class="d-flex justify-content-end mb-2" style="margin: 72px 0;"></div>
-            <?php } ?>
-
             <div class="card p-3 mb-4 shadow-sm">
-                <div class="row g-3 align-items-end">
-                    <div class="col-md-3">
+                <div class="row">
+                    <div class="col-md-3 mb-2">
                         <label class="fw-bold form-label" for="pesquisaSensor">Pesquisar</label>
                         <input type="search" class="form-control" placeholder="Nome/ID" id="pesquisaSensor">
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-2 mb-2">
                         <label class="fw-bold form-label" for="filtroTipo">Tipo</label>
                         <select class="form-select" id="filtroTipo">
                             <option value="">Todos</option>
@@ -84,7 +82,7 @@ $resultadoTrem = $conexao->query("
                             <?php } ?>
                         </select>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-2 mb-2 mb-md-0">
                         <label class="fw-bold form-label" for="filtroRota">Rota</label>
                         <select class="form-select" id="filtroRota">
                             <option value="">Todas</option>
@@ -95,7 +93,7 @@ $resultadoTrem = $conexao->query("
                             <?php } ?>
                         </select>
                     </div>
-                    <div class="col-md-2">
+                    <div class="col-md-2 mb-2 mb-md-0">
                         <label class="fw-bold form-label" for="filtroTrem">Trem</label>
                         <select class="form-select" id="filtroTrem">
                             <option value="">Todos</option>
@@ -106,7 +104,7 @@ $resultadoTrem = $conexao->query("
                             <?php } ?>
                         </select>
                     </div>
-                    <div class="col-md-1">
+                    <div class="col-md-3">
                         <label class="fw-bold form-label" for="filtroStatus">Status</label>
                         <select class="form-select" id="filtroStatus">
                             <option value="">Todos</option>

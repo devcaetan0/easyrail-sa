@@ -1,7 +1,7 @@
 <?php
 session_start();
 include "../config/conexao.php";
-verificarAcesso(2);
+verificarAcesso(67);
 
 $perfilAtual = $_SESSION['perfil_id'];
 $nomeUsuario = $_SESSION['nome'];

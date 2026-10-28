@@ -1,13 +1,14 @@
 <?php
 session_start();
 include "../config/conexao.php";
-verificarAcesso(5);
 
+verificarAcesso(67);
 $perfilAtual = $_SESSION['perfil_id'];
 
 $resultadoRota = $conexao->query("
     SELECT r.id, r.nome, r.distancia, r.descricao, r.trem_id, r.duracao, t.modelo AS modelo
-    FROM rota r JOIN trem t ON t.id = r.trem_id
+    FROM rota r
+    LEFT JOIN trem t ON t.id = r.trem_id
     ORDER BY r.id ASC
 ");
 
@@ -26,17 +27,18 @@ $resultadoTrem = $conexao->query("SELECT id, modelo FROM trem ORDER BY modelo AS
 <body>
     <?php include('../components/navbar.php') ?>
 
-
     <main class="main-padrao">
-         <div class=" align-items-center gap-3">
+
+        <div class=" align-items-center gap-3">
             <div class="d-flex">
                 <i class="bi bi-map" style="font-size: 4rem; line-height: 1; margin-left: 20px"></i>
                 <h1 class="m-0 fw-bold ms-4">Mapeamento de <span style="color: var(--cor-laranja);">Rotas</span></h1>
             </div>
             <p style="margin-left: 110px;">Listagem e gerenciamento de todas as rotas de seus respectivos trens.</p>
         </div>
+        <br>
         <div class="container-fluid w-75">
-
+            <?php include("../components/mensagem.php") ?>
 
             <?php if ($perfilAtual == 1) { ?>
                 <div class="d-flex justify-content-end mb-2">
@@ -45,10 +47,6 @@ $resultadoTrem = $conexao->query("SELECT id, modelo FROM trem ORDER BY modelo AS
                         + Adicionar Rota
                     </button>
                 </div>
-            <?php } ?>
-
-            <?php if ($perfilAtual != 1) { ?>
-                <div class="d-flex justify-content-end mb-2" style="margin: 72px 0;"></div>
             <?php } ?>
 
 
@@ -101,7 +99,7 @@ $resultadoTrem = $conexao->query("SELECT id, modelo FROM trem ORDER BY modelo AS
                                         <?= $rota['distancia'] ?>
                                     </td>
                                     <td class="setor-tr">
-                                        <?= $rota['modelo'] ?>
+                                        <?= $rota['modelo'] ?? "Nenhum" ?>
                                     </td>
                                     <td class="duracao-tr">
                                         <?= $rota['duracao'] ?>
@@ -112,7 +110,7 @@ $resultadoTrem = $conexao->query("SELECT id, modelo FROM trem ORDER BY modelo AS
                                                 data-bs-target="#modalEditarRota" data-id="<?= $rota['id'] ?>"
                                                 data-nome="<?= $rota['nome'] ?>" data-descricao="<?= $rota['descricao'] ?>"
                                                 data-distancia="<?= $rota['distancia'] ?>"
-                                                data-trem-id="<?= $rota['trem_id'] ?>">
+                                                data-duracao="<?= $rota['duracao'] ?>" data-trem-id="<?= $rota['trem_id'] ?>">
                                                 <i class="bi bi-pencil fs-5"></i>
                                             </button>
                                             <a href="../source/delete/rota-delete.php?id=<?= $rota['id'] ?>"
