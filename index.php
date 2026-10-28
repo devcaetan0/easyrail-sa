@@ -31,7 +31,7 @@
         
             <br>
             <br>
-            <h1 style="color: var(--cor-branca);">Olá, Bem-vindo(a) a <span>Easy</span><span style="color: var(--cor-laranja);">Rail</span></h1>
+            <h1 style="color: var(--cor-branca);">Olá, Bem-vindo(a) a <span style="color: var(--cor-preto);">Easy</span><span style="color: var(--cor-laranja);">Rail</span></h1>
             <h4 style="color: var(--cor-branca);">Acompanhe cada trem, trilho e carga em tempo real.</h4>
             <br>
             <br>
