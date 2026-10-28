@@ -103,7 +103,7 @@ if (isset($_GET['logout'])) {
 
         <div class="border-top py-4">
             <h2 class="h4 fw-bold mb-3">Quem desenvolveu?</h2>
-            <div class="row row-cols-2 row-cols-md-4">
+            <div class="row row-cols-2 row-cols-md-4 fade-in">
                 <div class="col text-center">
                     <p class="fw-semibold mb-2">Antonio Ribeiro</p>
                     <img src="assets/images/antonio-terno.png" class="img-fluid border rounded"

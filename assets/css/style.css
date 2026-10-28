@@ -162,7 +162,7 @@ thead th {
     color: #f77f00;
 }
 
-@keyframes fade-in {
+@keyframes fadeIn {
     from {
         opacity: 0;
         transform: translateY(100px);
@@ -172,4 +172,8 @@ thead th {
         opacity: 1;
         transform: translateY(0px);
     }
+}
+
+.fade-in {
+    animation: fadeIn 1s ease-in-out;
 }
