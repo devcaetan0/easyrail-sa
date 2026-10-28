@@ -43,7 +43,7 @@ $resultadoTrem = $conexao->query("
 <body>
     <?php include('../components/navbar.php') ?>
 
-    <main class="main-padrao">
+    <main class="main-padrao fade-in">
         <div class=" align-items-center gap-3">
             <div class="d-flex">
                 <i class="bi bi-wifi" style="font-size: 4rem; line-height: 1; margin-left: 20px;"></i>

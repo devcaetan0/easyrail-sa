@@ -27,7 +27,7 @@ $resultadoPerfisFiltro = $conexao->query("SELECT id, nome FROM perfil ORDER BY n
 <body>
     <?php include('../components/navbar.php') ?>
 
-    <main class="main-padrao">
+    <main class="main-padrao fade-in">
         <div class=" align-items-center gap-3">
             <div class="d-flex">
                 <i class="bi bi-person" style="font-size: 4rem; line-height: 1; margin-left: 20px;"></i>

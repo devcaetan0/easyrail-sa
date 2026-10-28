@@ -91,6 +91,7 @@ thead th {
 .main-padrao {
     margin-top: 125px;
     padding: 0px 40px;
+
 }
 
 .tabela-padding {
@@ -165,7 +166,7 @@ thead th {
 @keyframes fadeIn {
     from {
         opacity: 0;
-        transform: translateY(100px);
+        transform: translateY(25px);
     }
 
     to {
@@ -175,5 +176,5 @@ thead th {
 }
 
 .fade-in {
-    animation: fadeIn 1s ease-in-out;
+    animation: fadeIn 0.75s ease-in-out;
 }

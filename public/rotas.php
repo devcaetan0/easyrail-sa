@@ -27,7 +27,7 @@ $resultadoTrem = $conexao->query("SELECT id, modelo FROM trem ORDER BY modelo AS
 <body>
     <?php include('../components/navbar.php') ?>
 
-    <main class="main-padrao">
+    <main class="main-padrao fade-in">
 
         <div class=" align-items-center gap-3">
             <div class="d-flex">
