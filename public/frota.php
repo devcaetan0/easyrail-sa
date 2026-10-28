@@ -16,7 +16,7 @@ $resultadoTrem = $conexao->query("
 
 $resultadoCargas = $conexao->query("SELECT id, nome FROM carga ORDER BY nome ASC");
 $resultadoUsuarios = $conexao->query("
-    SELECT u.id, u.nome
+    SELECT DISTINCT u.id, u.nome
     FROM usuario u
     JOIN trem t ON t.usuario_id = u.id
     ORDER BY u.nome ASC

@@ -24,7 +24,7 @@ $resultadoRotas = $conexao->query("
     ORDER BY r.nome ASC
 ");
 $resultadoTrem = $conexao->query("
-    SELECT t.id, t.modelo
+    SELECT DISTINCT t.id, t.modelo
     FROM trem t
     INNER JOIN sensor s ON s.trem_id = t.id
     ORDER BY t.modelo ASC
@@ -149,8 +149,8 @@ $resultadoTrem = $conexao->query("
                                                 data-bs-toggle="modal" data-bs-target="#modalEditarSensor"
                                                 data-id="<?= $sensor['id'] ?>" data-nome="<?= $sensor['nome'] ?>"
                                                 data-tipo="<?= $sensor['tipo'] ?>" data-status-id="<?= $sensor['status_id'] ?>"
-                                                data-trem-id="<?= $sensor['trem_id'] ?? 'Nenhum' ?>"
-                                                data-rota-id="<?= $sensor['rota_id'] ?? 'Nenhuma' ?>">
+                                                data-trem-id="<?= $sensor['trem_id'] ?? '' ?>"
+                                                data-rota-id="<?= $sensor['rota_id'] ?? '' ?>">
                                                 <i class="bi bi-pencil fs-5"></i>
                                             </button>
                                             <a href="../source/delete/sensor-delete.php?id=<?= $sensor['id'] ?>"
