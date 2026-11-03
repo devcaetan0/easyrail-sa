@@ -24,12 +24,9 @@ function filtrarRotas() {
         const nome = linha.children[1].textContent.toLowerCase();
         const tremId = linha.dataset.tremId;
 
-        if ((id.includes(texto) || nome.includes(texto)) &&
-            (!tremSelecionado || tremId === tremSelecionado)) {
-            linha.style.display = '';
-        } else {
-            linha.style.display = 'none';
-        }
+        const atendeFiltro = (id.includes(texto) || nome.includes(texto)) &&
+            (!tremSelecionado || tremId === tremSelecionado);
+        linha.classList.toggle('linha-oculta', !atendeFiltro);
     });
 }
 

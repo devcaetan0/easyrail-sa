@@ -44,16 +44,16 @@ $resultadoTrem = $conexao->query("
     <?php include('../components/navbar.php') ?>
 
     <main class="main-padrao fade-in">
-        <div class=" align-items-center gap-3">
-            <div class="d-flex">
-                <i class="bi bi-wifi" style="font-size: 4rem; line-height: 1; margin-left: 20px;"></i>
-                <h1 class="m-0 fw-bold ms-4">Monitoramento <span style="color: var(--cor-laranja);">IoT</span></h1>
+        <div class="page-heading">
+            <div class="d-flex page-heading-row">
+                <i class="bi bi-wifi page-heading-icon"></i>
+                <h1 class="m-0 fw-bold page-heading-title">Monitoramento <span class="texto-laranja">IoT</span></h1>
             </div>
-            <p style="margin-left: 110px;">Tela para cadastro, gereciamento e listagem de todos os sensores.</p>
+            <p class="page-heading-description">Tela para cadastro, gereciamento e listagem de todos os sensores.</p>
         </div>
         <br>
 
-        <div class="container-fluid w-75">
+        <div class="container-fluid page-content">
             <?php include("../components/mensagem.php"); ?>
 
             <?php if ($perfilAtual == 1) { ?>
@@ -119,7 +119,7 @@ $resultadoTrem = $conexao->query("
             <div class="card border rounded-3 overflow-hidden">
                 <div class="table-responsive">
                     <table class="table table-hover mb-0">
-                        <thead class="">
+                        <thead>
                             <tr>
                                 <th>ID</th>
                                 <th>Nome</th>

@@ -11,19 +11,23 @@ body {
     background-color: var(--fundo-cinza);
 }
 
+/* Navegacao */
 #navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+    width: 100%;
     background-color: var(--cor-preto);
     font-weight: bold;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
-    position: fixed;
 }
 
-thead th {
-    background-color: rgb(219, 215, 211) !important;
-    padding: 0.6rem 0.9rem !important;
+.navbar {
+    background-color: var(--cor-preto);
 }
 
 .navbar .nav-link,
@@ -31,17 +35,55 @@ thead th {
     color: var(--cor-branca) !important;
 }
 
-.navbar {
-    background-color: var(--cor-preto);
+.navbar-logo-wrap,
+.navbar-logout {
+    flex: 0 0 auto;
 }
 
-/* ===== CLASSES PADRONIZADAS ===== */
+.navbar-links {
+    flex: 1 1 40rem;
+}
 
+.navbar-links .navbar-nav {
+    justify-content: center;
+    gap: 1rem 2rem;
+    flex-wrap: wrap;
+}
+
+.nav-hover .nav-link {
+    position: relative;
+    padding-bottom: 8px !important;
+    background-color: transparent !important;
+}
+
+.nav-hover .nav-link::after {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 3px;
+    border-radius: 2px;
+    background-color: var(--cor-laranja) !important;
+    content: "";
+    transform: translateX(-50%);
+    transition: width 0.3s ease-in-out;
+}
+
+.nav-hover .nav-link:hover::after,
+.nav-hover .nav-link.active::after {
+    width: 100%;
+}
+
+.nav-hover .nav-link.active::after {
+    transition: none !important;
+}
+
+/* Componentes reutilizaveis */
 .btn-laranja {
+    border: none;
     background-color: var(--cor-laranja);
     color: var(--cor-preto);
     font-weight: bold;
-    border: none;
 }
 
 .btn-laranja:hover {
@@ -53,104 +95,195 @@ thead th {
     border: 3px solid var(--cor-azul);
 }
 
-/* ===== HOVER E ATIVO DA NAV BAR ===== */
-
-.nav-hover .nav-link {
-    position: relative;
-    background-color: transparent !important;
-    padding-bottom: 8px !important;
+.texto-laranja {
+    color: var(--cor-laranja);
 }
 
-.nav-hover .nav-link::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 0;
-    height: 3px;
-    background-color: var(--cor-laranja) !important;
-    border-radius: 2px;
-    transition: width 0.3s ease-in-out;
+.texto-branco {
+    color: var(--cor-branca);
 }
 
-.nav-hover .nav-link:hover::after {
-    width: 100%;
+.texto-preto {
+    color: var(--cor-preto);
 }
 
-.nav-hover .nav-link.active::after {
-    width: 100% !important;
-    transition: none !important;
+thead th {
+    padding: 0.6rem 0.9rem !important;
+    background-color: rgb(219, 215, 211) !important;
 }
 
-.titulo-pagina {
-    margin-top: 50px;
-    margin-left: 3%;
+.linha-oculta {
+    display: none !important;
 }
 
 .main-padrao {
-    margin-top: 125px;
-    padding: 0px 40px;
-
+    margin-top: 3rem;
+    padding: 0 clamp(1rem, 3vw, 2.5rem);
 }
 
-.tabela-padding {
-    padding: 10;
+.page-heading {
+    margin-bottom: 1.5rem;
 }
 
-/* ===== INDEX =====*/
+.page-heading-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
 
+.page-heading-icon {
+    flex: 0 0 auto;
+    margin-left: 20px;
+    font-size: 4rem !important;
+    line-height: 1;
+}
+
+.page-heading-title {
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.page-heading-description {
+    margin: 0.75rem 0 0 5rem;
+}
+
+.page-content {
+    width: min(100%, 1320px);
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.user-layout {
+    --bs-gutter-y: 1.5rem;
+}
+
+/* Login */
 #body-login {
+    min-height: 100vh;
+    margin: 0;
     background-image: url(../../assets/images/fundo-login.png);
+    background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 }
 
-
 #main-login {
-    top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-sizing: border-box;
+    width: min(100%, max(40vw, 25rem));
+    min-height: 100vh;
+    margin-left: auto;
+    padding: 2rem;
     background-color: var(--cor-laranja);
-    float: right;
-    opacity: calc(95%);
     color: var(--cor-preto);
-    width: 40%;
-}
-
-#btn-envio {
-    background-color: white;
-    color: var(--cor-preto);
-    font-size: 25px;
+    opacity: 0.95;
 }
 
 .logo-login {
-    position: absolute;
-    margin-top: 35px;
-    height: 100px;
-    margin-left: 35px;
+    display: block;
+    flex: 0 0 auto;
+    width: 100px;
+    height: auto;
+    margin-bottom: 1.5rem;
+}
+
+.login-content {
+    width: 100%;
+    max-width: 34rem;
+    margin: auto;
+}
+
+.login-title {
+    margin-bottom: 1.5rem;
+    font-size: clamp(2rem, 3.5vw, 3.125rem);
 }
 
 #form-login {
-    font-size: 25px;
+    width: 90%;
+    margin-right: auto;
+    margin-left: auto;
+    font-size: clamp(1rem, 1.8vw, 1.5rem);
 }
 
-/* ===== PÁGINA HOME =====*/
+.login-checkbox {
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+}
 
+#btn-envio {
+    background-color: var(--cor-branca);
+    color: var(--cor-preto);
+    font-size: clamp(1.125rem, 1.8vw, 1.5rem);
+}
+
+/* Pagina inicial */
 .logo-home {
     display: block;
-    height: 400px;
-    width: 400px;
-    margin: 30px auto 0;
+    width: min(100%, 400px);
+    height: auto;
+    margin: 1rem auto 0;
+}
+
+.main-home {
+    padding: 1rem 2rem;
+}
+
+.home-topbar {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 2fr) minmax(0, 1fr);
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+}
+
+.home-cards {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    gap: 0.75rem;
+    margin: 0;
+}
+
+.home-card-column {
+    flex: 1 1 0;
+    min-width: 0;
+}
+
+.home-card {
+    height: 100%;
+    padding: 1rem !important;
+}
+
+.home-weather {
+    grid-column: 3;
+    justify-self: end;
+    width: 9rem;
+    margin: 0 !important;
+    padding: 0.5rem !important;
+}
+
+.home-heading {
+    grid-column: 2;
+    grid-row: 1;
+    width: 100%;
+    min-width: 0;
+    margin: 0;
+    text-align: center;
+}
+
+.home-heading h1 {
+    margin-bottom: 0.5rem;
+    font-size: clamp(1.25rem, 2vw, 1.75rem);
+    line-height: 1.25;
 }
 
 .card-clima-flutuante {
-    position: fixed;
-    top: 100px;
-    right: 20px;
-    width: 180px;
-    z-index: 1050;
     border: 1px solid #000;
     border-radius: 4px;
-    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 .card-clima-flutuante h2 {
@@ -159,8 +292,8 @@ thead th {
 }
 
 .card-clima-flutuante .temperatura-destaque {
-    font-size: 2.2rem;
     color: #f77f00;
+    font-size: 1.6rem;
 }
 
 @keyframes fadeIn {
@@ -171,7 +304,7 @@ thead th {
 
     to {
         opacity: 1;
-        transform: translateY(0px);
+        transform: translateY(0);
     }
 }
 

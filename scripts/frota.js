@@ -30,11 +30,7 @@ function filtrarTrens() {
         const atendeCarga = !cargaSelecionada || cargaId === cargaSelecionada;
         const atendeUsuario = !usuarioSelecionado || usuarioId === usuarioSelecionado;
 
-        if (atendeTexto && atendeCarga && atendeUsuario) {
-            linha.style.display = '';
-        } else {
-            linha.style.display = 'none';
-        }
+        linha.classList.toggle('linha-oculta', !(atendeTexto && atendeCarga && atendeUsuario));
     });
 }
 

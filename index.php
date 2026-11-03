@@ -29,8 +29,7 @@ if (isset($_GET['logout'])) {
             <div class="container">
                 <div class="navbar-brand d-flex align-items-center fw-bold">
                     <img src="assets/images/logo-navbar.png" alt="EasyRail Logo" width="" height="45px">
-                    <span style="color: var(--cor-branca);">Easy</span><span
-                        style="color: var(--cor-laranja);">Rail</span>
+                    <span class="texto-branco">Easy</span><span class="texto-laranja">Rail</span>
                 </div>
                 <a class="btn btn-laranja" href="public/login.php">
                     Entrar <i class="bi bi-arrow-right ms-1" aria-hidden="true"></i>
@@ -71,7 +70,7 @@ if (isset($_GET['logout'])) {
 
         <div class="border-top py-4">
             <h2 class="h4 fw-bold">O que a EasyRail propõe?</h2>
-            <p class="">
+            <p>
                 Acompanhar uma operação ferroviária exige relacionar informações de trens, trajetos e sensores.
                 A EasyRail organiza esses dados para facilitar consultas e dar mais visibilidade ao cenário operacional.
             </p>

@@ -29,15 +29,15 @@ $resultadoTrem = $conexao->query("SELECT id, modelo FROM trem ORDER BY modelo AS
 
     <main class="main-padrao fade-in">
 
-        <div class=" align-items-center gap-3">
-            <div class="d-flex">
-                <i class="bi bi-map" style="font-size: 4rem; line-height: 1; margin-left: 20px"></i>
-                <h1 class="m-0 fw-bold ms-4">Mapeamento de <span style="color: var(--cor-laranja);">Rotas</span></h1>
+        <div class="page-heading">
+            <div class="d-flex page-heading-row">
+                <i class="bi bi-map page-heading-icon"></i>
+                <h1 class="m-0 fw-bold page-heading-title">Mapeamento de <span class="texto-laranja">Rotas</span></h1>
             </div>
-            <p style="margin-left: 110px;">Listagem e gerenciamento de todas as rotas de seus respectivos trens.</p>
+            <p class="page-heading-description">Listagem e gerenciamento de todas as rotas de seus respectivos trens.</p>
         </div>
         <br>
-        <div class="container-fluid w-75">
+        <div class="container-fluid page-content">
             <?php include("../components/mensagem.php") ?>
 
             <?php if ($perfilAtual == 1) { ?>
@@ -71,9 +71,9 @@ $resultadoTrem = $conexao->query("SELECT id, modelo FROM trem ORDER BY modelo AS
             </div>
 
             <div class="card shadow-sm rounded-3 overflow-hidden">
-                <div class="table-rsponsive">
+                <div class="table-responsive">
                     <table class="table table-hover mb-0">
-                        <thead class="">
+                        <thead>
                             <tr>
                                 <th>ID</th>
                                 <th>Nome</th>

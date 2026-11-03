@@ -14,7 +14,6 @@ document.addEventListener('DOMContentLoaded', () => {
         link.addEventListener('click', function(e) {
             if (!this.classList.contains('active') && href) {
                 e.preventDefault();
-                this.style.setProperty('--trava-hover', '100%');
                 setTimeout(() => {
                     window.location.href = href;
                 }, 200);

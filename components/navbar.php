@@ -1,12 +1,12 @@
 <header>
     <nav class="navbar navbar-expand-lg w-100 p-3" id="navbar">
-        <div style="transform: scale(1.25);" class="">
+        <div class="navbar-logo-wrap">
             <a class="navbar-brand" href="home.php">
                 <img src="../assets/images/logo-navbar.png" alt="EasyRail Logo" width="45px" height="45px">
-                <span style="color: var(--cor-branca);">Easy</span><span style="color: var(--cor-laranja);">Rail</span>
+                <span class="texto-branco">Easy</span><span class="texto-laranja">Rail</span>
             </a>
         </div>
-        <div class="nav-hover collapse navbar-collapse d-flex justify-content-center">
+        <div class="nav-hover navbar-links collapse navbar-collapse d-flex justify-content-center">
             <ul class="navbar-nav gap-5">
 
                 <li class="nav-item">
@@ -21,7 +21,7 @@
                         <span>Frota de Carga</span>
                     </a>
                 </li>
-                <li class="_SESSIONnav-item">
+                <li class="nav-item">
                     <a class="nav-link d-inline-flex align-items-center gap-2" href="rotas.php">
                         <i class="bi bi-map fs-5"></i>
                         <span>Rotas</span>
@@ -49,10 +49,10 @@
                 <?php } ?>
             </ul>
         </div>
-        <div class="nav-hover">
+        <div class="nav-hover navbar-logout">
             <a class="navbar-brand" href="../index.php?logout=1">
                 <i class="bi bi-box-arrow-left fs-5"></i>
-                <span class="ms-1" style="color: var(--cor-branca);">Sair</span>
+                <span class="ms-1">Sair</span>
             </a>
         </div>
     </nav>

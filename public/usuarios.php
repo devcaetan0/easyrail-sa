@@ -28,19 +28,19 @@ $resultadoPerfisFiltro = $conexao->query("SELECT id, nome FROM perfil ORDER BY n
     <?php include('../components/navbar.php') ?>
 
     <main class="main-padrao fade-in">
-        <div class=" align-items-center gap-3">
-            <div class="d-flex">
-                <i class="bi bi-person" style="font-size: 4rem; line-height: 1; margin-left: 20px;"></i>
-                <h1 class="m-0 fw-bold ms-4">Administração de <span style="color: var(--cor-laranja);">Usuário</span></h1>
+        <div class="page-heading">
+            <div class="d-flex page-heading-row">
+                <i class="bi bi-person page-heading-icon"></i>
+                <h1 class="m-0 fw-bold page-heading-title">Administração de <span class="texto-laranja">Usuário</span></h1>
             </div>
-            <p style="margin-left: 110px;">Tela interativa para cadastrar novos funcionários e listagem dos
+            <p class="page-heading-description">Tela interativa para cadastrar novos funcionários e listagem dos
                 funcionários.</p>
         </div>
         <br>
-        <div class="container-fluid px-5">
+        <div class="container-fluid page-content user-content">
             <?php include("../components/mensagem.php") ?>
 
-            <div class="row px-5">
+            <div class="row user-layout">
                 <div class="col-md-4 col-lg-3 mb-4">
                     <?php include('../components/modals/add/usuario-add.php') ?>
                 </div>
@@ -69,7 +69,7 @@ $resultadoPerfisFiltro = $conexao->query("SELECT id, nome FROM perfil ORDER BY n
                     <div class="card border rounded-3 overflow-hidden">
                         <div class="table-responsive">
                             <table class="table table-hover mb-0">
-                                <thead class="">
+                                <thead>
                                     <tr>
                                         <th>ID</th>
                                         <th>Cargo</th>

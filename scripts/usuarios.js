@@ -22,12 +22,9 @@ function filtrarUsuarios() {
         const nome = linha.children[2].textContent.toLowerCase();
         const perfilSelecionado = filtroPerfil.value;
 
-        if ((id.includes(texto) || nome.includes(texto)) &&
-            (!perfilSelecionado || linha.dataset.perfilId === perfilSelecionado)) {
-            linha.style.display = '';
-        } else {
-            linha.style.display = 'none';
-        }
+        const atendeFiltro = (id.includes(texto) || nome.includes(texto)) &&
+            (!perfilSelecionado || linha.dataset.perfilId === perfilSelecionado);
+        linha.classList.toggle('linha-oculta', !atendeFiltro);
     });
 }
 

@@ -34,7 +34,8 @@ if (pesquisa && tabela) {
             const atendeTrem = !tremSelecionado || trem === tremSelecionado;
             const atendeStatus = !statusSelecionado || status === statusSelecionado;
 
-            linha.style.display = (atendeTexto && atendeTipo && atendeRota && atendeTrem && atendeStatus) ? '' : 'none';
+            const atendeFiltros = atendeTexto && atendeTipo && atendeRota && atendeTrem && atendeStatus;
+            linha.classList.toggle('linha-oculta', !atendeFiltros);
         });
     }
 
