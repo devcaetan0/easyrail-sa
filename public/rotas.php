@@ -29,15 +29,15 @@ $resultadoTrem = $conexao->query("SELECT id, modelo FROM trem ORDER BY modelo AS
 
     <main class="main-padrao fade-in">
 
-        <div class="page-heading">
-            <div class="d-flex page-heading-row">
-                <i class="bi bi-map page-heading-icon"></i>
-                <h1 class="m-0 fw-bold page-heading-title">Mapeamento de <span class="texto-laranja">Rotas</span></h1>
+        <div class="cabecalho-pagina">
+            <div class="d-flex cabecalho-pagina-row">
+                <i class="bi bi-map cabecalho-pagina-icon"></i>
+                <h1 class="m-0 fw-bold cabecalho-pagina-title">Mapeamento de <span class="texto-laranja">Rotas</span></h1>
             </div>
-            <p class="page-heading-description">Listagem e gerenciamento de todas as rotas de seus respectivos trens.</p>
+            <p class="cabecalho-pagina-description">Listagem e gerenciamento de todas as rotas de seus respectivos trens.</p>
         </div>
         <br>
-        <div class="container-fluid page-content">
+        <div class="container-fluid conteudo-pagina">
             <?php include("../components/mensagem.php") ?>
 
             <?php if ($perfilAtual == 1) { ?>

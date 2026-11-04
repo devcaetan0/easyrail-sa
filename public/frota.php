@@ -36,15 +36,15 @@ $resultadoUsuarios = $conexao->query("
     <?php include('../components/navbar.php') ?>
 
     <main class="main-padrao fade-in">
-        <div class="page-heading">
-            <div class="d-flex page-heading-row">
-                <i class="bi bi-box page-heading-icon"></i>
-                <h1 class="m-0 fw-bold page-heading-title">Gerenciamento de <span class="texto-laranja">Frota</span></h1>
+        <div class="cabecalho-pagina">
+            <div class="d-flex cabecalho-pagina-row">
+                <i class="bi bi-box cabecalho-pagina-icon"></i>
+                <h1 class="m-0 fw-bold cabecalho-pagina-title">Gerenciamento de <span class="texto-laranja">Frota</span></h1>
             </div>
-            <p class="page-heading-description">Listagem e gerenciamento de todos os treins e suas respectivas rotas.</p>
+            <p class="cabecalho-pagina-description">Listagem e gerenciamento de todos os treins e suas respectivas rotas.</p>
         </div>
         <br>
-        <div class="container-fluid page-content">
+        <div class="container-fluid conteudo-pagina">
             <?php include("../components/mensagem.php") ?>
 
             <?php if ($perfilAtual == 1) { ?>

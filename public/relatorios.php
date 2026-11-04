@@ -19,19 +19,19 @@ verificarAcesso(67);
     <?php include('../components/navbar.php') ?>
 
     <main class="main-padrao fade-in">
-        <div class="page-heading">
-            <div class="d-flex page-heading-row">
-                <i class="bi bi-file-earmark-text page-heading-icon"></i>
-                <h1 class="m-0 fw-bold page-heading-title">Histórico <span class="texto-laranja">Analítico</span></h1>
+        <div class="cabecalho-pagina">
+            <div class="d-flex cabecalho-pagina-row">
+                <i class="bi bi-file-earmark-text cabecalho-pagina-icon"></i>
+                <h1 class="m-0 fw-bold cabecalho-pagina-title">Histórico <span class="texto-laranja">Analítico</span></h1>
             </div>
-            <p class="page-heading-description">Histórico de dados gerados pelos sensores e das rotas realizadas pelos
+            <p class="cabecalho-pagina-description">Histórico de dados gerados pelos sensores e das rotas realizadas pelos
                 trens.
             </p>
         </div>
 
         <br>
 
-        <div class="container-fluid page-content">
+        <div class="container-fluid conteudo-pagina">
             <div class="card p-3 mb-4 shadow-sm">
                 <div class="row">
                     <div class="col-md-6 mb-2">

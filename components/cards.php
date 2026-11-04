@@ -1,4 +1,4 @@
-<div class="row g-3 justify-content-center home-cards">
+<div class="row g-3 justify-content-center home-cards mb-5">
     <div class="home-card-column">
         <div class="home-card shadow-sm borda-laranja text-center p-3 d-flex flex-column">
             <h3><i class="bi bi-house fs-2"></i></h3>

@@ -11,7 +11,8 @@ body {
     background-color: var(--fundo-cinza);
 }
 
-/* Navegacao */
+/* ===== NAVBAR ===== */
+
 #navbar {
     position: sticky;
     top: 0;
@@ -78,7 +79,8 @@ body {
     transition: none !important;
 }
 
-/* Componentes reutilizaveis */
+/* ===== CLASSES PADRONIZADAS ===== */
+
 .btn-laranja {
     border: none;
     background-color: var(--cor-laranja);
@@ -121,43 +123,44 @@ thead th {
     padding: 0 clamp(1rem, 3vw, 2.5rem);
 }
 
-.page-heading {
+.cabecalho-pagina {
     margin-bottom: 1.5rem;
 }
 
-.page-heading-row {
+.cabecalho-pagina-row {
     display: flex;
     align-items: center;
     gap: 1rem;
     flex-wrap: wrap;
 }
 
-.page-heading-icon {
+.cabecalho-pagina-icon {
     flex: 0 0 auto;
     margin-left: 20px;
     font-size: 4rem !important;
     line-height: 1;
 }
 
-.page-heading-title {
+.cabecalho-pagina-title {
     font-size: clamp(1.5rem, 3vw, 2.5rem);
 }
 
-.page-heading-description {
+.cabecalho-pagina-description {
     margin: 0.75rem 0 0 5rem;
 }
 
-.page-content {
+.conteudo-pagina {
     width: min(100%, 1320px);
     margin-right: auto;
     margin-left: auto;
 }
 
-.user-layout {
+.layout-usuario {
     --bs-gutter-y: 1.5rem;
 }
 
-/* Login */
+/* ===== LOGIN ===== */
+
 #body-login {
     min-height: 100vh;
     margin: 0;
@@ -219,7 +222,8 @@ thead th {
     font-size: clamp(1.125rem, 1.8vw, 1.5rem);
 }
 
-/* Pagina inicial */
+/* ===== PÁGINA HOME ===== */
+
 .logo-home {
     display: block;
     width: min(100%, 400px);
@@ -257,7 +261,7 @@ thead th {
     padding: 1rem !important;
 }
 
-.home-weather {
+.home-clima {
     grid-column: 3;
     justify-self: end;
     width: 9rem;
@@ -265,7 +269,7 @@ thead th {
     padding: 0.5rem !important;
 }
 
-.home-heading {
+.cabecalho-home {
     grid-column: 2;
     grid-row: 1;
     width: 100%;
@@ -274,7 +278,7 @@ thead th {
     text-align: center;
 }
 
-.home-heading h1 {
+.cabecalho-home h1 {
     margin-bottom: 0.5rem;
     font-size: clamp(1.25rem, 2vw, 1.75rem);
     line-height: 1.25;

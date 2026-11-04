@@ -28,19 +28,19 @@ $resultadoPerfisFiltro = $conexao->query("SELECT id, nome FROM perfil ORDER BY n
     <?php include('../components/navbar.php') ?>
 
     <main class="main-padrao fade-in">
-        <div class="page-heading">
-            <div class="d-flex page-heading-row">
-                <i class="bi bi-person page-heading-icon"></i>
-                <h1 class="m-0 fw-bold page-heading-title">Administração de <span class="texto-laranja">Usuário</span></h1>
+        <div class="cabecalho-pagina">
+            <div class="d-flex cabecalho-pagina-row">
+                <i class="bi bi-person cabecalho-pagina-icon"></i>
+                <h1 class="m-0 fw-bold cabecalho-pagina-title">Administração de <span class="texto-laranja">Usuário</span></h1>
             </div>
-            <p class="page-heading-description">Tela interativa para cadastrar novos funcionários e listagem dos
+            <p class="cabecalho-pagina-description">Tela interativa para cadastrar novos funcionários e listagem dos
                 funcionários.</p>
         </div>
         <br>
-        <div class="container-fluid page-content user-content">
+        <div class="container-fluid conteudo-pagina user-content">
             <?php include("../components/mensagem.php") ?>
 
-            <div class="row user-layout">
+            <div class="row layout-usuario">
                 <div class="col-md-4 col-lg-3 mb-4">
                     <?php include('../components/modals/add/usuario-add.php') ?>
                 </div>

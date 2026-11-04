@@ -24,12 +24,12 @@ include "../config/conexao.php";
     <?php include('../components/navbar.php') ?>
 
     <main class="main-padrao fade-in">
-           <div class="page-heading">
-            <div class="d-flex page-heading-row">
-                 <i class="bi bi-house page-heading-icon"></i>
-                <h1 class="m-0 fw-bold page-heading-title">Visualização de <span class="texto-laranja">Dashboard</span></h1>
+           <div class="cabecalho-pagina">
+            <div class="d-flex cabecalho-pagina-row">
+                 <i class="bi bi-house cabecalho-pagina-icon"></i>
+                <h1 class="m-0 fw-bold cabecalho-pagina-title">Visualização de <span class="texto-laranja">Dashboard</span></h1>
             </div>
-            <p class="page-heading-description">Painel principal com gráficos e os dados mais críticos dos trens e sensores.</p>
+            <p class="cabecalho-pagina-description">Painel principal com gráficos e os dados mais críticos dos trens e sensores.</p>
         </div>
         <br>
         </main>
