@@ -164,6 +164,18 @@ thead th {
     --bs-gutter-y: 1.5rem;
 }
 
+.cards-proposta {
+    justify-content: center;
+}
+
+.cards-proposta > [class*="col-"] {
+    display: flex;
+}
+
+.cards-proposta .h-100 {
+    width: 100%;
+}
+
 /* ===== LOGIN ===== */
 
 #body-login {
