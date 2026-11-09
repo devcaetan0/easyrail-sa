@@ -127,55 +127,79 @@ if (isset($_GET['logout'])) {
         </div>
     </main>
 
-
+    
 <footer class="bg-black text-white mt-5">
+
     <div class="container-fluid px-4 px-md-5 py-5">
 
         <div class="row g-4">
-
-            <div class="col-12 col-md-3">
-                <h5 class="fw-bold mb-4">
-                    <i class="bi bi-train-front-fill text-warning"></i>
-                    EasyRail
-                </h5>
-
-                <p class="text-secondary">
-                    Tecnologia e organização para uma gestão
-                    ferroviária mais eficiente.
-                </p>
-            </div>
-
-            <div class="col-6 col-md-3">
-                <h6 class="fw-bold mb-4">Navegação</h6>
-
-                <ul class="list-unstyled">
-                    <li class="mb-3"><a href="#" class="text-secondary text-decoration-none">Início</a></li>
-                    <li class="mb-3"><a href="#" class="text-secondary text-decoration-none">Dashboard</a></li>
-                    <li class="mb-3"><a href="#" class="text-secondary text-decoration-none">Frota de carga</a></li>
-                    <li class="mb-3"><a href="#" class="text-secondary text-decoration-none">Rotas</a></li>
-                    <li class="mb-3"><a href="#" class="text-secondary text-decoration-none">Sensores IoT</a></li>
-                    <li class="mb-3"><a href="#" class="text-secondary text-decoration-none">Relatórios</a></li>
-                </ul>
-            </div>
 
             <div class="col-6 col-md-3">
                 <h6 class="fw-bold mb-4">Sobre o EasyRail</h6>
 
                 <ul class="list-unstyled">
-                    <li class="mb-3"><a href="#" class="text-secondary text-decoration-none">Nossa proposta</a></li>
-                    <li class="mb-3"><a href="#" class="text-secondary text-decoration-none">Funcionalidades</a></li>
-                    <li class="mb-3"><a href="#" class="text-secondary text-decoration-none">Tecnologias</a></li>
-                    <li class="mb-3"><a href="#" class="text-secondary text-decoration-none">Desenvolvedores</a></li>
+                    <li class="mb-3">
+                        <a href="#" class="text-secondary text-decoration-none">Nossa proposta</a>
+                    </li>
+                    <li class="mb-3">
+                        <a href="#" class="text-secondary text-decoration-none">Objetivos do projeto</a>
+                    </li>
+                    <li class="mb-3">
+                        <a href="#" class="text-secondary text-decoration-none">Funcionalidades</a>
+                    </li>
+                    <li class="mb-3">
+                        <a href="#" class="text-secondary text-decoration-none">Tecnologias utilizadas</a>
+                    </li>
                 </ul>
             </div>
 
-            <div class="col-12 col-md-3">
+            <div class="col-6 col-md-3">
+                <h6 class="fw-bold mb-4">Nossa equipe</h6>
+
+                <ul class="list-unstyled">
+                    <li class="mb-3">
+                        <a href="#" class="text-secondary text-decoration-none">Desenvolvedores</a>
+                    </li>
+                    <li class="mb-3">
+                        <a href="#" class="text-secondary text-decoration-none">Sobre a equipe</a>
+                    </li>
+                    <li class="mb-3">
+                        <a href="#" class="text-secondary text-decoration-none">Projeto acadêmico</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="col-6 col-md-3">
+                <h6 class="fw-bold mb-4">Ajuda</h6>
+
+                <ul class="list-unstyled">
+                    <li class="mb-3">
+                        <a href="#" class="text-secondary text-decoration-none">Como utilizar o sistema</a>
+                    </li>
+                    <li class="mb-3">
+                        <a href="#" class="text-secondary text-decoration-none">Documentação</a>
+                    </li>
+                    <li class="mb-3">
+                        <a href="#" class="text-secondary text-decoration-none">Fale conosco</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="col-6 col-md-3">
                 <h6 class="fw-bold mb-4">Redes sociais</h6>
 
                 <div class="d-flex gap-3 fs-4">
-                    <a href="#" class="text-white"><i class="bi bi-instagram"></i></a>
-                    <a href="#" class="text-white"><i class="bi bi-youtube"></i></a>
-                    <a href="#" class="text-white"><i class="bi bi-github"></i></a>
+                    <a href="#" class="text-white">
+                        <i class="bi bi-github"></i>
+                    </a>
+
+                    <a href="#" class="text-white">
+                        <i class="bi bi-instagram"></i>
+                    </a>
+
+                    <a href="#" class="text-white">
+                        <i class="bi bi-youtube"></i>
+                    </a>
                 </div>
             </div>
 
@@ -190,14 +214,14 @@ if (isset($_GET['logout'])) {
             </small>
 
             <small class="text-secondary">
-                Desenvolvido para o projeto EasyRail.
+                Projeto acadêmico — SESI SENAI.
             </small>
 
         </div>
 
     </div>
-</footer>
 
+</footer>
 
 </body>
 
