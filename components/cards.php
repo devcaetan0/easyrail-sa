@@ -1,11 +1,5 @@
 <div class="row g-3 justify-content-center home-cards mb-5">
-    <div class="home-card-column">
-        <div class="home-card shadow-sm borda-laranja text-center p-3 d-flex flex-column">
-            <h3><i class="bi bi-house fs-2"></i></h3>
-            <h4>Dashboard</h4>
-            <a href="#" class="btn_glow btn btn-laranja mt-auto">Acessar</a>
-        </div>
-    </div>
+    
     <div class="home-card-column">
         <div class="home-card shadow-sm borda-laranja text-center p-3 d-flex flex-column">
             <h3> <i class="bi bi-box fs-2"></i></h3>
@@ -27,13 +21,7 @@
             <a href="sensores.php" class="btn_glow btn btn-laranja mt-auto">Monitorar</a>
         </div>
     </div>
-    <div class="home-card-column">
-        <div class="home-card shadow-sm borda-laranja text-center p-3 d-flex flex-column">
-            <h3> <i class="bi bi-file-earmark-text fs-2"></i></h3>
-            <h4>Relatórios</h4>
-            <a href="relatorios.php" class="btn_glow btn btn-laranja mt-auto">Visualizar</a>
-        </div>
-    </div>
+    
     <?php if ($perfilAtual == 1) { ?>
         <div class="home-card-column">
             <div class="home-card shadow-sm borda-laranja text-center p-3 d-flex flex-column">
