@@ -31,7 +31,7 @@ if (isset($_GET['logout'])) {
                     <img src="assets/images/logo-navbar.png" alt="EasyRail Logo" width="" height="45px">
                     <span class="texto-branco">Easy</span><span class="texto-laranja">Rail</span>
                 </div>
-                <a class="btn btn-laranja" href="public/login.php">
+                <a class="btn_glow btn btn-laranja" href="public/login.php">
                     Entrar <i class="bi bi-arrow-right ms-1" aria-hidden="true"></i>
                 </a>
             </div>
@@ -46,7 +46,7 @@ if (isset($_GET['logout'])) {
                     A EasyRail é uma proposta de sistema que reúne informações de trens, rotas e sensores para apoiar
                     o acompanhamento e a análise das operações ferroviárias.
                 </p>
-                <a class="btn btn-laranja btn-lg mt-2" href="public/login.php">
+                <a class="btn_glow btn btn-laranja btn-lg mt-2" href="public/login.php">
                     Conheça o sistema <i class="bi bi-arrow-right ms-2" aria-hidden="true"></i>
                 </a>
             </div>

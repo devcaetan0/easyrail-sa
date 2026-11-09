@@ -147,7 +147,7 @@ $resultadoPerfis = $conexao->query("SELECT id, nome FROM perfil ORDER BY nome AS
             </div>
 
             <div class=" mt-4">
-                <button type="submit" class="btn btn-laranja w-100 py-2 fw-bold">Cadastrar</button>
+                <button type="submit" class="btn_glow btn btn-laranja w-100 py-2 fw-bold">Cadastrar</button>
             </div>
         </form>
         <div id="mensagem" class="text-center mt-3"></div>
