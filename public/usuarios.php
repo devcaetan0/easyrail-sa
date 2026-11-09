@@ -36,17 +36,16 @@ $resultadoPerfisFiltro = $conexao->query("SELECT id, nome FROM perfil ORDER BY n
             <p class="cabecalho-pagina-description">Tela interativa para cadastrar novos funcionários e listagem dos
                 funcionários.</p>
         </div>
-        <br>
         <div class="container-fluid conteudo-pagina user-content">
             <?php include("../components/mensagem.php") ?>
 
             <div class="row layout-usuario">
-                <div class="col-md-4 col-lg-3 mb-4">
+                <div class="col-md-4 mb-2">
                     <?php include('../components/modals/add/usuario-add.php') ?>
                 </div>
 
-                <div class="col-md-8 col-lg-9">
-                    <div class="card p-3 mb-4 shadow-sm">
+                <div class="col-md-8">
+                    <div class="card p-3 mb-3 shadow-sm">
                         <div class="row">
                             <div class="col-md-6 mb-2 mb-md-0">
                                 <label class="fw-bold form-label">Pesquisar</label>

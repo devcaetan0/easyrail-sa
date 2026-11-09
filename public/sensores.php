@@ -51,21 +51,11 @@ $resultadoTrem = $conexao->query("
             </div>
             <p class="cabecalho-pagina-description">Tela para cadastro, gereciamento e listagem de todos os sensores.</p>
         </div>
-        <br>
 
         <div class="container-fluid conteudo-pagina">
             <?php include("../components/mensagem.php"); ?>
 
-            <?php if ($perfilAtual == 1) { ?>
-                <div class="d-flex justify-content-end mb-2">
-                    <button type="button" class="btn btn-laranja fw-bold p-2 mb-3" data-bs-toggle="modal"
-                        data-bs-target="#modalCadastroSensor">
-                        + Adicionar Sensor
-                    </button>
-                </div>
-            <?php } ?>
-
-            <div class="card p-3 mb-4 shadow-sm">
+            <div class="card p-3 mb-3 shadow-sm">
                 <div class="row">
                     <div class="col-md-3 mb-2">
                         <label class="fw-bold form-label" for="pesquisaSensor">Pesquisar</label>

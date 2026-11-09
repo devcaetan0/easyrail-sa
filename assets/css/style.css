@@ -118,6 +118,19 @@ thead th {
     display: none !important;
 }
 
+#form-funcionarios {
+    margin-bottom: 0;
+}
+
+#form-funcionarios .form-label {
+    margin-bottom: 0.25rem;
+}
+
+#mensagem:empty,
+#toggle:empty {
+    display: none;
+}
+
 .paginacao-tabela .pagination {
     --bs-pagination-color: var(--cor-preto);
     --bs-pagination-hover-color: var(--cor-btn-hover);
