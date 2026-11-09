@@ -122,9 +122,83 @@ if (isset($_GET['logout'])) {
                     <img src="assets/images/calegari-terno.png" class="img-fluid border rounded"
                         alt="Desenvolvedor Calegari">
                 </div>
+                
             </div>
         </div>
     </main>
+
+
+<footer class="bg-black text-white mt-5">
+    <div class="container-fluid px-4 px-md-5 py-5">
+
+        <div class="row g-4">
+
+            <div class="col-12 col-md-3">
+                <h5 class="fw-bold mb-4">
+                    <i class="bi bi-train-front-fill text-warning"></i>
+                    EasyRail
+                </h5>
+
+                <p class="text-secondary">
+                    Tecnologia e organização para uma gestão
+                    ferroviária mais eficiente.
+                </p>
+            </div>
+
+            <div class="col-6 col-md-3">
+                <h6 class="fw-bold mb-4">Navegação</h6>
+
+                <ul class="list-unstyled">
+                    <li class="mb-3"><a href="#" class="text-secondary text-decoration-none">Início</a></li>
+                    <li class="mb-3"><a href="#" class="text-secondary text-decoration-none">Dashboard</a></li>
+                    <li class="mb-3"><a href="#" class="text-secondary text-decoration-none">Frota de carga</a></li>
+                    <li class="mb-3"><a href="#" class="text-secondary text-decoration-none">Rotas</a></li>
+                    <li class="mb-3"><a href="#" class="text-secondary text-decoration-none">Sensores IoT</a></li>
+                    <li class="mb-3"><a href="#" class="text-secondary text-decoration-none">Relatórios</a></li>
+                </ul>
+            </div>
+
+            <div class="col-6 col-md-3">
+                <h6 class="fw-bold mb-4">Sobre o EasyRail</h6>
+
+                <ul class="list-unstyled">
+                    <li class="mb-3"><a href="#" class="text-secondary text-decoration-none">Nossa proposta</a></li>
+                    <li class="mb-3"><a href="#" class="text-secondary text-decoration-none">Funcionalidades</a></li>
+                    <li class="mb-3"><a href="#" class="text-secondary text-decoration-none">Tecnologias</a></li>
+                    <li class="mb-3"><a href="#" class="text-secondary text-decoration-none">Desenvolvedores</a></li>
+                </ul>
+            </div>
+
+            <div class="col-12 col-md-3">
+                <h6 class="fw-bold mb-4">Redes sociais</h6>
+
+                <div class="d-flex gap-3 fs-4">
+                    <a href="#" class="text-white"><i class="bi bi-instagram"></i></a>
+                    <a href="#" class="text-white"><i class="bi bi-youtube"></i></a>
+                    <a href="#" class="text-white"><i class="bi bi-github"></i></a>
+                </div>
+            </div>
+
+        </div>
+
+        <hr class="border-secondary my-4">
+
+        <div class="d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
+
+            <small class="text-secondary">
+                © 2026 EasyRail. Todos os direitos reservados.
+            </small>
+
+            <small class="text-secondary">
+                Desenvolvido para o projeto EasyRail.
+            </small>
+
+        </div>
+
+    </div>
+</footer>
+
+
 </body>
 
 </html>
