@@ -153,21 +153,77 @@ if (isset($_GET['logout'])) {
                 </ul>
             </div>
 
-            <div class="col-6 col-md-3">
-                <h6 class="fw-bold mb-4">Nossa equipe</h6>
 
-                <ul class="list-unstyled">
-                    <li class="mb-3">
-                        <a href="#" class="text-secondary text-decoration-none">Desenvolvedores</a>
-                    </li>
-                    <li class="mb-3">
-                        <a href="#" class="text-secondary text-decoration-none">Sobre a equipe</a>
-                    </li>
-                    <li class="mb-3">
-                        <a href="#" class="text-secondary text-decoration-none">Projeto acadêmico</a>
-                    </li>
-                </ul>
+<div class="col-12 col-md-3">
+    <h6 class="fw-bold mb-4">Nossa equipe</h6>
+
+    <div class="row g-3">
+
+        <div class="col-6">
+            <span class="text-secondary">Antonio Ribeiro</span>
+            <div class="d-flex gap-3 mt-2">
+                <a href="https://github.com/ribeirokkjj" target="_blank" class="text-white">
+                    <i class="bi bi-github fs-5"></i>
+                </a>
+                <a href="https://www.youtube.com/@AntonioRibeiroNeto-km7kf" target="_blank" class="text-white">
+                    <i class="bi bi-youtube fs-5"></i>
+                </a>
             </div>
+        </div>
+
+        <div class="col-6">
+            <span class="text-secondary">Davi Batista</span>
+            <div class="d-flex gap-3 mt-2">
+                <a href="https://github.com/devcaetan0" target="_blank" class="text-white">
+                    <i class="bi bi-github fs-5"></i>
+                </a>
+                <a href="https://www.youtube.com/@dbatscaetano" target="_blank" class="text-white">
+                    <i class="bi bi-youtube fs-5"></i>
+                </a>
+            </div>
+        </div>
+
+        <div class="col-6">
+            <span class="text-secondary">Gabriel Maciel</span>
+            <div class="d-flex gap-3 mt-2">
+                <a href="https://github.com/gabrielribeiro-code" target="_blank" class="text-white">
+                    <i class="bi bi-github fs-5"></i>
+                </a>
+                <a href="https://www.youtube.com/@Gabriel_Ribeiro-pc3uq" target="_blank" class="text-white">
+                    <i class="bi bi-youtube fs-5"></i>
+                </a>
+            </div>
+        </div>
+
+        <div class="col-6">
+            <span class="text-secondary">Rafael Calegari</span>
+            <div class="d-flex gap-3 mt-2">
+                <a href="https://github.com/RafaelDescher-AI" target="_blank" class="text-white">
+                    <i class="bi bi-github fs-5"></i>
+                </a>
+                <a href="https://www.youtube.com/@rafaelcalegaridescher52" target="_blank" class="text-white">
+                    <i class="bi bi-youtube fs-5"></i>
+                </a>
+            </div>
+        </div>
+
+        <div class="col-6 offset-md-3">
+            <span class="text-secondary">Projeto EasyRail</span>
+
+            <div class="d-flex  gap-3 mt-2 ">
+                <a href="https://github.com/devcaetan0/easyrail-sa" target="_blank" class="text-white">
+                    <i class="bi bi-github fs-5"></i>
+                </a>
+                
+                 <a href="https://www.youtube.com/@EasyRail-sa" target="_blank" class="text-white">
+                    <i class="bi bi-youtube fs-5"></i>
+                </a>
+            </div>
+        </div>
+
+    </div>
+</div>
+
 
             <div class="col-6 col-md-3">
                 <h6 class="fw-bold mb-4">Ajuda</h6>
@@ -185,25 +241,7 @@ if (isset($_GET['logout'])) {
                 </ul>
             </div>
 
-            <div class="col-6 col-md-3">
-                <h6 class="fw-bold mb-4">Redes sociais</h6>
-
-                <div class="d-flex gap-3 fs-4">
-                    <a href="#" class="text-white">
-                        <i class="bi bi-github"></i>
-                    </a>
-
-                    <a href="#" class="text-white">
-                        <i class="bi bi-instagram"></i>
-                    </a>
-
-                    <a href="#" class="text-white">
-                        <i class="bi bi-youtube"></i>
-                    </a>
-                </div>
-            </div>
-
-        </div>
+    
 
         <hr class="border-secondary my-4">
 
