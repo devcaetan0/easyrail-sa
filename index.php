@@ -46,7 +46,7 @@ if (isset($_GET['logout'])) {
                     A EasyRail é uma proposta de sistema que reúne informações de trens, rotas e sensores para apoiar
                     o acompanhamento e a análise das operações ferroviárias.
                 </p>
-                <a class="btn btn-laranja btn-lg mt-2" href="public/login.php">
+                <a class="btn_glow btn btn-laranja btn-lg mt-2" href="public/login.php">
                     Conheça o sistema <i class="bi bi-arrow-right ms-2" aria-hidden="true"></i>
                 </a>
             </div>
@@ -62,7 +62,6 @@ if (isset($_GET['logout'])) {
                         <span class="badge text-bg-dark p-2"><i class="bi bi-train-front me-2"></i> Frota</span>
                         <span class="badge text-bg-dark p-2"><i class="bi bi-signpost-2 me-2"></i> Rotas</span>
                         <span class="badge text-bg-dark p-2"><i class="bi bi-broadcast me-2"></i> Sensores</span>
-                        <span class="badge text-bg-dark p-2"><i class="bi bi-bar-chart me-2"></i> Relatórios</span>
                     </div>
                 </div>
             </div>
@@ -74,27 +73,19 @@ if (isset($_GET['logout'])) {
                 Acompanhar uma operação ferroviária exige relacionar informações de trens, trajetos e sensores.
                 A EasyRail organiza esses dados para facilitar consultas e dar mais visibilidade ao cenário operacional.
             </p>
-            <div class="row g-3">
-                <div class="col-md-4">
+            <div class="row g-3 cards-proposta">
+                <div class="col-12 col-md-6">
                     <div class="h-100 bg-white border rounded-3 p-3">
                         <h3 class="h6 fw-bold"><i class="bi bi-speedometer2 text-warning me-2"></i>Painel e dados</h3>
                         <p class=" mb-0">Visualize informações operacionais e registros dos sensores em um
                             dashboard.</p>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-12 col-md-6">
                     <div class="h-100 bg-white border rounded-3 p-3">
                         <h3 class="h6 fw-bold"><i class="bi bi-broadcast text-warning me-2"></i>Sensores e frota</h3>
                         <p class=" mb-0">Gerencie trens, rotas e sensores, incluindo dados como
                             velocidade, localização e falhas.</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="h-100 bg-white border rounded-3 p-3">
-                        <h3 class="h6 fw-bold"><i class="bi bi-file-earmark-bar-graph text-warning me-2"></i>Análises
-                        </h3>
-                        <p class=" mb-0">Consulte relatórios e históricos para apoiar a eficiência e a
-                            atenção à segurança.</p>
                     </div>
                 </div>
             </div>
@@ -122,9 +113,145 @@ if (isset($_GET['logout'])) {
                     <img src="assets/images/calegari-terno.png" class="img-fluid border rounded"
                         alt="Desenvolvedor Calegari">
                 </div>
+
             </div>
         </div>
     </main>
+
+
+    <footer class="bg-black text-white mt-5">
+
+        <div class="container-fluid px-4 px-md-5 py-5">
+
+            <div class="row g-4">
+
+                <div class="col-6 col-md-3">
+                    <h6 class="fw-bold mb-4">Sobre o EasyRail</h6>
+
+                    <ul class="list-unstyled">
+                        <li class="mb-3">
+                            <a href="#" class="text-secondary text-decoration-none">Nossa proposta</a>
+                        </li>
+                        <li class="mb-3">
+                            <a href="#" class="text-secondary text-decoration-none">Objetivos do projeto</a>
+                        </li>
+                        <li class="mb-3">
+                            <a href="#" class="text-secondary text-decoration-none">Funcionalidades</a>
+                        </li>
+                        <li class="mb-3">
+                            <a href="#" class="text-secondary text-decoration-none">Tecnologias utilizadas</a>
+                        </li>
+                    </ul>
+                </div>
+
+
+<div class="col-12 col-md-3">
+    <h6 class="fw-bold mb-4">Nossa equipe</h6>
+
+    <div class="row g-3">
+
+        <div class="col-6">
+            <span class="text-secondary">Antonio Ribeiro</span>
+            <div class="d-flex gap-3 mt-2">
+                <a href="https://github.com/ribeirokkjj" target="_blank" class="text-white">
+                    <i class="bi bi-github fs-5"></i>
+                </a>
+                <a href="https://www.youtube.com/@AntonioRibeiroNeto-km7kf" target="_blank" class="text-white">
+                    <i class="bi bi-youtube fs-5"></i>
+                </a>
+            </div>
+        </div>
+
+        <div class="col-6">
+            <span class="text-secondary">Davi Batista</span>
+            <div class="d-flex gap-3 mt-2">
+                <a href="https://github.com/devcaetan0" target="_blank" class="text-white">
+                    <i class="bi bi-github fs-5"></i>
+                </a>
+                <a href="https://www.youtube.com/@dbatscaetano" target="_blank" class="text-white">
+                    <i class="bi bi-youtube fs-5"></i>
+                </a>
+            </div>
+        </div>
+
+        <div class="col-6">
+            <span class="text-secondary">Gabriel Maciel</span>
+            <div class="d-flex gap-3 mt-2">
+                <a href="https://github.com/gabrielribeiro-code" target="_blank" class="text-white">
+                    <i class="bi bi-github fs-5"></i>
+                </a>
+                <a href="https://www.youtube.com/@Gabriel_Ribeiro-pc3uq" target="_blank" class="text-white">
+                    <i class="bi bi-youtube fs-5"></i>
+                </a>
+            </div>
+        </div>
+
+        <div class="col-6">
+            <span class="text-secondary">Rafael Calegari</span>
+            <div class="d-flex gap-3 mt-2">
+                <a href="https://github.com/RafaelDescher-AI" target="_blank" class="text-white">
+                    <i class="bi bi-github fs-5"></i>
+                </a>
+                <a href="https://www.youtube.com/@rafaelcalegaridescher52" target="_blank" class="text-white">
+                    <i class="bi bi-youtube fs-5"></i>
+                </a>
+            </div>
+        </div>
+
+        <div class="col-6 offset-md-3">
+            <span class="text-secondary">Projeto EasyRail</span>
+
+            <div class="d-flex  gap-3 mt-2 ">
+                <a href="https://github.com/devcaetan0/easyrail-sa" target="_blank" class="text-white">
+                    <i class="bi bi-github fs-5"></i>
+                </a>
+                
+                 <a href="https://www.youtube.com/@EasyRail-sa" target="_blank" class="text-white">
+                    <i class="bi bi-youtube fs-5"></i>
+                </a>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+                <div class="col-6 col-md-3">
+                    <h6 class="fw-bold mb-4">Ajuda</h6>
+
+                    <ul class="list-unstyled">
+                        <li class="mb-3">
+                            <a href="#" class="text-secondary text-decoration-none">Como utilizar o sistema</a>
+                        </li>
+                        <li class="mb-3">
+                            <a href="#" class="text-secondary text-decoration-none">Documentação</a>
+                        </li>
+                        <li class="mb-3">
+                            <a href="#" class="text-secondary text-decoration-none">Fale conosco</a>
+                        </li>
+                    </ul>
+                </div>
+
+    
+
+            <hr class="border-secondary my-4">
+
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
+
+                <small class="text-secondary">
+                    © 2026 EasyRail. Todos os direitos reservados.
+                </small>
+
+                <small class="text-secondary">
+                    Projeto acadêmico — SESI SENAI.
+                </small>
+
+            </div>
+
+        </div>
+
+    </footer>
+
 </body>
 
 </html>
