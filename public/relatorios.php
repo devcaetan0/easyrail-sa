@@ -20,7 +20,7 @@ verificarAcesso(67);
 
     <main class="main-padrao fade-in">
         <div class="cabecalho-pagina">
-            <div class="d-flex cabecalho-pagina-row">
+           <div class="d-flex align-items-center gap-4 ms-4 cabecalho-pagina-row">
                 <i class="bi bi-file-earmark-text cabecalho-pagina-icon"></i>
                 <h1 class="m-0 fw-bold cabecalho-pagina-title">Histórico <span class="texto-laranja">Analítico</span></h1>
             </div>
