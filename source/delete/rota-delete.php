@@ -6,17 +6,24 @@ $mensagem = "Erro ao excluir rota. Tente novamente.";
 $tipoMensagem = "danger";
 $id = $_GET['id'] ?? null;
 
-if ($id) {
-    $comando = $conexao->prepare("DELETE FROM rota WHERE id = ?");
+try {
+    $conexao->begin_transaction();
 
-    if ($comando) {
-        $comando->bind_param("i", $id);
+    $sensor = $conexao->prepare("UPDATE sensor SET rota_id = NULL WHERE rota_id = ?");
+    $sensor->bind_param("i", $id);
+    $sensor->execute();
 
-        if ($comando->execute() && $comando->affected_rows > 0) {
-            $mensagem = "Rota excluída com sucesso!";
-            $tipoMensagem = "success";
-        }
-    }
+    $rota = $conexao->prepare("DELETE FROM rota WHERE id = ?");
+    $rota->bind_param("i", $id);
+    $rota->execute();
+
+    $conexao->commit();
+
+    $mensagem = "Rota excluída com sucesso!";
+    $tipoMensagem = "success";
+} catch (Exception $e) {
+    $mensagem = "Erro ao excluir rota: " . $e->getMessage();
+    $tipoMensagem = "danger";
 }
 
 $_SESSION['mensagem'] = $mensagem;
