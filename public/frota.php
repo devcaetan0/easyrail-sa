@@ -159,7 +159,7 @@ $resultadoUsuarios = $conexao->query("
 
     <?php include('../config/bootstrap.html') ?>
     <script src="../scripts/navbar.js"></script>
-<script src="../scripts/paginacao.js"></script>
+    <script src="../scripts/paginacao.js"></script>
     <script src="../scripts/frota.js"></script>
 </body>
 
