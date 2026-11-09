@@ -136,6 +136,7 @@ $resultadoTrem = $conexao->query("SELECT id, modelo FROM trem ORDER BY modelo AS
     <script src="../scripts/navbar.js"></script>
     <?php include('../config/bootstrap.html') ?>
 
+    <script src="../scripts/paginacao.js"></script>
     <script src="../scripts/rotas.js"></script>
 </body>
 

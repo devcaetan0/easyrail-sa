@@ -12,6 +12,7 @@ document.querySelectorAll('.editar-rota').forEach(btn => {
 const pesquisa = document.getElementById('pesquisa');
 const tabela = document.getElementById('tabelaRotas');
 const filtroTrem = document.getElementById('filtroTrem');
+const paginacao = criarPaginacao(tabela);
 
 function filtrarRotas() {
     const texto = pesquisa.value.toLowerCase();
@@ -28,6 +29,8 @@ function filtrarRotas() {
             (!tremSelecionado || tremId === tremSelecionado);
         linha.classList.toggle('linha-oculta', !atendeFiltro);
     });
+
+    paginacao.atualizar();
 }
 
 pesquisa.addEventListener('input', filtrarRotas);

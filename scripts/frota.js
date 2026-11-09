@@ -12,6 +12,7 @@ const pesquisa = document.getElementById('pesquisa');
 const tabela = document.getElementById('tabelaTrens');
 const filtroCarga = document.getElementById('filtroCarga');
 const filtroUsuario = document.getElementById('filtroUsuario');
+const paginacao = criarPaginacao(tabela);
 
 function filtrarTrens() {
     const texto = pesquisa.value.toLowerCase();
@@ -32,6 +33,8 @@ function filtrarTrens() {
 
         linha.classList.toggle('linha-oculta', !(atendeTexto && atendeCarga && atendeUsuario));
     });
+
+    paginacao.atualizar();
 }
 
 pesquisa.addEventListener('input', filtrarTrens);

@@ -118,6 +118,17 @@ thead th {
     display: none !important;
 }
 
+.paginacao-tabela .pagination {
+    --bs-pagination-color: var(--cor-preto);
+    --bs-pagination-hover-color: var(--cor-btn-hover);
+    --bs-pagination-focus-color: var(--cor-btn-hover);
+    --bs-pagination-focus-box-shadow: 0 0 0 0.2rem rgba(250, 132, 21, 0.35);
+    --bs-pagination-active-color: var(--cor-preto);
+    --bs-pagination-active-bg: var(--cor-laranja);
+    --bs-pagination-active-border-color: var(--cor-laranja);
+    flex-wrap: wrap;
+}
+
 .main-padrao {
     margin-top: 3rem;
     padding: 0 clamp(1rem, 3vw, 2.5rem);

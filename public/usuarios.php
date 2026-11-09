@@ -130,6 +130,7 @@ $resultadoPerfisFiltro = $conexao->query("SELECT id, nome FROM perfil ORDER BY n
 
     <?php include '../config/bootstrap.html'; ?>
     <script src="../scripts/navbar.js"></script>
+    <script src="../scripts/paginacao.js"></script>
     <script src="../scripts/usuarios.js"></script>
 
 </body>
