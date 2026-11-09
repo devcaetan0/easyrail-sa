@@ -43,7 +43,7 @@ $resultadoPerfis = $conexao->query("SELECT id, nome FROM perfil ORDER BY nome AS
 
                     <div class="modal-footer px-0 pb-0">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                        <button type="submit" class="btn btn-laranja fw-bold">Atualizar</button>
+                        <button type="submit" class=" btn btn-laranja fw-bold">Atualizar</button>
                     </div>
                 </form>
             </div>

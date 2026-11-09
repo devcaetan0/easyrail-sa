@@ -49,7 +49,7 @@ $resultadoUsuarios = $conexao->query("
 
             <?php if ($perfilAtual == 1) { ?>
                 <div class="d-flex justify-content-end mb-2">
-                    <button type="button" class="btn btn-laranja fw-bold p-2 mb-3" data-bs-toggle="modal"
+                    <button type="button" class="btn_glow btn btn-laranja fw-bold p-2 mb-3" data-bs-toggle="modal"
                         data-bs-target="#modalCadastroTrem">
                         + Adicionar Locomotiva
                     </button>

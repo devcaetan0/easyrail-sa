@@ -4,36 +4,30 @@
         <div class="home-card shadow-sm borda-laranja text-center p-3 d-flex flex-column">
             <h3> <i class="bi bi-box fs-2"></i></h3>
             <h4>Frota</h4>
-            <a href="frota.php" class="btn btn-laranja mt-auto">Gerenciar</a>
+            <a href="frota.php" class="btn_glow btn btn-laranja mt-auto">Gerenciar</a>
         </div>
     </div>
     <div class="home-card-column">
         <div class="home-card shadow-sm borda-laranja text-center p-3 d-flex flex-column">
             <h3><i class="bi bi-map fs-2"></i></h3>
             <h4>Rotas</h4>
-            <a href="rotas.php" class="btn btn-laranja mt-auto">Mapear</a>
+            <a href="rotas.php" class="btn_glow btn btn-laranja mt-auto">Mapear</a>
         </div>
     </div>
     <div class="home-card-column">
         <div class="home-card shadow-sm borda-laranja text-center p-3 d-flex flex-column">
             <h3><i class="bi bi-wifi fs-2"></i></h3>
             <h4>Sensores</h4>
-            <a href="sensores.php" class="btn btn-laranja mt-auto">Monitorar</a>
+            <a href="sensores.php" class="btn_glow btn btn-laranja mt-auto">Monitorar</a>
         </div>
     </div>
-    <div class="home-card-column">
-        <div class="home-card shadow-sm borda-laranja text-center p-3 d-flex flex-column">
-            <h3> <i class="bi bi-file-earmark-text fs-2"></i></h3>
-            <h4>Relatórios</h4>
-            <a href="relatorios.php" class="btn btn-laranja mt-auto">Visualizar</a>
-        </div>
-    </div>
+    
     <?php if ($perfilAtual == 1) { ?>
         <div class="home-card-column">
             <div class="home-card shadow-sm borda-laranja text-center p-3 d-flex flex-column">
                 <h3><i class="bi bi-person fs-2"></i></h3>
                 <h4>Equipe</h4>
-                <a href="usuarios.php" class="btn btn-laranja mt-auto">Administrar</a>
+                <a href="usuarios.php" class="btn_glow btn btn-laranja mt-auto">Administrar</a>
             </div>
         </div>
     <?php } ?>
