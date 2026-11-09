@@ -29,12 +29,7 @@
                         <span>Sensores IoT</span>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link d-inline-flex align-items-center gap-2" href="relatorios.php">
-                        <i class="bi bi-file-earmark-text fs-5"></i>
-                        <span>Relatórios</span>
-                    </a>
-                </li>
+                
                 <?php if (isset($_SESSION['perfil_id']) && $_SESSION['perfil_id'] == 1) { ?>
                     <li class="nav-item">
                         <a class="nav-link d-inline-flex align-items-center gap-2" href="usuarios.php">
