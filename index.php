@@ -92,15 +92,15 @@ if (isset($_GET['logout'])) {
         </div>
 
 
-<?php include 'components/home-func.php'; ?>
-<?php include 'components/home-monitoramento.php'; ?>
-<?php include 'components/home-problema.php'; ?>
-<?php include 'components/developers.php'; ?>
- 
+        <?php include 'components/landing-page/funcionalidades.php'; ?>
+        <?php include 'components/landing-page/monitoramento.php'; ?>
+        <?php include 'components/landing-page/problema.php'; ?>
+        <?php include 'components/landing-page/developers.php'; ?>
+
 
     </main>
 
-    <?php include 'components/footer.php'; ?>
+    <?php include 'components/landing-page/footer.php'; ?>
 
 </body>
 
