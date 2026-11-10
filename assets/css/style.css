@@ -185,6 +185,7 @@ thead th {
     width: min(100%, 1320px);
     margin: 0 auto 1rem;
     padding-inline: 0.75rem;
+    margin-top: 2rem;
 }
 
 .cabecalho-pagina-row {
