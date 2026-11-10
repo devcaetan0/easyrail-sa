@@ -91,7 +91,13 @@ if (isset($_GET['logout'])) {
             </div>
         </div>
 
-        <?php include 'components/developers.php'; ?>
+
+<?php include 'components/home-func.php'; ?>
+<?php include 'components/home-monitoramento.php'; ?>
+<?php include 'components/home-problema.php'; ?>
+<?php include 'components/developers.php'; ?>
+ 
+
     </main>
 
     <?php include 'components/footer.php'; ?>

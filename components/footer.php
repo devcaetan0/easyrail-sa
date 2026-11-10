@@ -17,9 +17,7 @@
                     <li class="mb-3">
                         <a href="#" class="text-secondary text-decoration-none">Funcionalidades</a>
                     </li>
-                    <li class="mb-3">
-                        <a href="#" class="text-secondary text-decoration-none">Tecnologias utilizadas</a>
-                    </li>
+                    
                 </ul>
             </div>
 
@@ -105,7 +103,7 @@
                         <a href="#" class="text-secondary text-decoration-none">Como utilizar o sistema</a>
                     </li>
                     <li class="mb-3">
-                        <a href="#" class="text-secondary text-decoration-none">Documentação</a>
+                        <a href="https://github.com/devcaetan0/easyrail-sa" class="text-secondary text-decoration-none">Documentação</a>
                     </li>
                     <li class="mb-3">
                         <a href="#" class="text-secondary text-decoration-none">Fale conosco</a>
