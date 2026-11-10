@@ -15,6 +15,16 @@ body {
     background-color: var(--fundo-cinza);
 }
 
+.pagina-inicial {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.pagina-inicial main {
+    flex: 1 0 auto;
+}
+
 /* ===== NAVBAR ===== */
 
 #navbar {

@@ -23,7 +23,7 @@ if (isset($_GET['logout'])) {
     <title>EasyRail</title>
 </head>
 
-<body>
+<body class="pagina-inicial">
     <header>
         <nav class="navbar navbar-expand-lg p-2" id="navbar" aria-label="Navegação principal">
             <div class="container">
@@ -38,7 +38,7 @@ if (isset($_GET['logout'])) {
         </nav>
     </header>
 
-    <main class="container mt-5 pt-4 pb-5 fade-in" id="inicio">
+    <main class="container mt-2 pb-5 fade-in" id="inicio">
         <div class="row align-items-center g-4 py-lg-4">
             <div class="col-lg-7">
                 <h1 class="display-4 fw-bold">Mais clareza para acompanhar cada jornada.</h1>
@@ -91,166 +91,10 @@ if (isset($_GET['logout'])) {
             </div>
         </div>
 
-        <div class="border-top py-4">
-            <h2 class="h4 fw-bold mb-3">Quem desenvolveu?</h2>
-            <div class="row row-cols-2 row-cols-md-4 fade-in">
-                <div class="col text-center">
-                    <p class="fw-semibold mb-2">Antonio Ribeiro</p>
-                    <img src="assets/images/antonio-terno.png" class="img-fluid border rounded"
-                        alt="Desenvolvedor Antonio">
-                </div>
-                <div class="col text-center">
-                    <p class="fw-semibold mb-2">Davi Batista</p>
-                    <img src="assets/images/davi-terno.png" class="img-fluid border rounded" alt="Desenvolvedor Davi">
-                </div>
-                <div class="col text-center">
-                    <p class="fw-semibold mb-2">Gabriel Maciel</p>
-                    <img src="assets/images/gabe-terno.png" class="img-fluid border rounded"
-                        alt="Desenvolvedor Gabriel">
-                </div>
-                <div class="col text-center">
-                    <p class="fw-semibold mb-2">Rafael Calegari</p>
-                    <img src="assets/images/calegari-terno.png" class="img-fluid border rounded"
-                        alt="Desenvolvedor Calegari">
-                </div>
-
-            </div>
-        </div>
+        <?php include 'components/developers.php'; ?>
     </main>
 
-
-    <footer class="bg-black text-white mt-5">
-
-        <div class="container-fluid px-4 px-md-5 py-5">
-
-            <div class="row g-4">
-
-                <div class="col-6 col-md-3">
-                    <h6 class="fw-bold mb-4">Sobre o EasyRail</h6>
-
-                    <ul class="list-unstyled">
-                        <li class="mb-3">
-                            <a href="#" class="text-secondary text-decoration-none">Nossa proposta</a>
-                        </li>
-                        <li class="mb-3">
-                            <a href="#" class="text-secondary text-decoration-none">Objetivos do projeto</a>
-                        </li>
-                        <li class="mb-3">
-                            <a href="#" class="text-secondary text-decoration-none">Funcionalidades</a>
-                        </li>
-                        <li class="mb-3">
-                            <a href="#" class="text-secondary text-decoration-none">Tecnologias utilizadas</a>
-                        </li>
-                    </ul>
-                </div>
-
-
-<div class="col-12 col-md-3">
-    <h6 class="fw-bold mb-4">Nossa equipe</h6>
-
-    <div class="row g-3">
-
-        <div class="col-6">
-            <span class="text-secondary">Antonio Ribeiro</span>
-            <div class="d-flex gap-3 mt-2">
-                <a href="https://github.com/ribeirokkjj" target="_blank" class="text-white">
-                    <i class="bi bi-github fs-5"></i>
-                </a>
-                <a href="https://www.youtube.com/@AntonioRibeiroNeto-km7kf" target="_blank" class="text-white">
-                    <i class="bi bi-youtube fs-5"></i>
-                </a>
-            </div>
-        </div>
-
-        <div class="col-6">
-            <span class="text-secondary">Davi Batista</span>
-            <div class="d-flex gap-3 mt-2">
-                <a href="https://github.com/devcaetan0" target="_blank" class="text-white">
-                    <i class="bi bi-github fs-5"></i>
-                </a>
-                <a href="https://www.youtube.com/@dbatscaetano" target="_blank" class="text-white">
-                    <i class="bi bi-youtube fs-5"></i>
-                </a>
-            </div>
-        </div>
-
-        <div class="col-6">
-            <span class="text-secondary">Gabriel Maciel</span>
-            <div class="d-flex gap-3 mt-2">
-                <a href="https://github.com/gabrielribeiro-code" target="_blank" class="text-white">
-                    <i class="bi bi-github fs-5"></i>
-                </a>
-                <a href="https://www.youtube.com/@Gabriel_Ribeiro-pc3uq" target="_blank" class="text-white">
-                    <i class="bi bi-youtube fs-5"></i>
-                </a>
-            </div>
-        </div>
-
-        <div class="col-6">
-            <span class="text-secondary">Rafael Calegari</span>
-            <div class="d-flex gap-3 mt-2">
-                <a href="https://github.com/RafaelDescher-AI" target="_blank" class="text-white">
-                    <i class="bi bi-github fs-5"></i>
-                </a>
-                <a href="https://www.youtube.com/@rafaelcalegaridescher52" target="_blank" class="text-white">
-                    <i class="bi bi-youtube fs-5"></i>
-                </a>
-            </div>
-        </div>
-
-        <div class="col-6 offset-md-3">
-            <span class="text-secondary">Projeto EasyRail</span>
-
-            <div class="d-flex  gap-3 mt-2 ">
-                <a href="https://github.com/devcaetan0/easyrail-sa" target="_blank" class="text-white">
-                    <i class="bi bi-github fs-5"></i>
-                </a>
-                
-                 <a href="https://www.youtube.com/@EasyRail-sa" target="_blank" class="text-white">
-                    <i class="bi bi-youtube fs-5"></i>
-                </a>
-            </div>
-        </div>
-
-    </div>
-</div>
-
-
-                <div class="col-6 col-md-3">
-                    <h6 class="fw-bold mb-4">Ajuda</h6>
-
-                    <ul class="list-unstyled">
-                        <li class="mb-3">
-                            <a href="#" class="text-secondary text-decoration-none">Como utilizar o sistema</a>
-                        </li>
-                        <li class="mb-3">
-                            <a href="#" class="text-secondary text-decoration-none">Documentação</a>
-                        </li>
-                        <li class="mb-3">
-                            <a href="#" class="text-secondary text-decoration-none">Fale conosco</a>
-                        </li>
-                    </ul>
-                </div>
-
-    
-
-            <hr class="border-secondary my-4">
-
-            <div class="d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
-
-                <small class="text-secondary">
-                    © 2026 EasyRail. Todos os direitos reservados.
-                </small>
-
-                <small class="text-secondary">
-                    Projeto acadêmico — SESI SENAI.
-                </small>
-
-            </div>
-
-        </div>
-
-    </footer>
+    <?php include 'components/footer.php'; ?>
 
 </body>
 
