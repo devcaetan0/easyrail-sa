@@ -311,13 +311,13 @@ Pop-up Cadastrar Novo Sensor contendo:
 
 O desenvolvimento do projeto foi distribuído entre os membros da equipe de forma colaborativa, utilizando as metodologias ágeis **Scrum** e **Kanban**:
 
+Todos nos se ajudamos em todas as páginas, mas em algumas teve uma enfase maior de algum integrante. Mas em todas as coisas nos ajudamos um ao outro e não tem algo que alguém fez sozinho.
 
-
-* **[Antônio]:** Responsável pel
-* **[Davi Batista]:** Responsável pelo 
-* **[Gabriel Maciel]:** Responsável pel
-* **[Rafael Calegari]:** Responsável pelo 
-
+* **[Antônio]:** Responsável pela tela inicial, tela de sensores, Crud's, correção de bugs, validação, backend e Javascript.
+* **[Davi Batista]:** Responsável pelo  backend, refatoração, organização, validação, frontend.
+* **[Gabriel Maciel]:** Responsável pela tela de usuários, pesquisas, landing page, resolução de bugs, organização do kanban e organização do readme, frontend e backend.
+* **[Rafael Calegari]:** Responsável pela tela de usuários, rotas, pesquisas, frontend, correção de bugs, backend e frontend.
+ 
 
 ## Metodologias De Desenvolvimento: 
 
@@ -349,14 +349,16 @@ Utilizaremos o Scrum como um suporte ao Kanban. Utilizaremos o Scrum: com as Spr
 
 Algumas imagens da versão final do site:
 
+
+<img width="952" height="469" alt="unnamed" src="https://github.com/user-attachments/assets/4a9d8d23-7b03-4d55-b9ce-5deb2b617a85" />
+<img width="952" height="467" alt="unnamed" src="https://github.com/user-attachments/assets/f0d49cc2-0b05-4588-8b0c-dda5e8270d72" />
+<img width="952" height="469" alt="unnamed" src="https://github.com/user-attachments/assets/3d6f77c5-3d56-4c13-9ac1-bf78be4a387d" />
 <img width="952" height="467" alt="unnamed" src="https://github.com/user-attachments/assets/9b09be09-d218-400a-92a1-484faeecab34" />
 <img width="952" height="467" alt="unnamed" src="https://github.com/user-attachments/assets/33474a1c-877f-40c6-a29b-4eecd6158a81" />
 <img width="952" height="466" alt="unnamed" src="https://github.com/user-attachments/assets/90aae934-8a9a-4cd3-85c9-a9f4542258ec" />
 <img width="952" height="466" alt="unnamed" src="https://github.com/user-attachments/assets/58f8b5e5-89e0-4eab-87a1-b22c048b1d9b" />
 <img width="952" height="466" alt="unnamed" src="https://github.com/user-attachments/assets/2f2c8f90-1986-4db0-a400-ff1f057f5015" />
-<img width="952" height="469" alt="unnamed" src="https://github.com/user-attachments/assets/4a9d8d23-7b03-4d55-b9ce-5deb2b617a85" />
-<img width="952" height="467" alt="unnamed" src="https://github.com/user-attachments/assets/f0d49cc2-0b05-4588-8b0c-dda5e8270d72" />
-<img width="952" height="469" alt="unnamed" src="https://github.com/user-attachments/assets/3d6f77c5-3d56-4c13-9ac1-bf78be4a387d" />
+
 
 
 
