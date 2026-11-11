@@ -282,10 +282,9 @@ thead th {
     font-size: clamp(1rem, 1.8vw, 1.5rem);
 }
 
-.login-checkbox {
-    width: 20px;
-    height: 20px;
-    vertical-align: middle;
+/* mantém o espaço que o antigo "Mantenha-me logado" ocupava (mb-3 + linha + mb-3) */
+.login-ultimo-campo {
+    margin-bottom: calc(2rem + 1.5em);
 }
 
 #btn-envio {
