@@ -7,8 +7,22 @@
     --cor-branca: #ffffff;
 }
 
+html {
+    scrollbar-width: none;
+}
+
 body {
     background-color: var(--fundo-cinza);
+}
+
+.pagina-inicial {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.pagina-inicial main {
+    flex: 1 0 auto;
 }
 
 /* ===== NAVBAR ===== */
@@ -38,7 +52,7 @@ body {
 
 .navbar-logo-wrap,
 .navbar-logout {
-    flex: 0 0 auto;
+    flex: 1 1 0;
 }
 
 .navbar-links {
@@ -119,17 +133,59 @@ thead th {
     background-color: rgb(219, 215, 211) !important;
 }
 
-.linha-oculta {
+.linha-oculta,
+.linha-fora-pagina {
     display: none !important;
 }
 
+.paginacao-tabela {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin: 0.5rem 0;
+}
+
+.table tbody td {
+    height: 47px;
+    vertical-align: middle;
+}
+
+#form-funcionarios {
+    margin-bottom: 0;
+}
+
+#form-funcionarios .form-label {
+    margin-bottom: 0.25rem;
+}
+
+#mensagem:empty,
+#toggle:empty {
+    display: none;
+}
+
+.paginacao-tabela .pagination {
+    --bs-pagination-color: var(--cor-preto);
+    --bs-pagination-hover-color: var(--cor-btn-hover);
+    --bs-pagination-focus-color: var(--cor-btn-hover);
+    --bs-pagination-focus-box-shadow: 0 0 0 0.2rem rgba(250, 132, 21, 0.35);
+    --bs-pagination-active-color: var(--cor-preto);
+    --bs-pagination-active-bg: var(--cor-laranja);
+    --bs-pagination-active-border-color: var(--cor-laranja);
+    flex-wrap: wrap;
+}
+
 .main-padrao {
-    margin-top: 3rem;
+    margin-top: 1.5rem;
     padding: 0 clamp(1rem, 3vw, 2.5rem);
 }
 
 .cabecalho-pagina {
-    margin-bottom: 1.5rem;
+    width: min(100%, 1320px);
+    margin: 0 auto 1rem;
+    padding-inline: 0.75rem;
+    margin-top: 2rem;
 }
 
 .cabecalho-pagina-row {
@@ -141,8 +197,7 @@ thead th {
 
 .cabecalho-pagina-icon {
     flex: 0 0 auto;
-    margin-left: 20px;
-    font-size: 4rem !important;
+    font-size: 3.5rem !important;
     line-height: 1;
 }
 
@@ -151,7 +206,7 @@ thead th {
 }
 
 .cabecalho-pagina-description {
-    margin: 0.75rem 0 0 5rem;
+    margin: 0.5rem 0 0 4.5rem;
 }
 
 .conteudo-pagina {
@@ -162,6 +217,18 @@ thead th {
 
 .layout-usuario {
     --bs-gutter-y: 1.5rem;
+}
+
+.cards-proposta {
+    justify-content: center;
+}
+
+.cards-proposta > [class*="col-"] {
+    display: flex;
+}
+
+.cards-proposta .h-100 {
+    width: 100%;
 }
 
 /* ===== LOGIN ===== */
@@ -215,10 +282,9 @@ thead th {
     font-size: clamp(1rem, 1.8vw, 1.5rem);
 }
 
-.login-checkbox {
-    width: 20px;
-    height: 20px;
-    vertical-align: middle;
+/* mantém o espaço que o antigo "Mantenha-me logado" ocupava (mb-3 + linha + mb-3) */
+.login-ultimo-campo {
+    margin-bottom: calc(2rem + 1.5em);
 }
 
 #btn-envio {

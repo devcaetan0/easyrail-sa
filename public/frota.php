@@ -40,23 +40,19 @@ $resultadoUsuarios = $conexao->query("
             <div class="d-flex cabecalho-pagina-row">
                 <i class="bi bi-box cabecalho-pagina-icon"></i>
                 <h1 class="m-0 fw-bold cabecalho-pagina-title">Gerenciamento de <span class="texto-laranja">Frota</span></h1>
-            </div>
-            <p class="cabecalho-pagina-description">Listagem e gerenciamento de todos os treins e suas respectivas rotas.</p>
-        </div>
-        <br>
-        <div class="container-fluid conteudo-pagina">
-            <?php include("../components/mensagem.php") ?>
-
-            <?php if ($perfilAtual == 1) { ?>
-                <div class="d-flex justify-content-end mb-2">
-                    <button type="button" class="btn_glow btn btn-laranja fw-bold p-2 mb-3" data-bs-toggle="modal"
+                <?php if ($perfilAtual == 1) { ?>
+                    <button type="button" class="btn btn-laranja fw-bold p-2 ms-auto" data-bs-toggle="modal"
                         data-bs-target="#modalCadastroTrem">
                         + Adicionar Locomotiva
                     </button>
-                </div>
-            <?php } ?>
+                <?php } ?>
+            </div>
+            <p class="cabecalho-pagina-description">Listagem e gerenciamento de todos os treins e suas respectivas rotas.</p>
+        </div>
+        <div class="container-fluid conteudo-pagina">
+            <?php include("../components/mensagem.php") ?>
 
-            <div class="card p-3 mb-4 shadow-sm">
+            <div class="card p-3 mb-3 shadow-sm">
                 <div class="row">
                     <div class="col-md-4 mb-2">
                         <label class="fw-bold form-label">Pesquisar</label>
@@ -163,6 +159,7 @@ $resultadoUsuarios = $conexao->query("
 
     <?php include('../config/bootstrap.html') ?>
     <script src="../scripts/navbar.js"></script>
+    <script src="../scripts/paginacao.js"></script>
     <script src="../scripts/frota.js"></script>
 </body>
 

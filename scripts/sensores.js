@@ -11,7 +11,20 @@ document.querySelectorAll('.editar-sensor').forEach(button => {
 
 
 
+const pesquisa = document.getElementById('pesquisaSensor');
+const tabela = document.getElementById('tabelaSensores');
+const filtroTipo = document.getElementById('filtroTipo');
+const filtroRota = document.getElementById('filtroRota');
+const filtroTrem = document.getElementById('filtroTrem');
+const filtroStatus = document.getElementById('filtroStatus');
+
+function normalizarTexto(texto) {
+    return texto.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().trim();
+}
+
 if (pesquisa && tabela) {
+    const paginacao = criarPaginacao(tabela);
+
     function filtrarSensores() {
         const texto = normalizarTexto(pesquisa.value);
         const tipoSelecionado = normalizarTexto(filtroTipo?.value || '');
@@ -37,6 +50,8 @@ if (pesquisa && tabela) {
             const atendeFiltros = atendeTexto && atendeTipo && atendeRota && atendeTrem && atendeStatus;
             linha.classList.toggle('linha-oculta', !atendeFiltros);
         });
+
+        paginacao.atualizar();
     }
 
     pesquisa.addEventListener('input', filtrarSensores);

@@ -32,7 +32,7 @@ $resultadoPerfis = $conexao->query("SELECT id, nome FROM perfil ORDER BY nome AS
 
                     <div class="mb-3">
                         <label for="modal-cargo" class="form-label fw-bold">Cargo</label>
-                        <select name="perfil_id" class="form-control" id="perfil_id" required>
+                        <select name="perfil_id" class="form-control" id="modal-cargo" required>
                             <?php while ($perfil = $resultadoPerfis->fetch_assoc()) { ?>
                                 <option value="<?= $perfil['id'] ?>">
                                     <?= $perfil['nome'] ?>

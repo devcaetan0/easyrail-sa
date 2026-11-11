@@ -48,24 +48,20 @@ $resultadoTrem = $conexao->query("
             <div class="d-flex cabecalho-pagina-row">
                 <i class="bi bi-wifi cabecalho-pagina-icon"></i>
                 <h1 class="m-0 fw-bold cabecalho-pagina-title">Monitoramento <span class="texto-laranja">IoT</span></h1>
+                <?php if ($perfilAtual == 1) { ?>
+                    <button type="button" class="btn btn-laranja fw-bold p-2 ms-auto" data-bs-toggle="modal"
+                        data-bs-target="#modalCadastroSensor">
+                        + Adicionar Sensor
+                    </button>
+                <?php } ?>
             </div>
             <p class="cabecalho-pagina-description">Tela para cadastro, gereciamento e listagem de todos os sensores.</p>
         </div>
-        <br>
 
         <div class="container-fluid conteudo-pagina">
             <?php include("../components/mensagem.php"); ?>
 
-            <?php if ($perfilAtual == 1) { ?>
-                <div class="d-flex justify-content-end mb-2">
-                    <button type="button" class="btn_glow btn btn-laranja fw-bold p-2 mb-3" data-bs-toggle="modal"
-                        data-bs-target="#modalCadastroSensor">
-                        + Adicionar Sensor
-                    </button>
-                </div>
-            <?php } ?>
-
-            <div class="card p-3 mb-4 shadow-sm">
+            <div class="card p-3 mb-3 shadow-sm">
                 <div class="row">
                     <div class="col-md-3 mb-2">
                         <label class="fw-bold form-label" for="pesquisaSensor">Pesquisar</label>
@@ -108,9 +104,9 @@ $resultadoTrem = $conexao->query("
                         <label class="fw-bold form-label" for="filtroStatus">Status</label>
                         <select class="form-select" id="filtroStatus">
                             <option value="">Todos</option>
-                            <option value="1">Ativo</option>
-                            <option value="2">Inativo</option>
-                            <option value="3">Manutenção</option>
+                            <option value="Ativo">Ativo</option>
+                            <option value="Inativo">Inativo</option>
+                            <option value="Manutenção">Manutenção</option>
                         </select>
                     </div>
                 </div>
@@ -176,6 +172,7 @@ $resultadoTrem = $conexao->query("
 
     <script src="../scripts/navbar.js"></script>
     <?php include '../config/bootstrap.html'; ?>
+    <script src="../scripts/paginacao.js"></script>
     <script src="../scripts/sensores.js"></script>
 </body>
 

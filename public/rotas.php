@@ -33,24 +33,19 @@ $resultadoTrem = $conexao->query("SELECT id, modelo FROM trem ORDER BY modelo AS
             <div class="d-flex cabecalho-pagina-row">
                 <i class="bi bi-map cabecalho-pagina-icon"></i>
                 <h1 class="m-0 fw-bold cabecalho-pagina-title">Mapeamento de <span class="texto-laranja">Rotas</span></h1>
-            </div>
-            <p class="cabecalho-pagina-description">Listagem e gerenciamento de todas as rotas de seus respectivos trens.</p>
-        </div>
-        <br>
-        <div class="container-fluid conteudo-pagina">
-            <?php include("../components/mensagem.php") ?>
-
-            <?php if ($perfilAtual == 1) { ?>
-                <div class="d-flex justify-content-end mb-2">
-                    <button type="button" class="btn_glow btn btn-laranja fw-bold p-2 mb-3" data-bs-toggle="modal"
+                <?php if ($perfilAtual == 1) { ?>
+                    <button type="button" class="btn btn-laranja fw-bold p-2 ms-auto" data-bs-toggle="modal"
                         data-bs-target="#modalCadastroRota">
                         + Adicionar Rota
                     </button>
-                </div>
-            <?php } ?>
+                <?php } ?>
+            </div>
+            <p class="cabecalho-pagina-description">Listagem e gerenciamento de todas as rotas de seus respectivos trens.</p>
+        </div>
+        <div class="container-fluid conteudo-pagina">
+            <?php include("../components/mensagem.php") ?>
 
-
-            <div class="card p-3 mb-4 shadow-sm">
+            <div class="card p-3 mb-3 shadow-sm">
                 <div class="row">
                     <div class="col-md-6 mb-2">
                         <label class="fw-bold form-label">Pesquisar</label>
@@ -136,6 +131,7 @@ $resultadoTrem = $conexao->query("SELECT id, modelo FROM trem ORDER BY modelo AS
     <script src="../scripts/navbar.js"></script>
     <?php include('../config/bootstrap.html') ?>
 
+    <script src="../scripts/paginacao.js"></script>
     <script src="../scripts/rotas.js"></script>
 </body>
 

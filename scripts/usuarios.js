@@ -11,6 +11,7 @@ document.querySelectorAll('.editar-usuario').forEach(btn => {
 const pesquisa = document.getElementById('pesquisa');
 const tabela = document.getElementById('tabelaUsuarios');
 const filtroPerfil = document.getElementById('filtroPerfil');
+const paginacao = criarPaginacao(tabela);
 
 function filtrarUsuarios() {
     const texto = pesquisa.value.toLowerCase();
@@ -26,6 +27,8 @@ function filtrarUsuarios() {
             (!perfilSelecionado || linha.dataset.perfilId === perfilSelecionado);
         linha.classList.toggle('linha-oculta', !atendeFiltro);
     });
+
+    paginacao.atualizar();
 }
 
 pesquisa.addEventListener('input', filtrarUsuarios);
