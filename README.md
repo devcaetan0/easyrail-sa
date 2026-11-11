@@ -16,71 +16,84 @@ Nosso Mockup foi focado em fazer um site com uma identidade visual diferente mas
 ## Estrutura do Diretório
 
 ```text
-devcaetan0-easyrail-sa/
-├── README.md
-├── index.php
-├── LICENSE
-├── assets/
-│   └── css/
-│       └── style.css
-├── components/
-│   ├── cards.php
-│   ├── navbar.php
-│   └── modals/
-│       ├── add/
-│       │   ├── frota-add.php
-│       │   ├── rota-add.php
-│       │   ├── sensor-add.php
-│       │   └── usuario-add.php
-│       └── edit/
-│           ├── frota-edit.php
-│           ├── rota-edit.php
-│           ├── sensor-edit.php
-│           └── usuario-edit.php
-├── config/
-│   ├── bootstrap.html
-│   ├── conexao.php
-│   └── links.html
-├── database/
-│   └── db.sql
-├── pesquisas/
-│   ├── apis.md
-│   ├── crud.md
-│   ├── pdo.md
-│   ├── scrum.md
-│   └── xampp.md
-├── public/
-│   ├── dashboard.php
-│   ├── frota.php
-│   ├── home.php
-│   ├── relatorios.php
-│   ├── rotas.php
-│   ├── sensores.php
-│   └── usuarios.php
-├── scripts/
-│   ├── frota.js
-│   ├── navbar.js
-│   ├── relatorios.js
-│   ├── rotas.js
-│   ├── sensores.js
-│   └── usuarios.js
-└── source/
-    ├── auth-login.php
-    ├── create/
-    │   ├── frota-create.php
-    │   ├── rota-create.php
-    │   ├── sensor-create.php
-    │   └── usuario-create.php
-    ├── delete/
-    │   ├── frota-delete.php
-    │   ├── rota-delete.php
-    │   ├── sensor-delete.php
-    │   └── usuario-delete.php
-    └── update/
-        ├── frota-update.php
-        ├── rota-update.php
-        ├── sensor-update.php
-        └── usuario-update.php
+Directory structure:
+└── devcaetan0-easyrail-sa/
+    ├── README.md
+    ├── index.php
+    ├── LICENSE
+    ├── assets/
+    │   └── css/
+    │       └── style.css
+    ├── components/
+    │   ├── cards.php
+    │   ├── clima.php
+    │   ├── mensagem.php
+    │   ├── navbar.php
+    │   ├── landing-page/
+    │   │   ├── developers.php
+    │   │   ├── footer.php
+    │   │   ├── funcionalidades.php
+    │   │   ├── monitoramento.php
+    │   │   └── problema.php
+    │   └── modals/
+    │       ├── add/
+    │       │   ├── frota-add.php
+    │       │   ├── rota-add.php
+    │       │   ├── sensor-add.php
+    │       │   └── usuario-add.php
+    │       └── edit/
+    │           ├── frota-edit.php
+    │           ├── rota-edit.php
+    │           ├── sensor-edit.php
+    │           └── usuario-edit.php
+    ├── config/
+    │   ├── bootstrap.html
+    │   ├── conexao.php
+    │   └── links.html
+    ├── database/
+    │   └── db.sql
+    ├── pesquisas/
+    │   ├── apis.md
+    │   ├── crud.md
+    │   ├── pdo.md
+    │   ├── relatorio-ia.md
+    │   ├── scrum.md
+    │   └── xampp.md
+    ├── public/
+    │   ├── frota.php
+    │   ├── home.php
+    │   ├── login.php
+    │   ├── rotas.php
+    │   ├── sensores.php
+    │   └── usuarios.php
+    ├── scripts/
+    │   ├── api-CEP.js
+    │   ├── api-clima.js
+    │   ├── frota.js
+    │   ├── navbar.js
+    │   ├── paginacao.js
+    │   ├── relatorios.js
+    │   ├── rotas.js
+    │   ├── sensores.js
+    │   └── usuarios.js
+    └── source/
+        ├── auth-login.php
+        ├── create/
+        │   ├── frota-create.php
+        │   ├── rota-create.php
+        │   ├── sensor-create.php
+        │   └── usuario-create.php
+        ├── delete/
+        │   ├── frota-delete.php
+        │   ├── rota-delete.php
+        │   ├── sensor-delete.php
+        │   └── usuario-delete.php
+        └── update/
+            ├── frota-update.php
+            ├── rota-update.php
+            ├── sensor-update.php
+            └── usuario-update.php
+
 ```
 
 
