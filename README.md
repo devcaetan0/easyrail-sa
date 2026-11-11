@@ -13,6 +13,9 @@ Nosso Mockup foi focado em fazer um site com uma identidade visual diferente mas
 * **Documentação Oficial**: [Google Docs do Projeto](https://docs.google.com/document/d/1MB7gOFvf_L-3unkxo9Xj64JbBwdSI_qu04njbLAZorc/edit?usp=sharing)
 
 
+* **Manual do Usuário**: [Dicas e etapas do acesso](https://docs.google.com/document/d/1ENW93y0cOLlV-CrtNNwRjOqVXmIzmHikbGRKs-E8nJI/edit?usp=sharing)
+
+
 ## Estrutura do Diretório
 
 ```text
