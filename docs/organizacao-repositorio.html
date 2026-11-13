@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Organização do Repositório do Projeto: EasyRail</title>
+    <style>
+        :root {
+            --bg-color: #0d1117;
+            --text-main: #c9d1d9;
+            --text-muted: #8b949e;
+            --folder-color: #58a6ff;
+            --file-color: #c9d1d9;
+            --hover-bg: #161b22;
+            --border-color: #30363d;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            padding: 40px 20px;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 950px;
+            margin: 0 auto;
+            background: #121820;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: #fff;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 15px;
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 20px;
+            margin: 0;
+        }
+
+        li {
+            margin: 6px 0;
+        }
+
+        .item {
+            display: flex;
+            align-items: center;
+            padding: 10px 14px;
+            border-radius: 6px;
+            transition: background 0.2s ease;
+            cursor: default;
+        }
+
+        .item:hover {
+            background-color: var(--hover-bg);
+        }
+
+        .icon {
+            margin-right: 15px;
+            font-size: 1.4em;
+        }
+
+        .name {
+            font-weight: 500;
+            min-width: 180px;
+            font-size: 1.1em;
+        }
+
+        .folder > summary > .item > .name {
+            color: var(--folder-color);
+            font-weight: 600;
+        }
+
+        .desc {
+            color: var(--text-muted);
+            font-size: 1.05em;
+            margin-left: 20px;
+            line-height: 1.4;
+        }
+
+        /* Esconde a seta padrão do details */
+        details > summary {
+            list-style: none;
+            cursor: pointer;
+        }
+        details > summary::-webkit-details-marker {
+            display: none;
+        }
+        
+        /* Adiciona a setinha customizada */
+        details > summary .item::before {
+            content: '▶';
+            font-size: 0.9em;
+            color: var(--text-muted);
+            margin-right: 12px;
+            transition: transform 0.2s;
+        }
+        details[open] > summary .item::before {
+            transform: rotate(90deg);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>🚂 Organização do Repositório do Projeto: EasyRail</h1>
+        
+        <ul>
+            <!-- Raiz -->
+            <li>
+                <div class="item">
+                    <span class="icon">📄</span><span class="name">index.php</span>
+                    <span class="desc">O coração e ponto de entrada da aplicação. É a primeira página carregada quando o sistema é acessado no servidor.</span>
+                </div>
+            </li>
+            <li>
+                <div class="item">
+                    <span class="icon">📖</span><span class="name">README.md</span>
+                    <span class="desc">A vitrine do projeto para o GitHub. Contém toda a documentação, instruções de instalação, tecnologias utilizadas e as famosas badges.</span>
+                </div>
+            </li>
+            <li>
+                <div class="item">
+                    <span class="icon">⚖️</span><span class="name">LICENSE</span>
+                    <span class="desc">Define as permissões legais de uso do software, garantindo a proteção e os termos de distribuição do nosso código.</span>
+                </div>
+            </li>
+
+            <!-- Assets -->
+            <li>
+                <details>
+                    <summary>
+                        <div class="item">
+                            <span class="icon">📁</span><span class="name">assets/</span>
+                            <span class="desc">Onde mora a identidade visual do projeto. Guarda todos os arquivos estáticos como CSS, imagens e ícones.</span>
+                        </div>
+                    </summary>
+                    <ul>
+                        <li><div class="item"><span class="icon">🎨</span><span class="name">css/style.css</span><span class="desc">A folha de estilo global que define cores, espaçamentos e toda a beleza da nossa interface.</span></div></li>
+                    </ul>
+                </details>
+            </li>
+
+            <!-- Components -->
+            <li>
+                <details>
+                    <summary>
+                        <div class="item">
+                            <span class="icon">📁</span><span class="name">components/</span>
+                            <span class="desc">A nossa fábrica de peças reutilizáveis. Tudo que se repete nas telas (como menus e cards) é modularizado aqui.</span>
+                        </div>
+                    </summary>
+                    <ul>
+                        <li><div class="item"><span class="icon">🧩</span><span class="name">cards, clima, navbar...</span><span class="desc">Pedaços de interface (UI) que importamos nas páginas principais para evitar repetição de código.</span></div></li>
+                        <li>
+                            <details>
+                                <summary><div class="item"><span class="icon">📁</span><span class="name">landing-page/</span><span class="desc">Os blocos estruturais que compõem especificamente a nossa página inicial de apresentação.</span></div></summary>
+                                <ul>
+                                    <li><div class="item"><span class="icon">📄</span><span class="name">developers.php, footer.php...</span></div></li>
+                                </ul>
+                            </details>
+                        </li>
+                        <li>
+                            <details>
+                                <summary><div class="item"><span class="icon">📁</span><span class="name">modals/</span><span class="desc">Aquelas janelinhas pop-up interativas que abrem na tela sem recarregar a página toda.</span></div></summary>
+                                <ul>
+                                    <li><div class="item"><span class="icon">📁</span><span class="name">add/</span><span class="desc">Formulários embutidos para cadastrar novos itens (frotas, rotas, sensores).</span></div></li>
+                                    <li><div class="item"><span class="icon">📁</span><span class="name">edit/</span><span class="desc">Formulários já preenchidos que aparecem quando clicamos para atualizar algum dado.</span></div></li>
+                                </ul>
+                            </details>
+                        </li>
+                    </ul>
+                </details>
+            </li>
+
+            <!-- Config -->
+            <li>
+                <details>
+                    <summary>
+                        <div class="item">
+                            <span class="icon">📁</span><span class="name">config/</span>
+                            <span class="desc">O núcleo de conexões e integrações de bibliotecas externas que sustentam o funcionamento do app.</span>
+                        </div>
+                    </summary>
+                    <ul>
+                        <li><div class="item"><span class="icon">🔌</span><span class="name">conexao.php</span><span class="desc">O cabo de rede do projeto: o script PDO seguro que liga nosso PHP ao banco de dados MySQL.</span></div></li>
+                        <li><div class="item"><span class="icon">📦</span><span class="name">bootstrap.html / links.html</span><span class="desc">Onde declaramos rapidamente as CDNs do Bootstrap e outras dependências globais.</span></div></li>
+                    </ul>
+                </details>
+            </li>
+
+            <!-- Database -->
+            <li>
+                <details>
+                    <summary>
+                        <div class="item">
+                            <span class="icon">📁</span><span class="name">database/</span>
+                            <span class="desc">O cofre de dados do projeto. Contém as plantas arquitetônicas do nosso banco relacional.</span>
+                        </div>
+                    </summary>
+                    <ul>
+                        <li><div class="item"><span class="icon">🗄️</span><span class="name">db.sql</span><span class="desc">O script com todas as tabelas (CREATE TABLE) e relacionamentos para iniciar o banco do zero.</span></div></li>
+                    </ul>
+                </details>
+            </li>
+
+            <!-- Docs & Pesquisas -->
+            <li>
+                <details>
+                    <summary>
+                        <div class="item">
+                            <span class="icon">📁</span><span class="name">docs/ & pesquisas/</span>
+                            <span class="desc">A nossa base de conhecimento técnico e de gestão. Anotações valiosas sobre o desenvolvimento.</span>
+                        </div>
+                    </summary>
+                    <ul>
+                        <li><div class="item"><span class="icon">📚</span><span class="name">manual-usuario.md</span><span class="desc">O guia passo a passo ensinando o cliente final a utilizar e navegar pelo sistema EasyRail.</span></div></li>
+                        <li><div class="item"><span class="icon">🔬</span><span class="name">apis, crud, scrum.md...</span><span class="desc">Nossos estudos de viabilidade, anotações sobre a metodologia Ágil (Scrum) e relatórios de IA.</span></div></li>
+                    </ul>
+                </details>
+            </li>
+
+            <!-- Public -->
+            <li>
+                <details open>
+                    <summary>
+                        <div class="item">
+                            <span class="icon">📁</span><span class="name">public/</span>
+                            <span class="desc">O "Front-end" em PHP. São as telas principais que o usuário final e os gestores realmente acessam e interagem.</span>
+                        </div>
+                    </summary>
+                    <ul>
+                        <li><div class="item"><span class="icon">🏠</span><span class="name">home.php</span><span class="desc">O painel de controle (Dashboard) principal logo após o usuário fazer o login com sucesso.</span></div></li>
+                        <li><div class="item"><span class="icon">🔐</span><span class="name">login.php</span><span class="desc">A porta de entrada segura do sistema. A tela de autenticação para usuários cadastrados.</span></div></li>
+                        <li><div class="item"><span class="icon">🚂</span><span class="name">frota, rotas, sensores.php...</span><span class="desc">As páginas completas onde visualizamos, em formato de tabela e listas, os dados do sistema.</span></div></li>
+                    </ul>
+                </details>
+            </li>
+
+            <!-- Scripts -->
+            <li>
+                <details>
+                    <summary>
+                        <div class="item">
+                            <span class="icon">📁</span><span class="name">scripts/</span>
+                            <span class="desc">A vida da interface. Arquivos JavaScript que dão movimento, validação e dinamismo às telas, sem precisar recarregar o PHP.</span>
+                        </div>
+                    </summary>
+                    <ul>
+                        <li><div class="item"><span class="icon">⚡</span><span class="name">api-CEP.js / api-clima.js</span><span class="desc">Comunicações em segundo plano (AJAX/Fetch) que buscam dados em tempo real na internet.</span></div></li>
+                        <li><div class="item"><span class="icon">📜</span><span class="name">frota.js, rotas.js...</span><span class="desc">Responsáveis por controlar os cliques, paginação e preparar os dados antes de enviá-los ao banco.</span></div></li>
+                    </ul>
+                </details>
+            </li>
+
+            <!-- Source -->
+            <li>
+                <details open>
+                    <summary>
+                        <div class="item">
+                            <span class="icon">📁</span><span class="name">source/</span>
+                            <span class="desc">O motor do sistema ("Back-end"). Onde acontecem as regras de negócio, validações ocultas e a verdadeira manipulação do banco.</span>
+                        </div>
+                    </summary>
+                    <ul>
+                        <li><div class="item"><span class="icon">🛡️</span><span class="name">auth-login.php</span><span class="desc">O segurança do sistema: script que checa se o e-mail e a senha existem no banco e cria a sessão.</span></div></li>
+                        <li>
+                            <details>
+                                <summary><div class="item"><span class="icon">📁</span><span class="name">create/</span><span class="desc">Processa os dados que vêm dos formulários (POST) e faz o comando INSERT no banco.</span></div></summary>
+                                <ul><li><div class="item"><span class="icon">⚙️</span><span class="name">frota-create, rota-create...</span></div></li></ul>
+                            </details>
+                        </li>
+                        <li>
+                            <details>
+                                <summary><div class="item"><span class="icon">📁</span><span class="name">update/</span><span class="desc">Recebe as edições do usuário e atualiza (UPDATE) as informações antigas no banco de dados.</span></div></summary>
+                                <ul><li><div class="item"><span class="icon">⚙️</span><span class="name">frota-update, rota-update...</span></div></li></ul>
+                            </details>
+                        </li>
+                        <li>
+                            <details>
+                                <summary><div class="item"><span class="icon">📁</span><span class="name">delete/</span><span class="desc">A lixeira do sistema. Executa com segurança o comando DELETE para remover registros indesejados.</span></div></summary>
+                                <ul><li><div class="item"><span class="icon">⚙️</span><span class="name">frota-delete, rota-delete...</span></div></li></ul>
+                            </details>
+                        </li>
+                    </ul>
+                </details>
+            </li>
+        </ul>
+    </div>
+
+</body>
+</html>
