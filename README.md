@@ -19,6 +19,7 @@ Nosso Mockup foi focado em fazer um site com uma identidade visual diferente mas
 ## Estrutura do Diretório
 
 ```text
+
 Directory structure:
 └── devcaetan0-easyrail-sa/
     ├── README.md
@@ -55,6 +56,8 @@ Directory structure:
     │   └── links.html
     ├── database/
     │   └── db.sql
+    ├── docs/
+    │   └── manual_do_usuario_easyrail.md
     ├── pesquisas/
     │   ├── apis.md
     │   ├── crud.md
@@ -96,6 +99,7 @@ Directory structure:
             ├── rota-update.php
             ├── sensor-update.php
             └── usuario-update.php
+
 
 ```
 
@@ -188,6 +192,69 @@ Para desenvolver o sistema, utilizaremos HTML, CSS, Javascript e Bootstrap, para
 7. **Login:** Tela interativa para realizar login.
 8. **Home:** Página interativa que mostra todas as outras possíveis abas no sistema.
 
+   
+
+##  Instalação e Configuração 
+
+Para rodar e testar esta aplicação na sua máquina, siga os passos abaixo utilizando o ambiente **XAMPP**:
+
+### Pré-requisitos
+* Ter o [XAMPP](https://apachefriends.org) instalado (com suporte a PHP e MySQL).
+* Ter o [Git](https://git-scm.com) instalado (opcional, mas recomendado).
+
+### Passo a Passo
+1. **Baixar o Projeto:**
+   Navegue até a pasta raiz de servidores do seu XAMPP (geralmente em `C:\xampp\htdocs\`) pelo seu terminal e clone o repositório:
+   ```bash
+   cd C:\xampp\htdocs
+   git clone https://github.com
+   ```
+*(Caso não use o Git, baixe o arquivo. ZIP do repositório e extraia-o dentro da pasta htdocs mudando o nome da pasta para easyrail-sa).*
+
+2. **Iniciar os Serviços no XAMPP:**
+   * Abra o **XAMPP Control Panel**.
+   * Clique em **Start** nos módulos **Apache** e **MySQL**.
+
+---
+
+##  Configuração e Importação do Banco de Dados
+
+O sistema utiliza o banco de dados **MySQL** e o gerenciamento é feito de forma visual pelo **phpMyAdmin**:
+
+1. Abra o seu navegador e acesse o endereço: [http://localhost/phpmyadmin/](http://localhost/phpmyadmin/)
+2. No menu lateral esquerdo, clique em **Novo** (New) para criar uma nova base de dados.
+3. Defina o nome do banco exatamente como configurado em `/config/conexao.php` (normalmente nomeado como `easyraildb`) e clique em **Criar**.
+4. Clique no banco de dados recém-criado e vá na aba superior **Importar** (Import).
+5. Clique em **Escolher arquivo** e selecione o script SQL que está no seu projeto em:
+   ```text
+   easyrail-sa/database/db.sql
+   ```
+6. Vá até o final da página e clique no botão **Importar** (ou **Executar**). As tabelas serão geradas automaticamente.
+
+- Ou para não fazer todos esses passos copie e cole todo o codigo que está no db em sql que já cria o banco e tem todos os imports.
+
+---
+
+##  Orientações para Iniciar a Aplicação
+
+Com o Apache/MySQL rodando no XAMPP e o banco importado, o sistema já estará pronto!
+
+1. Abra o seu navegador web.
+2. Acesse a URL do projeto:
+   ```text
+   http://localhost/easyrail-sa/
+   ```
+3. O sistema carregará a tela inicial (`index.php`) e exigirá o login para navegação nas áreas restritas.
+
+---
+
+##  Perfis de Acesso e Permissões
+
+O controle de usuários bloqueia visitantes não autenticados e delega privilégios para os funcionários:
+* **Administradores Autenticados:** Têm permissão total para acessar as abas do sistema, gerenciar a frota, rotas e cadastrar/editar/excluir sensores e usuários.
+* **Funcionarios:** Tem acesso limitado para algumas imagens do sistema.
+* **Segurança de Dados e Integridade:** O sistema impede por meio de travas lógicas que um sensor com dados vinculados a relatórios seja apagado do sistema. Da mesma forma, trens com rotas atribuídas, rotas associadas a frotas ou usuários vinculados a cadastros ativos não podem ser excluídos, emitindo alertas visuais de erro na tela para o usuário.
+
 
  
 ## Funcionalidades Das Principais Páginas
@@ -240,6 +307,18 @@ Pop-up Cadastrar Novo Sensor contendo:
 
 
 
+## Integrantes e Contribuições 
+
+O desenvolvimento do projeto foi distribuído entre os membros da equipe de forma colaborativa, utilizando as metodologias ágeis **Scrum** e **Kanban**:
+
+Todos nos se ajudamos em todas as páginas, mas em algumas teve uma enfase maior de algum integrante. Mas em todas as coisas nos ajudamos um ao outro e não tem algo que alguém fez sozinho.
+
+* **[Antônio]:** Responsável pela tela inicial, tela de sensores, Crud's, correção de bugs, validação, backend e Javascript.
+* **[Davi Batista]:** Responsável pelo  backend, refatoração, organização, validação, frontend.
+* **[Gabriel Maciel]:** Responsável pela tela de usuários, pesquisas, landing page, resolução de bugs, organização do kanban e organização do readme, frontend e backend.
+* **[Rafael Calegari]:** Responsável pela tela de usuários, rotas, pesquisas, frontend, correção de bugs, backend e frontend.
+ 
+
 ## Metodologias De Desenvolvimento: 
 
 Para garantir a eficiência e entrega contínua do projeto, escolhemos adotar duas metodologias de desenvolvimento de software: Kanban e Scrum.
@@ -258,5 +337,34 @@ Utilizaremos o Kanban como nosso principal suporte para gerenciar as tarefas vis
 ### Scrum
 
 Utilizaremos o Scrum como um suporte ao Kanban. Utilizaremos o Scrum: com as Sprints e reuniões, conseguiremos organizar o fluxo de trabalho, o pensamento e o alinhamento de todo o projeto. Além disso, com o Scrum e através das Sprints, conseguimos ver os pontos que nós temos que melhorar no trabalho. Assim, vamos melhorando e revisando os erros durante todo o período de desenvolvimento e, claro, dividindo em pequenas tarefas em períodos curtos de tempo, deixando o fluxo de trabalho muito mais organizado.
+
+
+### Limitações Conhecidas
+
+* **Restrição de Exclusão por Vínculo:** Por questões de consistência, relatórios históricos e auditoria, o sistema bloqueia a exclusão de sensores que possuam dados coletados. O mesmo princípio se aplica a frotas (trens) vinculadas a rotas e usuários associados a cadastros ativos no banco de dados. Eles devem ser desvinculados antes de qualquer tentativa de remoção.
+* **Conectividade:** As seções de previsão do tempo e localização urbana dependem 100% da estabilidade operacional e resposta das APIs externas de CEP e Clima integradas via JavaScript.
+
+
+## Versão Final do Site: 
+
+Algumas imagens da versão final do site:
+
+
+<img width="952" height="469" alt="unnamed" src="https://github.com/user-attachments/assets/4a9d8d23-7b03-4d55-b9ce-5deb2b617a85" />
+<img width="952" height="467" alt="unnamed" src="https://github.com/user-attachments/assets/f0d49cc2-0b05-4588-8b0c-dda5e8270d72" />
+<img width="952" height="469" alt="unnamed" src="https://github.com/user-attachments/assets/3d6f77c5-3d56-4c13-9ac1-bf78be4a387d" />
+<img width="952" height="467" alt="unnamed" src="https://github.com/user-attachments/assets/9b09be09-d218-400a-92a1-484faeecab34" />
+<img width="952" height="467" alt="unnamed" src="https://github.com/user-attachments/assets/33474a1c-877f-40c6-a29b-4eecd6158a81" />
+<img width="952" height="466" alt="unnamed" src="https://github.com/user-attachments/assets/90aae934-8a9a-4cd3-85c9-a9f4542258ec" />
+<img width="952" height="466" alt="unnamed" src="https://github.com/user-attachments/assets/58f8b5e5-89e0-4eab-87a1-b22c048b1d9b" />
+<img width="952" height="466" alt="unnamed" src="https://github.com/user-attachments/assets/2f2c8f90-1986-4db0-a400-ff1f057f5015" />
+
+
+
+
+
+
+
+
 
 
