@@ -57,7 +57,9 @@ Directory structure:
     ├── database/
     │   └── db.sql
     ├── docs/
-    │   └── manual_do_usuario_easyrail.md
+    │   ├── easyrail-diagrama.html
+    │   ├── manual-usuario.md
+    │   └── organizacao-repositorio.html
     ├── pesquisas/
     │   ├── apis.md
     │   ├── crud.md
