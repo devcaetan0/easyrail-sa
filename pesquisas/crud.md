@@ -60,10 +60,10 @@ As operações DELETE permitem ao usuário remover registros do banco de dados. 
 
 Como estas operações serão aplicadas no contexto do projeto
 
-As operações serão aplicadas em basicamente todas as áreas do nosso projeto. O create será utilizado para criar diversos registros quando forem criadas as contas das pessoas dentro do website, como registrar os nomes do usuário e suas senhas, também utilizaremos quando forem cadastrados os sensores e também os dados dos sensores, como a distância que o trem está percorrendo e etc…
+As operações serão aplicadas em basicamente todas as áreas do nosso projeto. O create será utilizado para criar diversos registros quando forem criadas as contas das pessoas dentro do website, como registrar os nomes do usuário e suas senhas, também utilizaremos quando forem cadastrados os sensores vinculados às rotas e os dados que eles coletam, como velocidade, localização e ocorrências.
 
-Quando um sensor detecta as locomotivas os dados são processados em tempo real e é sempre preciso procurar/ ler estes dados para estudo e análise então utilizaremos muito o comando READ para isto.
+Os dados coletados pelos sensores nas rotas são processados em tempo real e é sempre preciso procurar/ ler estes dados para estudo e análise então utilizaremos muito o comando READ para isto.
 
 E então com os dados sendo processados em tempo real nós precisamos atualizar sempre os dados novos que são processados, novos problemas, problemas nos trens, as variáveis de dados, em resumo o desempenho do trem e para atualizar este dados utilizaremos o comando UPDATE, no projeto.
 
-O comando DELETE nos utilizaremos para deletar os registros, como uma pessoa que foi desligada da empresa que não tem mais ao acesso do dashboard, um trem que estragou e nao tem mais concerto então deletamos os seus dados, um sensor que entrou em falha e nao tem concerto apagamos seu registro e entre outras situações que utilizaremos o delete.
+O comando DELETE será utilizado para remover registros, como contas de pessoas desligadas da empresa ou sensores que entraram em falha.

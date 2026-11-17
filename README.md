@@ -1,6 +1,6 @@
 # EasyRail
 
-A proposta do trabalho deste repositório é desenvolver um sistema de controle ferroviário para que os usuários tenham acesso a informações vindas dos sensores presentes nos trens, nos trilhos e no ambiente, permitindo uma melhor análise do desempenho do envio de cargas. Este projeto é uma proposta de situação de aprendizagem para aprendermos a desenvolver sites na prática e demonstrar o conhecimento adquirido durante os anos letivos. Nós escolhemos esse nome em um consenso da equipe, pois queríamos fazer um trabalho simples, mas que funcionasse e fosse prazeroso para os usuários utilizarem. Quanto à nossa identidade visual, escolhemos cores marcantes para demonstrar o nosso diferencial em relação a outros sites e ser algo inovador.
+A proposta do trabalho deste repositório é desenvolver um sistema de controle ferroviário para que os usuários tenham acesso a informações das rotas e aos dados dos sensores vinculados a elas, permitindo uma melhor análise do desempenho do envio de cargas. Este projeto é uma proposta de situação de aprendizagem para aprendermos a desenvolver sites na prática e demonstrar o conhecimento adquirido durante os anos letivos. Nós escolhemos esse nome em um consenso da equipe, pois queríamos fazer um trabalho simples, mas que funcionasse e fosse prazeroso para os usuários utilizarem. Quanto à nossa identidade visual, escolhemos cores marcantes para demonstrar o nosso diferencial em relação a outros sites e ser algo inovador.
 
 
 ## Identidade Visual e Documentação

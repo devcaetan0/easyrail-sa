@@ -1,5 +1,4 @@
 <?php
-$resultadoTrens = $conexao->query("SELECT id, modelo FROM trem ORDER BY modelo ASC");
 $resultadoRotas = $conexao->query("SELECT id, nome FROM rota ORDER BY nome ASC");
 ?>
 
@@ -20,15 +19,6 @@ $resultadoRotas = $conexao->query("SELECT id, nome FROM rota ORDER BY nome ASC")
                     <div class="mb-3">
                         <label for="tipo" class="form-label fw-bold">Tipo</label>
                         <input type="text" class="form-control" id="tipo" name="tipo" maxlength="45" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="trem_id" class="form-label fw-bold">Trem vinculado</label>
-                        <select class="form-select" id="trem_id" name="trem_id" required>
-                            <option value="">Selecione um trem</option>
-                            <?php while ($trem = $resultadoTrens->fetch_assoc()) { ?>
-                                <option value="<?= $trem['id'] ?>"><?= $trem['modelo'] ?></option>
-                            <?php } ?>
-                        </select>
                     </div>
                     <div class="mb-3">
                         <label for="rota_id" class="form-label fw-bold">Rota vinculada</label>

@@ -6,11 +6,10 @@ verificarAcesso(67);
 $perfilAtual = $_SESSION['perfil_id'];
 
 $resultadoSensores = $conexao->query("
-    SELECT s.id, s.nome, s.tipo, st.nome AS status, s.status_id, s.trem_id, s.rota_id,
-    t.modelo AS trem, r.nome AS rota
+    SELECT s.id, s.nome, s.tipo, st.nome AS status, s.status_id, s.rota_id,
+    r.nome AS rota
     FROM sensor s
     JOIN status st ON s.status_id = st.id
-    LEFT JOIN trem t ON s.trem_id = t.id
     LEFT JOIN rota r ON s.rota_id = r.id
     ORDER BY s.id ASC
 ");
@@ -22,12 +21,6 @@ $resultadoRotas = $conexao->query("
     FROM rota r
     INNER JOIN sensor s ON s.rota_id = r.id
     ORDER BY r.nome ASC
-");
-$resultadoTrem = $conexao->query("
-    SELECT DISTINCT t.id, t.modelo
-    FROM trem t
-    INNER JOIN sensor s ON s.trem_id = t.id
-    ORDER BY t.modelo ASC
 ");
 ?>
 
@@ -55,19 +48,26 @@ $resultadoTrem = $conexao->query("
                     </button>
                 <?php } ?>
             </div>
-            <p class="cabecalho-pagina-description">Tela para cadastro, gereciamento e listagem de todos os sensores.</p>
+            <p class="cabecalho-pagina-description">Tela para cadastro, gereciamento e listagem de todos os sensores.
+            </p>
         </div>
 
         <div class="container-fluid conteudo-pagina">
             <?php include("../components/mensagem.php"); ?>
 
-            <div class="card p-3 mb-3 shadow-sm">
-                <div class="row">
-                    <div class="col-md-3 mb-2">
+            <div class="card p-3 p-lg-4 mb-3 shadow-sm border-0">
+                <div class="row g-3 align-items-end">
+                    <div class="col-12 col-md-6 col-lg-4">
                         <label class="fw-bold form-label" for="pesquisaSensor">Pesquisar</label>
-                        <input type="search" class="form-control" placeholder="Nome/ID" id="pesquisaSensor">
+                        <div class="input-group">
+                            <span class="input-group-text bg-white">
+                                <i class="bi bi-search text-secondary" aria-hidden="true"></i>
+                            </span>
+                            <input type="search" class="form-control" placeholder="Nome ou ID do sensor"
+                                id="pesquisaSensor">
+                        </div>
                     </div>
-                    <div class="col-md-2 mb-2">
+                    <div class="col-12 col-md-6 col-lg-2">
                         <label class="fw-bold form-label" for="filtroTipo">Tipo</label>
                         <select class="form-select" id="filtroTipo">
                             <option value="">Todos</option>
@@ -78,7 +78,7 @@ $resultadoTrem = $conexao->query("
                             <?php } ?>
                         </select>
                     </div>
-                    <div class="col-md-2 mb-2 mb-md-0">
+                    <div class="col-12 col-md-6 col-lg-3">
                         <label class="fw-bold form-label" for="filtroRota">Rota</label>
                         <select class="form-select" id="filtroRota">
                             <option value="">Todas</option>
@@ -89,18 +89,7 @@ $resultadoTrem = $conexao->query("
                             <?php } ?>
                         </select>
                     </div>
-                    <div class="col-md-2 mb-2 mb-md-0">
-                        <label class="fw-bold form-label" for="filtroTrem">Trem</label>
-                        <select class="form-select" id="filtroTrem">
-                            <option value="">Todos</option>
-                            <?php while ($trem = $resultadoTrem->fetch_assoc()) { ?>
-                                <option value="<?= $trem['modelo'] ?>">
-                                    <?= $trem['modelo'] ?>
-                                </option>
-                            <?php } ?>
-                        </select>
-                    </div>
-                    <div class="col-md-3">
+                    <div class="col-12 col-md-6 col-lg-3">
                         <label class="fw-bold form-label" for="filtroStatus">Status</label>
                         <select class="form-select" id="filtroStatus">
                             <option value="">Todos</option>
@@ -121,7 +110,6 @@ $resultadoTrem = $conexao->query("
                                 <th>Nome</th>
                                 <th>Tipo</th>
                                 <th>Status</th>
-                                <th>Trem</th>
                                 <th>Rota</th>
                                 <?php if ($perfilAtual == 1) { ?>
                                     <th>Ações</th>
@@ -131,13 +119,11 @@ $resultadoTrem = $conexao->query("
                         <tbody id="tabelaSensores">
                             <?php while ($sensor = $resultadoSensores->fetch_assoc()) { ?>
                                 <tr data-tipo="<?= $sensor['tipo'] ?>" data-status="<?= $sensor['status'] ?>"
-                                    data-trem="<?= $sensor['trem'] ?? 'Nenhum' ?>"
                                     data-rota="<?= $sensor['rota'] ?? 'Nenhuma' ?>">
                                     <td>#<?= $sensor['id'] ?></td>
                                     <td class="nome-tr"><?= $sensor['nome'] ?></td>
                                     <td><?= $sensor['tipo'] ?></td>
                                     <td><?= $sensor['status'] ?></td>
-                                    <td><?= $sensor['trem'] ?? 'Nenhum' ?></td>
                                     <td><?= $sensor['rota'] ?? 'Nenhuma' ?></td>
                                     <?php if ($perfilAtual == 1) { ?>
                                         <td>
@@ -145,7 +131,6 @@ $resultadoTrem = $conexao->query("
                                                 data-bs-toggle="modal" data-bs-target="#modalEditarSensor"
                                                 data-id="<?= $sensor['id'] ?>" data-nome="<?= $sensor['nome'] ?>"
                                                 data-tipo="<?= $sensor['tipo'] ?>" data-status-id="<?= $sensor['status_id'] ?>"
-                                                data-trem-id="<?= $sensor['trem_id'] ?? '' ?>"
                                                 data-rota-id="<?= $sensor['rota_id'] ?? '' ?>">
                                                 <i class="bi bi-pencil fs-5"></i>
                                             </button>

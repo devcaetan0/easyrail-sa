@@ -35,9 +35,9 @@
             </h2>
 
             <p>
-                A integração das informações de sensores, locomotivas
-                e rotas permite uma visão mais organizada dos dados
-                disponíveis no ambiente ferroviário.
+                A consulta dos dados dos sensores vinculados às rotas
+                junto às informações da frota permite uma visão mais
+                organizada da operação ferroviária.
             </p>
 
             <div class="d-flex align-items-start gap-3 mt-3">

@@ -10,13 +10,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nome = trim($_POST['nome'] ?? '');
     $tipo = trim($_POST['tipo'] ?? '');
     $status_id = $_POST['status_id'] ?? null;
-    $trem_id = $_POST['trem_id'] ?? null;
     $rota_id = $_POST['rota_id'] ?? null;
 
-    $stmt = $conexao->prepare("UPDATE sensor SET nome = ?, tipo = ?, status_id = ?, trem_id = ?, rota_id = ? WHERE id = ?");
+    $stmt = $conexao->prepare("UPDATE sensor SET nome = ?, tipo = ?, status_id = ?, rota_id = ? WHERE id = ?");
 
     if ($stmt) {
-        $stmt->bind_param("ssiiii", $nome, $tipo, $status_id, $trem_id, $rota_id, $id);
+        $stmt->bind_param("ssiii", $nome, $tipo, $status_id, $rota_id, $id);
 
         if ($stmt->execute()) {
             $mensagem = "Sensor atualizado com sucesso!";

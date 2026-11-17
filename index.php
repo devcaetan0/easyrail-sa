@@ -70,8 +70,8 @@ if (isset($_GET['logout'])) {
         <div class="border-top py-4">
             <h2 class="h4 fw-bold">O que a EasyRail propõe?</h2>
             <p>
-                Acompanhar uma operação ferroviária exige relacionar informações de trens, trajetos e sensores.
-                A EasyRail organiza esses dados para facilitar consultas e dar mais visibilidade ao cenário operacional.
+                Acompanhar uma operação ferroviária exige organizar informações de trens e trajetos, além dos sensores
+                vinculados às rotas. A EasyRail facilita consultas e dá mais visibilidade ao cenário operacional.
             </p>
             <div class="row g-3 cards-proposta">
                 <div class="col-12 col-md-6">
@@ -83,7 +83,7 @@ if (isset($_GET['logout'])) {
                 </div>
                 <div class="col-12 col-md-6">
                     <div class="h-100 bg-white border rounded-3 p-3">
-                        <h3 class="h6 fw-bold"><i class="bi bi-broadcast text-warning me-2"></i>Sensores e frota</h3>
+                        <h3 class="h6 fw-bold"><i class="bi bi-broadcast text-warning me-2"></i>Sensores e rotas</h3>
                         <p class=" mb-0">Gerencie trens, rotas e sensores, incluindo dados como
                             velocidade, localização e falhas.</p>
                     </div>

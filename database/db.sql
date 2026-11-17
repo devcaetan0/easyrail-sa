@@ -17,7 +17,6 @@ CREATE TABLE status (
     nome VARCHAR(45) NOT NULL
 );
 
-
 CREATE TABLE usuario (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(100) NOT NULL,
@@ -68,11 +67,9 @@ CREATE TABLE sensor (
     nome VARCHAR(100) NOT NULL,
     tipo VARCHAR(45) NOT NULL,
     status_id INT DEFAULT 1,
-    trem_id INT,
     rota_id INT,
 
     FOREIGN KEY (status_id) REFERENCES status(id),
-    FOREIGN KEY (trem_id) REFERENCES trem(id),
     FOREIGN KEY (rota_id) REFERENCES rota(id)
 );
 
@@ -291,27 +288,27 @@ INSERT INTO rota (nome, descricao, distancia, duracao, trem_id) VALUES
 ('Rota Vale 1', 'Transporte de combustíveis no vale', 135.0, '02:45:00', NULL),
 ('Rota Reserva 1', 'Trecho reserva para contingência', 50.0, '01:00:00', NULL);
 
-INSERT INTO sensor (nome, tipo, status_id, trem_id, rota_id) VALUES
-('Sensor de Temperatura 01', 'Temperatura', 1, 1, 1),
-('Sensor de Vibração 02', 'Vibração', 1, 1, 2),
-('Sensor de Velocidade 03', 'Velocidade', 3, 1, NULL),
-('Sensor de Pressão 04', 'Pressão', 1, 2, 4),
-('Sensor de Umidade 05', 'Umidade', 2, 2, 5),
-('Sensor de Peso 06', 'Peso', 1, 2, NULL),
-('Sensor de Temperatura 07', 'Temperatura', 1, 3, 7),
-('Sensor de Vibração 08', 'Vibração', 1, 3, NULL),
-('Sensor de Velocidade 09', 'Velocidade', 3, 4, 9),
-('Sensor de Pressão 10', 'Pressão', 1, 4, 10),
-('Sensor de Umidade 11', 'Umidade', 1, 4, NULL),
-('Sensor de Peso 12', 'Peso', 1, 5, 12),
-('Sensor de Temperatura 13', 'Temperatura', 1, 5, NULL),
-('Sensor de Vibração 14', 'Vibração', 1, 9, NULL),
-('Sensor de Velocidade 15', 'Velocidade', 2, 9, NULL),
-('Sensor de Pressão 16', 'Pressão', 3, 10, NULL),
-('Sensor de Umidade 17', 'Umidade', 1, 11, NULL),
-('Sensor de Peso 18', 'Peso', 1, 11, NULL),
-('Sensor de Temperatura 19', 'Temperatura', 1, 12, NULL),
-('Sensor de Vibração 20', 'Vibração', 2, 12, NULL),
-('Sensor de Velocidade 21', 'Velocidade', 1, NULL, NULL),
-('Sensor de Pressão 22', 'Pressão', 2, NULL, NULL),
-('Sensor de Umidade 23', 'Umidade', 1, NULL, NULL);
+INSERT INTO sensor (nome, tipo, status_id, rota_id) VALUES
+('Sensor de Temperatura 01', 'Temperatura', 1, 1),
+('Sensor de Vibração 02', 'Vibração', 1, 2),
+('Sensor de Velocidade 03', 'Velocidade', 3, NULL),
+('Sensor de Pressão 04', 'Pressão', 1, 4),
+('Sensor de Umidade 05', 'Umidade', 2, 5),
+('Sensor de Peso 06', 'Peso', 1, NULL),
+('Sensor de Temperatura 07', 'Temperatura', 1, 7),
+('Sensor de Vibração 08', 'Vibração', 1, NULL),
+('Sensor de Velocidade 09', 'Velocidade', 3, 9),
+('Sensor de Pressão 10', 'Pressão', 1, 10),
+('Sensor de Umidade 11', 'Umidade', 1, NULL),
+('Sensor de Peso 12', 'Peso', 1, 12),
+('Sensor de Temperatura 13', 'Temperatura', 1, NULL),
+('Sensor de Vibração 14', 'Vibração', 1, NULL),
+('Sensor de Velocidade 15', 'Velocidade', 2, NULL),
+('Sensor de Pressão 16', 'Pressão', 3, NULL),
+('Sensor de Umidade 17', 'Umidade', 1, NULL),
+('Sensor de Peso 18', 'Peso', 1, NULL),
+('Sensor de Temperatura 19', 'Temperatura', 1, NULL),
+('Sensor de Vibração 20', 'Vibração', 2, NULL),
+('Sensor de Velocidade 21', 'Velocidade', 1, NULL),
+('Sensor de Pressão 22', 'Pressão', 2, NULL),
+('Sensor de Umidade 23', 'Umidade', 1, NULL);
