@@ -9,15 +9,15 @@
 
                 <ul class="list-unstyled">
                     <li class="mb-3">
-                        <a href="#" class="text-secondary text-decoration-none">Nossa proposta</a>
+                        <a href="#proposta" class="text-secondary text-decoration-none">Nossa proposta</a>
                     </li>
                     <li class="mb-3">
-                        <a href="#" class="text-secondary text-decoration-none">Objetivos do projeto</a>
+                        <a href="#monitoramento" class="text-secondary text-decoration-none">Objetivos do projeto</a>
                     </li>
                     <li class="mb-3">
-                        <a href="#" class="text-secondary text-decoration-none">Funcionalidades</a>
+                        <a href="#funcionalidades" class="text-secondary text-decoration-none">Funcionalidades</a>
                     </li>
-                    
+
                 </ul>
             </div>
 
@@ -100,13 +100,12 @@
 
                 <ul class="list-unstyled">
                     <li class="mb-3">
-                        <a href="#" class="text-secondary text-decoration-none">Como utilizar o sistema</a>
+                        <a href="https://docs.google.com/document/d/1ENW93y0cOLlV-CrtNNwRjOqVXmIzmHikbGRKs-E8nJI/edit?usp=sharing"
+                            class="text-secondary text-decoration-none">Como utilizar o sistema</a>
                     </li>
                     <li class="mb-3">
-                        <a href="https://github.com/devcaetan0/easyrail-sa" class="text-secondary text-decoration-none">Documentação</a>
-                    </li>
-                    <li class="mb-3">
-                        <a href="#" class="text-secondary text-decoration-none">Fale conosco</a>
+                        <a href="https://docs.google.com/document/d/1MB7gOFvf_L-3unkxo9Xj64JbBwdSI_qu04njbLAZorc/edit?usp=sharing"
+                            class="text-secondary text-decoration-none">Documentação</a>
                     </li>
                 </ul>
             </div>
@@ -126,6 +125,6 @@
                 </small>
 
             </div>
-            </div>
         </div>
+    </div>
 </footer>

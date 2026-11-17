@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nome = $_POST['nome'];
     $senha = $_POST['senha'];
 
-    $stmt = $conexao->prepare("SELECT id, nome, email, senha, perfil_id FROM usuario WHERE (nome = ? OR email = ?) ");
+    $stmt = $conexao->prepare("SELECT u.id, u.nome, u.email, u.senha, u.perfil_id, p.nome AS perfil FROM usuario u LEFT JOIN perfil p ON u.perfil_id = p.id WHERE (u.nome = ? OR u.email = ?) ");
     $stmt->bind_param("ss", $nome, $nome);
     $stmt->execute();
 
@@ -40,6 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $_SESSION['nome'] = $usuarios['nome'];
             $_SESSION['email'] = $usuarios['email'];
             $_SESSION['perfil_id'] = $usuarios['perfil_id'];
+            $_SESSION['perfil'] = $usuarios['perfil'];
             $_SESSION['logado'] = true;
 
             header('Location: ../public/home.php');

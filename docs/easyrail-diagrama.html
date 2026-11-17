@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Diagrama do Banco</title>
+  <style>
+    :root {
+      --card: #141414;
+      --card2: #1c1c1c;
+      --line: #2a2a2a;
+      --text: #f5f5f5;
+      --muted: #8a8a8a;
+      --orange: #ff6a00;
+      --orange-soft: rgba(255, 106, 0, .14);
+    }
+
+    * {
+      box-sizing: border-box
+    }
+
+    html,
+    body {
+      height: 100%;
+      margin: 0
+    }
+
+    body {
+      color: var(--text);
+      font: 14px/1.4 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      overflow: hidden
+    }
+
+    .mono,
+    .cn,
+    .ct,
+    h2 {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace
+    }
+
+    .viewport {
+      height: 100%;
+      overflow: auto
+    }
+
+    .canvas {
+      position: relative;
+      min-width: 100%;
+      min-height: 100%;
+      background-image: radial-gradient(#1f1f1f 1px, transparent 1px);
+      background-size: 26px 26px;
+    }
+
+    #links {
+      position: absolute;
+      left: 0;
+      top: 0;
+      z-index: 1;
+      pointer-events: none;
+      overflow: visible
+    }
+
+    .lnk {
+      fill: none;
+      stroke: #3a3a3a;
+      stroke-width: 1.5;
+      transition: stroke .15s, opacity .15s
+    }
+
+    .lnk.hot {
+      stroke: var(--orange);
+      stroke-width: 2.4
+    }
+
+    .dim .lnk:not(.hot) {
+      opacity: .25
+    }
+
+    .end-s {
+      fill: #3a3a3a
+    }
+
+    .end-t {
+      fill: var(--bg);
+      stroke: #3a3a3a;
+      stroke-width: 1.5
+    }
+
+    .end-s.hot {
+      fill: var(--orange)
+    }
+
+    .end-t.hot {
+      stroke: var(--orange)
+    }
+
+    /* ---------- Tabelas ---------- */
+    .card {
+      position: absolute;
+      width: 280px;
+      z-index: 2;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, .5);
+      transition: border-color .15s;
+    }
+
+    .card:hover {
+      border-color: #3c3c3c
+    }
+
+    .card.has-pop {
+      z-index: 60;
+      border-color: var(--orange)
+    }
+
+    .card-h {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      padding: 11px 13px;
+      cursor: grab;
+      user-select: none;
+      touch-action: none;
+      background: var(--card2);
+      border-bottom: 2px solid var(--orange);
+      border-radius: 11px 11px 0 0;
+    }
+
+    .card-h:active {
+      cursor: grabbing
+    }
+
+    .card-h h2 {
+      font-size: 14px;
+      margin: 0;
+      font-weight: 700;
+      letter-spacing: .3px;
+      text-transform: lowercase
+    }
+
+    .card-h .count {
+      margin-left: auto;
+      font-size: 11px;
+      color: var(--muted)
+    }
+
+    .rows {
+      padding: 5px 0 7px
+    }
+
+    .row {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      padding: 7px 13px;
+      cursor: pointer;
+      border-left: 3px solid transparent;
+      transition: background .12s, border-color .12s;
+      outline: none;
+    }
+
+    .row:hover,
+    .row:focus-visible {
+      background: #1d1d1d
+    }
+
+    .row.active {
+      background: var(--orange-soft);
+      border-left-color: var(--orange)
+    }
+
+    .key {
+      width: 24px;
+      font-size: 10px;
+      font-weight: 800;
+      text-align: center;
+      border-radius: 5px;
+      padding: 1px 0;
+      flex: none
+    }
+
+    .key.pk {
+      background: var(--text);
+      color: #000
+    }
+
+    .key.fk {
+      background: var(--orange);
+      color: #000
+    }
+
+    .key:empty {
+      visibility: hidden
+    }
+
+    .cn {
+      font-weight: 600;
+      font-size: 13px
+    }
+
+    .ct {
+      color: var(--muted);
+      font-size: 11px;
+      margin-left: auto;
+      white-space: nowrap
+    }
+
+    .chev {
+      color: var(--muted);
+      font-size: 10px;
+      transition: transform .15s
+    }
+
+    .row.active .chev {
+      transform: rotate(180deg);
+      color: var(--orange)
+    }
+
+    /* ---------- Dropdown com registros ---------- */
+    .pop {
+      position: absolute;
+      left: 8px;
+      top: calc(100% + 3px);
+      width: max(calc(100% - 16px), 300px);
+      background: #000;
+      border: 1px solid var(--orange);
+      border-radius: 10px;
+      padding: 10px;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, .8);
+      cursor: default;
+      z-index: 70;
+      animation: pop .14s ease-out;
+    }
+
+    @keyframes pop {
+      from {
+        opacity: 0;
+        translate: 0 -4px
+      }
+
+      to {
+        opacity: 1;
+        translate: 0 0
+      }
+    }
+
+    .ph {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      flex-wrap: wrap
+    }
+
+    .ph b {
+      font-family: ui-monospace, Menlo, Consolas, monospace;
+      font-size: 13px;
+      color: var(--orange)
+    }
+
+    .ph span {
+      color: var(--muted);
+      font-size: 11px
+    }
+
+    .pop ul {
+      list-style: none;
+      margin: 10px 0 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      max-height: 240px;
+      overflow: auto
+    }
+
+    .pop li {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 8px 10px
+    }
+
+    .rid {
+      font-size: 10px;
+      color: var(--muted);
+      font-family: ui-monospace, Menlo, monospace;
+      flex: none
+    }
+
+    .val {
+      flex: 1;
+      min-width: 0;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      white-space: nowrap
+    }
+
+    .val>* {
+      overflow: hidden;
+      text-overflow: ellipsis
+    }
+
+    .num {
+      flex: none;
+      font-family: ui-monospace, Menlo, monospace;
+      font-weight: 700;
+      background: var(--orange);
+      color: #000;
+      border-radius: 6px;
+      padding: 0 7px;
+      font-size: 12px
+    }
+
+    .num.pk {
+      background: var(--text)
+    }
+
+    .arr {
+      color: var(--orange);
+      flex: none
+    }
+
+    .refv {
+      font-weight: 600
+    }
+
+    .refv.muted {
+      color: var(--muted);
+      font-weight: 400
+    }
+
+    .val small {
+      color: var(--muted);
+      flex: none;
+      font-family: ui-monospace, Menlo, monospace;
+      font-size: 10px
+    }
+
+    .null {
+      color: var(--muted);
+      font-style: italic;
+      font-size: 12px
+    }
+
+    .empty {
+      margin-top: 10px;
+      padding: 12px;
+      border: 1px dashed #3a3a3a;
+      border-radius: 8px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 12px
+    }
+
+    .more {
+      margin-top: 8px;
+      background: none;
+      border: 0;
+      color: var(--orange);
+      font: inherit;
+      font-size: 12px;
+      cursor: pointer;
+      padding: 2px 0;
+    }
+
+    .more:hover {
+      text-decoration: underline
+    }
+  </style>
+</head>
+
+<body>
+
+  <main class="viewport" id="viewport">
+    <div class="canvas" id="canvas"><svg id="links"></svg></div>
+  </main>
+
+  <script>
+    /* =====================================================================
+       ⬇⬇⬇  ESPAÇO PARA OS REGISTROS  ⬇⬇⬇
+       Cole os dados aqui dentro, uma lista por tabela. Exemplo (apague as "//"):
+    
+       const SEED = {
+         perfil:  [ {id:1, nome:"Administrador"}, {id:2, nome:"Operador"} ],
+         status:  [ {id:1, nome:"Ativo"} ],
+         usuario: [ {id:1, nome:"admin", email:"admin@easyrail.com.br", senha:"...", perfil_id:1} ],
+         trem:    [ {id:1, modelo:"Locomotiva EMD SD70ACe", usuario_id:1, carga_id:1, status_id:1} ]
+       };
+    
+       Tabelas: perfil, carga, status, usuario, endereco, trem, rota, sensor, registro_sensor
+       ===================================================================== */
+    const SEED = {
+      perfil: [
+        { id: 1, nome: "Administrador" },
+        { id: 2, nome: "Operador" },
+        { id: 3, nome: "Analista de Manutenção" },
+        { id: 4, nome: "Gestor de Frota" }
+      ],
+      carga: [
+        { id: 1, nome: "Mineral" },
+        { id: 2, nome: "Combustível" },
+        { id: 3, nome: "Agrícola" },
+        { id: 4, nome: "Celulose" }
+      ],
+      status: [
+        { id: 1, nome: "Ativo" },
+        { id: 2, nome: "Inativo" },
+        { id: 3, nome: "Manutenção" }
+      ],
+      usuario: [
+        { id: 1, nome: "admin", email: "admin@easyrail.com.br", senha: "$2y$10$Si2/M8kMHvJLIYqQPh656OChuwlAbPAXHcnH.53ztKeXNqbWu4iBW", perfil_id: 1 },
+        { id: 2, nome: "neymar.jr", email: "neymar.jr@easyrail.com.br", senha: "$2y$10$Si2/M8kMHvJLIYqQPh656OChuwlAbPAXHcnH.53ztKeXNqbWu4iBW", perfil_id: 1 },
+        { id: 3, nome: "wellington.rato", email: "wellington.rato@easyrail.com.br", senha: "$2y$10$Si2/M8kMHvJLIYqQPh656OChuwlAbPAXHcnH.53ztKeXNqbWu4iBW", perfil_id: 2 },
+        { id: 4, nome: "angel.romero", email: "angel.romero@easyrail.com.br", senha: "$2y$10$Si2/M8kMHvJLIYqQPh656OChuwlAbPAXHcnH.53ztKeXNqbWu4iBW", perfil_id: 2 },
+        { id: 5, nome: "caca.rato", email: "caca.rato@easyrail.com.br", senha: "$2y$10$Si2/M8kMHvJLIYqQPh656OChuwlAbPAXHcnH.53ztKeXNqbWu4iBW", perfil_id: 3 },
+        { id: 6, nome: "giorgian.arrascaeta", email: "giorgian.arrascaeta@easyrail.com.br", senha: "$2y$10$Si2/M8kMHvJLIYqQPh656OChuwlAbPAXHcnH.53ztKeXNqbWu4iBW", perfil_id: 4 }
+      ],
+      endereco: [
+        { id: 1, estado: "Santa Catarina", cidade: "Florianópolis", bairro: "Centro", rua: "Rua Felipe Schmidt", usuario_id: 1 },
+        { id: 2, estado: "São Paulo", cidade: "São Paulo", bairro: "Pinheiros", rua: "Rua dos Pinheiros", usuario_id: 2 },
+        { id: 3, estado: "Rio de Janeiro", cidade: "Rio de Janeiro", bairro: "Copacabana", rua: "Avenida Nossa Senhora de Copacabana", usuario_id: 3 },
+        { id: 4, estado: "Minas Gerais", cidade: "Belo Horizonte", bairro: "Savassi", rua: "Rua Pernambuco", usuario_id: 4 },
+        { id: 5, estado: "Paraná", cidade: "Curitiba", bairro: "Batel", rua: "Avenida Vicente Machado", usuario_id: 5 }
+      ],
+      trem: [
+        { id: 1, modelo: "Locomotiva EMD SD70ACe", usuario_id: 1, carga_id: 1, status_id: 1 },
+        { id: 2, modelo: "Locomotiva GE AC44i", usuario_id: 2, carga_id: 2, status_id: 1 },
+        { id: 3, modelo: "Locomotiva Wabtec ES44AC", usuario_id: 3, carga_id: 4, status_id: 1 },
+        { id: 4, modelo: "Locomotiva GE C30-7", usuario_id: 1, carga_id: 5, status_id: 3 },
+        { id: 5, modelo: "Locomotiva EMD GT26MC", usuario_id: 4, carga_id: 2, status_id: 1 }
+      ],
+      rota: [
+        { id: 1, nome: "Rota Norte 1", descricao: "Trecho inicial de transporte", distancia: 120.5, duracao: "02:30:00", data_criacao: "2024-01-10 08:00:00", trem_id: 1 },
+        { id: 2, nome: "Rota Norte 4", descricao: "Expresso de grãos", distancia: 150.0, duracao: "03:00:00", data_criacao: "2024-01-12 09:15:00", trem_id: 2 },
+        { id: 3, nome: "Rota Sul 1", descricao: "Trecho sul de celulose", distancia: 200.0, duracao: "04:00:00", data_criacao: "2024-01-16 10:30:00", trem_id: 3 },
+        { id: 4, nome: "Rota Sul 4", descricao: "Transporte de contêineres A", distancia: 95.0, duracao: "01:55:00", data_criacao: "2024-01-18 12:00:00", trem_id: 4 },
+        { id: 5, nome: "Rota Leste 1", descricao: "Trecho leste de combustíveis", distancia: 220.0, duracao: "04:20:00", data_criacao: "2024-01-20 07:40:00", trem_id: 5 }
+      ],
+      sensor: [
+        { id: 1, nome: "Sensor de Temperatura 01", tipo: "Temperatura", status_id: 1, trem_id: 1, rota_id: 1 },
+        { id: 2, nome: "Sensor de Vibração 02", tipo: "Vibração", status_id: 1, trem_id: 1, rota_id: 2 },
+        { id: 3, nome: "Sensor de Pressão 04", tipo: "Pressão", status_id: 1, trem_id: 2, rota_id: 2 },
+        { id: 4, nome: "Sensor de Temperatura 07", tipo: "Temperatura", status_id: 1, trem_id: 3, rota_id: 3 },
+        { id: 5, nome: "Sensor de Peso 12", tipo: "Peso", status_id: 1, trem_id: 5, rota_id: 5 },
+        { id: 6, nome: "Sensor de Velocidade 21", tipo: "Velocidade", status_id: 1, trem_id: null, rota_id: null }
+      ],
+      registro_sensor: [
+        { id: 1, sensor_id: 1, data_registro: "2024-02-01 08:00:00", valor: 42.5 },
+        { id: 2, sensor_id: 1, data_registro: "2024-02-01 08:05:00", valor: 44.1 },
+        { id: 3, sensor_id: 2, data_registro: "2024-02-01 08:10:00", valor: 12.8 },
+        { id: 4, sensor_id: 3, data_registro: "2024-02-01 08:15:00", valor: 87.3 },
+        { id: 5, sensor_id: 4, data_registro: "2024-02-01 08:20:00", valor: 39.6 },
+        { id: 6, sensor_id: 5, data_registro: "2024-02-01 08:25:00", valor: 96.2 }
+      ]
+    };
+    /* ⬆⬆⬆  FIM DO ESPAÇO PARA OS REGISTROS  ⬆⬆⬆ */
+
+
+    /* ---------- Esquema (extraído do db.sql) ----------
+       label = coluna exibida quando a tabela é referenciada por uma FK */
+    const SCHEMA = [
+      {
+        name: 'perfil', label: 'nome', x: 30, y: 30, cols: [
+          { n: 'id', t: 'INT', pk: 1 }, { n: 'nome', t: 'VARCHAR(45)' }]
+      },
+      {
+        name: 'carga', label: 'nome', x: 30, y: 190, cols: [
+          { n: 'id', t: 'INT', pk: 1 }, { n: 'nome', t: 'VARCHAR(100)' }]
+      },
+      {
+        name: 'status', label: 'nome', x: 30, y: 350, cols: [
+          { n: 'id', t: 'INT', pk: 1 }, { n: 'nome', t: 'VARCHAR(45)' }]
+      },
+
+      {
+        name: 'usuario', label: 'nome', x: 380, y: 30, cols: [
+          { n: 'id', t: 'INT', pk: 1 }, { n: 'nome', t: 'VARCHAR(100)' }, { n: 'email', t: 'VARCHAR(100)' },
+          { n: 'senha', t: 'VARCHAR(255)' }, { n: 'perfil_id', t: 'INT', fk: 'perfil' }]
+      },
+      {
+        name: 'endereco', label: 'rua', x: 380, y: 320, cols: [
+          { n: 'id', t: 'INT', pk: 1 }, { n: 'estado', t: 'VARCHAR(45)' }, { n: 'cidade', t: 'VARCHAR(100)' },
+          { n: 'bairro', t: 'VARCHAR(100)' }, { n: 'rua', t: 'VARCHAR(100)' }, { n: 'usuario_id', t: 'INT', fk: 'usuario' }]
+      },
+
+      {
+        name: 'trem', label: 'modelo', x: 730, y: 30, cols: [
+          { n: 'id', t: 'INT', pk: 1 }, { n: 'modelo', t: 'VARCHAR(100)' }, { n: 'usuario_id', t: 'INT', fk: 'usuario' },
+          { n: 'carga_id', t: 'INT', fk: 'carga' }, { n: 'status_id', t: 'INT', fk: 'status' }]
+      },
+      {
+        name: 'rota', label: 'nome', x: 730, y: 320, cols: [
+          { n: 'id', t: 'INT', pk: 1 }, { n: 'nome', t: 'VARCHAR(100)' }, { n: 'descricao', t: 'TEXT' },
+          { n: 'distancia', t: 'FLOAT' }, { n: 'duracao', t: 'TIME' }, { n: 'data_criacao', t: 'DATETIME' },
+          { n: 'trem_id', t: 'INT', fk: 'trem' }]
+      },
+
+      {
+        name: 'sensor', label: 'nome', x: 1080, y: 30, cols: [
+          { n: 'id', t: 'INT', pk: 1 }, { n: 'nome', t: 'VARCHAR(100)' }, { n: 'tipo', t: 'VARCHAR(45)' },
+          { n: 'rota_id', t: 'INT', fk: 'rota' }, { n: 'trem_id', t: 'INT', fk: 'trem' }, { n: 'status_id', t: 'INT', fk: 'status' }]
+      },
+      {
+        name: 'registro_sensor', label: 'valor', x: 1080, y: 340, cols: [
+          { n: 'id', t: 'INT', pk: 1 }, { n: 'sensor_id', t: 'INT', fk: 'sensor' }, { n: 'data_registro', t: 'DATETIME' }, { n: 'valor', t: 'FLOAT' }]
+      },
+    ];
+    const T = Object.fromEntries(SCHEMA.map(t => [t.name, t]));
+    const DB = {};
+    SCHEMA.forEach(t => DB[t.name] = Array.isArray(SEED[t.name]) ? SEED[t.name] : []);
+
+    const $ = s => document.querySelector(s);
+    const canvas = $('#canvas'), svg = $('#links');
+    const esc = s => String(s ?? '').replace(/[&<>"']/g, m => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[m]));
+    const labelOf = (tn, r) => { const v = r[T[tn].label]; return (v === null || v === undefined || v === '') ? '#' + r.id : v; };
+
+    /* ---------- Cartões ---------- */
+    function buildCards() {
+      SCHEMA.forEach(t => {
+        const card = document.createElement('section');
+        card.className = 'card'; card.id = 'card-' + t.name;
+        card.style.left = t.x + 'px'; card.style.top = t.y + 'px';
+        card.innerHTML = `<header class="card-h"><h2>${t.name}</h2><span class="count">${DB[t.name].length} reg.</span></header><div class="rows"></div>`;
+        const rows = card.querySelector('.rows');
+        t.cols.forEach(c => {
+          const r = document.createElement('div');
+          r.className = 'row'; r.tabIndex = 0; r.dataset.t = t.name; r.dataset.c = c.n;
+          r.innerHTML = `<span class="key ${c.pk ? 'pk' : c.fk ? 'fk' : ''}">${c.pk ? 'PK' : c.fk ? 'FK' : ''}</span><span class="cn">${c.n}</span><span class="ct">${c.t}</span><span class="chev">▾</span>`;
+          rows.appendChild(r);
+        });
+        canvas.appendChild(card);
+        enableDrag(card);
+      });
+    }
+
+    /* ---------- Arrastar ---------- */
+    function enableDrag(card) {
+      const h = card.querySelector('.card-h');
+      let sx, sy, ox, oy, drag = false;
+      h.addEventListener('pointerdown', e => { drag = true; sx = e.clientX; sy = e.clientY; ox = card.offsetLeft; oy = card.offsetTop; h.setPointerCapture(e.pointerId); });
+      h.addEventListener('pointermove', e => {
+        if (!drag) return;
+        card.style.left = Math.max(0, ox + e.clientX - sx) + 'px';
+        card.style.top = Math.max(0, oy + e.clientY - sy) + 'px';
+        requestAnimationFrame(drawLines);
+      });
+      const end = () => { if (drag) { drag = false; sizeCanvas(); drawLines(); } };
+      h.addEventListener('pointerup', end); h.addEventListener('pointercancel', end);
+    }
+    function sizeCanvas() {
+      let w = 0, h = 0;
+      document.querySelectorAll('.card').forEach(c => { w = Math.max(w, c.offsetLeft + c.offsetWidth); h = Math.max(h, c.offsetTop + c.offsetHeight); });
+      canvas.style.width = (w + 60) + 'px'; canvas.style.height = (h + 380) + 'px';
+    }
+
+    /* ---------- Linhas das FKs ---------- */
+    let openCol = null, hoverCol = null, expanded = false;
+    function drawLines() {
+      const cr = canvas.getBoundingClientRect();
+      svg.setAttribute('width', canvas.scrollWidth); svg.setAttribute('height', canvas.scrollHeight);
+      const f = hoverCol || openCol; let out = '';
+      SCHEMA.forEach(t => t.cols.filter(c => c.fk).forEach(c => {
+        const a = document.querySelector(`#card-${t.name} .row[data-c="${c.n}"]`);
+        const b = document.querySelector(`#card-${c.fk} .row[data-c="id"]`);
+        const ca = $('#card-' + t.name).getBoundingClientRect(), cb = $('#card-' + c.fk).getBoundingClientRect();
+        const ra = a.getBoundingClientRect(), rb = b.getBoundingClientRect();
+        const sy = ra.top + ra.height / 2 - cr.top, ey = rb.top + rb.height / 2 - cr.top;
+        let sx, ex, c1, c2;
+
+        if (ca.right <= cb.left) {
+          sx = ca.right - cr.left;
+          ex = cb.left - cr.left;
+          const offset = Math.max(80, (ex - sx) * 0.42);
+          c1 = sx + offset;
+          c2 = ex - offset;
+        } else if (ca.left >= cb.right) {
+          sx = ca.left - cr.left;
+          ex = cb.right - cr.left;
+          const offset = Math.max(80, (sx - ex) * 0.42);
+          c1 = sx - offset;
+          c2 = ex + offset;
+        } else {
+          sx = ca.right - cr.left;
+          ex = cb.right - cr.left;
+          c1 = sx + 110;
+          c2 = ex + 110;
+        }
+
+        const hot = f && ((f.t === t.name && f.c === c.n) || (f.t === c.fk && f.c === 'id'));
+        const k = hot ? ' hot' : '';
+        out += `<path class="lnk${k}" d="M${sx} ${sy} C${c1} ${sy},${c2} ${ey},${ex} ${ey}"/><circle class="end-s${k}" cx="${sx}" cy="${sy}" r="3.5"/><circle class="end-t${k}" cx="${ex}" cy="${ey}" r="4.5"/>`;
+      }));
+      svg.innerHTML = out; svg.classList.toggle('dim', !!f);
+    }
+
+    /* ---------- Dropdown ---------- */
+    function itemHTML(t, c, r) {
+      let val;
+      if (c.fk) {
+        const v = r[c.n];
+        if (v === null || v === undefined) val = '<span class="null">NULL</span>';
+        else {
+          const ref = DB[c.fk].find(x => x.id === v);
+          val = `<span class="num">${esc(v)}</span><span class="arr">→</span>` +
+            (ref ? `<span class="refv">${esc(labelOf(c.fk, ref))}</span><small>${c.fk}</small>` : '<span class="null">não encontrado</span>');
+        }
+      } else if (c.pk) {
+        val = `<span class="num pk">${esc(r.id)}</span><span class="refv muted">${esc(labelOf(t.name, r))}</span>`;
+      } else {
+        const v = r[c.n];
+        val = (v === null || v === undefined || v === '') ? '<span class="null">NULL</span>' : `<span class="refv" title="${esc(v)}">${esc(v)}</span>`;
+      }
+      return `<li>${c.pk ? '' : `<span class="rid">#${esc(r.id)}</span>`}<div class="val">${val}</div></li>`;
+    }
+    function popHTML(tn, cn) {
+      const t = T[tn], c = t.cols.find(x => x.n === cn), all = DB[tn], shown = all;
+      let h = `<div class="ph"><b>${tn}.${cn}</b><span>${c.t}${c.fk ? ' · FK → ' + c.fk + '.' + T[c.fk].label : ''}</span></div>`;
+      h += all.length ? `<ul>${shown.map(r => itemHTML(t, c, r)).join('')}</ul>` : '<div class="empty">Sem registros</div>';
+      return h;
+    }
+    function closePop() {
+      document.querySelectorAll('.pop').forEach(p => p.remove());
+      document.querySelectorAll('.row.active').forEach(r => r.classList.remove('active'));
+      document.querySelectorAll('.card.has-pop').forEach(c => c.classList.remove('has-pop'));
+      openCol = null; expanded = false; drawLines();
+    }
+    function togglePop(row) {
+      const same = openCol && openCol.t === row.dataset.t && openCol.c === row.dataset.c;
+      closePop(); if (same) return;
+      openCol = { t: row.dataset.t, c: row.dataset.c };
+      row.classList.add('active'); row.closest('.card').classList.add('has-pop');
+      const pop = document.createElement('div'); pop.className = 'pop'; pop.innerHTML = popHTML(openCol.t, openCol.c);
+      row.appendChild(pop); drawLines();
+    }
+
+    /* ---------- Eventos ---------- */
+    canvas.addEventListener('click', e => {
+      const pop = e.target.closest('.pop');
+      if (pop) {
+        if (e.target.closest('.more')) { expanded = !expanded; pop.innerHTML = popHTML(openCol.t, openCol.c); }
+        return;
+      }
+      const row = e.target.closest('.row'); if (row) togglePop(row);
+    });
+    canvas.addEventListener('keydown', e => {
+      if ((e.key === 'Enter' || e.key === ' ') && e.target.classList.contains('row')) { e.preventDefault(); togglePop(e.target); }
+    });
+    canvas.addEventListener('mouseover', e => {
+      const row = e.target.closest('.row');
+      const nh = row && !e.target.closest('.pop') ? { t: row.dataset.t, c: row.dataset.c } : null;
+      if ((nh && hoverCol && nh.t === hoverCol.t && nh.c === hoverCol.c) || (!nh && !hoverCol)) return;
+      hoverCol = nh; drawLines();
+    });
+    canvas.addEventListener('mouseleave', () => { if (hoverCol) { hoverCol = null; drawLines(); } });
+    document.addEventListener('click', e => { if (!e.target.closest('.row')) closePop(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closePop(); });
+    window.addEventListener('resize', drawLines);
+
+    buildCards(); sizeCanvas(); drawLines();
+  </script>
+</body>
+
+</html>

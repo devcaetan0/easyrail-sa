@@ -26,14 +26,9 @@ include("../source/auth-login.php");
                     <input class="form-control " type="text" name="nome" id="nome" required>
                 </div>
 
-                <div class="mt-3 mb-3">
+                <div class="mt-3 login-ultimo-campo">
                     <label for="senha">Senha:</label>
                     <input class="form-control " type="password" name="senha" id="senha" required>
-                </div>
-
-                <div class="mt-3 mb-3">
-                    <input class="login-checkbox" type="checkbox">
-                    <label>Mantenha-me logado</label><br>
                 </div>
 
                 <?php if (!empty($erro)) { ?>

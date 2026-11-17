@@ -40,7 +40,15 @@
                 <?php } ?>
             </ul>
         </div>
-        <div class="nav-hover navbar-logout">
+        <div class="nav-hover navbar-logout d-flex align-items-center justify-content-end gap-5">
+            <div class="d-flex align-items-center gap-2">
+                <i class="bi bi-person-circle fs-2 texto-laranja"></i>
+                <div class="lh-sm">
+                    <span class="texto-laranja"><?= htmlspecialchars($_SESSION['nome']) ?></span>
+                    <br>
+                    <small class="texto-branco fw-normal"><?= htmlspecialchars($_SESSION['perfil'] ?? '') ?></small>
+                </div>
+            </div>
             <a class="navbar-brand" href="../index.php?logout=1">
                 <i class="bi bi-box-arrow-left fs-5"></i>
                 <span class="ms-1">Sair</span>
