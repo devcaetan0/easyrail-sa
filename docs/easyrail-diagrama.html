@@ -445,12 +445,12 @@
         { id: 5, nome: "Rota Leste 1", descricao: "Trecho leste de combustíveis", distancia: 220.0, duracao: "04:20:00", data_criacao: "2024-01-20 07:40:00", trem_id: 5 }
       ],
       sensor: [
-        { id: 1, nome: "Sensor de Temperatura 01", tipo: "Temperatura", status_id: 1, trem_id: 1, rota_id: 1 },
-        { id: 2, nome: "Sensor de Vibração 02", tipo: "Vibração", status_id: 1, trem_id: 1, rota_id: 2 },
-        { id: 3, nome: "Sensor de Pressão 04", tipo: "Pressão", status_id: 1, trem_id: 2, rota_id: 2 },
-        { id: 4, nome: "Sensor de Temperatura 07", tipo: "Temperatura", status_id: 1, trem_id: 3, rota_id: 3 },
-        { id: 5, nome: "Sensor de Peso 12", tipo: "Peso", status_id: 1, trem_id: 5, rota_id: 5 },
-        { id: 6, nome: "Sensor de Velocidade 21", tipo: "Velocidade", status_id: 1, trem_id: null, rota_id: null }
+        { id: 1, nome: "Sensor de Temperatura 01", tipo: "Temperatura", status_id: 1, rota_id: 1 },
+        { id: 2, nome: "Sensor de Vibração 02", tipo: "Vibração", status_id: 1, rota_id: 2 },
+        { id: 3, nome: "Sensor de Pressão 04", tipo: "Pressão", status_id: 1, rota_id: 2 },
+        { id: 4, nome: "Sensor de Temperatura 07", tipo: "Temperatura", status_id: 1, rota_id: 3 },
+        { id: 5, nome: "Sensor de Peso 12", tipo: "Peso", status_id: 1, rota_id: 5 },
+        { id: 6, nome: "Sensor de Velocidade 21", tipo: "Velocidade", status_id: 1, rota_id: null }
       ],
       registro_sensor: [
         { id: 1, sensor_id: 1, data_registro: "2024-02-01 08:00:00", valor: 42.5 },
@@ -506,7 +506,7 @@
       {
         name: 'sensor', label: 'nome', x: 1080, y: 30, cols: [
           { n: 'id', t: 'INT', pk: 1 }, { n: 'nome', t: 'VARCHAR(100)' }, { n: 'tipo', t: 'VARCHAR(45)' },
-          { n: 'rota_id', t: 'INT', fk: 'rota' }, { n: 'trem_id', t: 'INT', fk: 'trem' }, { n: 'status_id', t: 'INT', fk: 'status' }]
+          { n: 'rota_id', t: 'INT', fk: 'rota' }, { n: 'status_id', t: 'INT', fk: 'status' }]
       },
       {
         name: 'registro_sensor', label: 'valor', x: 1080, y: 340, cols: [
